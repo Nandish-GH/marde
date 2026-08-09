@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Team",
   description: "Meet the people building MARDE.",
   path: "/team",
+  keywords: ["MARDE team", "emergency response technology team"],
 });
 
 export default function TeamPage() {

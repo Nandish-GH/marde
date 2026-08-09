@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Mission",
   description: "Why MARDE is building for the gap before emergency help arrives.",
   path: "/mission",
+  keywords: ["emergency response mission", "EMS response time", "first response systems"],
 });
 
 export default function MissionPage() {

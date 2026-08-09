@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Footer, Header } from "./components";
 import { site } from "./content";
+import { StructuredData } from "./structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -12,6 +13,20 @@ export const metadata: Metadata = {
   },
   description:
     "MARDE is building autonomous first-response systems to help close the gap before help arrives.",
+  applicationName: site.name,
+  keywords: [
+    "MARDE",
+    "emergency response technology",
+    "autonomous first response",
+    "EMS innovation",
+    "robotics in development",
+  ],
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     title: `MARDE — ${site.tagline}`,
     description: "Autonomous first-response systems in development.",
@@ -33,6 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <StructuredData />
         {domain && (
           <Script defer data-domain={domain} src="https://plausible.io/js/script.js" strategy="afterInteractive" />
         )}

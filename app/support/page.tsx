@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Support",
   description: "Support MARDE's early research and development.",
   path: "/support",
+  keywords: ["support emergency technology R&D", "MARDE donations", "contact MARDE"],
 });
 
 export default function SupportPage() {

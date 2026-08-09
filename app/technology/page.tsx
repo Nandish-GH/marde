@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Technology",
   description: "MARDE Air and MARDE Ground are first-response concepts in design.",
   path: "/technology",
+  keywords: ["emergency response robotics", "autonomous aerial response", "ground robot concept"],
 });
 
 export default function TechnologyPage() {
