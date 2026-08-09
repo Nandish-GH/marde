@@ -1,5 +1,114 @@
 import type { Metadata } from "next";
-import { Eyebrow } from "../components";
-export const metadata: Metadata = { title: "Technology", description: "MARDE Air and MARDE Ground are first-response concepts in design." };
-const phases = [["V1", "Manual operation", "A future starting point for supervised, human-directed evaluation."], ["V1.5", "Semi-autonomous operation", "A future phase pursuing defined assistive capabilities with human oversight."], ["V2", "Full autonomy", "A long-term goal, subject to safety validation and applicable approvals."]];
-export default function Technology() { return <><section className="page-hero"><Eyebrow>Technology · In development</Eyebrow><h1>Designed for the<br /><em>first critical minutes.</em></h1><p>MARDE is exploring complementary aerial and ground systems for broad emergency-response use. Neither system is a finished or tested product.</p></section><section className="tech-block air-block"><div className="tech-visual"><span>01</span><div className="tech-drone"><i /><i /><i /><i /></div><p>MARDE AIR<br />CONCEPTUAL SYSTEM</p></div><div className="tech-copy"><Eyebrow>MARDE Air</Eyebrow><h2>An aerial first-response concept.</h2><p>MARDE Air is an autonomous aerial-response concept being designed to help bring critical equipment toward an emergency scene. Its intended role is to complement—not replace—professional EMS response.</p><div className="status">Status <b>In design</b></div><p className="detail">For future experimental development, MARDE is pursuing FAA registration under Part 47 and a Special Airworthiness Certificate in the Experimental Category (SAC-EC). In plain language: this pathway is intended for developing and evaluating an aircraft; it is not authorization for a deployed emergency service.</p></div></section><section className="tech-block ground-block"><div className="tech-copy"><Eyebrow>MARDE Ground</Eyebrow><h2>One chassis.<br />Multiple possible roles.</h2><p>MARDE Ground is a modular autonomous ground-robot concept in design. A shared chassis could support swappable payload modules—such as an AED—while allowing the underlying system to evolve deliberately.</p><div className="status">Status <b>In design</b></div><p className="detail">The modular approach is intentionally described at a high level while MARDE continues its design and intellectual-property work.</p></div><div className="tech-visual ground-visual"><span>02</span><div className="tech-rover"><i /><i /></div><p>MARDE GROUND<br />MODULAR CONCEPT</p></div></section><section className="section roadmap"><div><Eyebrow>A future roadmap</Eyebrow><h2>Progress, with<br />appropriate oversight.</h2><p>Development would move from manual systems toward higher levels of autonomy only as safety work, testing, and approvals support it.</p></div><div className="phase-list">{phases.map(([code,title,text]) => <article key={code}><b>{code}</b><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section><section className="regulatory"><Eyebrow>Long-term regulatory pathway</Eyebrow><h2>Two domains.<br />A careful approach.</h2><div><p><b>FAA</b> Future aerial operation will require an aviation pathway appropriate to the work and operating context.</p><p><b>FDA</b> If MARDE develops medical-device payload modules, FDA 510(k) clearance would be a future-stage milestone—not a current status.</p></div></section></>; }
+import { Eyebrow, SplitTitle } from "../components";
+import { pageMetadata } from "../metadata";
+import { technology } from "../content";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Technology",
+  description: "MARDE Air and MARDE Ground are first-response concepts in design.",
+  path: "/technology",
+});
+
+export default function TechnologyPage() {
+  const { hero, air, ground, phases, roadmap, regulatory } = technology;
+
+  return (
+    <>
+      <section className="page-hero">
+        <Eyebrow>{hero.eyebrow}</Eyebrow>
+        <h1>
+          <SplitTitle lines={hero.title} italicIndex={1} />
+        </h1>
+        <p>{hero.body}</p>
+      </section>
+
+      <section className="tech-block air-block">
+        <div className="tech-visual">
+          <span>01</span>
+          <div className="tech-drone">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+          <p>
+            MARDE AIR
+            <br />
+            CONCEPTUAL SYSTEM
+          </p>
+        </div>
+        <div className="tech-copy">
+          <Eyebrow>{air.eyebrow}</Eyebrow>
+          <h2>{air.title}</h2>
+          <p>{air.body}</p>
+          <div className="status">
+            Status <b>{air.status}</b>
+          </div>
+          <p className="detail">{air.regulatory}</p>
+        </div>
+      </section>
+
+      <section className="tech-block ground-block">
+        <div className="tech-copy">
+          <Eyebrow>{ground.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={ground.title} italicIndex={1} />
+          </h2>
+          <p>{ground.body}</p>
+          <div className="status">
+            Status <b>{ground.status}</b>
+          </div>
+          <p className="detail">{ground.detail}</p>
+        </div>
+        <div className="tech-visual ground-visual">
+          <span>02</span>
+          <div className="tech-rover">
+            <i />
+            <i />
+          </div>
+          <p>
+            MARDE GROUND
+            <br />
+            MODULAR CONCEPT
+          </p>
+        </div>
+      </section>
+
+      <section className="section roadmap">
+        <div>
+          <Eyebrow>{roadmap.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={roadmap.title} italicIndex={1} />
+          </h2>
+          <p>{roadmap.body}</p>
+        </div>
+        <div className="phase-list">
+          {phases.map(([code, title, text]) => (
+            <article key={code}>
+              <b>{code}</b>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="regulatory">
+        <Eyebrow>{regulatory.eyebrow}</Eyebrow>
+        <h2>
+          <SplitTitle lines={regulatory.title} italicIndex={1} />
+        </h2>
+        <div>
+          <p>
+            <b>FAA</b> {regulatory.faa}
+          </p>
+          <p>
+            <b>FDA</b> {regulatory.fda}
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build static site
+        env:
+          NEXT_PUBLIC_SITE_URL: https://nandish-gh.github.io/marde
+          NEXT_PUBLIC_BASE_PATH: /marde
         run: npm run build
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,5 +1,41 @@
 import type { Metadata } from "next";
-import { Eyebrow } from "../components";
-import { team, site } from "../content";
-export const metadata: Metadata = { title: "Team", description: "Meet the people building MARDE." };
-export default function Team() { return <><section className="page-hero compact"><Eyebrow>The team</Eyebrow><h1>Small team.<br /><em>Serious intent.</em></h1><p>MARDE is being shaped by people working across strategy, medical guidance, engineering, and community.</p></section><section className="team-grid">{team.map(([initials,name,title,bio]) => <article key={name} className="member"><div className="portrait">{initials}</div><p className="role">{title}</p><h2>{name}</h2><p>{bio}</p>{name === "Saathvika" && <a href={site.instagram} target="_blank" rel="noreferrer">@marde.inc ↗</a>}</article>)}</section></>; }
+import { Eyebrow, SplitTitle } from "../components";
+import { pageMetadata } from "../metadata";
+import { site, team, teamPage } from "../content";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Team",
+  description: "Meet the people building MARDE.",
+  path: "/team",
+});
+
+export default function TeamPage() {
+  const { hero } = teamPage;
+
+  return (
+    <>
+      <section className="page-hero compact">
+        <Eyebrow>{hero.eyebrow}</Eyebrow>
+        <h1>
+          <SplitTitle lines={hero.title} italicIndex={1} />
+        </h1>
+        <p>{hero.body}</p>
+      </section>
+      <section className="team-grid">
+        {team.map((member) => (
+          <article key={member.name} className="member">
+            <div className="portrait">{member.initials}</div>
+            <p className="role">{member.title}</p>
+            <h2>{member.name}</h2>
+            <p>{member.bio}</p>
+            {"instagram" in member && member.instagram && (
+              <a href={site.instagram} target="_blank" rel="noreferrer">
+                {site.instagramHandle} ↗
+              </a>
+            )}
+          </article>
+        ))}
+      </section>
+    </>
+  );
+}

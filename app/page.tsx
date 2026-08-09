@@ -1,11 +1,128 @@
 import Link from "next/link";
-import { Arrow, DonateButton, Eyebrow } from "./components";
-import { statistics, team } from "./content";
+import { Arrow, DonateButton, EmailSignup, Eyebrow, SplitTitle } from "./components";
+import { home, statistics, team } from "./content";
 
-export default function Home() { return <>
-  <section className="hero"><div className="hero-copy"><Eyebrow>Autonomous emergency response · In development</Eyebrow><h1>Response starts<br /><em>before</em> arrival.</h1><p>MARDE is building autonomous first-response systems to help close the gap between when someone collapses and when help arrives.</p><div className="actions"><DonateButton /><Link className="button button-quiet" href="/technology">Explore the technology <Arrow /></Link></div></div><div className="hero-graphic" aria-label="Abstract technical diagram"><div className="orb" /><div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="cross x1">+</div><div className="cross x2">+</div><p>01 / FIRST RESPONSE<br />SYSTEMS IN DESIGN</p></div></section>
-  <section className="section stat-section"><div className="section-intro"><Eyebrow>The gap</Eyebrow><h2>Minutes matter.<br />Access is uneven.</h2><p>Emergency response is a system of people, distance, and time. MARDE is beginning with the interval before professional help can arrive.</p></div><div className="stats">{statistics.map((stat) => <article className="stat" key={stat.value}><strong>{stat.value}</strong><p>{stat.label}</p><a href={stat.href} target="_blank" rel="noreferrer">Source: {stat.source} ↗</a></article>)}</div></section>
-  <section className="section solution"><div className="section-heading"><Eyebrow>In development</Eyebrow><h2>Two paths.<br />One response system.</h2></div><div className="system-grid"><Link href="/technology" className="system-card air"><div className="card-code">01 / AIR</div><div className="drone-line" /><h3>MARDE Air</h3><p>An aerial first-response concept designed to reach scenes ahead of traditional response.</p><span>Explore MARDE Air <Arrow /></span></Link><Link href="/technology" className="system-card ground"><div className="card-code">02 / GROUND</div><div className="rover-line" /><h3>MARDE Ground</h3><p>A modular ground robot concept designed around adaptable payload modules.</p><span>Explore MARDE Ground <Arrow /></span></Link></div></section>
-  <section className="section team-teaser"><div><Eyebrow>The people behind MARDE</Eyebrow><h2>Built with care,<br />from the start.</h2><Link href="/team" className="text-link">Meet the team <Arrow /></Link></div><div className="initials">{team.slice(0, 5).map(([initials, name, title]) => <div key={name}><b>{initials}</b><span>{name}<small>{title}</small></span></div>)}</div></section>
-  <section className="closing"><Eyebrow>Follow the work</Eyebrow><h2>Help us build the<br /><em>next first response.</em></h2><p>Early support helps move design, testing, and regulatory preparation forward.</p><DonateButton /></section>
-</>; }
+export default function Home() {
+  const { hero, problem, solution, teamTeaser, closing } = home;
+
+  return (
+    <>
+      <section className="hero">
+        <div className="hero-copy">
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <h1>
+            {hero.headline[0]}
+            <br />
+            <em>{hero.headline[1]}</em> {hero.headline[2]}
+          </h1>
+          <p>{hero.subhead}</p>
+          <div className="actions">
+            <DonateButton label={hero.primaryCta} />
+            <Link className="button button-quiet" href={hero.secondaryHref}>
+              {hero.secondaryCta} <Arrow />
+            </Link>
+          </div>
+        </div>
+        <div className="hero-graphic" aria-label="Abstract technical diagram">
+          <div className="orb" />
+          <div className="orbit orbit-one" />
+          <div className="orbit orbit-two" />
+          <div className="cross x1">+</div>
+          <div className="cross x2">+</div>
+          <p>
+            01 / FIRST RESPONSE
+            <br />
+            SYSTEMS IN DESIGN
+          </p>
+        </div>
+      </section>
+
+      <section className="section stat-section">
+        <div className="section-intro">
+          <Eyebrow>{problem.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={problem.title} />
+          </h2>
+          <p>{problem.body}</p>
+        </div>
+        <div className="stats">
+          {statistics.map((stat) => (
+            <article className="stat" key={stat.value}>
+              <strong>{stat.value}</strong>
+              <p>{stat.label}</p>
+              <a href={stat.href} target="_blank" rel="noreferrer">
+                Source: {stat.source} ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section solution">
+        <div className="section-heading">
+          <Eyebrow>{solution.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={solution.title} />
+          </h2>
+        </div>
+        <div className="system-grid">
+          <Link href="/technology" className="system-card air">
+            <div className="card-code">{solution.air.code}</div>
+            <div className="drone-line" />
+            <h3>{solution.air.name}</h3>
+            <p>{solution.air.body}</p>
+            <span>
+              {solution.air.link} <Arrow />
+            </span>
+          </Link>
+          <Link href="/technology" className="system-card ground">
+            <div className="card-code">{solution.ground.code}</div>
+            <div className="rover-line" />
+            <h3>{solution.ground.name}</h3>
+            <p>{solution.ground.body}</p>
+            <span>
+              {solution.ground.link} <Arrow />
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="section team-teaser">
+        <div>
+          <Eyebrow>{teamTeaser.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={teamTeaser.title} />
+          </h2>
+          <Link href="/team" className="text-link">
+            {teamTeaser.link} <Arrow />
+          </Link>
+        </div>
+        <div className="initials">
+          {team.slice(0, 5).map((member) => (
+            <div key={member.name}>
+              <b>{member.initials}</b>
+              <span>
+                {member.name}
+                <small>{member.title}</small>
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="closing">
+        <Eyebrow>{closing.eyebrow}</Eyebrow>
+        <h2>
+          Help us build the
+          <br />
+          <em>next first response.</em>
+        </h2>
+        <p>{closing.body}</p>
+        <div className="closing-actions">
+          <EmailSignup compact />
+          <DonateButton />
+        </div>
+      </section>
+    </>
+  );
+}
