@@ -10,17 +10,10 @@ copy .env.example .env.local
 npm run dev
 ```
 
-For local GitHub Pages parity, set in `.env.local`:
+For the production custom domain, set in `.env.local`:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://nandish-gh.github.io/marde
-NEXT_PUBLIC_BASE_PATH=/marde
-```
-
-For Vercel or a custom domain (`marde.inc`), omit `NEXT_PUBLIC_BASE_PATH` and set:
-
-```env
-NEXT_PUBLIC_SITE_URL=https://marde.inc
+NEXT_PUBLIC_SITE_URL=https://mardeinc.com
 ```
 
 The live MARDE Stripe donation link is configured as the fallback. Override with `NEXT_PUBLIC_STRIPE_DONATION_URL` if needed.
@@ -44,14 +37,14 @@ All copy lives in `app/content.ts`. Page components read from that file so you c
 
 ## GitHub Pages deployment
 
-Pushing to `main` builds and deploys the static site to `https://nandish-gh.github.io/marde/`. In the GitHub repository's **Settings → Pages**, select **GitHub Actions** as the source if it is not already selected.
+Pushing to `main` builds and deploys the static site to `https://mardeinc.com`. The `public/CNAME` file associates this GitHub Pages deployment with the custom domain. In the GitHub repository's **Settings → Pages**, select **GitHub Actions** as the source if it is not already selected.
 
 ## Vercel deployment
 
 1. Push this folder to a Git repository.
 2. Import the repository into Vercel (framework preset: Next.js).
 3. Add environment variables from `.env.example` (leave `NEXT_PUBLIC_BASE_PATH` unset).
-4. Connect `marde.inc`, or the domain chosen for MARDE.
+4. Connect `mardeinc.com`, or the domain chosen for MARDE.
 
 The sitemap is generated at `/sitemap.xml` and robots rules at `/robots.txt`.
 

@@ -7,7 +7,7 @@ export const site = {
   donateUrl:
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://marde.inc",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mardeinc.com",
   formspreeContact: process.env.NEXT_PUBLIC_FORMSPREE_CONTACT || "",
   formspreeNewsletter: process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER || "",
 };
@@ -142,7 +142,7 @@ export const technology = {
     body: "MARDE Air is an autonomous aerial-response concept being designed to help bring critical equipment toward an emergency scene. Its intended role is to complement—not replace—professional EMS response.",
     status: "In design",
     regulatory:
-      "For future experimental development, MARDE is pursuing FAA registration under Part 47 and a Special Airworthiness Certificate in the Experimental Category (SAC-EC). In plain language: this pathway is intended for developing and evaluating an aircraft; it is not authorization for a deployed emergency service. MARDE is not pursuing Part 107 commercial drone operations for this work.",
+      "For future experimental development, MARDE is pursuing FAA registration under Part 47 and a Special Airworthiness Certificate in the Experimental Category (SAC-EC). In plain language: this pathway is intended for developing and evaluating an aircraft; it is not authorization for a deployed emergency service.",
   },
   ground: {
     eyebrow: "MARDE Ground",
