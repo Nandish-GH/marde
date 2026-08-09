@@ -14,7 +14,13 @@ The live MARDE Stripe donation link is already configured as the fallback. You m
 
 `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is optional. When set, the site loads Plausible's script; when omitted, no analytics script is loaded.
 
-## Deploy
+## GitHub Pages deployment
+
+Pushing to `main` builds and deploys the static site to `https://nandish-gh.github.io/marde/`. In the GitHub repository’s **Settings → Pages**, select **GitHub Actions** as the source if it is not already selected.
+
+The GitHub Pages build uses `/marde` as its base path. Before moving to a custom domain, update `basePath`, `assetPrefix`, `metadataBase`, the sitemap, and robots URL in the project.
+
+## Vercel deployment
 
 1. Push this folder to a Git repository.
 2. Import the repository into Vercel (framework preset: Next.js).
