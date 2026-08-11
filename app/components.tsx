@@ -21,47 +21,32 @@ export function DonateButton({ className = "", label = "Support Our R&D" }: { cl
   );
 }
 
-export function Header() {
-  return (
-    <header className="header">
-      <Link href="/" className="brand">
-        <Mark /> <span>MARDE</span>
-      </Link>
-      <nav aria-label="Main navigation">
-        {nav.map(([label, href]) => (
-          <Link key={href} href={href} className={href === "/support" ? "nav-support" : undefined}>
-            {label}
-          </Link>
-        ))}
-      </nav>
-    </header>
-  );
-}
-
 export function Footer() {
   return (
     <footer className="footer">
-      <div>
-        <Link href="/" className="brand">
-          <Mark /> <span>MARDE</span>
-        </Link>
-        <p>Response starts before arrival.</p>
-      </div>
-      <div className="footer-links">
-        {nav.map(([label, href]) => (
-          <Link key={href} href={href}>
-            {label}
+      <div className="footer-inner">
+        <div>
+          <Link href="/" className="brand">
+            <Mark /> <span>MARDE</span>
           </Link>
-        ))}
-        <Link href="/faq">FAQ</Link>
-        <Link href="/privacy">Privacy Policy</Link>
-        <a href={site.instagram} target="_blank" rel="noreferrer">
-          Instagram ↗
-        </a>
-      </div>
-      <div>
-        <DonateButton />
-        <p className="copyright">© {new Date().getFullYear()} MARDE, Inc.</p>
+          <p>Response starts before arrival.</p>
+        </div>
+        <nav className="footer-links" aria-label="Footer navigation">
+          {nav.map(([label, href]) => (
+            <Link key={href} href={href}>
+              {label}
+            </Link>
+          ))}
+          <Link href="/faq">FAQ</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <a href={site.instagram} target="_blank" rel="noreferrer">
+            Instagram ↗
+          </a>
+        </nav>
+        <div className="footer-support">
+          <DonateButton />
+          <p className="copyright">© {new Date().getFullYear()} MARDE, Inc.</p>
+        </div>
       </div>
     </footer>
   );

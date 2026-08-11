@@ -19,14 +19,15 @@ export default function PrivacyPage() {
         <p>How information is handled when you visit or contact MARDE through this website.</p>
       </section>
 
-      <section className="section policy-copy">
-        <p className="policy-updated">Last updated: August 11, 2026</p>
+      <section className="section readable-section">
+        <div className="policy-copy readable-content">
+          <p className="policy-updated">Last updated: August 11, 2026</p>
 
-        <h2>Information you choose to provide</h2>
-        <p>
+          <h2>Information you choose to provide</h2>
+          <p>
           MARDE may receive your name, email address, and message when you use the contact form. MARDE may also
           receive the email address you submit through the newsletter signup. These forms are processed by Formspree.
-        </p>
+          </p>
 
         <h2>Donations and payments</h2>
         <p>
@@ -69,6 +70,7 @@ export default function PrivacyPage() {
           This policy may be updated as the website or the services it uses change. The latest version will be posted
           on this page with a revised date.
         </p>
+        </div>
       </section>
     </>
   );

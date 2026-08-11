@@ -23,7 +23,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="hero-graphic" aria-label="Abstract technical diagram">
+        <div className="hero-graphic" role="img" aria-label="Abstract diagram representing MARDE first-response systems in design">
           <div className="orb" />
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
@@ -100,7 +100,7 @@ export default function Home() {
         <div className="initials">
           {team.slice(0, 5).map((member) => (
             <div key={member.name}>
-              <b>{member.initials}</b>
+              <b aria-hidden="true">{member.initials}</b>
               <span>
                 {member.name}
                 <small>{member.title}</small>

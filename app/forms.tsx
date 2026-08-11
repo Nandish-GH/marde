@@ -17,6 +17,7 @@ function SubmissionStatus({ submitting, succeeded }: { submitting: boolean; succ
 export function EmailSignup({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
 
   useEffect(() => {
     if (state.succeeded) {
@@ -39,6 +40,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
         required
         autoComplete="email"
         aria-describedby="newsletter-email-error"
+        aria-invalid={emailInvalid || undefined}
       />
       <ValidationError
         id="newsletter-email-error"
@@ -60,6 +62,9 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
 export function ContactForm() {
   const router = useRouter();
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const nameInvalid = (state.errors?.getFieldErrors("name").length ?? 0) > 0;
+  const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
+  const messageInvalid = (state.errors?.getFieldErrors("message").length ?? 0) > 0;
 
   useEffect(() => {
     if (state.succeeded) {
@@ -81,6 +86,7 @@ export function ContactForm() {
         required
         autoComplete="name"
         aria-describedby="contact-name-error"
+        aria-invalid={nameInvalid || undefined}
       />
       <ValidationError
         id="contact-name-error"
@@ -99,6 +105,7 @@ export function ContactForm() {
         required
         autoComplete="email"
         aria-describedby="contact-email-error"
+        aria-invalid={emailInvalid || undefined}
       />
       <ValidationError
         id="contact-email-error"
@@ -116,6 +123,7 @@ export function ContactForm() {
         rows={4}
         required
         aria-describedby="contact-message-error"
+        aria-invalid={messageInvalid || undefined}
       />
       <ValidationError
         id="contact-message-error"

@@ -26,7 +26,7 @@ export default function TechnologyPage() {
       </section>
 
       <section className="tech-block air-block">
-        <div className="tech-visual">
+        <div className="tech-visual" aria-hidden="true">
           <span>01</span>
           <div className="tech-drone">
             <i />
@@ -63,7 +63,7 @@ export default function TechnologyPage() {
           </div>
           <p className="detail">{ground.detail}</p>
         </div>
-        <div className="tech-visual ground-visual">
+        <div className="tech-visual ground-visual" aria-hidden="true">
           <span>02</span>
           <div className="tech-rover">
             <i />

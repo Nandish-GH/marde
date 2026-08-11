@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Footer, Header } from "./components";
+import { Footer } from "./components";
 import { site } from "./content";
 import { StructuredData } from "./structured-data";
 import { MobileSupportCta } from "./mobile-support-cta";
+import { Header } from "./site-header";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -48,8 +49,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <StructuredData />
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <MobileSupportCta />
       </body>

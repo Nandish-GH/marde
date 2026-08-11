@@ -11,8 +11,11 @@ export function MobileSupportCta() {
   }
 
   return (
-    <div className="mobile-support-cta">
-      <Link className="button button-primary" href="/support">Support Our R&amp;D</Link>
-    </div>
+    <>
+      <div className="mobile-support-cta">
+        <Link className="button button-primary" href="/support">Support Our R&amp;D</Link>
+      </div>
+      <div className="mobile-support-cta-spacer" aria-hidden="true" />
+    </>
   );
 }

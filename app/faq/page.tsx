@@ -44,16 +44,18 @@ export default function FaqPage() {
         <p>What MARDE is working toward, where the work stands, and how to learn more.</p>
       </section>
 
-      <section className="section faq-list">
-        {questions.map(({ question, answer }) => (
-          <article key={question}>
-            <h2>{question}</h2>
-            <p>{answer}</p>
-          </article>
-        ))}
-        <p className="faq-contact">
-          Have another question? <Link className="text-link" href="/support">Contact MARDE</Link>
-        </p>
+      <section className="section readable-section">
+        <div className="faq-list readable-content">
+          {questions.map(({ question, answer }) => (
+            <article key={question}>
+              <h2>{question}</h2>
+              <p>{answer}</p>
+            </article>
+          ))}
+          <p className="faq-contact">
+            Have another question? <Link className="text-link" href="/support">Contact MARDE</Link>
+          </p>
+        </div>
       </section>
     </>
   );
