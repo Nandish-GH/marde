@@ -3,12 +3,10 @@ import { nav, site } from "./content";
 
 export function Mark() {
   return (
-    <span className="mark brand-mark relative inline-block overflow-hidden rounded-sm">
-      <img
-        src="/brand/marde-drone-logo.png"
-        alt="Drone carrying a medical payload"
-        className="absolute left-1/2 top-1/2 h-[230%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
-      />
+    <span className="mark" aria-hidden="true">
+      <i />
+      <i />
+      <i />
     </span>
   );
 }
@@ -42,14 +40,8 @@ export function Footer() {
   return (
     <footer className="footer">
       <div>
-        <Link href="/" className="block w-fit">
-          <span className="relative block h-14 w-40 overflow-hidden">
-            <img
-              src="/brand/marde-wordmark.png"
-              alt="MARDE wordmark with a drone carrying a medical payload"
-              className="absolute left-1/2 top-1/2 h-[550%] max-w-none -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
-            />
-          </span>
+        <Link href="/" className="brand">
+          <Mark /> <span>MARDE</span>
         </Link>
         <p>Response starts before arrival.</p>
       </div>
@@ -59,8 +51,6 @@ export function Footer() {
             {label}
           </Link>
         ))}
-        <Link href="/faq">FAQ</Link>
-        <Link href="/privacy">Privacy</Link>
         <a href={site.instagram} target="_blank" rel="noreferrer">
           Instagram ↗
         </a>
@@ -87,12 +77,22 @@ export function Arrow() {
 }
 
 export function EmailSignup({ compact = false }: { compact?: boolean }) {
+  if (!site.formspreeNewsletter) {
+    return (
+      <div className={`form-fallback ${compact ? "compact" : ""}`}>
+        <p>Follow {site.instagramHandle} on Instagram for updates.</p>
+        <a className="button button-primary" href={site.instagram} target="_blank" rel="noreferrer">
+          Follow {site.instagramHandle} ↗
+        </a>
+      </div>
+    );
+  }
+
   return (
-    <form className={`signup-form ${compact ? "compact" : ""}`} action="/api/subscribe" method="POST">
+    <form className={`signup-form ${compact ? "compact" : ""}`} action={`https://formspree.io/f/${site.formspreeNewsletter}`} method="POST">
       <label className="sr-only" htmlFor="newsletter-email">Email</label>
       <input id="newsletter-email" type="email" name="email" placeholder="you@example.com" required autoComplete="email" />
       <button type="submit" className="button button-primary">Follow our progress</button>
-      <p className="mt-1 w-full text-[11px] text-[#5d717b]">By signing up, you agree to our <Link className="underline underline-offset-2" href="/privacy">Privacy Policy</Link>.</p>
     </form>
   );
 }

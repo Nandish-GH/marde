@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
-import "./brand.css";
 import { Footer, Header } from "./components";
 import { site } from "./content";
-import { MobileSupportCta } from "./mobile-support-cta";
 import { StructuredData } from "./structured-data";
 
 export const metadata: Metadata = {
@@ -44,14 +43,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const domain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+
   return (
     <html lang="en">
       <body>
         <StructuredData />
+        {domain && (
+          <Script defer data-domain={domain} src="https://plausible.io/js/script.js" strategy="afterInteractive" />
+        )}
         <Header />
         <main>{children}</main>
         <Footer />
-        <MobileSupportCta />
       </body>
     </html>
   );
