@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./brand.css";
 import { Footer, Header } from "./components";
 import { site } from "./content";
 import { MobileSupportCta } from "./mobile-support-cta";

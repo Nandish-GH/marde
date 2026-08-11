@@ -1,0 +1,39 @@
+:root {
+  --ink: #444441;
+  --muted: #888780;
+  --line: #d3d1c7;
+  --paper: #f1efe8;
+  --mint: #e1f5ee;
+  --blue: #e1f5ee;
+  --accent: #1d9e75;
+}
+
+body { background: var(--paper); }
+.header { background: rgba(241, 239, 232, .95); }
+.mark { width: 40px; height: 34px; }
+.brand-mark { background: #20201f; }
+.button-primary { background: #1d9e75; }
+.button-primary:hover { background: #0f6e56; }
+.button-quiet { border-color: #444441; }
+.hero-graphic { background: #e1f5ee; }
+.orb { background: #5dcaa5; }
+.orbit { border-color: rgba(68, 68, 65, .35); }
+.hero-graphic p, .tech-visual p { color: #0f6e56; }
+.solution, .regulatory, .footer { background: #444441; }
+.air { background: #e1f5ee; }
+.ground { background: #faece7; }
+.closing, .mission-statement, .newsletter { background: #e1f5ee; }
+.stat a, .member .role, .contact-form label { color: #0f6e56; }
+.tech-visual { background: #e1f5ee; }
+.ground-visual { background: #faece7; }
+.page-hero { background: linear-gradient(115deg, #f1efe8 30%, #e1f5ee); }
+.tech-block.ground-block { background: #f1efe8; }
+.status b { color: #0f6e56; }
+.footer .button-primary { background: #5dcaa5; color: #444441; }
+.footer p { color: #d3d1c7; }
+.footer-links a:hover { color: #5dcaa5; }
+.cross { color: #d85a30; }
+.drone-line, .drone-line:after { border-color: #0f6e56; }
+.rover-line, .rover-line:before, .rover-line:after { border-color: #993c1d; }
+.tech-drone, .tech-drone:before, .tech-drone:after, .tech-drone i { border-color: #0f6e56; }
+.tech-rover, .tech-rover:before, .tech-rover:after, .tech-rover i { border-color: #993c1d; background-color: transparent; }

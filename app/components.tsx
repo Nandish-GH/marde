@@ -3,10 +3,12 @@ import { nav, site } from "./content";
 
 export function Mark() {
   return (
-    <span className="mark" aria-hidden="true">
-      <i />
-      <i />
-      <i />
+    <span className="mark brand-mark relative inline-block overflow-hidden rounded-sm">
+      <img
+        src="/brand/marde-drone-logo.png"
+        alt="Drone carrying a medical payload"
+        className="absolute left-1/2 top-1/2 h-[230%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+      />
     </span>
   );
 }
@@ -40,8 +42,14 @@ export function Footer() {
   return (
     <footer className="footer">
       <div>
-        <Link href="/" className="brand">
-          <Mark /> <span>MARDE</span>
+        <Link href="/" className="block w-fit">
+          <span className="relative block h-14 w-40 overflow-hidden">
+            <img
+              src="/brand/marde-wordmark.png"
+              alt="MARDE wordmark with a drone carrying a medical payload"
+              className="absolute left-1/2 top-1/2 h-[550%] max-w-none -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
+            />
+          </span>
         </Link>
         <p>Response starts before arrival.</p>
       </div>
