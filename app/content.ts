@@ -33,8 +33,8 @@ export const team = [
     bio: "Leads medical strategy, clinical workflow guidance, and EMS/healthcare relationships.",
   },
   {
-    initials: "S",
-    name: "Snehi",
+    initials: "SP",
+    name: "Snehi Patel",
     title: "Chief Technology Officer",
     bio: "Leads technology strategy across software, AI/ML, robotics, and autonomous systems engineering.",
   },
@@ -45,17 +45,11 @@ export const team = [
     bio: "Leads mechanical design and drone engineering for MARDE Air.",
   },
   {
-    initials: "Sv",
-    name: "Saathvika",
+    initials: "SB",
+    name: "Saathvika Beerelli",
     title: "Social Media",
     bio: "Manages MARDE's public community presence (@marde.inc).",
     instagram: true,
-  },
-  {
-    initials: "DK",
-    name: "Devesh Khilnani",
-    title: "Advisor",
-    bio: "Provides guidance to the MARDE team.",
   },
 ] as const;
 
