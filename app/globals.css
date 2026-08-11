@@ -1238,17 +1238,26 @@ h2 em {
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 960px) {
+  .page-hero {
+    padding-top: 80px;
+    padding-bottom: 72px;
+  }
+
+  .page-hero.compact {
+    padding-bottom: 72px;
+  }
+
   .tech-block {
     grid-template-columns: 1fr;
   }
 
   .tech-visual {
-    min-height: 430px;
+    min-height: 380px;
   }
 
   .tech-copy {
-    min-height: 520px;
-    padding: 75px var(--layout-gutter);
+    min-height: 0;
+    padding: 64px var(--layout-gutter);
   }
 
   .ground-visual {
@@ -1271,6 +1280,16 @@ h2 em {
     gap: 50px;
   }
 
+  .story,
+  .mission-statement,
+  .regulatory {
+    padding: 80px var(--layout-gutter);
+  }
+
+  .team-grid {
+    padding-bottom: 90px;
+  }
+
   .story > div:last-child,
   .roadmap > div > p {
     max-width: var(--readable-max);
@@ -1280,12 +1299,12 @@ h2 em {
 /* Mobile */
 @media (max-width: 767px) {
   :root {
-    --page-gutter: 25px;
-    --wide-gutter: 25px;
-    --chrome-gutter: 20px;
-    --layout-gutter: 25px;
-    --chrome-layout-gutter: 20px;
-    --section-space: 75px;
+    --page-gutter: 20px;
+    --wide-gutter: 20px;
+    --chrome-gutter: 16px;
+    --layout-gutter: 20px;
+    --chrome-layout-gutter: 16px;
+    --section-space: 64px;
   }
 
   h1,
@@ -1294,8 +1313,34 @@ h2 em {
     letter-spacing: -0.03em;
   }
 
+  h1 {
+    margin-bottom: 22px;
+    font-size: clamp(42px, 12.5vw, 50px);
+  }
+
+  .section-intro h2,
+  .section-heading h2,
+  .team-teaser h2,
+  .roadmap h2,
+  .funding h2,
+  .closing h2,
+  .regulatory h2,
+  .mission-statement h2,
+  .newsletter h2 {
+    font-size: clamp(36px, 10.5vw, 44px);
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+  }
+
   .header {
-    height: 68px;
+    height: 64px;
+  }
+
+  .header-logo {
+    width: 148px;
+    height: 36px;
   }
 
   .menu-toggle {
@@ -1304,13 +1349,13 @@ h2 em {
 
   .main-nav {
     position: absolute;
-    top: 68px;
+    top: 64px;
     right: 0;
     left: 0;
     display: none;
     grid-template-columns: 1fr 1fr;
     gap: 8px 14px;
-    padding: 14px 20px 18px;
+    padding: 12px 16px 16px;
     border-bottom: 1px solid var(--line);
     background: rgba(248, 251, 250, 0.98);
     box-shadow: 0 12px 20px rgba(16, 43, 57, 0.06);
@@ -1349,11 +1394,11 @@ h2 em {
   }
 
   .hero-copy {
-    padding: 83px 25px 70px;
+    padding: 64px 20px 56px;
   }
 
   .hero-graphic {
-    min-height: 350px;
+    min-height: 300px;
   }
 
   .orb { left: 20%; }
@@ -1363,11 +1408,17 @@ h2 em {
   .roadmap,
   .story,
   .funding {
-    gap: 42px;
+    gap: 34px;
   }
 
   .stat {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 14px;
+    padding: 20px 0;
+  }
+
+  .stat strong {
+    font-size: 38px;
   }
 
   .system-grid,
@@ -1382,30 +1433,48 @@ h2 em {
 
   .tech-copy {
     min-height: 0;
-    padding: 65px 25px;
+    padding: 54px 20px;
   }
 
   .tech-visual {
-    min-height: 360px;
+    min-height: 300px;
   }
 
   .tech-drone {
-    left: 12%;
-    transform: scale(0.8) rotate(-15deg);
+    top: 34%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.72) rotate(-15deg);
   }
 
   .tech-rover {
-    left: 18%;
-    transform: scale(0.8);
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.72);
   }
 
   .team-grid {
     grid-template-columns: 1fr;
-    padding: 65px 25px;
+    gap: 40px;
+    padding: 56px 20px 64px;
+  }
+
+  .portrait {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 24px;
+  }
+
+  .member h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
   }
 
   .story {
-    padding: 80px 25px;
+    padding: 64px 20px;
+  }
+
+  .story h2 {
+    font-size: clamp(36px, 10.5vw, 44px);
   }
 
   .story > div:last-child {
@@ -1419,8 +1488,17 @@ h2 em {
 
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 27px;
-    padding: 45px 25px;
+    gap: 22px;
+    padding: 36px 20px;
+  }
+
+  .footer-logo {
+    width: 148px;
+    height: 34px;
+  }
+
+  .footer-links {
+    gap: 10px 24px;
   }
 
   .footer .button {
@@ -1428,17 +1506,27 @@ h2 em {
   }
 
   .system-card {
-    min-height: 350px;
+    min-height: 315px;
+    padding: 24px;
+  }
+
+  .system-card h3 {
+    margin-top: 100px;
+    font-size: 40px;
+  }
+
+  .system-grid {
+    margin-top: 40px;
   }
 
   .initials { gap: 15px; }
 
   .page-hero {
-    padding: 90px 25px 70px;
+    padding: 64px 20px 56px;
   }
 
   .page-hero.compact {
-    padding-bottom: 70px;
+    padding-bottom: 56px;
   }
 
   .not-found-page {
@@ -1446,12 +1534,13 @@ h2 em {
   }
 
   .not-found-drone {
-    margin: 44px 0 0 auto;
-    font-size: clamp(4px, 1.15vw, 5px);
+    margin: 32px auto 0;
+    font-size: clamp(2.8px, 0.88vw, 4px);
   }
 
   .support-grid {
-    padding: 70px 25px;
+    gap: 38px;
+    padding: 56px 20px 64px;
   }
 
   .support-grid article > p:not(.eyebrow) {
@@ -1460,17 +1549,49 @@ h2 em {
 
   .mission-statement,
   .regulatory {
-    padding: 80px 25px;
+    padding: 64px 20px;
   }
 
   .closing {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding: 72px 20px;
   }
 
   .newsletter {
+    padding: 64px 20px;
+  }
+
+  .readable-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .policy-copy h2,
+  .faq-list h2 {
+    margin-top: 34px;
+    font-size: 30px;
+  }
+
+  .faq-list article {
+    padding-bottom: 22px;
+  }
+
+  .confirmation-page,
+  .not-found-page {
+    min-height: 0;
+  }
+
+  .confirmation-page {
     padding-top: 80px;
     padding-bottom: 80px;
+  }
+
+  .not-found-page .actions {
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .contact-form textarea {
+    min-height: 96px;
   }
 
   .mobile-support-cta {
@@ -1480,7 +1601,7 @@ h2 em {
     left: 0;
     z-index: 30;
     display: block;
-    padding: 10px 16px;
+    padding: 8px 12px;
     border-top: 1px solid var(--line);
     background: rgba(248, 251, 250, 0.96);
     backdrop-filter: blur(12px);
@@ -1491,9 +1612,8 @@ h2 em {
     width: 100%;
   }
 
-  .mobile-support-cta-spacer {
-    display: block;
-    height: 74px;
+  .mobile-support-cta.is-footer-visible {
+    display: none;
   }
 }
 
