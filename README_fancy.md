@@ -1,19 +1,3 @@
-<div align="center">
-
-# MARDE
-
-### Response Starts Before Arrival.
-
-**Autonomous first-response systems — in development.**
-
-[![Website](https://img.shields.io/badge/website-mardeinc.com-0b1f33?style=for-the-badge)](https://mardeinc.com)
-[![Deploy MARDE to GitHub Pages](https://github.com/Nandish-GH/marde/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Nandish-GH/marde/actions/workflows/deploy-pages.yml)
-![Next.js](https://img.shields.io/badge/Next.js-static_export-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-app-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/hosted_on-GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
-
-</div>
-
 ```text
                                 █████                                            █████                                  
                       █████████ █████  █████████                      ██████████ █████  █████████                       
@@ -55,6 +39,21 @@
           █████  ████  █████    █████████████████    █████   ██████      ███████████████    ██████████████              
           █████        █████   ██████       ██████   █████     ██████    █████████████      ██████████████
 ```
+<div align="center">
+
+# MARDE
+
+### Response Starts Before Arrival.
+
+**Autonomous first-response systems — in development.**
+
+[![Website](https://img.shields.io/badge/website-mardeinc.com-0b1f33?style=for-the-badge)](https://mardeinc.com)
+[![Deploy MARDE to GitHub Pages](https://github.com/Nandish-GH/marde/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Nandish-GH/marde/actions/workflows/deploy-pages.yml)
+![Next.js](https://img.shields.io/badge/Next.js-static_export-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-app-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/hosted_on-GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
+
+</div>
 
 <div align="center">
 
