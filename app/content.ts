@@ -21,8 +21,8 @@ export const nav = [
 
 export const team = [
   {
-    initials: "N",
-    name: "Nandish",
+    initials: "NP",
+    name: "Nandish Panchal",
     title: "President & CEO",
     bio: "Founder; leads company strategy and operations.",
   },
