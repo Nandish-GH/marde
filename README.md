@@ -1,3 +1,5 @@
+<div align="center">
+
 ```text
 
           █████        █████         ██████          ██████████████      █████████████      ██████████████          
@@ -38,7 +40,7 @@
                                                ████████████████████████
 
 ```
-<div align="center">
+
 
 # Response Starts Before Arrival.
 
