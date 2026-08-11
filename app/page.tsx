@@ -23,12 +23,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="hero-graphic" aria-label="Abstract technical diagram">
-          <div className="orb" />
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="cross x1">+</div>
-          <div className="cross x2">+</div>
+        <div className="hero-graphic" role="img" aria-label="Abstract diagram representing MARDE's first-response systems in design">
+          <div className="orb" aria-hidden="true" />
+          <div className="orbit orbit-one" aria-hidden="true" />
+          <div className="orbit orbit-two" aria-hidden="true" />
+          <div className="cross x1" aria-hidden="true">+</div>
+          <div className="cross x2" aria-hidden="true">+</div>
           <p>
             01 / FIRST RESPONSE
             <br />
@@ -68,7 +68,7 @@ export default function Home() {
         <div className="system-grid">
           <Link href="/technology" className="system-card air">
             <div className="card-code">{solution.air.code}</div>
-            <div className="drone-line" />
+            <div className="drone-line" aria-hidden="true" />
             <h3>{solution.air.name}</h3>
             <p>{solution.air.body}</p>
             <span>
@@ -77,7 +77,7 @@ export default function Home() {
           </Link>
           <Link href="/technology" className="system-card ground">
             <div className="card-code">{solution.ground.code}</div>
-            <div className="rover-line" />
+            <div className="rover-line" aria-hidden="true" />
             <h3>{solution.ground.name}</h3>
             <p>{solution.ground.body}</p>
             <span>
@@ -118,6 +118,9 @@ export default function Home() {
           <em>next first response.</em>
         </h2>
         <p>{closing.body}</p>
+        <Link href="/faq" className="text-link mb-3 mx-auto">
+          Questions about MARDE? Read the FAQ <Arrow />
+        </Link>
         <div className="closing-actions">
           <EmailSignup compact />
           <DonateButton />

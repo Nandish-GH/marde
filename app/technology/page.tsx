@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { technology } from "../content";
@@ -24,9 +25,9 @@ export default function TechnologyPage() {
       </section>
 
       <section className="tech-block air-block">
-        <div className="tech-visual">
-          <span>01</span>
-          <div className="tech-drone">
+        <div className="tech-visual" role="img" aria-label="Abstract diagram of the MARDE Air concept, currently in design">
+          <span aria-hidden="true">01</span>
+          <div className="tech-drone" aria-hidden="true">
             <i />
             <i />
             <i />
@@ -46,6 +47,7 @@ export default function TechnologyPage() {
             Status <b>{air.status}</b>
           </div>
           <p className="detail">{air.regulatory}</p>
+          <p className="detail mt-[-8px]"><Link className="text-link" href="/mission">Why we&apos;re building this <span aria-hidden="true">↗</span></Link></p>
         </div>
       </section>
 
@@ -61,9 +63,9 @@ export default function TechnologyPage() {
           </div>
           <p className="detail">{ground.detail}</p>
         </div>
-        <div className="tech-visual ground-visual">
-          <span>02</span>
-          <div className="tech-rover">
+        <div className="tech-visual ground-visual" role="img" aria-label="Abstract diagram of the MARDE Ground modular concept, currently in design">
+          <span aria-hidden="true">02</span>
+          <div className="tech-rover" aria-hidden="true">
             <i />
             <i />
           </div>

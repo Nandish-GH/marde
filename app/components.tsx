@@ -51,6 +51,8 @@ export function Footer() {
             {label}
           </Link>
         ))}
+        <Link href="/faq">FAQ</Link>
+        <Link href="/privacy">Privacy</Link>
         <a href={site.instagram} target="_blank" rel="noreferrer">
           Instagram ↗
         </a>
@@ -77,22 +79,12 @@ export function Arrow() {
 }
 
 export function EmailSignup({ compact = false }: { compact?: boolean }) {
-  if (!site.formspreeNewsletter) {
-    return (
-      <div className={`form-fallback ${compact ? "compact" : ""}`}>
-        <p>Follow {site.instagramHandle} on Instagram for updates.</p>
-        <a className="button button-primary" href={site.instagram} target="_blank" rel="noreferrer">
-          Follow {site.instagramHandle} ↗
-        </a>
-      </div>
-    );
-  }
-
   return (
-    <form className={`signup-form ${compact ? "compact" : ""}`} action={`https://formspree.io/f/${site.formspreeNewsletter}`} method="POST">
+    <form className={`signup-form ${compact ? "compact" : ""}`} action="/api/subscribe" method="POST">
       <label className="sr-only" htmlFor="newsletter-email">Email</label>
       <input id="newsletter-email" type="email" name="email" placeholder="you@example.com" required autoComplete="email" />
       <button type="submit" className="button button-primary">Follow our progress</button>
+      <p className="mt-1 w-full text-[11px] text-[#5d717b]">By signing up, you agree to our <Link className="underline underline-offset-2" href="/privacy">Privacy Policy</Link>.</p>
     </form>
   );
 }
