@@ -61,7 +61,7 @@ export default function PrivacyPage() {
         <p>
           Submitted information is kept only as long as reasonably needed for the purpose for which it was provided,
           operational records, and applicable legal obligations. You may ask about, correct, or request deletion of
-          information you submitted by emailing <a href={`mailto:${site.email}`}>{site.email}</a>. Some records may
+          information you submitted by emailing <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. Some records may
           need to be retained where required by law or for legitimate recordkeeping.
         </p>
 

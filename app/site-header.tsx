@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Mark } from "./components";
 import { nav } from "./content";
 
 function normalizePathname(pathname: string) {
@@ -33,8 +32,8 @@ export function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <Link href="/" className="brand" aria-label="MARDE home">
-          <Mark /> <span>MARDE</span>
+        <Link href="/" className="header-logo" aria-label="MARDE home">
+          <span aria-hidden="true" />
         </Link>
         <button
           ref={menuButtonRef}

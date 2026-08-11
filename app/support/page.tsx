@@ -36,8 +36,8 @@ export default function SupportPage() {
           <h2>{contact.title}</h2>
           <p>{contact.body}</p>
           <ContactForm />
-          <a className="text-link contact-email" href={`mailto:${site.email}`}>
-            {site.email} ↗
+          <a className="text-link contact-email" href={`mailto:${site.contactEmail}`}>
+            {site.contactEmail} ↗
           </a>
         </article>
         <article>

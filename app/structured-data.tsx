@@ -7,6 +7,7 @@ export function StructuredData() {
       "@type": "Organization",
       name: "MARDE, Inc.",
       url: site.siteUrl,
+      logo: `${site.siteUrl}/brand/marde-logo-horizontal.png`,
       description:
         "MARDE is developing autonomous first-response systems to help close the gap before professional emergency help arrives.",
       sameAs: [site.instagram],

@@ -11,13 +11,41 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="page-hero compact not-found-page">
-      <Eyebrow>404 · Page not found</Eyebrow>
-      <h1>This page isn&apos;t here.</h1>
-      <p>The address may have changed, or the page may no longer exist.</p>
-      <div className="actions">
-        <Link className="button button-primary" href="/">Return Home</Link>
-        <Link className="button button-quiet" href="/support">Visit Support</Link>
+      <div className="not-found-copy">
+        <Eyebrow>404 · Page not found</Eyebrow>
+        <h1>This page isn&apos;t here.</h1>
+        <p>The address may have changed, or the page may no longer exist.</p>
+        <div className="actions">
+          <Link className="button button-primary" href="/">Return Home</Link>
+          <Link className="button button-quiet" href="/support">Visit Support</Link>
+        </div>
       </div>
+      <pre className="not-found-drone" aria-hidden="true">{`
+                   █████                                            █████
+         █████████ █████ █████████                       ██████████ █████ █████████
+        ████████████████████████████                    ████████████████████████████
+               ██  █████  ██            ████████████            ██  █████  ██
+                  ████████            ████████████████            ████████
+                  ███████████████    ██████████████████     ██████████████
+                  ████████████████████████████████████████████████████████
+                  ██████ ██████████████████████████████████████████ ██████
+                   █████ ██████████████████████████████████████████ █████
+                               ██████████████████████████████
+                              ████████████████████████████████
+                            █████████    ██████████    █████████
+                           ████████        ██  ██        █████████
+                          ████ ███       ████  ████       ███ ████
+                          ████ ██       ███      ███       ██ ████
+                          ████ ██      ███        ███      ██ ████
+                           ██     ████████████████████████     ██
+                                  ████████████████████████
+                                  ████████████████████████
+                                  ██████████    ██████████
+                                  ███████          ███████
+                                  ███████          ███████
+                                  ██████████    ██████████
+                                  ████████████████████████
+                                  ████████████████████████`}</pre>
     </section>
   );
 }

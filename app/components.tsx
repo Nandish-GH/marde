@@ -3,16 +3,6 @@ import { nav, site } from "./content";
 
 export { ContactForm, EmailSignup } from "./forms";
 
-export function Mark() {
-  return (
-    <span className="mark" aria-hidden="true">
-      <i />
-      <i />
-      <i />
-    </span>
-  );
-}
-
 export function DonateButton({ className = "", label = "Support Our R&D" }: { className?: string; label?: string }) {
   return (
     <a className={`button button-primary ${className}`} href={site.donateUrl} target="_blank" rel="noreferrer">
@@ -26,8 +16,8 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <Link href="/" className="brand">
-            <Mark /> <span>MARDE</span>
+          <Link href="/" className="footer-logo" aria-label="MARDE home">
+            <span aria-hidden="true" />
           </Link>
           <p>Response starts before arrival.</p>
         </div>

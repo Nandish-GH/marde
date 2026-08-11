@@ -1,7 +1,9 @@
 export const site = {
   name: "MARDE",
   tagline: "Response Starts Before Arrival",
-  email: "team.marde@gmail.com",
+  email: "hello@mardeinc.com",
+  contactEmail: "contact@mardeinc.com",
+  teamEmail: "team@mardeinc.com",
   instagram: "https://instagram.com/marde.inc",
   instagramHandle: "@marde.inc",
   donateUrl:
