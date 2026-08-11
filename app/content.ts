@@ -49,7 +49,6 @@ export const team = [
     name: "Saathvika Beerelli",
     title: "Social Media",
     bio: "Manages MARDE's public community presence (@marde.inc).",
-    instagram: true,
   },
 ] as const;
 

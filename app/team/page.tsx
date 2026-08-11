@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
-import { site, team, teamPage } from "../content";
+import { team, teamPage } from "../content";
 
 export const metadata: Metadata = pageMetadata({
   title: "Team",
@@ -31,11 +31,6 @@ export default function TeamPage() {
             <p className="role">{member.title}</p>
             <h2>{member.name}</h2>
             <p>{member.bio}</p>
-            {"instagram" in member && member.instagram && (
-              <a href={site.instagram} target="_blank" rel="noreferrer">
-                {site.instagramHandle} ↗
-              </a>
-            )}
           </article>
         ))}
       </section>
