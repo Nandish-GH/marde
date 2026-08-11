@@ -8,8 +8,6 @@ export const site = {
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mardeinc.com",
-  formspreeContact: process.env.NEXT_PUBLIC_FORMSPREE_CONTACT || "",
-  formspreeNewsletter: process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER || "",
 };
 
 export const nav = [

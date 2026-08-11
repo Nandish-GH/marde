@@ -118,6 +118,9 @@ export default function Home() {
           <em>next first response.</em>
         </h2>
         <p>{closing.body}</p>
+        <Link href="/faq" className="text-link closing-faq">
+          Read frequently asked questions <Arrow />
+        </Link>
         <div className="closing-actions">
           <EmailSignup compact />
           <DonateButton />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { technology } from "../content";
@@ -21,6 +22,7 @@ export default function TechnologyPage() {
           <SplitTitle lines={hero.title} italicIndex={1} />
         </h1>
         <p>{hero.body}</p>
+        <Link className="text-link page-inline-link" href="/mission">Why we&apos;re building this</Link>
       </section>
 
       <section className="tech-block air-block">
