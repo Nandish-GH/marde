@@ -15,7 +15,7 @@ export default function SupportPage() {
 
   return (
     <>
-      <section className="page-hero compact">
+      <section className="page-hero compact support-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
           <SplitTitle lines={hero.title} italicIndex={1} />
@@ -37,7 +37,7 @@ export default function SupportPage() {
           <p>{contact.body}</p>
           <ContactForm />
           <a className="text-link contact-email" href={`mailto:${site.contactEmail}`}>
-            {site.contactEmail} ↗
+            {site.contactEmail}
           </a>
         </article>
         <article>
@@ -45,7 +45,7 @@ export default function SupportPage() {
           <h2>{follow.title}</h2>
           <p>{follow.body}</p>
           <a className="text-link" href={site.instagram} target="_blank" rel="noreferrer">
-            {site.instagramHandle} ↗
+            {site.instagramHandle}
           </a>
         </article>
       </section>

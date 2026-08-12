@@ -5,11 +5,13 @@ import { site } from "./content";
 import { StructuredData } from "./structured-data";
 import { MobileSupportCta } from "./mobile-support-cta";
 import { Header } from "./site-header";
+import { SiteMotion } from "./site-motion";
+import { LoadingOverlay } from "./loading-overlay";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
   title: {
-    default: `MARDE — ${site.tagline}`,
+    default: `MARDE | ${site.tagline}`,
     template: "%s | MARDE",
   },
   description:
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   openGraph: {
-    title: `MARDE — ${site.tagline}`,
+    title: `MARDE | ${site.tagline}`,
     description: "Autonomous first-response systems in development.",
     url: site.siteUrl,
     type: "website",
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `MARDE — ${site.tagline}`,
+    title: `MARDE | ${site.tagline}`,
     description: "Autonomous first-response systems in development.",
     images: ["/og.png"],
   },
@@ -48,9 +50,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <noscript><style>{".loading-overlay{display:none!important}"}</style></noscript>
+        <LoadingOverlay />
         <StructuredData />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Header />
+        <SiteMotion />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <MobileSupportCta />

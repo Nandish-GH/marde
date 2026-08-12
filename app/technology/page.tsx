@@ -16,7 +16,7 @@ export default function TechnologyPage() {
 
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero technology-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
           <SplitTitle lines={hero.title} italicIndex={1} />

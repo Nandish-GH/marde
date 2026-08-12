@@ -1,6 +1,30 @@
 import Link from "next/link";
+import { Accordion } from "./accordion";
 import { Arrow, DonateButton, EmailSignup, Eyebrow, SplitTitle } from "./components";
 import { home, statistics, team } from "./content";
+
+const homeFaqs = [
+  {
+    question: "What is MARDE?",
+    answer:
+      "MARDE is developing autonomous first-response systems intended to help close the gap between an emergency and the arrival of professional help.",
+  },
+  {
+    question: "Is MARDE currently operational?",
+    answer:
+      "No. MARDE Air and MARDE Ground are early-stage concepts in design. Neither system is a finished, tested, or deployed product.",
+  },
+  {
+    question: "What are MARDE Air and MARDE Ground?",
+    answer:
+      "MARDE Air is an aerial first-response concept; MARDE Ground is a modular autonomous ground-robot concept. Both are intended to complement, not replace, professional emergency response.",
+  },
+  {
+    question: "How can I support MARDE?",
+    answer:
+      "You can support early R&D through a donation, follow project updates, or contact the team through the Support page.",
+  },
+] as const;
 
 export default function Home() {
   const { hero, problem, solution, teamTeaser, closing } = home;
@@ -51,7 +75,7 @@ export default function Home() {
               <strong>{stat.value}</strong>
               <p>{stat.label}</p>
               <a href={stat.href} target="_blank" rel="noreferrer">
-                Source: {stat.source} ↗
+                Source: {stat.source}
               </a>
             </article>
           ))}
@@ -108,6 +132,17 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="section home-faq">
+        <div className="section-heading home-faq-heading">
+          <Eyebrow>Frequently asked questions</Eyebrow>
+          <h2>Questions, answered.</h2>
+          <Link href="/faq" className="text-link">
+            Read all FAQs <Arrow />
+          </Link>
+        </div>
+        <Accordion items={homeFaqs} variant="home" className="home-faq-list" defaultOpen={[0]} single />
       </section>
 
       <section className="closing">

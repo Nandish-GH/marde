@@ -71,7 +71,7 @@ export const statistics = [
   {
     value: "50.2%",
     label:
-      "of those arrests were unwitnessed by bystanders in 2024 CARES data — no one on scene to act before EMS arrives.",
+      "of those arrests were unwitnessed by bystanders in 2024 CARES data; no one on scene to act before EMS arrives.",
     source: "CARES 2024 Metrics Summary",
     href: "https://mycares.net/sitepages/uploads/2025/CARES%2020250516%202024%20Metrics%20Summary.pdf",
   },
@@ -132,7 +132,7 @@ export const technology = {
   air: {
     eyebrow: "MARDE Air",
     title: "An aerial first-response concept.",
-    body: "MARDE Air is an autonomous aerial-response concept being designed to help bring critical equipment toward an emergency scene. Its intended role is to complement—not replace—professional EMS response.",
+    body: "MARDE Air is an autonomous aerial-response concept being designed to help bring critical equipment toward an emergency scene. Its intended role is to complement, not replace, professional EMS response.",
     status: "In design",
     regulatory:
       "For future experimental development, MARDE is pursuing FAA registration under Part 47 and a Special Airworthiness Certificate in the Experimental Category (SAC-EC). In plain language: this pathway is intended for developing and evaluating an aircraft; it is not authorization for a deployed emergency service.",
@@ -140,7 +140,7 @@ export const technology = {
   ground: {
     eyebrow: "MARDE Ground",
     title: ["One chassis.", "Multiple possible roles."],
-    body: "MARDE Ground is a modular autonomous ground-robot concept in design. A shared chassis could support swappable payload modules—such as an AED—while allowing the underlying system to evolve deliberately.",
+    body: "MARDE Ground is a modular autonomous ground-robot concept in design. A shared chassis could support swappable payload modules, such as an AED, while allowing the underlying system to evolve deliberately.",
     status: "In design",
     detail:
       "The modular approach is intentionally described at a high level while MARDE continues its design and intellectual-property work.",
@@ -158,8 +158,8 @@ export const technology = {
   regulatory: {
     eyebrow: "Long-term regulatory pathway",
     title: ["Two domains.", "A careful approach."],
-    faa: "Future aerial operation will require an aviation pathway appropriate to the work and operating context — including Part 47 registration and SAC-EC for experimental development.",
-    fda: "If MARDE develops medical-device payload modules, FDA 510(k) clearance would be a future-stage milestone—not a current status.",
+    faa: "Future aerial operation will require an aviation pathway appropriate to the work and operating context, including Part 47 registration and SAC-EC for experimental development.",
+    fda: "If MARDE develops medical-device payload modules, FDA 510(k) clearance would be a future-stage milestone, not a current status.",
   },
 };
 
@@ -167,7 +167,7 @@ export const mission = {
   hero: {
     eyebrow: "Why MARDE",
     title: ["The moment before", "help arrives."],
-    body: "We believe emergency response can begin earlier—without losing sight of the people and systems already doing the work.",
+    body: "We believe emergency response can begin earlier without losing sight of the people and systems already doing the work.",
   },
   story: {
     eyebrow: "Our starting point",

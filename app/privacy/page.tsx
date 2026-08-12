@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 export default function PrivacyPage() {
   return (
     <>
-      <section className="page-hero compact">
+      <section className="page-hero compact privacy-hero">
         <Eyebrow>Privacy</Eyebrow>
         <h1>Privacy Policy</h1>
         <p>How information is handled when you visit or contact MARDE through this website.</p>

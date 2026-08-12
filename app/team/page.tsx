@@ -16,7 +16,7 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className="page-hero compact">
+      <section className="page-hero compact team-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
           <SplitTitle lines={hero.title} italicIndex={1} />

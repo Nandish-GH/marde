@@ -5,8 +5,8 @@ export { ContactForm, EmailSignup } from "./forms";
 
 export function DonateButton({ className = "", label = "Support Our R&D" }: { className?: string; label?: string }) {
   return (
-    <a className={`button button-primary ${className}`} href={site.donateUrl} target="_blank" rel="noreferrer">
-      {label} <span aria-hidden="true">↗</span>
+    <a className={`button button-accent ${className}`} href={site.donateUrl} target="_blank" rel="noreferrer">
+      {label}
     </a>
   );
 }
@@ -30,7 +30,7 @@ export function Footer() {
           <Link href="/faq">FAQ</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <a href={site.instagram} target="_blank" rel="noreferrer">
-            Instagram ↗
+            Instagram
           </a>
         </nav>
         <div className="footer-support">
@@ -52,7 +52,7 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 export function Arrow() {
-  return <span className="arrow" aria-hidden="true">↗</span>;
+  return null;
 }
 
 export function SplitTitle({ lines, italicIndex }: { lines: string[]; italicIndex?: number }) {

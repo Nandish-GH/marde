@@ -13,7 +13,18 @@ function normalizePathname(pathname: string) {
 export function Header() {
   const pathname = normalizePathname(usePathname());
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    function updateScrollState() {
+      setScrolled(window.scrollY > 12);
+    }
+
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -30,7 +41,7 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="header">
+    <header className={`header${scrolled ? " is-scrolled" : ""}`}>
       <div className="header-inner">
         <Link href="/" className="header-logo" aria-label="MARDE home">
           <span aria-hidden="true" />

@@ -53,7 +53,7 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       <ValidationError className="form-error form-error-general" role="alert" errors={state.errors} />
       <SubmissionStatus submitting={state.submitting} succeeded={false} />
       <button type="submit" className="button button-primary" disabled={state.submitting}>
-        {state.submitting ? "Submitting…" : "Follow our progress"}
+        {state.submitting ? "Submitting..." : "Follow our progress"}
       </button>
     </form>
   );
@@ -137,7 +137,7 @@ export function ContactForm() {
       <SubmissionStatus submitting={state.submitting} succeeded={false} />
 
       <button type="submit" className="button button-primary" disabled={state.submitting}>
-        {state.submitting ? "Sending…" : "Send message"}
+        {state.submitting ? "Sending..." : "Send message"}
       </button>
     </form>
   );

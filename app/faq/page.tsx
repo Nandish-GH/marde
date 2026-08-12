@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Accordion } from "../accordion";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 
@@ -36,7 +37,7 @@ const questions = [
 export default function FaqPage() {
   return (
     <>
-      <section className="page-hero compact">
+      <section className="page-hero compact faq-hero">
         <Eyebrow>Frequently asked questions</Eyebrow>
         <h1>
           <SplitTitle lines={["Clear answers.", "No invented timelines."]} italicIndex={1} />
@@ -46,12 +47,7 @@ export default function FaqPage() {
 
       <section className="section readable-section">
         <div className="faq-list readable-content">
-          {questions.map(({ question, answer }) => (
-            <article key={question}>
-              <h2>{question}</h2>
-              <p>{answer}</p>
-            </article>
-          ))}
+          <Accordion items={questions} variant="page" defaultOpen="all" />
           <p className="faq-contact">
             Have another question? <Link className="text-link" href="/support">Contact MARDE</Link>
           </p>
