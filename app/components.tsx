@@ -3,7 +3,7 @@ import { nav, site } from "./content";
 
 export { ContactForm, EmailSignup } from "./forms";
 
-export function DonateButton({ className = "", label = "Support Our R&D" }: { className?: string; label?: string }) {
+export function DonateButton({ className = "", label = "Support MARDE" }: { className?: string; label?: string }) {
   return (
     <a className={`button button-accent ${className}`} href={site.donateUrl} target="_blank" rel="noreferrer">
       {label}
@@ -66,7 +66,6 @@ export function Footer() {
           </span>
         </nav>
         <div className="footer-support">
-          <DonateButton />
           <p className="copyright">© {new Date().getFullYear()} MARDE, Inc.</p>
         </div>
       </div>

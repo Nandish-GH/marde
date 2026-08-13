@@ -18,7 +18,7 @@ export default function NotFound() {
         <p>The address may have changed, or the page may no longer exist.</p>
         <div className="actions">
           <Link className="button button-primary" href="/">Return Home</Link>
-          <Link className="button button-quiet" href="/support">Visit Support</Link>
+          <Link className="button button-quiet" href="/support">Explore Support</Link>
         </div>
       </div>
       <AsciiDrone />

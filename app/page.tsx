@@ -3,6 +3,10 @@ import Image from "next/image";
 import { Accordion } from "./accordion";
 import { Arrow, DonateButton, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "./components";
 import { home, statistics, team } from "./content";
+import { HeroMotion } from "./hero-motion";
+import { HeroVisual } from "./hero-visual";
+import { HomeScrollMotion } from "./home-scroll-motion";
+import { NexusArchitecture } from "./nexus-architecture";
 
 const homeFaqs = [
   {
@@ -32,33 +36,116 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero" data-response-hero>
+        <HeroMotion />
+        <HomeScrollMotion />
         <div className="hero-copy">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
           <h1>
-            {hero.headline[0]}
+            <span className="hero-line"><span className="hero-word">{hero.headline[0]}</span></span>
             <br />
-            <em>{hero.headline[1]}</em> {hero.headline[2]}
+            <span className="hero-line"><em className="hero-word">{hero.headline[1]}</em> <span className="hero-word">{hero.headline[2]}</span></span>
           </h1>
-          <p>{hero.subhead}</p>
+          <p className="hero-summary">{hero.subhead}</p>
           <div className="actions">
-            <DonateButton label={hero.primaryCta} />
+            <Link className="button button-accent button-primary" href="/support/">
+              {hero.primaryCta}
+            </Link>
             <Link className="button button-quiet" href={hero.secondaryHref}>
               {hero.secondaryCta} <Arrow />
             </Link>
           </div>
+          <div className="hero-signals" aria-label="MARDE priorities">
+            <article>
+              <span className="signal-icon signal-clock" aria-hidden="true" />
+              <div>
+                <strong>Minutes Matter</strong>
+                <p>Act in the critical early window.</p>
+              </div>
+            </article>
+            <article>
+              <span className="signal-icon signal-response" aria-hidden="true">+</span>
+              <div>
+                <strong>Autonomous First Response</strong>
+                <p>Designed to deliver emergency capability before traditional responders arrive.</p>
+              </div>
+            </article>
+            <article>
+              <span className="signal-icon signal-reliable" aria-hidden="true">✓</span>
+              <div>
+                <strong>Built for Real-World Reliability</strong>
+                <p>Safe, secure, and designed for emergency operations.</p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div className="hero-graphic" role="img" aria-label="Abstract diagram representing MARDE first-response systems in design">
-          <div className="orb" />
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="cross x1">+</div>
-          <div className="cross x2">+</div>
-          <p>
-            01 / FIRST RESPONSE
-            <br />
-            SYSTEMS IN DESIGN
-          </p>
+        <HeroVisual />
+      </section>
+
+      <section className="section solution">
+        <div className="section-heading">
+          <Eyebrow>{solution.eyebrow}</Eyebrow>
+          <h2>
+            <SplitTitle lines={solution.title} />
+          </h2>
+        </div>
+        <div className="system-grid">
+          <Link href="/technology/#air" className="system-card air">
+            <div className="card-code">{solution.air.code}</div>
+            <div className="system-poster air-poster">
+              <Image
+                src="/illustrations/marde-air-concept.svg"
+                alt="MARDE Air aerial system design concept"
+                width="800"
+                height="520"
+              />
+              <span className="poster-registration" aria-hidden="true" />
+            </div>
+            <h3 className="system-name">
+              <span>MARDE</span> <em>Air</em>
+            </h3>
+            <p>{solution.air.body}</p>
+            <span className="system-card-cta">
+              {solution.air.link} <Arrow />
+            </span>
+          </Link>
+          <Link href="/technology/#ground" className="system-card ground">
+            <div className="card-code">{solution.ground.code}</div>
+            <div className="system-poster ground-poster">
+              <Image
+                src="/illustrations/marde-ground-concept.svg"
+                alt="MARDE Ground robotic ground system design concept"
+                width="800"
+                height="520"
+              />
+              <span className="poster-registration" aria-hidden="true" />
+            </div>
+            <h3 className="system-name">
+              <span>MARDE</span> <em>Ground</em>
+            </h3>
+            <p>{solution.ground.body}</p>
+            <span className="system-card-cta">
+              {solution.ground.link} <Arrow />
+            </span>
+          </Link>
+          <Link href="/technology/#nexus" className="system-card nexus-card home-nexus" id="home-nexus">
+            <div className="nexus-card-copy">
+              <p className="card-code">{solution.nexus.code.replace("MARDE ", "")}</p>
+              <div className="system-name nexus-card-name" aria-label={solution.nexus.name}>
+                <span>MARDE</span> <em>Nexus</em>
+              </div>
+              <h3>
+                <span>{solution.nexus.title[0]}</span>
+                <br />
+                <em>{solution.nexus.title[1]}</em>
+              </h3>
+              <p>{solution.nexus.body}</p>
+              <span className="system-card-cta">
+                {solution.nexus.link} <Arrow />
+              </span>
+            </div>
+            <NexusArchitecture compact />
+          </Link>
         </div>
       </section>
 
@@ -88,55 +175,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section solution">
-        <div className="section-heading">
-          <Eyebrow>{solution.eyebrow}</Eyebrow>
-          <h2>
-            <SplitTitle lines={solution.title} />
-          </h2>
-        </div>
-        <div className="system-grid">
-          <Link href="/technology" className="system-card air">
-            <div className="card-code">{solution.air.code}</div>
-            <div className="system-poster air-poster">
-              <Image
-                src="/illustrations/marde-air-concept.svg"
-                alt="MARDE Air aerial system design concept"
-                width="800"
-                height="520"
-              />
-              <span className="poster-registration" aria-hidden="true" />
-            </div>
-            <h3 className="system-name">
-              <span>MARDE</span> <em>Air</em>
-            </h3>
-            <p>{solution.air.body}</p>
-            <span>
-              {solution.air.link} <Arrow />
-            </span>
-          </Link>
-          <Link href="/technology" className="system-card ground">
-            <div className="card-code">{solution.ground.code}</div>
-            <div className="system-poster ground-poster">
-              <Image
-                src="/illustrations/marde-ground-concept.svg"
-                alt="MARDE Ground robotic ground system design concept"
-                width="800"
-                height="520"
-              />
-              <span className="poster-registration" aria-hidden="true" />
-            </div>
-            <h3 className="system-name">
-              <span>MARDE</span> <em>Ground</em>
-            </h3>
-            <p>{solution.ground.body}</p>
-            <span>
-              {solution.ground.link} <Arrow />
-            </span>
-          </Link>
-        </div>
-      </section>
-
       <section className="section process-story" aria-labelledby="process-story-title">
         <div className="process-intro">
           <Eyebrow>{processStory.eyebrow}</Eyebrow>
@@ -145,6 +183,7 @@ export default function Home() {
           <span className="process-intro-rule" aria-hidden="true" />
         </div>
         <ol className="process-flow">
+          <li className="process-progress-rail" aria-hidden="true" />
           {processStory.steps.map((step) => (
             <li className="process-step" key={step.code} tabIndex={0}>
               <span className="process-number">{step.code}</span>
@@ -214,7 +253,7 @@ export default function Home() {
           </Link>
           <div className="closing-actions">
             <EmailSignup compact />
-            <DonateButton />
+            <DonateButton label={"Contribute to R&D"} />
           </div>
           <SocialLinks />
         </div>

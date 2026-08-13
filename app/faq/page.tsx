@@ -49,7 +49,7 @@ export default function FaqPage() {
         <div className="faq-list readable-content">
           <Accordion items={questions} variant="page" defaultOpen="all" />
           <p className="faq-contact">
-            Have another question? <Link className="text-link" href="/support">Contact MARDE</Link>
+            Have another question? <Link className="text-link" href="/support">Support details</Link>
           </p>
         </div>
       </section>

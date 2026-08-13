@@ -4,19 +4,22 @@ import Link from "next/link";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { technology } from "../content";
+import { NexusArchitecture } from "../nexus-architecture";
+import { NexusMotion } from "../nexus-motion";
 
 export const metadata: Metadata = pageMetadata({
   title: "Technology",
-  description: "MARDE Air and MARDE Ground are first-response concepts in design.",
+  description: "MARDE Air, MARDE Ground, and MARDE Nexus are first-response hardware and coordination concepts in development.",
   path: "/technology",
-  keywords: ["emergency response robotics", "autonomous aerial response", "ground robot concept"],
+  keywords: ["emergency response robotics", "response coordination software", "autonomous aerial response", "ground robot concept"],
 });
 
 export default function TechnologyPage() {
-  const { hero, air, ground, phases, roadmap, regulatory } = technology;
+  const { hero, air, ground, nexus, phases, roadmap, regulatory } = technology;
 
   return (
     <div className="technology-page">
+      <NexusMotion />
       <section className="page-hero technology-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
@@ -26,7 +29,7 @@ export default function TechnologyPage() {
         <Link className="text-link page-inline-link" href="/mission">Why we&apos;re building this</Link>
       </section>
 
-      <section className="tech-block air-block">
+      <section className="tech-block air-block" id="air">
         <div className="tech-visual tech-air-visual">
           <span>01</span>
           <div className="tech-illustration air-poster">
@@ -59,7 +62,7 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <section className="tech-block ground-block">
+      <section className="tech-block ground-block" id="ground">
         <div className="tech-copy">
           <Eyebrow>
             <span className="system-name-inline">
@@ -91,6 +94,50 @@ export default function TechnologyPage() {
             <br />
             MODULAR CONCEPT
           </p>
+        </div>
+      </section>
+
+      <section className="tech-block nexus-tech-block" id="nexus" aria-labelledby="nexus-title">
+        <div className="nexus-tech-intro tech-copy">
+          <Eyebrow>
+            <span className="system-name-inline">
+              <strong>MARDE</strong> <em>Nexus</em>
+            </span>
+          </Eyebrow>
+          <h2 id="nexus-title">
+            <SplitTitle lines={nexus.title} italicIndex={1} />
+          </h2>
+          <p>{nexus.intro}</p>
+          <p>{nexus.workflow}</p>
+          <p className="nexus-authority-copy">{nexus.authority}</p>
+        </div>
+
+        <div className="tech-visual nexus-tech-visual">
+          <span>03</span>
+          <NexusArchitecture />
+          <p>
+            MARDE NEXUS
+            <br />
+            COORDINATION CONCEPT
+          </p>
+        </div>
+
+        <div className="nexus-capabilities" aria-label="Proposed MARDE Nexus capabilities">
+          <div className="nexus-capabilities-heading">
+            <p className="eyebrow"><span />Proposed workflow</p>
+            <h3>Information moves faster.<br /><em>People retain authority.</em></h3>
+          </div>
+          <ol>
+            {nexus.capabilities.map(([code, label, body]) => (
+              <li key={code}>
+                <span>{code}</span>
+                <div>
+                  <h4>{label}</h4>
+                  <p>{body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

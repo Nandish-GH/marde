@@ -22,7 +22,7 @@ export default function TeamPage() {
           <SplitTitle lines={hero.title} italicIndex={1} />
         </h1>
         <p>{hero.body}</p>
-        <Link className="text-link page-inline-link" href="/support">Help us get there</Link>
+        <Link className="text-link page-inline-link" href="/support">How to Support</Link>
       </section>
       <section className="team-grid">
         {team.map((member) => (

@@ -19,20 +19,9 @@ const revealSelector = [
   ".not-found-copy > p",
   ".not-found-copy > .actions",
   ".confirmation-copy",
-  ".section-intro",
   ".section-heading",
-  ".stats",
-  ".system-grid",
-  ".process-intro",
-  ".process-step",
-  ".team-teaser > div",
   ".home-faq-heading",
   ".home-faq-list",
-  ".closing-content > .eyebrow",
-  ".closing-content > h2",
-  ".closing-content > p",
-  ".closing-content > .text-link",
-  ".closing-content > .closing-actions",
   ".tech-block",
   ".roadmap > div",
   ".phase-list article",
@@ -388,7 +377,9 @@ export function SiteMotion() {
 
   useEffect(() => {
     const root = document.documentElement;
-    const elements = Array.from(document.querySelectorAll<HTMLElement>(revealSelector));
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(revealSelector)).filter(
+      (element) => pathname !== "/" || !element.closest("[data-response-hero]"),
+    );
     let frame = 0;
     let observing = false;
     const observer = new IntersectionObserver(

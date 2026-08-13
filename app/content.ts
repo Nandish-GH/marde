@@ -85,8 +85,8 @@ export const home = {
     eyebrow: "Autonomous emergency response · In development",
     headline: ["Response starts", "before", "arrival."],
     subhead:
-      "MARDE is building autonomous first-response systems to close the gap between when someone collapses and when help arrives.",
-    primaryCta: "Support Our R&D",
+      "MARDE is building autonomous first-response systems to close the gap between collapse and when help arrives.",
+    primaryCta: "Support MARDE",
     secondaryCta: "Learn About the Technology",
     secondaryHref: "/technology",
     graphicLabel: "01 / FIRST RESPONSE\nSYSTEMS IN DESIGN",
@@ -98,7 +98,7 @@ export const home = {
   },
   solution: {
     eyebrow: "In development",
-    title: ["Two paths.", "One response system."],
+    title: ["Three parts.", "One response system."],
     air: {
       code: "01 / AIR",
       name: "MARDE Air",
@@ -110,6 +110,13 @@ export const home = {
       name: "MARDE Ground",
       body: "A modular ground robot concept designed around adaptable payload modules.",
       link: "Explore MARDE Ground",
+    },
+    nexus: {
+      code: "03 / MARDE NEXUS",
+      name: "MARDE Nexus",
+      title: ["Connect the response", "through one system."],
+      body: "A proposed coordination platform connecting MARDE hardware with professional emergency-response workflows while keeping consequential medical decisions human-authorized.",
+      link: "Explore MARDE Nexus",
     },
   },
   process: {
@@ -152,7 +159,7 @@ export const technology = {
   hero: {
     eyebrow: "Technology · In development",
     title: ["Designed for the", "first critical minutes."],
-    body: "MARDE is exploring complementary aerial and ground systems for broad emergency-response use. Neither system is a finished or tested product.",
+    body: "MARDE is exploring complementary aerial, ground, and coordination systems for broad emergency-response use. These systems remain concepts in development, not deployed products.",
   },
   air: {
     eyebrow: "MARDE Air",
@@ -169,6 +176,20 @@ export const technology = {
     status: "In design",
     detail:
       "The modular approach is intentionally described at a high level while MARDE continues its design and intellectual-property work.",
+  },
+  nexus: {
+    eyebrow: "03 / MARDE NEXUS",
+    title: ["Coordinate the response", "through one system."],
+    intro: "MARDE Nexus is the proposed coordination platform connecting MARDE hardware with professional emergency-response workflows.",
+    workflow: "It is being designed to support patient triage, scene and patient mapping, diagnostic confirmation workflows, supply coordination, and human authorization of actions performed by MARDE systems.",
+    authority: "Consequential medical actions remain human-authorized. Future trained models may assist operators, but Nexus is being designed so qualified people retain final decision authority.",
+    capabilities: [
+      ["01", "TRIAGE", "Support real-time patient triage and prioritization workflows."],
+      ["02", "MAP", "Maintain scene, site, and patient context for coordinated response."],
+      ["03", "CONFIRM", "Support diagnostic confirmation workflows between field systems and human operators."],
+      ["04", "SUPPLY", "Coordinate available medical supplies and delivery requirements."],
+      ["05", "AUTHORIZE", "Keep consequential actions such as medical delivery and CPR within a human authorization loop."],
+    ] as const,
   },
   phases: [
     ["V1", "Manual operation", "A future starting point for supervised, human-directed evaluation."],

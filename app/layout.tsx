@@ -4,7 +4,6 @@ import "./globals.css";
 import { Footer } from "./components";
 import { site } from "./content";
 import { StructuredData } from "./structured-data";
-import { MobileSupportCta } from "./mobile-support-cta";
 import { Header } from "./site-header";
 import { SiteMotion } from "./site-motion";
 import { LoadingOverlay } from "./loading-overlay";
@@ -60,7 +59,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteMotion />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
-        <MobileSupportCta />
       </body>
     </html>
   );
