@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
@@ -15,7 +16,7 @@ export default function TechnologyPage() {
   const { hero, air, ground, phases, roadmap, regulatory } = technology;
 
   return (
-    <>
+    <div className="technology-page">
       <section className="page-hero technology-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
@@ -26,13 +27,16 @@ export default function TechnologyPage() {
       </section>
 
       <section className="tech-block air-block">
-        <div className="tech-visual" aria-hidden="true">
+        <div className="tech-visual tech-air-visual">
           <span>01</span>
-          <div className="tech-drone">
-            <i />
-            <i />
-            <i />
-            <i />
+          <div className="tech-illustration air-poster">
+            <Image
+              src="/illustrations/marde-air-concept.svg"
+              alt="MARDE Air aerial system design concept"
+              width="800"
+              height="520"
+            />
+            <span className="poster-registration" aria-hidden="true" />
           </div>
           <p>
             MARDE AIR
@@ -41,7 +45,11 @@ export default function TechnologyPage() {
           </p>
         </div>
         <div className="tech-copy">
-          <Eyebrow>{air.eyebrow}</Eyebrow>
+          <Eyebrow>
+            <span className="system-name-inline">
+              <strong>MARDE</strong> <em>Air</em>
+            </span>
+          </Eyebrow>
           <h2>{air.title}</h2>
           <p>{air.body}</p>
           <div className="status">
@@ -53,7 +61,11 @@ export default function TechnologyPage() {
 
       <section className="tech-block ground-block">
         <div className="tech-copy">
-          <Eyebrow>{ground.eyebrow}</Eyebrow>
+          <Eyebrow>
+            <span className="system-name-inline">
+              <strong>MARDE</strong> <em>Ground</em>
+            </span>
+          </Eyebrow>
           <h2>
             <SplitTitle lines={ground.title} italicIndex={1} />
           </h2>
@@ -63,11 +75,16 @@ export default function TechnologyPage() {
           </div>
           <p className="detail">{ground.detail}</p>
         </div>
-        <div className="tech-visual ground-visual" aria-hidden="true">
+        <div className="tech-visual ground-visual">
           <span>02</span>
-          <div className="tech-rover">
-            <i />
-            <i />
+          <div className="tech-illustration ground-poster">
+            <Image
+              src="/illustrations/marde-ground-concept.svg"
+              alt="MARDE Ground robotic ground system design concept"
+              width="800"
+              height="520"
+            />
+            <span className="poster-registration" aria-hidden="true" />
           </div>
           <p>
             MARDE GROUND
@@ -87,7 +104,7 @@ export default function TechnologyPage() {
         </div>
         <div className="phase-list">
           {phases.map(([code, title, text]) => (
-            <article key={code}>
+            <article key={code} tabIndex={0}>
               <b>{code}</b>
               <div>
                 <h3>{title}</h3>
@@ -112,6 +129,6 @@ export default function TechnologyPage() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

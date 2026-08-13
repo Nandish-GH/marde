@@ -14,7 +14,7 @@ export default function MissionPage() {
   const { hero, story, statement, funding, regulatory } = mission;
 
   return (
-    <>
+    <div className="mission-page">
       <section className="page-hero mission-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
@@ -66,6 +66,6 @@ export default function MissionPage() {
         </h2>
         <p>{regulatory.body}</p>
       </section>
-    </>
+    </div>
   );
 }

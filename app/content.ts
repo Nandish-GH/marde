@@ -4,8 +4,10 @@ export const site = {
   email: "hello@mardeinc.com",
   contactEmail: "contact@mardeinc.com",
   teamEmail: "team@mardeinc.com",
-  instagram: "https://instagram.com/marde.inc",
+  instagram: "https://www.instagram.com/marde.inc",
   instagramHandle: "@marde.inc",
+  tiktok: "https://www.tiktok.com/@marde.inc",
+  tiktokHandle: "@marde.inc",
   donateUrl:
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
@@ -13,6 +15,7 @@ export const site = {
 };
 
 export const nav = [
+  ["Home", "/"],
   ["Technology", "/technology"],
   ["Team", "/team"],
   ["Mission", "/mission"],
@@ -108,6 +111,28 @@ export const home = {
       body: "A modular ground robot concept designed around adaptable payload modules.",
       link: "Explore MARDE Ground",
     },
+  },
+  process: {
+    eyebrow: "Conceptual response path",
+    title: "Designed for the moments before help arrives.",
+    body: "A proposed three-step model for how MARDE’s systems could support, not replace, professional emergency response.",
+    steps: [
+      {
+        code: "01",
+        label: "Detect",
+        body: "Identify signals that may indicate an urgent event requiring response. Detection remains a proposed system capability, not a deployed service.",
+      },
+      {
+        code: "02",
+        label: "Route",
+        body: "Route an aerial or ground concept toward the scene. Routing and coordination remain in development.",
+      },
+      {
+        code: "03",
+        label: "Deliver",
+        body: "Bring useful capability closer during the gap before professional responders arrive. MARDE is intended to complement, not replace, EMS.",
+      },
+    ],
   },
   teamTeaser: {
     eyebrow: "The people behind MARDE",
@@ -216,12 +241,12 @@ export const support = {
   follow: {
     eyebrow: "Follow",
     title: "Follow our progress.",
-    body: "Find MARDE updates and the people behind the work on Instagram.",
+    body: "Find MARDE updates, development work, and the people behind it on Instagram and TikTok.",
   },
   newsletter: {
     eyebrow: "Follow our progress",
     title: "Stay close to the work.",
-    body: "Leave your email for occasional updates, or follow MARDE on Instagram.",
+    body: "Leave your email for occasional updates, or follow MARDE on Instagram and TikTok.",
   },
 };
 

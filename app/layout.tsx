@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Footer } from "./components";
 import { site } from "./content";
@@ -7,9 +8,10 @@ import { MobileSupportCta } from "./mobile-support-cta";
 import { Header } from "./site-header";
 import { SiteMotion } from "./site-motion";
 import { LoadingOverlay } from "./loading-overlay";
+import { canonicalSiteUrl, socialImage } from "./metadata";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.siteUrl),
+  metadataBase: new URL(canonicalSiteUrl),
   title: {
     default: `MARDE | ${site.tagline}`,
     template: "%s | MARDE",
@@ -33,16 +35,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: `MARDE | ${site.tagline}`,
     description: "Autonomous first-response systems in development.",
-    url: site.siteUrl,
+    url: canonicalSiteUrl,
     type: "website",
     siteName: site.name,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.tagline }],
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: `MARDE | ${site.tagline}`,
     description: "Autonomous first-response systems in development.",
-    images: ["/og.png"],
+    images: [{ url: socialImage.url, alt: socialImage.alt }],
   },
 };
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Confirmation that your message was submitted to MARDE.",
     path: "/thank-you",
   }),
-  robots: { index: false, follow: false },
+  robots: { index: false, follow: true },
 };
 
 export default function ThankYouPage() {

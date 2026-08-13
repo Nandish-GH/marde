@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">MARDE Air aerial system design concept</title>
+  <desc id="desc">A non-operational editorial line drawing of a compact four-rotor aerial concept with technical registration marks.</desc>
+  <g fill="none" stroke="#245f68" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 260h636M400 72v376" opacity=".16"/>
+    <path d="M112 124h54m-54 0v54M688 124h-54m54 0v54M112 396h54m-54 0v-54M688 396h-54m54 0v-54" opacity=".5"/>
+    <path d="M337 224 262 171M463 224l75-53M337 296l-75 53M463 296l75 53" stroke-width="12"/>
+    <path d="M333 221 292 192M467 221l41-29M333 299l-41 29M467 299l41 29" stroke="#80aeb0" stroke-width="3"/>
+    <ellipse cx="232" cy="150" rx="92" ry="28" stroke-width="3"/>
+    <ellipse cx="568" cy="150" rx="92" ry="28" stroke-width="3"/>
+    <ellipse cx="232" cy="370" rx="92" ry="28" stroke-width="3"/>
+    <ellipse cx="568" cy="370" rx="92" ry="28" stroke-width="3"/>
+    <circle cx="232" cy="150" r="16" fill="#b9dce7" stroke-width="4"/>
+    <circle cx="568" cy="150" r="16" fill="#b9dce7" stroke-width="4"/>
+    <circle cx="232" cy="370" r="16" fill="#b9dce7" stroke-width="4"/>
+    <circle cx="568" cy="370" r="16" fill="#b9dce7" stroke-width="4"/>
+    <path d="M336 213 400 185l64 28 28 47-28 47-64 28-64-28-28-47z" fill="#dff0f2" stroke-width="4"/>
+    <path d="m356 225 44-18 44 18 18 35-18 35-44 18-44-18-18-35z" fill="#245f68" fill-opacity=".12" stroke-width="2"/>
+    <path d="M380 248h40v24h-40zM390 237h20M390 283h20" stroke-width="3"/>
+    <circle cx="400" cy="260" r="7" fill="#245f68"/>
+    <path d="M178 150h-42m528 0h-42M178 370h-42m528 0h-42" opacity=".6"/>
+    <path d="M114 222h74M612 298h74" stroke-dasharray="2 8" opacity=".55"/>
+  </g>
+  <g fill="#245f68" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="2">
+    <text x="112" y="110">AIR / FORM STUDY</text>
+    <text x="112" y="420">CONCEPT — NOT OPERATIONAL</text>
+    <text x="621" y="420">A–01</text>
+  </g>
+</svg>

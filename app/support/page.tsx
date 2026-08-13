@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactForm, DonateButton, EmailSignup, Eyebrow, SplitTitle } from "../components";
+import { ContactForm, DonateButton, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { site, support } from "../content";
 
@@ -14,7 +14,7 @@ export default function SupportPage() {
   const { hero, donate, contact, follow, newsletter } = support;
 
   return (
-    <>
+    <div className="support-page">
       <section className="page-hero compact support-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
@@ -36,17 +36,15 @@ export default function SupportPage() {
           <h2>{contact.title}</h2>
           <p>{contact.body}</p>
           <ContactForm />
-          <a className="text-link contact-email" href={`mailto:${site.contactEmail}`}>
-            {site.contactEmail}
+          <a className="text-link contact-email" href={`mailto:${site.email}`}>
+            {site.email}
           </a>
         </article>
         <article>
           <Eyebrow>{follow.eyebrow}</Eyebrow>
           <h2>{follow.title}</h2>
           <p>{follow.body}</p>
-          <a className="text-link" href={site.instagram} target="_blank" rel="noreferrer">
-            {site.instagramHandle}
-          </a>
+          <SocialLinks className="support-socials" />
         </article>
       </section>
 
@@ -56,6 +54,6 @@ export default function SupportPage() {
         <p>{newsletter.body}</p>
         <EmailSignup />
       </section>
-    </>
+    </div>
   );
 }

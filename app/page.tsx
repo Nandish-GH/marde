@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Accordion } from "./accordion";
-import { Arrow, DonateButton, EmailSignup, Eyebrow, SplitTitle } from "./components";
+import { Arrow, DonateButton, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "./components";
 import { home, statistics, team } from "./content";
 
 const homeFaqs = [
@@ -27,7 +28,7 @@ const homeFaqs = [
 ] as const;
 
 export default function Home() {
-  const { hero, problem, solution, teamTeaser, closing } = home;
+  const { hero, problem, solution, process: processStory, teamTeaser, closing } = home;
 
   return (
     <>
@@ -72,7 +73,12 @@ export default function Home() {
         <div className="stats">
           {statistics.map((stat) => (
             <article className="stat" key={stat.value}>
-              <strong>{stat.value}</strong>
+              <strong>
+                <span className="sr-only">{stat.value}</span>
+                <span aria-hidden="true" data-count-up={stat.value}>
+                  {stat.value}
+                </span>
+              </strong>
               <p>{stat.label}</p>
               <a href={stat.href} target="_blank" rel="noreferrer">
                 Source: {stat.source}
@@ -92,8 +98,18 @@ export default function Home() {
         <div className="system-grid">
           <Link href="/technology" className="system-card air">
             <div className="card-code">{solution.air.code}</div>
-            <div className="drone-line" />
-            <h3>{solution.air.name}</h3>
+            <div className="system-poster air-poster">
+              <Image
+                src="/illustrations/marde-air-concept.svg"
+                alt="MARDE Air aerial system design concept"
+                width="800"
+                height="520"
+              />
+              <span className="poster-registration" aria-hidden="true" />
+            </div>
+            <h3 className="system-name">
+              <span>MARDE</span> <em>Air</em>
+            </h3>
             <p>{solution.air.body}</p>
             <span>
               {solution.air.link} <Arrow />
@@ -101,14 +117,46 @@ export default function Home() {
           </Link>
           <Link href="/technology" className="system-card ground">
             <div className="card-code">{solution.ground.code}</div>
-            <div className="rover-line" />
-            <h3>{solution.ground.name}</h3>
+            <div className="system-poster ground-poster">
+              <Image
+                src="/illustrations/marde-ground-concept.svg"
+                alt="MARDE Ground robotic ground system design concept"
+                width="800"
+                height="520"
+              />
+              <span className="poster-registration" aria-hidden="true" />
+            </div>
+            <h3 className="system-name">
+              <span>MARDE</span> <em>Ground</em>
+            </h3>
             <p>{solution.ground.body}</p>
             <span>
               {solution.ground.link} <Arrow />
             </span>
           </Link>
         </div>
+      </section>
+
+      <section className="section process-story" aria-labelledby="process-story-title">
+        <div className="process-intro">
+          <Eyebrow>{processStory.eyebrow}</Eyebrow>
+          <h2 id="process-story-title">{processStory.title}</h2>
+          <p>{processStory.body}</p>
+          <span className="process-intro-rule" aria-hidden="true" />
+        </div>
+        <ol className="process-flow">
+          {processStory.steps.map((step) => (
+            <li className="process-step" key={step.code} tabIndex={0}>
+              <span className="process-number">{step.code}</span>
+              <div className="process-step-copy">
+                <p className="process-code">{step.code} / RESPONSE PATH</p>
+                <h3>{step.label}</h3>
+                <p>{step.body}</p>
+              </div>
+              <span className="process-marker" aria-hidden="true" />
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="section team-teaser">
@@ -123,13 +171,13 @@ export default function Home() {
         </div>
         <div className="initials">
           {team.slice(0, 5).map((member) => (
-            <div key={member.name}>
+            <article className="team-profile" key={member.name} tabIndex={0}>
               <b aria-hidden="true">{member.initials}</b>
               <span>
                 {member.name}
                 <small>{member.title}</small>
               </span>
-            </div>
+            </article>
           ))}
         </div>
       </section>
@@ -146,19 +194,29 @@ export default function Home() {
       </section>
 
       <section className="closing">
-        <Eyebrow>{closing.eyebrow}</Eyebrow>
-        <h2>
-          Help us build the
-          <br />
-          <em>next first response.</em>
-        </h2>
-        <p>{closing.body}</p>
-        <Link href="/faq" className="text-link closing-faq">
-          Read frequently asked questions <Arrow />
-        </Link>
-        <div className="closing-actions">
-          <EmailSignup compact />
-          <DonateButton />
+        <div className="closing-geometry" aria-hidden="true">
+          <span className="closing-orbit closing-orbit-one" />
+          <span className="closing-orbit closing-orbit-two" />
+          <span className="closing-node closing-node-one" />
+          <span className="closing-node closing-node-two" />
+          <span className="closing-node closing-node-three" />
+        </div>
+        <div className="closing-content">
+          <Eyebrow>{closing.eyebrow}</Eyebrow>
+          <h2>
+            Help us build the
+            <br />
+            <em>next first response.</em>
+          </h2>
+          <p>{closing.body}</p>
+          <Link href="/faq" className="text-link closing-faq">
+            Read frequently asked questions <Arrow />
+          </Link>
+          <div className="closing-actions">
+            <EmailSignup compact />
+            <DonateButton />
+          </div>
+          <SocialLinks />
         </div>
       </section>
     </>

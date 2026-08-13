@@ -1,4 +1,5 @@
 import { site } from "./content";
+import { canonicalSiteUrl } from "./metadata";
 
 export function StructuredData() {
   const data = [
@@ -6,17 +7,18 @@ export function StructuredData() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "MARDE, Inc.",
-      url: site.siteUrl,
-      logo: `${site.siteUrl}/brand/marde-logo-horizontal.png`,
+      url: canonicalSiteUrl,
+      logo: new URL("brand/marde-logo-stacked.png", canonicalSiteUrl).toString(),
       description:
         "MARDE is developing autonomous first-response systems to help close the gap before professional emergency help arrives.",
+      email: site.email,
       sameAs: [site.instagram],
     },
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: site.name,
-      url: site.siteUrl,
+      url: canonicalSiteUrl,
       description:
         "MARDE is developing autonomous first-response systems to help close the gap before professional emergency help arrives.",
     },

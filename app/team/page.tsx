@@ -26,7 +26,7 @@ export default function TeamPage() {
       </section>
       <section className="team-grid">
         {team.map((member) => (
-          <article key={member.name} className="member">
+          <article key={member.name} className="member" tabIndex={0}>
             <div className="portrait" aria-hidden="true">{member.initials}</div>
             <p className="role">{member.title}</p>
             <h2>{member.name}</h2>

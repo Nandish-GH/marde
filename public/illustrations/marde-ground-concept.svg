@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">MARDE Ground robotic ground system design concept</title>
+  <desc id="desc">A non-operational editorial line drawing of a modular four-wheel ground concept with technical registration marks.</desc>
+  <g fill="none" stroke="#245f68" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 260h636M400 72v376" opacity=".16"/>
+    <path d="M112 124h54m-54 0v54M688 124h-54m54 0v54M112 396h54m-54 0v-54M688 396h-54m54 0v-54" opacity=".5"/>
+    <path d="M196 358h408" stroke-dasharray="2 10" opacity=".42"/>
+    <path d="M225 220h350l52 84H173z" fill="#dff0e8" stroke-width="4"/>
+    <path d="m267 220 34-72h198l34 72" fill="#c7e0d8" stroke-width="4"/>
+    <path d="M330 148v72M470 148v72" stroke-width="2"/>
+    <path d="M307 174h186" stroke-dasharray="4 9" opacity=".6"/>
+    <path d="M304 202h192M326 194v16m49-16v16m50-16v16m49-16v16" stroke-width="2" opacity=".78"/>
+    <rect x="344" y="109" width="112" height="39" fill="#eaf4f0" stroke-width="3"/>
+    <path d="M376 128h48M400 116v24" stroke-width="3"/>
+    <path d="M198 268h404M238 304h324" stroke-width="2"/>
+    <path d="M500 236h67l28 48h-95zM548 248h22" stroke-width="2" opacity=".82"/>
+    <path d="M602 282h34l18 22h-27" stroke-width="3"/>
+    <circle cx="246" cy="334" r="63" fill="#d6ebe4" stroke-width="4"/>
+    <circle cx="554" cy="334" r="63" fill="#d6ebe4" stroke-width="4"/>
+    <circle cx="246" cy="334" r="8" fill="#245f68"/>
+    <circle cx="554" cy="334" r="8" fill="#245f68"/>
+    <path d="M173 304h-48m502 0h48M309 386h182" opacity=".6"/>
+    <path d="M114 222h74M612 222h74" stroke-dasharray="2 8" opacity=".55"/>
+    <path d="M516 188h34v20h-12" opacity=".62"/>
+  </g>
+  <g fill="#245f68" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="2">
+    <text x="112" y="110">GROUND / FORM STUDY</text>
+    <text x="112" y="420">MODULAR CONCEPT — IN DESIGN</text>
+    <text x="621" y="420">G–01</text>
+  </g>
+</svg>

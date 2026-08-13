@@ -36,7 +36,7 @@ const questions = [
 
 export default function FaqPage() {
   return (
-    <>
+    <div className="accordion-page">
       <section className="page-hero compact faq-hero">
         <Eyebrow>Frequently asked questions</Eyebrow>
         <h1>
@@ -53,6 +53,6 @@ export default function FaqPage() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

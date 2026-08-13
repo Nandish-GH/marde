@@ -14,34 +14,41 @@ const revealSelector = [
   ".page-hero > p",
   ".page-hero > .text-link",
   ".page-hero > .button",
-  ".not-found-copy",
+  ".not-found-copy > .eyebrow",
+  ".not-found-copy > h1",
+  ".not-found-copy > p",
+  ".not-found-copy > .actions",
   ".confirmation-copy",
-  ".not-found-drone",
   ".section-intro",
   ".section-heading",
   ".stats",
   ".system-grid",
+  ".process-intro",
+  ".process-step",
   ".team-teaser > div",
   ".home-faq-heading",
   ".home-faq-list",
-  ".closing > .eyebrow",
-  ".closing > h2",
-  ".closing > p",
-  ".closing > .text-link",
-  ".closing > .closing-actions",
+  ".closing-content > .eyebrow",
+  ".closing-content > h2",
+  ".closing-content > p",
+  ".closing-content > .text-link",
+  ".closing-content > .closing-actions",
   ".tech-block",
   ".roadmap > div",
   ".phase-list article",
   ".regulatory > .eyebrow",
   ".regulatory > h2",
   ".regulatory > div",
+  ".regulatory > p",
   ".story > div",
   ".mission-statement > *",
   ".funding > div",
   ".member",
   ".support-grid article",
   ".newsletter > *",
-  ".readable-content",
+  ".accordion-page .accordion-item",
+  ".accordion-page .faq-contact",
+  ".policy-copy",
 ].join(",");
 
 export function SiteMotion() {
@@ -49,6 +56,79 @@ export function SiteMotion() {
   const cursorPointRef = useRef<HTMLDivElement>(null);
   const cursorRingRef = useRef<HTMLDivElement>(null);
   const cursorTrailRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    let cancelled = false;
+    let menuOpen = document.documentElement.classList.contains("mobile-menu-open");
+    let lenis: import("lenis").default | undefined;
+
+    async function initializeLenis() {
+      if (cancelled || !finePointer.matches || lenis) return;
+
+      if (!document.documentElement.classList.contains("marde-intro-complete")) {
+        return;
+      }
+
+      try {
+        const { default: Lenis } = await import("lenis");
+        if (cancelled || !finePointer.matches) return;
+
+        lenis = new Lenis({
+          autoRaf: true,
+          smoothWheel: true,
+          lerp: 0.16,
+          wheelMultiplier: 1,
+          syncTouch: false,
+          anchors: true,
+          stopInertiaOnNavigate: true,
+          overscroll: true,
+          allowNestedScroll: false,
+          autoResize: true,
+          respectReducedMotion: false,
+        });
+        if (menuOpen) lenis.stop();
+      } catch {
+        lenis = undefined;
+      }
+    }
+
+    function handleIntroComplete() {
+      if (finePointer.matches) void initializeLenis();
+    }
+
+    function handleMenuState(event: Event) {
+      menuOpen = Boolean((event as CustomEvent<{ open?: boolean }>).detail?.open);
+      if (menuOpen) {
+        lenis?.stop();
+      } else {
+        lenis?.start();
+      }
+    }
+
+    function syncLenisMode() {
+      if (finePointer.matches) {
+        void initializeLenis();
+        return;
+      }
+
+      lenis?.destroy();
+      lenis = undefined;
+    }
+
+    syncLenisMode();
+    finePointer.addEventListener("change", syncLenisMode);
+    window.addEventListener("marde:intro-complete", handleIntroComplete);
+    window.addEventListener("marde:menu-state", handleMenuState);
+
+    return () => {
+      cancelled = true;
+      lenis?.destroy();
+      finePointer.removeEventListener("change", syncLenisMode);
+      window.removeEventListener("marde:intro-complete", handleIntroComplete);
+      window.removeEventListener("marde:menu-state", handleMenuState);
+    };
+  }, []);
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -145,7 +225,7 @@ export function SiteMotion() {
         const interactive = target?.closest(
           'a, button, select, [role="button"], [tabindex]:not([tabindex="-1"])',
         );
-        const darkSurface = target?.closest(".footer");
+        const darkSurface = target?.closest(".footer, .closing");
 
         root.classList.toggle("custom-cursor-interactive", Boolean(interactive && !nativeField));
         root.classList.toggle("custom-cursor-native-field", Boolean(nativeField));
@@ -216,8 +296,101 @@ export function SiteMotion() {
   }, [pathname]);
 
   useEffect(() => {
+    const counters = Array.from(document.querySelectorAll<HTMLElement>("[data-count-up]"));
+    const animations = new Map<HTMLElement, number>();
+    const delays = new Map<HTMLElement, ReturnType<typeof setTimeout>>();
+    const counterOrder = new Map(counters.map((counter, index) => [counter, index]));
+    const visibleCounters = new Set<HTMLElement>();
+    const startedCounters = new Set<HTMLElement>();
+    let introComplete = document.documentElement.classList.contains("marde-intro-complete");
+
+    function animateCounter(element: HTMLElement) {
+      const finalValue = element.dataset.countUp ?? element.textContent ?? "";
+      const match = finalValue.match(/^(\d+(?:\.\d+)?)(.*)$/);
+      if (!match) return;
+
+      const target = Number(match[1]);
+      const decimals = match[1].includes(".") ? match[1].split(".")[1].length : 0;
+      const suffix = match[2];
+      const duration = 1650;
+      let lastRendered = "";
+
+      function beginAnimation() {
+        delays.delete(element);
+        const startedAt = performance.now();
+
+        function frame(now: number) {
+          const progress = Math.min((now - startedAt) / duration, 1);
+          const eased = 1 - (1 - progress) ** 3;
+          const rendered = `${(target * eased).toFixed(decimals)}${suffix}`;
+          if (rendered !== lastRendered) {
+            element.textContent = rendered;
+            lastRendered = rendered;
+          }
+
+          if (progress < 1) {
+            animations.set(element, window.requestAnimationFrame(frame));
+            return;
+          }
+
+          element.textContent = finalValue;
+          animations.delete(element);
+        }
+
+        animations.set(element, window.requestAnimationFrame(frame));
+      }
+
+      element.textContent = `${(0).toFixed(decimals)}${suffix}`;
+      const delay = (counterOrder.get(element) ?? 0) * 100;
+      delays.set(element, setTimeout(beginAnimation, delay));
+    }
+
+    function maybeStartCounter(element: HTMLElement) {
+      if (!introComplete || !visibleCounters.has(element) || startedCounters.has(element)) return;
+      startedCounters.add(element);
+      observer.unobserve(element);
+      animateCounter(element);
+    }
+
+    function handleIntroComplete() {
+      introComplete = true;
+      visibleCounters.forEach(maybeStartCounter);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const element = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            visibleCounters.add(element);
+            maybeStartCounter(element);
+          } else {
+            visibleCounters.delete(element);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8%", threshold: 0.35 },
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+    window.addEventListener("marde:intro-complete", handleIntroComplete);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("marde:intro-complete", handleIntroComplete);
+      delays.forEach((delay) => clearTimeout(delay));
+      animations.forEach((frame) => window.cancelAnimationFrame(frame));
+      counters.forEach((counter) => {
+        counter.textContent = counter.dataset.countUp ?? counter.textContent;
+      });
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     const root = document.documentElement;
     const elements = Array.from(document.querySelectorAll<HTMLElement>(revealSelector));
+    let frame = 0;
+    let observing = false;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -231,12 +404,24 @@ export function SiteMotion() {
 
     root.classList.add("motion-enhanced");
     elements.forEach((element) => element.classList.add("reveal-ready"));
-    const frame = window.requestAnimationFrame(() => {
-      elements.forEach((element) => observer.observe(element));
-    });
+
+    function startObserving() {
+      if (observing) return;
+      observing = true;
+      frame = window.requestAnimationFrame(() => {
+        elements.forEach((element) => observer.observe(element));
+      });
+    }
+
+    if (root.classList.contains("marde-intro-complete")) {
+      startObserving();
+    } else {
+      window.addEventListener("marde:intro-complete", startObserving, { once: true });
+    }
 
     return () => {
       window.cancelAnimationFrame(frame);
+      window.removeEventListener("marde:intro-complete", startObserving);
       observer.disconnect();
       elements.forEach((element) => element.classList.remove("reveal-ready", "is-revealed"));
       root.classList.remove("motion-enhanced");
