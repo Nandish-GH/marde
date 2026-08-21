@@ -184,11 +184,10 @@ export const technology = {
     workflow: "It is being designed to support patient triage, scene and patient mapping, diagnostic confirmation workflows, supply coordination, and human authorization of actions performed by MARDE systems.",
     authority: "Consequential medical actions remain human-authorized. Future trained models may assist operators, but Nexus is being designed so qualified people retain final decision authority.",
     capabilities: [
-      ["01", "TRIAGE", "Support real-time patient triage and prioritization workflows."],
-      ["02", "MAP", "Maintain scene, site, and patient context for coordinated response."],
-      ["03", "CONFIRM", "Support diagnostic confirmation workflows between field systems and human operators."],
-      ["04", "SUPPLY", "Coordinate available medical supplies and delivery requirements."],
-      ["05", "AUTHORIZE", "Keep consequential actions such as medical delivery and CPR within a human authorization loop."],
+      ["01", "COORDINATE", "Unify dispatch, system assets, and mission information in one planned workflow."],
+      ["02", "MONITOR", "Provide operator visibility into Air, Ground, and payload status."],
+      ["03", "AUTHORIZE", "Keep consequential actions within a qualified human authorization loop."],
+      ["04", "HANDOFF", "Support transition to EMS for continued professional care."],
     ] as const,
   },
   phases: [

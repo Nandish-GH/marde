@@ -2,7 +2,8 @@
 
 import { ValidationError, useForm } from "@formspree/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { trackAnalyticsEvent } from "./analytics";
 
 const FORMSPREE_FORM_ID = "mrpzqyak";
 
@@ -18,12 +19,15 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
   const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
+  const successTracked = useRef(false);
 
   useEffect(() => {
-    if (state.succeeded) {
+    if (state.succeeded && !successTracked.current) {
+      successTracked.current = true;
+      trackAnalyticsEvent("email_signup_success", { form_location: compact ? "compact" : "support" });
       router.push("/thank-you/");
     }
-  }, [router, state.succeeded]);
+  }, [compact, router, state.succeeded]);
 
   if (state.succeeded) {
     return <SubmissionStatus submitting={false} succeeded />;
@@ -65,9 +69,12 @@ export function ContactForm() {
   const nameInvalid = (state.errors?.getFieldErrors("name").length ?? 0) > 0;
   const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
   const messageInvalid = (state.errors?.getFieldErrors("message").length ?? 0) > 0;
+  const successTracked = useRef(false);
 
   useEffect(() => {
-    if (state.succeeded) {
+    if (state.succeeded && !successTracked.current) {
+      successTracked.current = true;
+      trackAnalyticsEvent("contact_click", { contact_method: "form_success" });
       router.push("/thank-you/");
     }
   }, [router, state.succeeded]);

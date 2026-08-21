@@ -139,7 +139,6 @@ export function HomeScrollMotion() {
       const homeNexus = document.querySelector<HTMLElement>(".home-nexus");
       const homeNexusStory = homeNexus?.querySelector<HTMLElement>("[data-nexus-story]");
       if (homeNexus && homeNexusStory) {
-        homeNexusStory.classList.add("nexus-motion-ready");
         homeNexusTimeline = createTimeline({ autoplay: false, defaults: { ease: "out(3)" } })
           .add(homeNexus.querySelectorAll(".nexus-card-copy > :not(.system-card-cta)"), {
             opacity: [0, 1], y: [mobile ? 13 : 22, 0], duration: 430, delay: stagger(45),
@@ -147,30 +146,9 @@ export function HomeScrollMotion() {
           .add(homeNexus.querySelectorAll(".nexus-card-copy > .system-card-cta"), {
             opacity: [0, 1], duration: 360,
           }, 180)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="endpoints"] > *'), {
-            opacity: [0, 1], y: [12, 0], duration: 400, delay: stagger(65),
-          }, 100)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="context"]'), {
-            opacity: [0, 1], y: [8, 0], duration: 370, delay: stagger(50),
-          }, 150)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="inbound"] i'), {
-            scale: [0, 1], opacity: [0.2, 1], duration: 360,
-          }, 320)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="core"]'), {
-            opacity: [0, 1], scale: [0.96, 1], duration: 430,
-          }, 470)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="human-path"] i'), {
-            scale: [0, 1], opacity: [0.2, 1], duration: 350,
-          }, 630)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="authorization"]'), {
-            opacity: [0, 1], scale: [0.97, 1], duration: 430,
-          }, 770)
-          .add(homeNexusStory.querySelectorAll('[data-nexus-stage="authorized"] i'), {
-            scale: [0, 1], opacity: [0.2, 1], duration: 320,
-          }, 920)
-          .add(homeNexusStory.querySelectorAll('.nexus-outcome[data-nexus-stage="authorized"]'), {
-            opacity: [0, 1], y: [7, 0], duration: 340,
-          }, 1030) as Seekable;
+          .add(homeNexusStory, {
+            opacity: [0, 1], y: [mobile ? 10 : 16, 0], duration: 520,
+          }, 120) as Seekable;
         animations.push(homeNexusTimeline);
       }
 
@@ -292,7 +270,6 @@ export function HomeScrollMotion() {
         step.style.removeProperty("--process-step-progress");
       });
       document.querySelectorAll(".is-scene-active").forEach((scene) => scene.classList.remove("is-scene-active"));
-      document.querySelector(".home-nexus [data-nexus-story]")?.classList.remove("nexus-motion-ready");
       root.classList.remove("home-scroll-ready");
     };
   }, []);

@@ -6,7 +6,7 @@ import { home, statistics, team } from "./content";
 import { HeroMotion } from "./hero-motion";
 import { HeroVisual } from "./hero-visual";
 import { HomeScrollMotion } from "./home-scroll-motion";
-import { NexusArchitecture } from "./nexus-architecture";
+import { HomepageNexusPreview } from "./homepage-nexus-preview";
 
 const homeFaqs = [
   {
@@ -128,7 +128,7 @@ export default function Home() {
               {solution.ground.link} <Arrow />
             </span>
           </Link>
-          <Link href="/technology/#nexus" className="system-card nexus-card home-nexus" id="home-nexus">
+          <article className="system-card nexus-card home-nexus" id="home-nexus">
             <div className="nexus-card-copy">
               <p className="card-code">{solution.nexus.code.replace("MARDE ", "")}</p>
               <div className="system-name nexus-card-name" aria-label={solution.nexus.name}>
@@ -140,12 +140,12 @@ export default function Home() {
                 <em>{solution.nexus.title[1]}</em>
               </h3>
               <p>{solution.nexus.body}</p>
-              <span className="system-card-cta">
+              <Link className="system-card-cta" href="/technology/#nexus">
                 {solution.nexus.link} <Arrow />
-              </span>
+              </Link>
             </div>
-            <NexusArchitecture compact />
-          </Link>
+            <HomepageNexusPreview />
+          </article>
         </div>
       </section>
 

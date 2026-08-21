@@ -5,7 +5,6 @@ import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { technology } from "../content";
 import { NexusArchitecture } from "../nexus-architecture";
-import { NexusMotion } from "../nexus-motion";
 
 export const metadata: Metadata = pageMetadata({
   title: "Technology",
@@ -19,7 +18,6 @@ export default function TechnologyPage() {
 
   return (
     <div className="technology-page">
-      <NexusMotion />
       <section className="page-hero technology-hero">
         <Eyebrow>{hero.eyebrow}</Eyebrow>
         <h1>
