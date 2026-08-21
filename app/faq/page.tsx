@@ -30,7 +30,7 @@ const questions = [
   {
     question: "What stage is MARDE at?",
     answer:
-      "MARDE Air and MARDE Ground are concepts in design. They are not finished or deployed products. Current work is focused on thoughtful early-stage design, preparation, and research and development.",
+      "MARDE is pre-seed, pre-prototype, and pre-revenue. Air, Ground, Nexus, and intervention modules are early-stage concepts under development, not finished or deployed products.",
   },
 ] as const;
 

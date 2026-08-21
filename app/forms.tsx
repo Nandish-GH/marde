@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { trackAnalyticsEvent } from "./analytics";
 
-const FORMSPREE_FORM_ID = "mrpzqyak";
+const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "mrpzqyak";
 
 function SubmissionStatus({ submitting, succeeded }: { submitting: boolean; succeeded: boolean }) {
   return (

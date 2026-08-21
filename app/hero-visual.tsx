@@ -1,9 +1,3 @@
-import { HeroRive } from "./hero-rive";
-
-/**
- * Video-ready hero media slot. Replace the temporary scene inside HeroRive with
- * a poster/video layer later; the surrounding layout and scroll wrapper stay put.
- */
 export function HeroVisual() {
   return (
     <div
@@ -11,8 +5,8 @@ export function HeroVisual() {
       role="img"
       aria-label="Atmospheric MARDE aerospace concept study"
     >
-      <HeroRive assetSrc={null}>
-        <div className="hero-visual-scroll temporary-hero-visual">
+      <div className="hero-visual-stage">
+        <div className="hero-visual-scroll atmospheric-hero-visual">
           <div className="hero-media-slot" aria-hidden="true">
             <div className="visual-depth-layer visual-layer-light">
               <span className="atmosphere-wash" />
@@ -54,7 +48,7 @@ export function HeroVisual() {
 
           <div className="scroll-cue" aria-hidden="true"><span>SCROLL TO EXPLORE</span><i /></div>
         </div>
-      </HeroRive>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Accordion } from "./accordion";
-import { Arrow, DonateButton, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "./components";
+import { DonateButton, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "./components";
 import { home, statistics, team } from "./content";
 import { HeroMotion } from "./hero-motion";
 import { HeroVisual } from "./hero-visual";
@@ -12,17 +12,17 @@ const homeFaqs = [
   {
     question: "What is MARDE?",
     answer:
-      "MARDE is developing autonomous first-response systems intended to help close the gap between an emergency and the arrival of professional help.",
+      "MARDE is developing an integrated robotic emergency-response platform intended to begin physical intervention before EMS arrival.",
   },
   {
     question: "Is MARDE currently operational?",
     answer:
-      "No. MARDE Air and MARDE Ground are early-stage concepts in design. Neither system is a finished, tested, or deployed product.",
+      "No. MARDE is pre-prototype and its Air, Ground, Nexus, and intervention-module concepts are not finished or deployed products.",
   },
   {
     question: "What are MARDE Air and MARDE Ground?",
     answer:
-      "MARDE Air is an aerial first-response concept; MARDE Ground is a modular autonomous ground-robot concept. Both are intended to complement, not replace, professional emergency response.",
+      "MARDE Air is intended for rapid aerial transport; MARDE Ground is intended for final approach and constrained access. Nexus coordinates the response with a human in the loop, and modular intervention capabilities are intended to support the scene. The platform is designed to complement, not replace, professional emergency response.",
   },
   {
     question: "How can I support MARDE?",
@@ -52,7 +52,7 @@ export default function Home() {
               {hero.primaryCta}
             </Link>
             <Link className="button button-quiet" href={hero.secondaryHref}>
-              {hero.secondaryCta} <Arrow />
+              {hero.secondaryCta}
             </Link>
           </div>
           <div className="hero-signals" aria-label="MARDE priorities">
@@ -66,7 +66,7 @@ export default function Home() {
             <article>
               <span className="signal-icon signal-response" aria-hidden="true">+</span>
               <div>
-                <strong>Autonomous First Response</strong>
+                <strong>Human-Directed Response</strong>
                 <p>Designed to deliver emergency capability before traditional responders arrive.</p>
               </div>
             </article>
@@ -106,7 +106,7 @@ export default function Home() {
             </h3>
             <p>{solution.air.body}</p>
             <span className="system-card-cta">
-              {solution.air.link} <Arrow />
+              {solution.air.link}
             </span>
           </Link>
           <Link href="/technology/#ground" className="system-card ground">
@@ -125,7 +125,7 @@ export default function Home() {
             </h3>
             <p>{solution.ground.body}</p>
             <span className="system-card-cta">
-              {solution.ground.link} <Arrow />
+              {solution.ground.link}
             </span>
           </Link>
           <article className="system-card nexus-card home-nexus" id="home-nexus">
@@ -141,7 +141,7 @@ export default function Home() {
               </h3>
               <p>{solution.nexus.body}</p>
               <Link className="system-card-cta" href="/technology/#nexus">
-                {solution.nexus.link} <Arrow />
+                {solution.nexus.link}
               </Link>
             </div>
             <HomepageNexusPreview />
@@ -205,7 +205,7 @@ export default function Home() {
             <SplitTitle lines={teamTeaser.title} />
           </h2>
           <Link href="/team" className="text-link">
-            {teamTeaser.link} <Arrow />
+            {teamTeaser.link}
           </Link>
         </div>
         <div className="initials">
@@ -226,7 +226,7 @@ export default function Home() {
           <Eyebrow>Frequently asked questions</Eyebrow>
           <h2>Questions, answered.</h2>
           <Link href="/faq" className="text-link">
-            Read all FAQs <Arrow />
+            Read all FAQs
           </Link>
         </div>
         <Accordion items={homeFaqs} variant="home" className="home-faq-list" defaultOpen={[0]} single />
@@ -249,7 +249,7 @@ export default function Home() {
           </h2>
           <p>{closing.body}</p>
           <Link href="/faq" className="text-link closing-faq">
-            Read frequently asked questions <Arrow />
+            Read frequently asked questions
           </Link>
           <div className="closing-actions">
             <EmailSignup compact />

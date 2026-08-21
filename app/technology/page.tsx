@@ -8,9 +8,9 @@ import { NexusArchitecture } from "../nexus-architecture";
 
 export const metadata: Metadata = pageMetadata({
   title: "Technology",
-  description: "MARDE Air, MARDE Ground, and MARDE Nexus are first-response hardware and coordination concepts in development.",
+  description: "MARDE's early-stage platform brings together Air, Ground, intervention modules, and human-in-the-loop Nexus coordination.",
   path: "/technology",
-  keywords: ["emergency response robotics", "response coordination software", "autonomous aerial response", "ground robot concept"],
+  keywords: ["emergency response robotics", "human-in-the-loop coordination", "aerial response concept", "ground robot concept"],
 });
 
 export default function TechnologyPage() {

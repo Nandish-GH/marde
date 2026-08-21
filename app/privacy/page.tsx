@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
       <section className="section readable-section">
         <div className="policy-copy readable-content">
-          <p className="policy-updated">Last updated: August 11, 2026</p>
+          <p className="policy-updated">Last updated: August 20, 2026</p>
 
           <h2>Information you choose to provide</h2>
           <p>
@@ -38,9 +38,15 @@ export default function PrivacyPage() {
 
         <h2>Analytics and similar technologies</h2>
         <p>
-          This website does not currently use website analytics and does not set its own advertising or tracking
-          cookies. Third-party services may use cookies or similar technologies under their own policies when you
-          follow a link to or submit information through those services.
+          When a Google Analytics 4 measurement ID is configured, this website uses Google Analytics to understand
+          aggregate site usage and selected interactions such as support, contact, signup, and Technology-page
+          engagement. Google Analytics may use cookies or similar technologies under Google&apos;s policies. When no
+          measurement ID is configured, the analytics script is not loaded.
+        </p>
+        <p>
+          Campaign parameters in a URL may be stored in your browser&apos;s session storage for the current session and
+          included with analytics events when analytics is configured. The site does not add those parameters to
+          internal links.
         </p>
 
         <h2>Other third-party services</h2>
@@ -61,7 +67,7 @@ export default function PrivacyPage() {
         <p>
           Submitted information is kept only as long as reasonably needed for the purpose for which it was provided,
           operational records, and applicable legal obligations. You may ask about, correct, or request deletion of
-          information you submitted by emailing <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. Some records may
+          information you submitted by emailing <a href={`mailto:${site.email}`}>{site.email}</a>. Some records may
           need to be retained where required by law or for legitimate recordkeeping.
         </p>
 

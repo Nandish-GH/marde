@@ -21,12 +21,13 @@ export const metadata: Metadata = {
     template: "%s | MARDE",
   },
   description:
-    "MARDE is building autonomous first-response systems to help close the gap before help arrives.",
+    "MARDE is developing an early-stage robotic emergency-response platform spanning Air, Ground, intervention modules, and human-in-the-loop coordination.",
   applicationName: site.name,
   keywords: [
     "MARDE",
     "emergency response technology",
-    "autonomous first response",
+    "robotic emergency response",
+    "human-in-the-loop coordination",
     "EMS innovation",
     "robotics in development",
   ],
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   openGraph: {
     title: `MARDE | ${site.tagline}`,
-    description: "Autonomous first-response systems in development.",
+    description: "An integrated robotic emergency-response platform in early-stage development.",
     url: canonicalSiteUrl,
     type: "website",
     siteName: site.name,
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `MARDE | ${site.tagline}`,
-    description: "Autonomous first-response systems in development.",
+    description: "An integrated robotic emergency-response platform in early-stage development.",
     images: [{ url: socialImage.url, alt: socialImage.alt }],
   },
 };

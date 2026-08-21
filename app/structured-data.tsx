@@ -10,9 +10,9 @@ export function StructuredData() {
       url: canonicalSiteUrl,
       logo: new URL("brand/marde-logo-stacked.png", canonicalSiteUrl).toString(),
       description:
-        "MARDE is developing autonomous first-response systems to help close the gap before professional emergency help arrives.",
+        "MARDE is developing an early-stage robotic emergency-response platform spanning Air, Ground, intervention modules, and human-in-the-loop coordination.",
       email: site.email,
-      sameAs: [site.instagram],
+      sameAs: [site.instagram, site.tiktok],
     },
     {
       "@context": "https://schema.org",
@@ -20,7 +20,7 @@ export function StructuredData() {
       name: site.name,
       url: canonicalSiteUrl,
       description:
-        "MARDE is developing autonomous first-response systems to help close the gap before professional emergency help arrives.",
+        "MARDE is developing an early-stage robotic emergency-response platform spanning Air, Ground, intervention modules, and human-in-the-loop coordination.",
     },
   ];
 

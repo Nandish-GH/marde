@@ -82,10 +82,6 @@ export function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Arrow() {
-  return null;
-}
-
 export function SplitTitle({ lines, italicIndex }: { lines: string[]; italicIndex?: number }) {
   return (
     <>

@@ -5168,7 +5168,7 @@ html.custom-cursor-dark-surface .cursor-click-pulse {
   }
 }
 
-/* Homepage hero: autonomous response path */
+/* Homepage hero: integrated response path */
 .hero {
   grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
   min-height: min(860px, calc(100svh - 72px));
@@ -5915,10 +5915,9 @@ html.custom-cursor-dark-surface .cursor-click-pulse {
 
 /* Homepage cinematic scroll ownership:
    Lenis = scroll feel; Anime.js = scroll/entrance choreography;
-   Rive = optional hero-internal animation; CSS = ambient/interaction loops;
-   the existing RAF loop remains the sole owner of stat count-up values. */
+   CSS = ambient/interaction loops; the existing RAF loop remains the sole
+   owner of stat count-up values. */
 .hero-visual-stage,
-.hero-static-fallback,
 .hero-visual-scroll {
   position: absolute;
   inset: 0;
@@ -5927,31 +5926,6 @@ html.custom-cursor-dark-surface .cursor-click-pulse {
 .hero-visual-stage {
   z-index: 0;
 }
-
-.hero-static-fallback,
-.hero-rive-canvas {
-  transition: opacity 0.4s ease-out;
-}
-
-.hero-static-fallback {
-  opacity: 1;
-}
-
-.hero-rive-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  opacity: 0;
-}
-
-.hero-rive-canvas > div,
-.hero-rive-canvas canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.hero-visual-stage.rive-is-ready .hero-static-fallback { opacity: 0; }
-.hero-visual-stage.rive-is-ready .hero-rive-canvas { opacity: 1; }
 
 .hero-visual-scroll {
   will-change: transform;
@@ -6072,7 +6046,7 @@ html.custom-cursor-dark-surface .cursor-click-pulse {
   mask-image: none;
 }
 
-.temporary-hero-visual {
+.atmospheric-hero-visual {
   isolation: isolate;
   overflow: hidden;
   background: #dcebee;

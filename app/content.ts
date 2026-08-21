@@ -1,9 +1,7 @@
 export const site = {
   name: "MARDE",
   tagline: "Response Starts Before Arrival",
-  email: "hello@mardeinc.com",
-  contactEmail: "contact@mardeinc.com",
-  teamEmail: "team@mardeinc.com",
+  email: "team@mardeinc.com",
   instagram: "https://www.instagram.com/marde.inc",
   instagramHandle: "@marde.inc",
   tiktok: "https://www.tiktok.com/@marde.inc",
@@ -26,7 +24,7 @@ export const team = [
   {
     initials: "NP",
     name: "Nandish Panchal",
-    title: "President & CEO",
+    title: "President & Chief Executive Officer",
     bio: "Founder; leads company strategy and operations.",
   },
   {
@@ -44,18 +42,18 @@ export const team = [
   {
     initials: "AM",
     name: "Arjun Muthuchetty",
-    title: "Drone Engineer",
+    title: "Lead Drone Engineer",
     bio: "Leads mechanical design and drone engineering for MARDE Air.",
   },
   {
     initials: "SB",
     name: "Saathvika Beerelli",
-    title: "Social Media",
+    title: "Director of Community Outreach",
     bio: "Manages MARDE's public community presence (@marde.inc).",
   },
 ] as const;
 
-/** Search-verified via CARES 2024 Metrics Summary (May 2025) and AHA guidelines citing CARES data. */
+/** Values and definitions are sourced directly from the CARES 2024 Metrics Summary (May 2025). */
 export const statistics = [
   {
     value: "6.4 min",
@@ -82,10 +80,10 @@ export const statistics = [
 
 export const home = {
   hero: {
-    eyebrow: "Autonomous emergency response · In development",
+    eyebrow: "Integrated robotic emergency response · In development",
     headline: ["Response starts", "before", "arrival."],
     subhead:
-      "MARDE is building autonomous first-response systems to close the gap between collapse and when help arrives.",
+      "MARDE is developing an integrated robotic emergency-response platform intended to begin physical intervention before EMS arrival.",
     primaryCta: "Support MARDE",
     secondaryCta: "Learn About the Technology",
     secondaryHref: "/technology",
@@ -98,17 +96,17 @@ export const home = {
   },
   solution: {
     eyebrow: "In development",
-    title: ["Three parts.", "One response system."],
+    title: ["One platform.", "A coordinated response."],
     air: {
       code: "01 / AIR",
       name: "MARDE Air",
-      body: "An aerial first-response concept designed to reach scenes ahead of traditional response.",
+      body: "A rapid aerial-transport concept designed to move response capability toward a scene.",
       link: "Explore MARDE Air",
     },
     ground: {
       code: "02 / GROUND",
       name: "MARDE Ground",
-      body: "A modular ground robot concept designed around adaptable payload modules.",
+      body: "A ground-response concept designed for final approach, constrained access, and delivery of modular intervention capabilities.",
       link: "Explore MARDE Ground",
     },
     nexus: {
@@ -159,20 +157,20 @@ export const technology = {
   hero: {
     eyebrow: "Technology · In development",
     title: ["Designed for the", "first critical minutes."],
-    body: "MARDE is exploring complementary aerial, ground, and coordination systems for broad emergency-response use. These systems remain concepts in development, not deployed products.",
+    body: "MARDE is developing an integrated platform spanning aerial transport, ground access, human-in-the-loop coordination, and modular intervention capabilities. These systems remain early-stage concepts, not deployed products.",
   },
   air: {
     eyebrow: "MARDE Air",
     title: "An aerial first-response concept.",
-    body: "MARDE Air is an autonomous aerial-response concept being designed to help bring critical equipment toward an emergency scene. Its intended role is to complement, not replace, professional EMS response.",
+    body: "MARDE Air is a rapid aerial-transport concept being designed to move critical response capability toward an emergency scene. Its intended role is to complement, not replace, professional EMS response.",
     status: "In design",
     regulatory:
-      "For future experimental development, MARDE is pursuing FAA registration under Part 47 and a Special Airworthiness Certificate in the Experimental Category (SAC-EC). In plain language: this pathway is intended for developing and evaluating an aircraft; it is not authorization for a deployed emergency service.",
+      "Because the planned Air V1 may exceed 55 pounds, MARDE has been evaluating an experimental airworthiness pathway for prototype R&D and controlled testing. Final FAA registration, certification, and operating requirements depend on the aircraft's final configuration and operation. This is a planned strategy, not approval for a deployed emergency service.",
   },
   ground: {
     eyebrow: "MARDE Ground",
     title: ["One chassis.", "Multiple possible roles."],
-    body: "MARDE Ground is a modular autonomous ground-robot concept in design. A shared chassis could support swappable payload modules, such as an AED, while allowing the underlying system to evolve deliberately.",
+    body: "MARDE Ground is a modular ground-response concept in design for final approach and constrained access. A shared chassis could support swappable intervention modules, such as an AED, while allowing the underlying system to evolve deliberately.",
     status: "In design",
     detail:
       "The modular approach is intentionally described at a high level while MARDE continues its design and intellectual-property work.",
@@ -203,8 +201,8 @@ export const technology = {
   regulatory: {
     eyebrow: "Long-term regulatory pathway",
     title: ["Two domains.", "A careful approach."],
-    faa: "Future aerial operation will require an aviation pathway appropriate to the work and operating context, including Part 47 registration and SAC-EC for experimental development.",
-    fda: "If MARDE develops medical-device payload modules, FDA 510(k) clearance would be a future-stage milestone, not a current status.",
+    faa: "MARDE is evaluating an experimental airworthiness pathway for prototype R&D and controlled testing of the planned Air V1. Final requirements depend on the aircraft's configuration and operation; MARDE has not received FAA approval for a deployed emergency service.",
+    fda: "Existing cleared or approved devices may be integrated where appropriate. Any additional pathway for a MARDE intervention module would depend on the module and its intended use; MARDE has not received FDA clearance or approval for a MARDE-developed module.",
   },
 };
 
