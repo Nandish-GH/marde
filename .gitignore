@@ -6,5 +6,7 @@ out/
 npm-debug.log*
 tmp/
 *.tsbuildinfo
+test-results/
+playwright-report/
 AGENTS.md
 CLAUDE.md

@@ -7,6 +7,8 @@ import { HeroMotion } from "./hero-motion";
 import { HeroVisual } from "./hero-visual";
 import { HomeScrollMotion } from "./home-scroll-motion";
 import { HomepageNexusPreview } from "./homepage-nexus-preview";
+import { Button } from "../components/ui/button";
+import { Section } from "../components/layout";
 
 const homeFaqs = [
   {
@@ -48,12 +50,8 @@ export default function Home() {
           </h1>
           <p className="hero-summary">{hero.subhead}</p>
           <div className="actions">
-            <Link className="button button-accent button-primary" href="/support/">
-              {hero.primaryCta}
-            </Link>
-            <Link className="button button-quiet" href={hero.secondaryHref}>
-              {hero.secondaryCta}
-            </Link>
+            <Button asChild variant="accent"><Link href="/support/">{hero.primaryCta}</Link></Button>
+            <Button asChild variant="quiet"><Link href={hero.secondaryHref}>{hero.secondaryCta}</Link></Button>
           </div>
           <div className="hero-signals" aria-label="MARDE priorities">
             <article>
@@ -73,8 +71,8 @@ export default function Home() {
             <article>
               <span className="signal-icon signal-reliable" aria-hidden="true">✓</span>
               <div>
-                <strong>Built for Real-World Reliability</strong>
-                <p>Safe, secure, and designed for emergency operations.</p>
+                <strong>Designed for Careful Validation</strong>
+                <p>Safety, security, and reliability remain core development goals.</p>
               </div>
             </article>
           </div>
@@ -82,7 +80,7 @@ export default function Home() {
         <HeroVisual />
       </section>
 
-      <section className="section solution">
+      <Section className="solution">
         <div className="section-heading">
           <Eyebrow>{solution.eyebrow}</Eyebrow>
           <h2>
@@ -147,9 +145,9 @@ export default function Home() {
             <HomepageNexusPreview />
           </article>
         </div>
-      </section>
+      </Section>
 
-      <section className="section stat-section">
+      <Section className="stat-section">
         <div className="section-intro">
           <Eyebrow>{problem.eyebrow}</Eyebrow>
           <h2>
@@ -173,9 +171,9 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="section process-story" aria-labelledby="process-story-title">
+      <Section className="process-story" aria-labelledby="process-story-title">
         <div className="process-intro">
           <Eyebrow>{processStory.eyebrow}</Eyebrow>
           <h2 id="process-story-title">{processStory.title}</h2>
@@ -196,9 +194,9 @@ export default function Home() {
             </li>
           ))}
         </ol>
-      </section>
+      </Section>
 
-      <section className="section team-teaser">
+      <Section className="team-teaser">
         <div>
           <Eyebrow>{teamTeaser.eyebrow}</Eyebrow>
           <h2>
@@ -219,9 +217,9 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="section home-faq">
+      <Section className="home-faq">
         <div className="section-heading home-faq-heading">
           <Eyebrow>Frequently asked questions</Eyebrow>
           <h2>Questions, answered.</h2>
@@ -230,7 +228,7 @@ export default function Home() {
           </Link>
         </div>
         <Accordion items={homeFaqs} variant="home" className="home-faq-list" defaultOpen={[0]} single />
-      </section>
+      </Section>
 
       <section className="closing">
         <div className="closing-geometry" aria-hidden="true">

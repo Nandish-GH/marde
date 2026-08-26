@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { team, teamPage } from "../content";
+import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
   title: "Team",
@@ -16,21 +16,15 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className="page-hero compact team-hero">
-        <Eyebrow>{hero.eyebrow}</Eyebrow>
-        <h1>
-          <SplitTitle lines={hero.title} italicIndex={1} />
-        </h1>
-        <p>{hero.body}</p>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} compact className="team-hero">
         <Link className="text-link page-inline-link" href="/support">How to Support</Link>
-      </section>
+      </PageHero>
       <section className="team-grid">
         {team.map((member) => (
           <article key={member.name} className="member" tabIndex={0}>
             <div className="portrait" aria-hidden="true">{member.initials}</div>
             <p className="role">{member.title}</p>
             <h2>{member.name}</h2>
-            <p>{member.bio}</p>
           </article>
         ))}
       </section>

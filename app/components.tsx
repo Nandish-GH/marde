@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { nav, site } from "./content";
+import { Button } from "../components/ui/button";
 
 export { ContactForm, EmailSignup } from "./forms";
 
 export function DonateButton({ className = "", label = "Support MARDE" }: { className?: string; label?: string }) {
   return (
-    <a className={`button button-accent ${className}`} href={site.donateUrl} target="_blank" rel="noreferrer">
-      {label}
-    </a>
+    <Button asChild variant="accent" className={className}>
+      <a href={site.donateUrl} target="_blank" rel="noreferrer">{label}</a>
+    </Button>
   );
 }
 

@@ -1,55 +1,30 @@
-export const site = {
-  name: "MARDE",
-  tagline: "Response Starts Before Arrival",
-  email: "team@mardeinc.com",
-  instagram: "https://www.instagram.com/marde.inc",
-  instagramHandle: "@marde.inc",
-  tiktok: "https://www.tiktok.com/@marde.inc",
-  tiktokHandle: "@marde.inc",
-  donateUrl:
-    process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
-    "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mardeinc.com",
-};
-
-export const nav = [
-  ["Home", "/"],
-  ["Technology", "/technology"],
-  ["Team", "/team"],
-  ["Mission", "/mission"],
-  ["Support", "/support"],
-] as const;
+export { nav, site } from "../lib/site-config";
 
 export const team = [
   {
     initials: "NP",
     name: "Nandish Panchal",
     title: "President & Chief Executive Officer",
-    bio: "Founder; leads company strategy and operations.",
   },
   {
     initials: "AS",
     name: "Aanya Shah",
     title: "Chief Medical Officer",
-    bio: "Leads medical strategy, clinical workflow guidance, and EMS/healthcare relationships.",
   },
   {
     initials: "SP",
     name: "Snehi Patel",
     title: "Chief Technology Officer",
-    bio: "Leads technology strategy across software, AI/ML, robotics, and autonomous systems engineering.",
   },
   {
     initials: "AM",
     name: "Arjun Muthuchetty",
     title: "Lead Drone Engineer",
-    bio: "Leads mechanical design and drone engineering for MARDE Air.",
   },
   {
     initials: "SB",
     name: "Saathvika Beerelli",
     title: "Director of Community Outreach",
-    bio: "Manages MARDE's public community presence (@marde.inc).",
   },
 ] as const;
 
@@ -72,7 +47,7 @@ export const statistics = [
   {
     value: "50.2%",
     label:
-      "of those arrests were unwitnessed by bystanders in 2024 CARES data; no one on scene to act before EMS arrives.",
+      "of those arrests were unwitnessed by bystanders in 2024 CARES data.",
     source: "CARES 2024 Metrics Summary",
     href: "https://mycares.net/sitepages/uploads/2025/CARES%2020250516%202024%20Metrics%20Summary.pdf",
   },
@@ -179,7 +154,7 @@ export const technology = {
     eyebrow: "03 / MARDE NEXUS",
     title: ["Coordinate the response", "through one system."],
     intro: "MARDE Nexus is the proposed coordination platform connecting MARDE hardware with professional emergency-response workflows.",
-    workflow: "It is being designed to support patient triage, scene and patient mapping, diagnostic confirmation workflows, supply coordination, and human authorization of actions performed by MARDE systems.",
+    workflow: "Potential workflows being explored include assembling scene context, coordinating supplies and system assets, and supporting qualified operators as they review and authorize actions performed by MARDE systems.",
     authority: "Consequential medical actions remain human-authorized. Future trained models may assist operators, but Nexus is being designed so qualified people retain final decision authority.",
     capabilities: [
       ["01", "COORDINATE", "Unify dispatch, system assets, and mission information in one planned workflow."],
@@ -189,9 +164,9 @@ export const technology = {
     ] as const,
   },
   phases: [
-    ["V1", "Manual operation", "A future starting point for supervised, human-directed evaluation."],
-    ["V1.5", "Semi-autonomous operation", "A future phase pursuing defined assistive capabilities with human oversight."],
-    ["V2", "Full autonomy", "A long-term goal, subject to safety validation and applicable approvals."],
+    ["V1", "Teleoperated", "A future starting point for supervised, human-directed evaluation."],
+    ["V1.5", "Assisted navigation", "A future phase pursuing defined navigation assistance with human oversight."],
+    ["V2", "Higher autonomy", "A long-term navigation goal, subject to safety validation and applicable approvals."],
   ] as const,
   roadmap: {
     eyebrow: "A future roadmap",
@@ -216,8 +191,8 @@ export const mission = {
     eyebrow: "Our starting point",
     title: ["A personal moment", "that revealed a gap."],
     paragraphs: [
-      "MARDE began with a personal experience: witnessing someone collapse when no bystanders were present. It made a response-time challenge visible in a very human way.",
-      "That moment raised a broader question: how might technology help shorten the gap before professional responders arrive, while respecting the crucial role of EMS and clinical care?",
+      "MARDE began with a question about the response gap: how might useful capability move toward an emergency scene before professional responders can arrive?",
+      "That question continues to shape a careful, staged approach designed to complement the crucial role of EMS and clinical care.",
     ],
   },
   statement: {

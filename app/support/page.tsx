@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ContactForm, EmailSignup, Eyebrow, SocialLinks, SplitTitle } from "../components";
+import { ContactForm, EmailSignup, Eyebrow, SocialLinks } from "../components";
 import { pageMetadata } from "../metadata";
 import { site, support } from "../content";
 import { StripeBuyButton } from "../stripe-buy-button";
+import { PageHero } from "../page-hero";
+import { Button } from "../../components/ui/button";
 
 export const metadata: Metadata = pageMetadata({
   title: "Support",
@@ -17,14 +19,9 @@ export default function SupportPage() {
 
   return (
     <div className="support-page">
-      <section className="page-hero compact support-hero">
-        <Eyebrow>{hero.eyebrow}</Eyebrow>
-        <h1>
-          <SplitTitle lines={hero.title} italicIndex={1} />
-        </h1>
-        <p>{hero.body}</p>
-        <Link className="button button-quiet" href="#contribute">Explore Support Options</Link>
-      </section>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} compact className="support-hero">
+        <Button asChild variant="quiet"><Link href="#contribute">Explore Support Options</Link></Button>
+      </PageHero>
 
       <section className="support-grid">
         <article id="contribute">

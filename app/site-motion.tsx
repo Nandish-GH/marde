@@ -48,12 +48,13 @@ export function SiteMotion() {
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let cancelled = false;
     let menuOpen = document.documentElement.classList.contains("mobile-menu-open");
     let lenis: import("lenis").default | undefined;
 
     async function initializeLenis() {
-      if (cancelled || !finePointer.matches || lenis) return;
+      if (cancelled || !finePointer.matches || reducedMotion.matches || lenis) return;
 
       if (!document.documentElement.classList.contains("marde-intro-complete")) {
         return;
@@ -61,7 +62,7 @@ export function SiteMotion() {
 
       try {
         const { default: Lenis } = await import("lenis");
-        if (cancelled || !finePointer.matches) return;
+        if (cancelled || !finePointer.matches || reducedMotion.matches) return;
 
         lenis = new Lenis({
           autoRaf: true,
@@ -74,7 +75,7 @@ export function SiteMotion() {
           overscroll: true,
           allowNestedScroll: false,
           autoResize: true,
-          respectReducedMotion: false,
+          respectReducedMotion: true,
         });
         if (menuOpen) lenis.stop();
       } catch {
@@ -96,7 +97,7 @@ export function SiteMotion() {
     }
 
     function syncLenisMode() {
-      if (finePointer.matches) {
+      if (finePointer.matches && !reducedMotion.matches) {
         void initializeLenis();
         return;
       }
@@ -107,6 +108,7 @@ export function SiteMotion() {
 
     syncLenisMode();
     finePointer.addEventListener("change", syncLenisMode);
+    reducedMotion.addEventListener("change", syncLenisMode);
     window.addEventListener("marde:intro-complete", handleIntroComplete);
     window.addEventListener("marde:menu-state", handleMenuState);
 
@@ -114,6 +116,7 @@ export function SiteMotion() {
       cancelled = true;
       lenis?.destroy();
       finePointer.removeEventListener("change", syncLenisMode);
+      reducedMotion.removeEventListener("change", syncLenisMode);
       window.removeEventListener("marde:intro-complete", handleIntroComplete);
       window.removeEventListener("marde:menu-state", handleMenuState);
     };
@@ -377,6 +380,7 @@ export function SiteMotion() {
 
   useEffect(() => {
     const root = document.documentElement;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const elements = Array.from(document.querySelectorAll<HTMLElement>(revealSelector)).filter(
       (element) => pathname !== "/" || !element.closest("[data-response-hero]"),
     );
@@ -395,6 +399,14 @@ export function SiteMotion() {
 
     root.classList.add("motion-enhanced");
     elements.forEach((element) => element.classList.add("reveal-ready"));
+
+    if (reducedMotion.matches) {
+      elements.forEach((element) => element.classList.add("is-revealed"));
+      return () => {
+        elements.forEach((element) => element.classList.remove("reveal-ready", "is-revealed"));
+        root.classList.remove("motion-enhanced");
+      };
+    }
 
     function startObserving() {
       if (observing) return;

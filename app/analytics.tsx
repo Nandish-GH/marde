@@ -5,6 +5,11 @@ import { useEffect } from "react";
 const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
 const attributionStorageKey = "marde_utm_attribution";
 
+type AnalyticsEventName =
+  | "contact_click"
+  | "email_signup_success"
+  | "support_rnd_click"
+  | "technology_nexus_engagement";
 type AnalyticsParameters = Record<string, string | number | boolean | undefined>;
 
 declare global {
@@ -21,7 +26,7 @@ function readAttribution() {
   }
 }
 
-export function trackAnalyticsEvent(eventName: string, parameters: AnalyticsParameters = {}) {
+export function trackAnalyticsEvent(eventName: AnalyticsEventName, parameters: AnalyticsParameters = {}) {
   if (typeof window === "undefined" || !window.gtag) return;
   window.gtag("event", eventName, { ...readAttribution(), ...parameters });
 }

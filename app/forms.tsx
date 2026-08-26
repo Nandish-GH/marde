@@ -4,8 +4,9 @@ import { ValidationError, useForm } from "@formspree/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { trackAnalyticsEvent } from "./analytics";
-
-const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "mrpzqyak";
+import { Button } from "../components/ui/button";
+import { Input, Label, Textarea } from "../components/ui/field";
+import { site } from "../lib/site-config";
 
 function SubmissionStatus({ submitting, succeeded }: { submitting: boolean; succeeded: boolean }) {
   return (
@@ -17,7 +18,7 @@ function SubmissionStatus({ submitting, succeeded }: { submitting: boolean; succ
 
 export function EmailSignup({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
-  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const [state, handleSubmit] = useForm(site.formspreeFormId);
   const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
   const successTracked = useRef(false);
 
@@ -35,8 +36,8 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
 
   return (
     <form className={`signup-form ${compact ? "compact" : ""}`} onSubmit={handleSubmit} noValidate={false}>
-      <label className="sr-only" htmlFor="newsletter-email">Email</label>
-      <input
+      <Label className="sr-only" htmlFor="newsletter-email">Email</Label>
+      <Input
         id="newsletter-email"
         type="email"
         name="email"
@@ -56,16 +57,16 @@ export function EmailSignup({ compact = false }: { compact?: boolean }) {
       />
       <ValidationError className="form-error form-error-general" role="alert" errors={state.errors} />
       <SubmissionStatus submitting={state.submitting} succeeded={false} />
-      <button type="submit" className="button button-primary" disabled={state.submitting}>
+      <Button type="submit" disabled={state.submitting}>
         {state.submitting ? "Submitting..." : "Follow our progress"}
-      </button>
+      </Button>
     </form>
   );
 }
 
 export function ContactForm() {
   const router = useRouter();
-  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const [state, handleSubmit] = useForm(site.formspreeFormId);
   const nameInvalid = (state.errors?.getFieldErrors("name").length ?? 0) > 0;
   const emailInvalid = (state.errors?.getFieldErrors("email").length ?? 0) > 0;
   const messageInvalid = (state.errors?.getFieldErrors("message").length ?? 0) > 0;
@@ -85,8 +86,8 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <label htmlFor="contact-name">Name</label>
-      <input
+      <Label htmlFor="contact-name">Name</Label>
+      <Input
         id="contact-name"
         type="text"
         name="name"
@@ -104,8 +105,8 @@ export function ContactForm() {
         errors={state.errors}
       />
 
-      <label htmlFor="contact-email">Email</label>
-      <input
+      <Label htmlFor="contact-email">Email</Label>
+      <Input
         id="contact-email"
         type="email"
         name="email"
@@ -123,8 +124,8 @@ export function ContactForm() {
         errors={state.errors}
       />
 
-      <label htmlFor="contact-message">Message</label>
-      <textarea
+      <Label htmlFor="contact-message">Message</Label>
+      <Textarea
         id="contact-message"
         name="message"
         rows={4}
@@ -143,9 +144,9 @@ export function ContactForm() {
       <ValidationError className="form-error form-error-general" role="alert" errors={state.errors} />
       <SubmissionStatus submitting={state.submitting} succeeded={false} />
 
-      <button type="submit" className="button button-primary" disabled={state.submitting}>
+      <Button type="submit" disabled={state.submitting}>
         {state.submitting ? "Sending..." : "Send message"}
-      </button>
+      </Button>
     </form>
   );
 }
