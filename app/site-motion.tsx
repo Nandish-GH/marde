@@ -124,6 +124,7 @@ export function SiteMotion() {
 
   useEffect(() => {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const root = document.documentElement;
     if (!cursorPointRef.current || !cursorRingRef.current) return;
 
@@ -138,7 +139,7 @@ export function SiteMotion() {
       removeActiveCursor();
       root.classList.remove("custom-cursor-ready");
 
-      if (!finePointer.matches) return;
+      if (!finePointer.matches || reducedMotion.matches) return;
 
       let frame = 0;
       let visible = false;
@@ -279,11 +280,13 @@ export function SiteMotion() {
 
     syncCursorMode();
     finePointer.addEventListener("change", syncCursorMode);
+    reducedMotion.addEventListener("change", syncCursorMode);
 
     return () => {
       removeActiveCursor();
       root.classList.remove("custom-cursor-ready");
       finePointer.removeEventListener("change", syncCursorMode);
+      reducedMotion.removeEventListener("change", syncCursorMode);
     };
   }, [pathname]);
 
