@@ -128,4 +128,17 @@ test("reduced-motion users receive native, non-blocking behavior", async ({ page
   await page.goto("/");
   await expect(page.locator(".loading-overlay")).toBeHidden();
   await expect(page.locator("html")).not.toHaveClass(/lenis/);
+  await expect(page.locator("html")).not.toHaveClass(/custom-cursor-ready/);
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).cursor)).not.toBe("none");
+});
+
+test("fine-pointer users retain the MARDE custom cursor", async ({ page, isMobile }) => {
+  test.skip(isMobile, "fine-pointer interaction");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveClass(/custom-cursor-ready/);
+  await page.mouse.move(320, 240);
+  await expect(page.locator("html")).toHaveClass(/custom-cursor-visible/);
+  await expect(page.locator(".custom-cursor-point")).toHaveCSS("opacity", "1");
+  await expect(page.locator(".custom-cursor-point > span").first()).toHaveCSS("width", "17px");
 });
