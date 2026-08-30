@@ -1,0 +1,134 @@
+/* Shared component contracts introduced by the reconstruction. */
+
+.field-label {
+  color: var(--color-text-secondary);
+  font: 600 12px/1.35 var(--font-body);
+}
+
+.field-control {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.separator {
+  flex: none;
+  background: var(--color-border);
+}
+
+.separator[data-orientation="horizontal"] {
+  width: 100%;
+  height: 1px;
+}
+
+.separator[data-orientation="vertical"] {
+  width: 1px;
+  height: 100%;
+}
+
+.accordion-item > h3 {
+  margin: 0;
+}
+
+.home-faq-list .accordion-item[data-state="open"] {
+  background: rgba(223, 243, 237, 0.42);
+  border-color: var(--color-teal-mid);
+}
+
+.home-faq-list .accordion-item[data-state="open"] .accordion-trigger {
+  color: var(--color-teal-dark);
+}
+
+.accordion-item[data-state="open"] .accordion-trigger i {
+  background: var(--color-teal);
+  border-color: var(--color-teal);
+  color: var(--color-text-inverse);
+  transform: rotate(135deg);
+}
+
+.accordion-panel[data-state="open"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accordion-panel[data-state="open"] p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+
+.faq-list .accordion-item[data-state="open"] {
+  border-left-color: var(--color-teal-mid);
+  background: var(--color-surface-teal);
+}
+
+.faq-list .accordion-panel p {
+  color: var(--color-text-secondary);
+}
+
+.system-card.air .system-name em {
+  color: #1c5d6a;
+}
+
+.mobile-nav-close {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav-backdrop {
+    z-index: 79;
+  }
+  .mobile-nav-panel {
+    z-index: 80;
+  }
+  .mobile-nav-heading {
+    padding-right: 0;
+  }
+  .mobile-nav-close {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--color-border-teal);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-teal-dark);
+    cursor: pointer;
+    font: 400 28px/1 var(--font-body);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .loading-overlay, .custom-cursor {
+    display: none !important;
+  }
+  .home-scroll-ready .system-card.air,
+  .home-scroll-ready .system-card.ground,
+  .home-scroll-ready .team-teaser > div:first-child,
+  .home-scroll-ready .team-profile,
+  .home-scroll-ready .home-faq-heading,
+  .home-scroll-ready .home-faq-list,
+  .home-scroll-ready .closing-geometry,
+  .home-scroll-ready .closing-content > :where(.eyebrow, h2, p, .text-link, .closing-actions, .closing-socials),
+  .accordion-panel[data-state="open"],
+  .accordion-panel[data-state="open"] p {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

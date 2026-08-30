@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { DonateButton, Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { mission } from "../content";
+import { Section } from "../../components/layout";
+import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Mission",
-  description: "Why MARDE is building for the gap before emergency help arrives.",
+  title: "MARDE Mission | Building Faster Robotic Emergency Response",
+  description: "Learn why MARDE is developing robotic emergency-response systems intended to reduce the gap between emergency dispatch and useful action at the scene.",
   path: "/mission",
-  keywords: ["emergency response mission", "EMS response time", "first response systems"],
 });
 
 export default function MissionPage() {
@@ -15,13 +16,7 @@ export default function MissionPage() {
 
   return (
     <div className="mission-page">
-      <section className="page-hero mission-hero">
-        <Eyebrow>{hero.eyebrow}</Eyebrow>
-        <h1>
-          <SplitTitle lines={hero.title} italicIndex={1} />
-        </h1>
-        <p>{hero.body}</p>
-      </section>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} className="mission-hero" />
 
       <section className="story">
         <div>
@@ -42,7 +37,7 @@ export default function MissionPage() {
         <h2>{statement.body}</h2>
       </section>
 
-      <section className="section funding">
+      <Section className="funding">
         <div>
           <Eyebrow>{funding.eyebrow}</Eyebrow>
           <h2>
@@ -57,7 +52,7 @@ export default function MissionPage() {
           ))}
           <DonateButton />
         </div>
-      </section>
+      </Section>
 
       <section className="regulatory small">
         <Eyebrow>{regulatory.eyebrow}</Eyebrow>

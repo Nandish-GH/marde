@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "../../components/ui/button";
 import { AsciiDrone } from "../ascii-drone";
 import { Eyebrow } from "../components";
 import { pageMetadata } from "../metadata";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "Thank You",
+    title: "Thank You | MARDE",
     description: "Confirmation that your message was submitted to MARDE.",
     path: "/thank-you",
   }),
@@ -20,7 +21,7 @@ export default function ThankYouPage() {
         <Eyebrow>Message received</Eyebrow>
         <h1>Thank you.</h1>
         <p>Your message has been submitted. The MARDE team will review it as the work continues.</p>
-        <Link className="button button-primary" href="/">Return Home</Link>
+        <Button asChild><Link href="/">Return Home</Link></Button>
       </div>
       <AsciiDrone className="not-found-drone confirmation-drone" />
     </section>

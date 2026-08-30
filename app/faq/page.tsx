@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Accordion } from "../accordion";
-import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
+import { Section } from "../../components/layout";
+import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "FAQ",
-  description: "Answers about MARDE's development stage, donations, timeline, and ways to get involved.",
+  title: "MARDE FAQ | Emergency Response Robotics",
+  description: "Answers about MARDE's emergency-response robotics platform, technology, development stage, operations, and planned Air, Ground, Nexus, and intervention systems.",
   path: "/faq",
-  keywords: ["MARDE FAQ", "MARDE development", "first-response technology questions"],
 });
 
 const questions = [
@@ -37,22 +37,23 @@ const questions = [
 export default function FaqPage() {
   return (
     <div className="accordion-page">
-      <section className="page-hero compact faq-hero">
-        <Eyebrow>Frequently asked questions</Eyebrow>
-        <h1>
-          <SplitTitle lines={["Clear answers.", "No invented timelines."]} italicIndex={1} />
-        </h1>
-        <p>What MARDE is working toward, where the work stands, and how to learn more.</p>
-      </section>
+      <PageHero
+        eyebrow="Frequently asked questions"
+        title={["Clear answers.", "No invented timelines."]}
+        body="What MARDE is working toward, where the work stands, and how to learn more."
+        italicIndex={1}
+        compact
+        className="faq-hero"
+      />
 
-      <section className="section readable-section">
+      <Section className="readable-section">
         <div className="faq-list readable-content">
           <Accordion items={questions} variant="page" defaultOpen="all" />
           <p className="faq-contact">
-            Have another question? <Link className="text-link" href="/support">Support details</Link>
+            Have another question? <Link className="text-link" href="/support/">Support details</Link>
           </p>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import { Eyebrow } from "../components";
 import { pageMetadata } from "../metadata";
 import { site } from "../content";
+import { Section } from "../../components/layout";
+import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Privacy Policy",
+  title: "Privacy Policy | MARDE",
   description: "How MARDE handles information submitted through this website and its third-party services.",
   path: "/privacy",
-  keywords: ["MARDE privacy policy", "website privacy"],
 });
 
 export default function PrivacyPage() {
   return (
     <>
-      <section className="page-hero compact privacy-hero">
-        <Eyebrow>Privacy</Eyebrow>
-        <h1>Privacy Policy</h1>
-        <p>How information is handled when you visit or contact MARDE through this website.</p>
-      </section>
+      <PageHero
+        eyebrow="Privacy"
+        title={["Privacy Policy"]}
+        body="How information is handled when you visit or contact MARDE through this website."
+        compact
+        className="privacy-hero"
+      />
 
-      <section className="section readable-section">
+      <Section className="readable-section">
         <div className="policy-copy readable-content">
-          <p className="policy-updated">Last updated: August 20, 2026</p>
+          <p className="policy-updated">Last updated: August 25, 2026</p>
 
           <h2>Information you choose to provide</h2>
           <p>
@@ -51,7 +53,7 @@ export default function PrivacyPage() {
 
         <h2>Other third-party services</h2>
         <p>
-          The site is hosted on GitHub Pages and loads typefaces from Google Fonts. Visiting linked services such as
+          The site is hosted on GitHub Pages and serves optimized font files with the website. Visiting linked services such as
           Instagram, Stripe, or Formspree may allow those providers to receive technical information such as your IP
           address and browser details under their own policies.
         </p>
@@ -77,7 +79,7 @@ export default function PrivacyPage() {
           on this page with a revised date.
         </p>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

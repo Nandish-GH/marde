@@ -1,12 +1,9 @@
 "use client";
 
-import { useId, useState } from "react";
+import { Accordion as AccordionPrimitive } from "radix-ui";
+import { cn } from "../lib/utils";
 
-type AccordionItem = Readonly<{
-  question: string;
-  answer: string;
-}>;
-
+type AccordionItem = Readonly<{ question: string; answer: string }>;
 type AccordionProps = {
   items: readonly AccordionItem[];
   variant: "home" | "page";
@@ -15,66 +12,36 @@ type AccordionProps = {
   single?: boolean;
 };
 
-export function Accordion({
-  items,
-  variant,
-  className = "",
-  defaultOpen = [],
-  single = false,
-}: AccordionProps) {
-  const instanceId = useId().replace(/:/g, "");
-  const [openItems, setOpenItems] = useState<Set<number>>(
-    () => new Set(defaultOpen === "all" ? items.map((_, index) => index) : defaultOpen),
-  );
+function AccordionItems({ items }: { items: readonly AccordionItem[] }) {
+  return items.map(({ question, answer }, index) => (
+    <AccordionPrimitive.Item className="accordion-item" key={question} value={String(index)}>
+      <AccordionPrimitive.Header asChild>
+        <h3>
+          <AccordionPrimitive.Trigger className="accordion-trigger">
+            <span>{question}</span><i aria-hidden="true">+</i>
+          </AccordionPrimitive.Trigger>
+        </h3>
+      </AccordionPrimitive.Header>
+      <AccordionPrimitive.Content className="accordion-panel">
+        <div className="accordion-panel-inner"><p>{answer}</p></div>
+      </AccordionPrimitive.Content>
+    </AccordionPrimitive.Item>
+  ));
+}
 
-  function toggleItem(index: number) {
-    setOpenItems((current) => {
-      const next = single ? new Set<number>() : new Set(current);
-
-      if (!current.has(index)) {
-        next.add(index);
-      } else if (!single) {
-        next.delete(index);
-      }
-
-      return next;
-    });
+export function Accordion({ items, variant, className, defaultOpen = [], single = false }: AccordionProps) {
+  const defaults = (defaultOpen === "all" ? items.map((_, index) => index) : defaultOpen).map(String);
+  const rootClassName = cn("accordion", `accordion-${variant}`, className);
+  if (single) {
+    return (
+      <AccordionPrimitive.Root type="single" collapsible defaultValue={defaults[0]} className={rootClassName}>
+        <AccordionItems items={items} />
+      </AccordionPrimitive.Root>
+    );
   }
-
   return (
-    <div className={`accordion accordion-${variant} ${className}`.trim()}>
-      {items.map(({ question, answer }, index) => {
-        const open = openItems.has(index);
-        const triggerId = `${instanceId}-trigger-${index}`;
-        const panelId = `${instanceId}-panel-${index}`;
-
-        return (
-          <article className={`accordion-item${open ? " is-open" : ""}`} key={question}>
-            <button
-              id={triggerId}
-              className="accordion-trigger"
-              type="button"
-              aria-expanded={open}
-              aria-controls={panelId}
-              onClick={() => toggleItem(index)}
-            >
-              <span>{question}</span>
-              <i aria-hidden="true">+</i>
-            </button>
-            <div
-              id={panelId}
-              className="accordion-panel"
-              role="region"
-              aria-labelledby={triggerId}
-              aria-hidden={!open}
-            >
-              <div className="accordion-panel-inner">
-                <p>{answer}</p>
-              </div>
-            </div>
-          </article>
-        );
-      })}
-    </div>
+    <AccordionPrimitive.Root type="multiple" defaultValue={defaults} className={rootClassName}>
+      <AccordionItems items={items} />
+    </AccordionPrimitive.Root>
   );
 }

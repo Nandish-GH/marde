@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "../components/ui/button";
 import { AsciiDrone } from "./ascii-drone";
 import { Eyebrow } from "./components";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: { absolute: "Page Not Found | MARDE" },
   description: "The requested page could not be found.",
-  robots: { index: false, follow: false },
+  openGraph: null,
+  twitter: null,
 };
 
 export default function NotFound() {
@@ -17,8 +19,8 @@ export default function NotFound() {
         <h1>This page isn&apos;t here.</h1>
         <p>The address may have changed, or the page may no longer exist.</p>
         <div className="actions">
-          <Link className="button button-primary" href="/">Return Home</Link>
-          <Link className="button button-quiet" href="/support">Explore Support</Link>
+          <Button asChild><Link href="/">Return Home</Link></Button>
+          <Button asChild variant="quiet"><Link href="/support/">Explore Support</Link></Button>
         </div>
       </div>
       <AsciiDrone />

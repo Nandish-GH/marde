@@ -5,12 +5,14 @@ import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
 import { technology } from "../content";
 import { NexusArchitecture } from "../nexus-architecture";
+import { Section } from "../../components/layout";
+import { PageHero } from "../page-hero";
+import { SystemStatus } from "../system-status";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Technology",
-  description: "MARDE's early-stage platform brings together Air, Ground, intervention modules, and human-in-the-loop Nexus coordination.",
+  title: "MARDE Technology | Air, Ground & Nexus Emergency Robotics",
+  description: "Explore MARDE Air, Ground, Nexus, and intervention modules—an integrated emergency-response robotics system designed to begin useful action before EMS arrives.",
   path: "/technology",
-  keywords: ["emergency response robotics", "human-in-the-loop coordination", "aerial response concept", "ground robot concept"],
 });
 
 export default function TechnologyPage() {
@@ -18,14 +20,9 @@ export default function TechnologyPage() {
 
   return (
     <div className="technology-page">
-      <section className="page-hero technology-hero">
-        <Eyebrow>{hero.eyebrow}</Eyebrow>
-        <h1>
-          <SplitTitle lines={hero.title} italicIndex={1} />
-        </h1>
-        <p>{hero.body}</p>
-        <Link className="text-link page-inline-link" href="/mission">Why we&apos;re building this</Link>
-      </section>
+      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} className="technology-hero">
+        <Link className="text-link page-inline-link" href="/mission/">Why we&apos;re building this</Link>
+      </PageHero>
 
       <section className="tech-block air-block" id="air">
         <div className="tech-visual tech-air-visual">
@@ -36,6 +33,7 @@ export default function TechnologyPage() {
               alt="MARDE Air aerial system design concept"
               width="800"
               height="520"
+              loading="eager"
             />
             <span className="poster-registration" aria-hidden="true" />
           </div>
@@ -53,9 +51,7 @@ export default function TechnologyPage() {
           </Eyebrow>
           <h2>{air.title}</h2>
           <p>{air.body}</p>
-          <div className="status">
-            Status <b>{air.status}</b>
-          </div>
+          <SystemStatus value={air.status} />
           <p className="detail">{air.regulatory}</p>
         </div>
       </section>
@@ -71,10 +67,8 @@ export default function TechnologyPage() {
             <SplitTitle lines={ground.title} italicIndex={1} />
           </h2>
           <p>{ground.body}</p>
-          <div className="status">
-            Status <b>{ground.status}</b>
-          </div>
-          <p className="detail">{ground.detail}</p>
+          <SystemStatus value={ground.status} />
+          <p className="detail" id="intervention-modules">{ground.detail}</p>
         </div>
         <div className="tech-visual ground-visual">
           <span>02</span>
@@ -139,7 +133,7 @@ export default function TechnologyPage() {
         </div>
       </section>
 
-      <section className="section roadmap">
+      <Section className="roadmap">
         <div>
           <Eyebrow>{roadmap.eyebrow}</Eyebrow>
           <h2>
@@ -158,7 +152,7 @@ export default function TechnologyPage() {
             </article>
           ))}
         </div>
-      </section>
+      </Section>
 
       <section className="regulatory">
         <Eyebrow>{regulatory.eyebrow}</Eyebrow>

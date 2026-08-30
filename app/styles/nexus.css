@@ -1,0 +1,974 @@
+/* MARDE Nexus: coordination layer shared by the homepage and Technology. */
+
+.nexus-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(390px, 0.88fr) minmax(0, 1.12fr);
+  min-height: 610px;
+  padding: 0;
+  border-color: rgba(69, 129, 128, 0.42);
+  background: linear-gradient(112deg, #e8f2ef 0%, #d9ebe7 100%);
+  color: var(--ink);
+}
+
+.nexus-card-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 30px;
+  background: rgba(248, 251, 250, 0.22);
+}
+
+.nexus-card .card-code {
+  margin: 0 0 30px;
+  color: var(--color-teal-muted);
+}
+
+.nexus-card-name {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.nexus-card h3 {
+  margin: 0 0 22px;
+  font-size: clamp(36px, 3.15vw, 46px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.nexus-card h3 em {
+  color: var(--color-teal-mid);
+  font: 500 italic 1.05em/1 var(--font-display);
+}
+
+.nexus-card h3 :where(span, em) {
+  white-space: nowrap;
+}
+
+.nexus-card-copy > p:not(.card-code) {
+  max-width: 38ch;
+  margin: 0;
+  color: #496a70;
+  font-size: 16px;
+}
+
+.air-block,
+.ground-block,
+.nexus-tech-block {
+  scroll-margin-top: 72px;
+}
+
+.nexus-tech-block {
+  grid-template-columns: 1fr 1fr;
+  background: #edf5f3;
+}
+
+.nexus-tech-intro {
+  align-items: flex-start;
+  padding: clamp(60px, 7vw, 96px);
+  background: #f8fbfa;
+}
+
+.nexus-tech-intro > p {
+  max-width: 58ch;
+  margin: 0 0 17px;
+}
+
+.nexus-authority-copy {
+  padding: 20px 0 0 22px;
+  margin-top: 12px !important;
+  border-top: 1px solid var(--color-border-teal);
+  border-left: 3px solid var(--color-teal-mid);
+  color: var(--color-teal-dark) !important;
+  font-weight: 600;
+}
+
+.nexus-tech-visual {
+  background: linear-gradient(135deg, #dcece9 0%, #d4e9e6 100%);
+}
+
+.nexus-tech-visual > span {
+  z-index: 5;
+  color: var(--color-teal-muted);
+}
+
+.nexus-tech-visual > p {
+  z-index: 5;
+  color: #527178;
+}
+
+.nexus-tech-visual > .nexus-architecture {
+  position: absolute;
+  inset: 54px clamp(28px, 4.5vw, 70px) 64px;
+  min-height: 0;
+  border-top: 1px solid rgba(36, 95, 104, 0.28);
+  border-bottom: 1px solid rgba(36, 95, 104, 0.28);
+}
+
+.nexus-capabilities {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(50px, 7vw, 110px);
+  padding: clamp(64px, 6.4vw, 92px) var(--layout-gutter);
+  border-top: 1px solid rgba(36, 95, 104, 0.2);
+  border-bottom: 1px solid rgba(36, 95, 104, 0.2);
+  background: linear-gradient(rgba(42, 101, 105, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 101, 105, 0.035) 1px, transparent 1px),
+    #eef5f3;
+  background-size: 56px 56px;
+  color: var(--ink);
+}
+
+.nexus-capabilities-heading h3 {
+  max-width: 10ch;
+  margin: 0;
+  font: 600 clamp(38px, 4vw, 58px)/1 var(--font-heading);
+  letter-spacing: -0.045em;
+}
+
+.nexus-capabilities-heading h3 em {
+  color: var(--color-teal-mid);
+  font-weight: 500;
+}
+
+.nexus-capabilities .eyebrow {
+  color: var(--color-teal-mid);
+}
+
+.nexus-capabilities ol {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(36, 95, 104, 0.34);
+  list-style: none;
+}
+
+.nexus-capabilities li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(36, 95, 104, 0.24);
+}
+
+.nexus-capabilities li > span {
+  color: var(--color-teal-mid);
+  font: 500 9px/1.4 var(--font-mono);
+  letter-spacing: 0.12em;
+}
+
+.nexus-capabilities h4 {
+  margin: 0 0 8px;
+  color: #173e4b;
+  font: 600 14px/1.2 var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.nexus-capabilities li p {
+  max-width: 590px;
+  margin: 0;
+  color: #5c7379;
+  font-size: 14px;
+}
+
+@media (max-width: 1023px) {
+  .nexus-card {
+    grid-template-columns: 1fr;
+  }
+  .nexus-card-copy {
+    min-height: 390px;
+  }
+  .nexus-tech-block {
+    grid-template-columns: 1fr;
+  }
+  .nexus-capabilities {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nexus-card {
+    min-height: 0;
+  }
+  .nexus-card-copy {
+    min-height: 0;
+    padding: 38px 24px 40px;
+  }
+  .nexus-card .card-code {
+    margin-bottom: 24px;
+  }
+  .nexus-card-name {
+    margin-bottom: 25px;
+    font-size: clamp(26px, 7.2vw, 28px);
+  }
+  .nexus-card h3 {
+    font-size: clamp(34px, 9.8vw, 42px);
+  }
+  .nexus-card h3 :where(span, em) {
+    white-space: normal;
+  }
+  .nexus-tech-intro {
+    padding: 54px var(--layout-gutter);
+  }
+  .nexus-authority-copy {
+    padding-left: 16px;
+  }
+  .nexus-tech-visual > p {
+    right: 22px;
+    bottom: 20px;
+  }
+  .nexus-capabilities {
+    gap: 38px;
+    padding: 54px var(--layout-gutter);
+  }
+  .nexus-capabilities-heading h3 {
+    max-width: 12ch;
+    font-size: clamp(34px, 10vw, 43px);
+  }
+  .nexus-capabilities li {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+    padding: 17px 0;
+  }
+}
+
+/* MARDE Nexus mission-control concept. All labels remain semantic HTML. */
+
+.nexus-tech-visual {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  padding: 40px clamp(20px, 3vw, 46px) 76px;
+}
+
+.nexus-tech-visual::after {
+  animation: none;
+  opacity: 0.06;
+}
+
+.nexus-console {
+  --nexus-console-line: rgba(40, 104, 122, 0.32);
+  --nexus-console-line-soft: rgba(40, 104, 122, 0.18);
+  --nexus-console-ink: #173f4d;
+  --nexus-console-muted: #617982;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(112px, 0.55fr) minmax(280px, 1.65fr) minmax(190px, 0.92fr);
+  grid-template-areas: "header header header"
+    "mission map rail"
+    "system system rail"
+    "footer footer footer";
+  grid-template-rows: auto minmax(310px, 1fr) auto auto;
+  border: 1px solid rgba(35, 96, 111, 0.58);
+  background: rgba(245, 249, 248, 0.88);
+  box-shadow: inset 0 0 0 7px rgba(226, 239, 236, 0.72);
+  color: var(--nexus-console-ink);
+  font-family: var(--font-mono);
+  line-height: 1.35;
+}
+
+.nexus-console::before,
+.nexus-console::after {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: rgba(35, 96, 111, 0.64);
+  content: "";
+  pointer-events: none;
+}
+
+.nexus-console::before {
+  top: -6px;
+  left: -6px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.nexus-console::after {
+  right: -6px;
+  bottom: -6px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.nexus-console-header {
+  grid-area: header;
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--nexus-console-line);
+}
+
+.nexus-console-header div {
+  display: grid;
+  gap: 3px;
+}
+
+.nexus-console-header strong {
+  font-size: clamp(14px, 1.35vw, 21px);
+  letter-spacing: 0.25em;
+}
+
+.nexus-console-header span,
+.nexus-console-header p,
+.nexus-console-footer {
+  color: var(--nexus-console-muted);
+  font-size: 7px;
+  letter-spacing: 0.18em;
+}
+
+.nexus-console-header p {
+  max-width: 46%;
+  margin: 0;
+  text-align: right;
+}
+
+.nexus-console-panel {
+  min-width: 0;
+  border-color: var(--nexus-console-line);
+}
+
+.nexus-console-panel-heading {
+  display: flex;
+  min-height: 35px;
+  align-items: center;
+  padding: 8px 13px;
+  margin: 0;
+  border-bottom: 1px solid var(--nexus-console-line-soft);
+  color: var(--nexus-console-ink);
+  font: 600 9px/1.2 var(--font-mono);
+  letter-spacing: 0.13em;
+}
+
+.nexus-console-panel-heading > svg {
+  width: 13px;
+  height: 13px;
+  margin-right: 8px;
+  color: var(--color-teal-mid);
+  flex: 0 0 auto;
+}
+
+.nexus-mission-panel {
+  grid-area: mission;
+  margin: 12px 0 0 12px;
+  border: 1px solid var(--nexus-console-line);
+}
+
+.nexus-mission-panel dl {
+  display: grid;
+  height: calc(100% - 35px);
+  padding: 18px 14px;
+  margin: 0;
+  align-content: space-between;
+  gap: 14px;
+}
+
+.nexus-mission-panel dl div,
+.nexus-authorization-panel dl div {
+  display: grid;
+  gap: 4px;
+}
+
+.nexus-console dt {
+  color: var(--nexus-console-muted);
+  font-size: 7px;
+  letter-spacing: 0.13em;
+}
+
+.nexus-console dd {
+  margin: 0;
+  color: var(--nexus-console-ink);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.nexus-status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #3e9c78;
+  vertical-align: 1px;
+}
+
+.nexus-status-dot-pending {
+  background: #d99631;
+}
+
+.nexus-operational-view {
+  grid-area: map;
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 310px;
+  grid-template-rows: 34px minmax(0, 1fr);
+  margin: 12px 12px 0;
+  border: 1px solid var(--nexus-console-line);
+  overflow: hidden;
+}
+
+.nexus-operational-view figcaption {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  border-bottom: 1px solid var(--nexus-console-line-soft);
+  color: var(--nexus-console-muted);
+  font-size: 7px;
+  letter-spacing: 0.15em;
+}
+
+.nexus-map {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: rgba(247, 250, 249, 0.72) url("/illustrations/nexus-map-texture.webp") center / cover no-repeat;
+}
+
+.nexus-map::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(244, 249, 248, 0.3), transparent 30%, rgba(228, 242, 239, 0.16));
+  content: "";
+  pointer-events: none;
+}
+
+.nexus-map-route {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.nexus-map-route path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.nexus-route-link {
+  stroke: #2b95a3;
+  stroke-width: 2;
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 0;
+}
+
+.nexus-route-comms {
+  stroke: rgba(43, 149, 163, 0.52);
+  stroke-width: 1;
+  stroke-dasharray: 5 5;
+}
+
+.nexus-map-route circle {
+  fill: #f5fbfa;
+  stroke: #2b95a3;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.nexus-map-node {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 27px auto;
+  grid-template-rows: auto auto;
+  gap: 1px 7px;
+  color: var(--nexus-console-ink);
+  font-family: var(--font-mono);
+}
+
+.nexus-map-node i {
+  grid-row: 1 / 3;
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid #3a9da6;
+  border-radius: 50%;
+  background: rgba(240, 250, 248, 0.94);
+  color: #2b8795;
+  font: normal 600 9px/1 var(--font-mono);
+}
+
+.nexus-map-node i svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nexus-map-node strong {
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.nexus-map-node span {
+  color: #516d76;
+  font-size: 7px;
+}
+
+.nexus-map-node-air {
+  top: 12%;
+  left: 10%;
+}
+
+.nexus-map-node-deploy {
+  top: 38%;
+  left: 31%;
+}
+
+.nexus-map-node-ground {
+  top: 61%;
+  left: 57%;
+}
+
+.nexus-map-node-scene {
+  right: 2%;
+  bottom: 8%;
+}
+
+.nexus-map-node-scene i {
+  border-color: #bd5555;
+  color: #a43d3d;
+}
+
+.nexus-map-key {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--nexus-console-muted);
+  font-size: 6px;
+}
+
+.nexus-map-key span,
+.nexus-map-key i {
+  width: 20px;
+  height: 1px;
+  background: #2b95a3;
+}
+
+.nexus-map-key i {
+  background: repeating-linear-gradient(90deg, #73aeb4 0 3px, transparent 3px 5px);
+}
+
+.nexus-console-rail {
+  grid-area: rail;
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto auto minmax(150px, 1fr);
+  gap: 10px;
+  margin: 12px 12px 12px 0;
+}
+
+.nexus-console-rail > section {
+  border: 1px solid var(--nexus-console-line);
+}
+
+.nexus-authorization-panel dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px 12px 6px;
+  margin: 0;
+}
+
+.nexus-authorization-state {
+  display: flex;
+  min-height: 31px;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 12px 7px;
+  border: 1px solid rgba(43, 149, 163, 0.48);
+  background: rgba(216, 239, 234, 0.74);
+  color: #1d7180;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+}
+
+.nexus-authorization-panel > p {
+  padding: 0 12px 10px;
+  margin: 0;
+  color: var(--nexus-console-muted);
+  font: 7px/1.45 var(--font-body);
+}
+
+.nexus-asset-list {
+  display: grid;
+}
+
+.nexus-asset-list article {
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  align-items: center;
+  gap: 7px;
+  min-height: 35px;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--nexus-console-line-soft);
+}
+
+.nexus-asset-list article:last-child {
+  border-bottom: 0;
+}
+
+.nexus-asset-code {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid rgba(43, 149, 163, 0.35);
+  color: #2b8795;
+  font-size: 8px;
+}
+
+.nexus-asset-code svg {
+  width: 14px;
+  height: 14px;
+}
+
+.nexus-asset-list article > div {
+  display: grid;
+  gap: 1px;
+}
+
+.nexus-asset-list strong {
+  font-size: 7px;
+  letter-spacing: 0.06em;
+}
+
+.nexus-asset-list article > div span {
+  color: var(--nexus-console-muted);
+  font: 7px/1.2 var(--font-body);
+}
+
+.nexus-asset-list .nexus-status-dot {
+  margin: 0;
+}
+
+.nexus-activity-panel ol {
+  position: relative;
+  padding: 10px 9px 10px 13px;
+  margin: 0;
+  list-style: none;
+}
+
+.nexus-activity-panel ol::before {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 28px;
+  width: 1px;
+  background: rgba(43, 149, 163, 0.34);
+  content: "";
+}
+
+.nexus-activity-panel li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 7px;
+  align-items: center;
+  min-height: 20px;
+  color: #4c6872;
+}
+
+.nexus-activity-panel li::before {
+  position: absolute;
+  left: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3b9ba5;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.nexus-activity-panel li.is-pending {
+  color: #b36f17;
+}
+
+.nexus-activity-panel li.is-pending::before {
+  background: #d99631;
+}
+
+.nexus-activity-panel li > span {
+  font-size: 6px;
+}
+
+.nexus-activity-panel li strong {
+  font-size: 7px;
+  font-weight: 500;
+}
+
+.nexus-activity-panel li small {
+  font-size: 6px;
+}
+
+.nexus-system-panel {
+  grid-area: system;
+  margin: 10px 12px 12px;
+  border: 1px solid var(--nexus-console-line);
+}
+
+.nexus-system-panel dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+}
+
+.nexus-system-panel dl div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 9px 12px;
+  border-right: 1px solid var(--nexus-console-line-soft);
+}
+
+.nexus-system-panel dl div:last-child {
+  border-right: 0;
+}
+
+.nexus-system-panel dd {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.nexus-console-footer {
+  grid-area: footer;
+  display: flex;
+  min-height: 31px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 24px;
+  border-top: 1px solid var(--nexus-console-line);
+}
+
+.nexus-console-footer strong {
+  color: #365f69;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.nexus-console-compact {
+  min-height: 100%;
+  border-left: 1px solid rgba(69, 129, 128, 0.3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nexus-console .nexus-route-link {
+    animation: nexus-route-draw 1.4s var(--motion-ease-out) both;
+  }
+  .nexus-console .nexus-status-dot {
+    animation: nexus-status-enter 0.35s ease-out both;
+  }
+}
+
+@keyframes nexus-route-draw {
+  from {
+    stroke-dashoffset: 1100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nexus-status-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .nexus-console {
+    grid-template-columns: 100px minmax(250px, 1.55fr) minmax(170px, 0.9fr);
+  }
+  .nexus-console-header {
+    padding-inline: 18px;
+  }
+  .nexus-map-node span {
+    display: none;
+  }
+  .nexus-authorization-panel dl {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1199px) {
+  .nexus-tech-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .nexus-console-compact {
+    border-top: 1px solid rgba(69, 129, 128, 0.3);
+    border-left: 0;
+  }
+  .nexus-tech-visual {
+    padding: 40px var(--layout-gutter) 76px;
+  }
+  .nexus-console {
+    grid-template-columns: minmax(110px, 0.45fr) minmax(330px, 1.55fr) minmax(210px, 0.78fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .nexus-tech-visual {
+    padding: 38px var(--layout-gutter) 80px;
+  }
+  .nexus-tech-visual > span {
+    top: 20px;
+    left: var(--layout-gutter);
+  }
+  .nexus-console {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "header"
+      "mission"
+      "map"
+      "asset"
+      "authorization"
+      "activity"
+      "system"
+      "footer";
+    grid-template-rows: auto;
+    box-shadow: inset 0 0 0 4px rgba(226, 239, 236, 0.72);
+  }
+  .nexus-console-header {
+    min-height: 64px;
+    padding: 13px 14px;
+  }
+  .nexus-console-header p {
+    display: none;
+  }
+  .nexus-console-header strong {
+    font-size: 15px;
+  }
+  .nexus-mission-panel {
+    margin: 8px 8px 0;
+  }
+  .nexus-mission-panel dl {
+    height: auto;
+    grid-template-columns: 0.55fr 1.45fr;
+    padding: 12px;
+  }
+  .nexus-operational-view {
+    min-height: clamp(350px, 105vw, 460px);
+    margin: 8px;
+  }
+  .nexus-map-node {
+    grid-template-columns: 31px auto;
+  }
+  .nexus-map-node i {
+    width: 31px;
+    height: 31px;
+  }
+  .nexus-map-node strong {
+    font-size: 9px;
+  }
+  .nexus-map-node span {
+    font-size: 8px;
+  }
+  .nexus-console-rail {
+    display: contents;
+  }
+  .nexus-asset-panel {
+    grid-area: asset;
+    margin: 0 8px 8px;
+    border: 1px solid var(--nexus-console-line);
+  }
+  .nexus-asset-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    padding: 8px;
+  }
+  .nexus-asset-list article {
+    grid-template-columns: 25px 1fr;
+    padding: 8px 6px;
+    border: 1px solid var(--nexus-console-line-soft);
+  }
+  .nexus-asset-list article > .nexus-status-dot {
+    grid-column: 1 / -1;
+  }
+  .nexus-asset-list strong {
+    font-size: 7px;
+  }
+  .nexus-authorization-panel {
+    grid-area: authorization;
+    margin: 0 8px 8px;
+    border: 1px solid var(--nexus-console-line);
+  }
+  .nexus-authorization-panel dl {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nexus-authorization-state {
+    min-height: 42px;
+    font-size: 8px;
+  }
+  .nexus-activity-panel {
+    grid-area: activity;
+    margin: 0 8px 8px;
+    border: 1px solid var(--nexus-console-line);
+  }
+  .nexus-activity-panel li {
+    min-height: 28px;
+    grid-template-columns: 29px 1fr auto;
+  }
+  .nexus-activity-panel li strong {
+    font-size: 8px;
+  }
+  .nexus-system-panel {
+    margin: 0 8px 8px;
+  }
+  .nexus-system-panel dl {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nexus-system-panel dl div:nth-child(2) {
+    border-right: 0;
+  }
+  .nexus-system-panel dl div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--nexus-console-line-soft);
+  }
+  .nexus-console-footer {
+    display: grid;
+    justify-content: center;
+    padding: 12px 14px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 359px) {
+  .nexus-mission-panel dl {
+    grid-template-columns: 1fr;
+  }
+  .nexus-asset-list {
+    grid-template-columns: 1fr;
+  }
+  .nexus-asset-list article {
+    grid-template-columns: 25px 1fr auto;
+  }
+  .nexus-asset-list article > .nexus-status-dot {
+    grid-column: auto;
+  }
+  .nexus-authorization-panel dl {
+    grid-template-columns: 1fr;
+  }
+}
