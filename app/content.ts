@@ -61,7 +61,7 @@ export const home = {
       "MARDE is developing an integrated robotic emergency-response platform intended to begin physical intervention before EMS arrival.",
     primaryCta: "Support MARDE",
     secondaryCta: "Learn About the Technology",
-    secondaryHref: "/technology",
+    secondaryHref: "/technology/",
     graphicLabel: "01 / FIRST RESPONSE\nSYSTEMS IN DESIGN",
   },
   problem: {

@@ -5,10 +5,9 @@ import { team, teamPage } from "../content";
 import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Team",
-  description: "Meet the people building MARDE.",
+  title: "MARDE Team | Emergency Robotics & Medical Technology",
+  description: "Meet the MARDE team developing an integrated emergency-response robotics platform spanning aerial systems, ground robotics, software, and medical technology.",
   path: "/team",
-  keywords: ["MARDE team", "emergency response technology team"],
 });
 
 export default function TeamPage() {
@@ -17,7 +16,7 @@ export default function TeamPage() {
   return (
     <>
       <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} compact className="team-hero">
-        <Link className="text-link page-inline-link" href="/support">How to Support</Link>
+        <Link className="text-link page-inline-link" href="/support/">How to Support</Link>
       </PageHero>
       <section className="team-grid">
         {team.map((member) => (

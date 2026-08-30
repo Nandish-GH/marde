@@ -13,24 +13,25 @@ export function pageMetadata({
   title,
   description,
   path = "",
-  keywords = [],
 }: {
-  title?: string;
+  title: string;
   description: string;
   path?: string;
-  keywords?: string[];
 }): Metadata {
   const canonicalPath = path ? `/${path.replace(/^\/+|\/+$/g, "")}/` : "/";
   const url = new URL(canonicalPath, canonicalSiteUrl).toString();
-  const fullTitle = title ? `${title} | MARDE` : site.tagline;
 
   return {
-    title,
+    title: { absolute: title },
     description,
-    keywords,
     alternates: { canonical: canonicalPath },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
     openGraph: {
-      title: fullTitle,
+      title,
       description,
       url,
       type: "website",
@@ -39,7 +40,7 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      title,
       description,
       images: [{ url: socialImage.url, alt: socialImage.alt }],
     },

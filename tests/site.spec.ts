@@ -64,10 +64,33 @@ test("representative pages have no serious automated accessibility violations", 
 });
 
 test("SEO metadata and public integration surfaces remain intact", async ({ page }) => {
+  const metadata = [
+    ["/", "MARDE | Emergency Response Robotics Before EMS Arrival", "https://mardeinc.com/"],
+    ["/technology/", "MARDE Technology | Air, Ground & Nexus Emergency Robotics", "https://mardeinc.com/technology/"],
+    ["/team/", "MARDE Team | Emergency Robotics & Medical Technology", "https://mardeinc.com/team/"],
+    ["/mission/", "MARDE Mission | Building Faster Robotic Emergency Response", "https://mardeinc.com/mission/"],
+    ["/support/", "Support MARDE | Donations, Contact & Project Updates", "https://mardeinc.com/support/"],
+    ["/faq/", "MARDE FAQ | Emergency Response Robotics", "https://mardeinc.com/faq/"],
+    ["/privacy/", "Privacy Policy | MARDE", "https://mardeinc.com/privacy/"],
+  ] as const;
+
+  for (const [route, title, canonical] of metadata) {
+    await page.goto(route);
+    await expect(page).toHaveTitle(title);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /\S/);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical);
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", "https://mardeinc.com/og.png");
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
+  }
+
   await page.goto("/");
-  await expect(page).toHaveTitle(/MARDE/);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://mardeinc.com/");
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/og\.png$/);
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
+  const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
+  expect(structuredData["@graph"].map((item: { "@type": string }) => item["@type"])).toEqual(["Organization", "WebSite"]);
+
+  await page.goto("/technology/");
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
 
   await page.goto("/support/");
   await expect(page.locator("form")).toHaveCount(2);
@@ -76,6 +99,28 @@ test("SEO metadata and public integration surfaces remain intact", async ({ page
 
   await page.goto("/thank-you/");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+});
+
+test("robots and sitemap expose only canonical public routes", async ({ request }) => {
+  const robots = await (await request.get("/robots.txt")).text();
+  expect(robots).toContain("User-agent: *");
+  expect(robots).toContain("Allow: /");
+  expect(robots).toContain("Sitemap: https://mardeinc.com/sitemap.xml");
+
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  for (const route of ["", "technology/", "team/", "mission/", "support/", "faq/", "privacy/"]) {
+    expect(sitemap).toContain(`<loc>https://mardeinc.com/${route}</loc>`);
+  }
+  expect(sitemap).not.toContain("thank-you");
+  expect(sitemap).not.toContain("localhost");
+});
+
+test("unknown routes return a non-indexable 404", async ({ page }) => {
+  const response = await page.goto("/route-that-does-not-exist/");
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "This page isn't here." })).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  await expect(page.locator('link[rel="canonical"], meta[property="og:url"]')).toHaveCount(0);
 });
 
 test("reduced-motion users receive native, non-blocking behavior", async ({ page }) => {

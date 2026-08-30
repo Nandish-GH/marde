@@ -10,10 +10,9 @@ import { PageHero } from "../page-hero";
 import { SystemStatus } from "../system-status";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Technology",
-  description: "MARDE's early-stage platform brings together Air, Ground, intervention modules, and human-in-the-loop Nexus coordination.",
+  title: "MARDE Technology | Air, Ground & Nexus Emergency Robotics",
+  description: "Explore MARDE Air, Ground, Nexus, and intervention modules—an integrated emergency-response robotics system designed to begin useful action before EMS arrives.",
   path: "/technology",
-  keywords: ["emergency response robotics", "human-in-the-loop coordination", "aerial response concept", "ground robot concept"],
 });
 
 export default function TechnologyPage() {
@@ -22,7 +21,7 @@ export default function TechnologyPage() {
   return (
     <div className="technology-page">
       <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} className="technology-hero">
-        <Link className="text-link page-inline-link" href="/mission">Why we&apos;re building this</Link>
+        <Link className="text-link page-inline-link" href="/mission/">Why we&apos;re building this</Link>
       </PageHero>
 
       <section className="tech-block air-block" id="air">
@@ -69,7 +68,7 @@ export default function TechnologyPage() {
           </h2>
           <p>{ground.body}</p>
           <SystemStatus value={ground.status} />
-          <p className="detail">{ground.detail}</p>
+          <p className="detail" id="intervention-modules">{ground.detail}</p>
         </div>
         <div className="tech-visual ground-visual">
           <span>02</span>

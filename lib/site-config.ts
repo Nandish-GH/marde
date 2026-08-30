@@ -15,8 +15,8 @@ export const site = {
 
 export const nav = [
   ["Home", "/"],
-  ["Technology", "/technology"],
-  ["Team", "/team"],
-  ["Mission", "/mission"],
-  ["Support", "/support"],
+  ["Technology", "/technology/"],
+  ["Team", "/team/"],
+  ["Mission", "/mission/"],
+  ["Support", "/support/"],
 ] as const;

@@ -6,10 +6,9 @@ import { Section } from "../../components/layout";
 import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Mission",
-  description: "Why MARDE is building for the gap before emergency help arrives.",
+  title: "MARDE Mission | Building Faster Robotic Emergency Response",
+  description: "Learn why MARDE is developing robotic emergency-response systems intended to reduce the gap between emergency dispatch and useful action at the scene.",
   path: "/mission",
-  keywords: ["emergency response mission", "EMS response time", "first response systems"],
 });
 
 export default function MissionPage() {

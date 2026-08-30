@@ -5,10 +5,9 @@ import { Section } from "../../components/layout";
 import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Privacy Policy",
+  title: "Privacy Policy | MARDE",
   description: "How MARDE handles information submitted through this website and its third-party services.",
   path: "/privacy",
-  keywords: ["MARDE privacy policy", "website privacy"],
 });
 
 export default function PrivacyPage() {

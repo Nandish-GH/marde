@@ -7,7 +7,7 @@ import { pageMetadata } from "../metadata";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "Thank You",
+    title: "Thank You | MARDE",
     description: "Confirmation that your message was submitted to MARDE.",
     path: "/thank-you",
   }),

@@ -5,9 +5,10 @@ import { AsciiDrone } from "./ascii-drone";
 import { Eyebrow } from "./components";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: { absolute: "Page Not Found | MARDE" },
   description: "The requested page could not be found.",
-  robots: { index: false, follow: false },
+  openGraph: null,
+  twitter: null,
 };
 
 export default function NotFound() {
@@ -19,7 +20,7 @@ export default function NotFound() {
         <p>The address may have changed, or the page may no longer exist.</p>
         <div className="actions">
           <Button asChild><Link href="/">Return Home</Link></Button>
-          <Button asChild variant="quiet"><Link href="/support">Explore Support</Link></Button>
+          <Button asChild variant="quiet"><Link href="/support/">Explore Support</Link></Button>
         </div>
       </div>
       <AsciiDrone />

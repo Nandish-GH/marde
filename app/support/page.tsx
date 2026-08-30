@@ -8,10 +8,9 @@ import { PageHero } from "../page-hero";
 import { Button } from "../../components/ui/button";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Support",
-  description: "Support MARDE's early research and development.",
+  title: "Support MARDE | Donations, Contact & Project Updates",
+  description: "Support MARDE's early-stage research and development, contact the team, or follow updates on its emergency-response robotics work.",
   path: "/support",
-  keywords: ["support emergency technology R&D", "MARDE donations", "contact MARDE"],
 });
 
 export default function SupportPage() {

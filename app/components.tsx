@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav, site } from "./content";
 import { Button } from "../components/ui/button";
 
@@ -44,31 +45,21 @@ export function SocialLinks({ className = "" }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div>
-          <Link href="/" className="footer-logo" aria-label="MARDE home">
-            <span aria-hidden="true" />
+    <footer className="or-footer">
+      <div className="or-footer-inner">
+        <div className="or-footer-brand">
+          <Link href="/" aria-label="MARDE home">
+            <Image src="/brand/marde-logo-horizontal-light.png" alt="" width={226} height={64} />
           </Link>
           <p>Response starts before arrival.</p>
         </div>
-        <nav className="footer-links" aria-label="Footer navigation">
-          {nav.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
-          <Link href="/faq">FAQ</Link>
-          <Link href="/privacy">Privacy Policy</Link>
-          <span className="footer-contact-links">
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-            <a href={site.instagram} target="_blank" rel="noreferrer">Instagram</a>
-            <a href={site.tiktok} target="_blank" rel="noreferrer">TikTok</a>
-          </span>
+        <nav className="or-footer-links" aria-label="Footer navigation">
+          <div><strong>Company</strong>{nav.slice(0, 1).concat(nav.slice(2)).map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
+          <div><strong>System</strong><Link href="/technology/">Technology</Link><Link href="/technology/#nexus">Nexus</Link></div>
+          <div><strong>Legal</strong><Link href="/privacy/">Privacy Policy</Link><Link href="/faq/">FAQ</Link></div>
+          <div><strong>Connect</strong><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.instagram} target="_blank" rel="noreferrer">Instagram</a><a href={site.tiktok} target="_blank" rel="noreferrer">TikTok</a></div>
         </nav>
-        <div className="footer-support">
-          <p className="copyright">© {new Date().getFullYear()} MARDE, Inc.</p>
-        </div>
+        <div className="or-footer-meta"><span>Delaware C-Corporation</span><span>Headquartered in New Jersey</span><span>© {new Date().getFullYear()} MARDE, Inc.</span></div>
       </div>
     </footer>
   );

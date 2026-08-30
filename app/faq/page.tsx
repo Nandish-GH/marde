@@ -6,10 +6,9 @@ import { Section } from "../../components/layout";
 import { PageHero } from "../page-hero";
 
 export const metadata: Metadata = pageMetadata({
-  title: "FAQ",
-  description: "Answers about MARDE's development stage, donations, timeline, and ways to get involved.",
+  title: "MARDE FAQ | Emergency Response Robotics",
+  description: "Answers about MARDE's emergency-response robotics platform, technology, development stage, operations, and planned Air, Ground, Nexus, and intervention systems.",
   path: "/faq",
-  keywords: ["MARDE FAQ", "MARDE development", "first-response technology questions"],
 });
 
 const questions = [
@@ -51,7 +50,7 @@ export default function FaqPage() {
         <div className="faq-list readable-content">
           <Accordion items={questions} variant="page" defaultOpen="all" />
           <p className="faq-contact">
-            Have another question? <Link className="text-link" href="/support">Support details</Link>
+            Have another question? <Link className="text-link" href="/support/">Support details</Link>
           </p>
         </div>
       </Section>
