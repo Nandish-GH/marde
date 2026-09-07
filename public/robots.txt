@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /nandish
+Disallow: /contacts/
 
 Sitemap: https://mardeinc.com/sitemap.xml
