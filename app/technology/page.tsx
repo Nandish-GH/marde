@@ -133,6 +133,9 @@ export default function TechnologyPage() {
         </div>
       </section>
 
+      <Section className="roadmap" id="modules">
+        <div><Eyebrow>04 / INTERVENTION MODULES</Eyebrow><h2>Extend useful capability.</h2><p>MARDE’s adaptable payload architecture begins with delivery and secure-response functions. Advanced medical modules would follow engineering, clinical, operational, and regulatory validation.</p></div>
+      </Section>
       <Section className="roadmap">
         <div>
           <Eyebrow>{roadmap.eyebrow}</Eyebrow>

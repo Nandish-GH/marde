@@ -1,19 +1,18 @@
-import { SiteShell } from "./site-shell";
+import { SiteShell, PageSurface } from "./site-shell";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
-import { Footer } from "./components";
+import { Footer } from "../components/v2/footer";
 import { site } from "./content";
-import { Header } from "./site-header";
-import { SiteMotion } from "./site-motion";
-import { LoadingOverlay } from "./loading-overlay";
+import { Header } from "../components/v2/header";
+import { Motion, OpeningReveal } from "../components/v2/motion";
 import { canonicalSiteUrl, socialImage } from "./metadata";
 import { AnalyticsFoundation } from "./analytics";
 
 const newsreader = Newsreader({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-newsreader", display: "swap" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-space-grotesk", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-space-grotesk", display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
 const ibmPlexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex-mono", display: "swap" });
 
@@ -51,13 +50,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${newsreader.variable} ${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}>
       <body>
         <SiteShell chrome={<>
-        <noscript><style>{".loading-overlay{display:none!important}"}</style></noscript>
-        <LoadingOverlay />
+        <noscript><style>{".v2-opening{display:none!important}"}</style></noscript>
+        <OpeningReveal />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Header />
         <AnalyticsFoundation />
-        <SiteMotion />
-        <main id="main-content" tabIndex={-1}>{children}</main>
+        <Motion />
+        <main id="main-content" tabIndex={-1}><PageSurface>{children}</PageSurface></main>
         <Footer />
         {googleAnalyticsId ? <GoogleAnalytics gaId={googleAnalyticsId} /> : null}
         </>}>{children}</SiteShell>
@@ -65,3 +64,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+

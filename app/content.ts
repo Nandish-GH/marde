@@ -43,7 +43,7 @@ export const statistics = [
   {
     value: "6.4 min",
     label:
-      "median EMS response time for non-traumatic out-of-hospital cardiac arrests in 2024 CARES data.",
+      "median first-responder response time in the CARES 2024 response-time analysis.",
     source: "CARES 2024 Metrics Summary",
     href: "https://mycares.net/sitepages/uploads/2025/CARES%2020250516%202024%20Metrics%20Summary.pdf",
   },
@@ -199,7 +199,7 @@ export const mission = {
   },
   story: {
     eyebrow: "Our starting point",
-    title: ["A personal moment", "that revealed a gap."],
+    title: ["A question about", "the minutes before arrival."],
     paragraphs: [
       "MARDE began with a question about the response gap: how might useful capability move toward an emergency scene before professional responders can arrive?",
       "That question continues to shape a careful, staged approach designed to complement the crucial role of EMS and clinical care.",
@@ -260,3 +260,4 @@ export const teamPage = {
     body: "MARDE is being shaped by people working across strategy, medical guidance, engineering, and community.",
   },
 };
+

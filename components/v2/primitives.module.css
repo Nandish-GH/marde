@@ -1,0 +1,14 @@
+.action{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:52px;padding:16px 22px;background:var(--v-blue);color:#fff;font:500 14px/1.2 var(--v-body);text-decoration:none;border:1px solid transparent;border-radius:2px;transition:background .2s,transform .2s;}
+.action svg{flex:none;transition:transform .2s;}
+.action:hover{background:#1f53bb;}
+.action:hover svg{transform:translateX(3px);}
+.action:active{transform:translateY(1px);}
+.secondary{background:transparent;border-color:var(--v-rule);color:inherit;}
+.secondary:hover{background:rgba(128,128,128,.1);}
+.light{background:var(--v-paper);color:var(--v-ink);}
+.light:hover{background:#fff;}
+.kicker{display:flex;align-items:center;gap:12px;font:500 11px/1.6 var(--v-mono);letter-spacing:.13em;text-transform:uppercase;margin:0 0 28px;}
+.kicker span{opacity:.6;font-size:11px;}
+.kicker i{width:6px;height:6px;display:block;background:var(--v-blue-light);}
+@media(max-width:600px){.action{gap:20px;min-height:50px;}.kicker{font-size:10px;letter-spacing:.1em;margin-bottom:22px;}}
+@media(prefers-reduced-motion:reduce){.action,.action svg{transition:none;}}

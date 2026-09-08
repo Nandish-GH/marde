@@ -9,3 +9,8 @@ export function SiteShell({ children, chrome }: { children: ReactNode; chrome: R
   if (pathname === "/nandish") return <main id="main-content" tabIndex={-1}>{children}</main>;
   return chrome;
 }
+
+export function PageSurface({children}:{children:ReactNode}){
+  const path=usePathname().replace(/\/+$/, "");
+  return <div className={path === "" || path === "/contact" ? "v2-shell" : "legacy"}>{children}</div>;
+}

@@ -1,0 +1,16 @@
+.contact{padding:90px var(--v-gutter) 110px;display:grid;grid-template-columns:1.05fr 1fr;gap:9%;font-family:var(--v-body);color:var(--v-ink);}
+.intro h1{font:400 clamp(36px,3.7vw,60px)/1.06 var(--v-heading);letter-spacing:-.055em;margin:0 0 30px;}.intro h1 span{color:var(--v-muted);}
+.intro>p{font-size:15px;line-height:1.75;color:var(--v-muted);max-width:420px;margin-bottom:30px;}
+.intro>a{display:flex;align-items:center;gap:24px;width:fit-content;font-size:18px;text-decoration:none;border-bottom:1px solid var(--v-rule);padding-bottom:10px;}
+.note{margin-top:65px;border-top:1px solid var(--v-rule);padding-top:25px;}.note>span{font:10px var(--v-mono);letter-spacing:.1em;}.note p{font-size:13px;color:var(--v-muted);line-height:1.8;margin-top:15px;}
+.form{display:flex;flex-direction:column;gap:25px;}.form label{font-size:12px;font-weight:500;display:flex;flex-direction:column;gap:10px;}.form label>span{display:contents;color:var(--v-muted);font-weight:400;}
+.form input,.form select,.form textarea{min-height:50px;padding:13px 14px;background:#fbfbf7;color:var(--v-ink);border:1px solid #b4bbc0;border-radius:2px;width:100%;font-size:15px;}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:var(--v-blue);}
+.form textarea{resize:vertical;min-height:140px;}.row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form .privacy{font-size:11px;line-height:1.7;color:var(--v-muted);margin:0;}.privacy a{text-underline-offset:4px;}
+.form button,.success button{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:16px 22px;min-height:52px;color:white;background:var(--v-blue);border:0;font-size:14px;width:fit-content;}.form button:hover,.success button:hover{background:#1f53bb;}
+.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;}
+.error{color:#a22c2c;font-size:13px;line-height:1.7;margin:0;}
+.success{padding:40px;background:#e5eae9;align-self:start;}.success>span{font:10px var(--v-mono);}.success h2{font:400 36px/1.1 var(--v-heading);letter-spacing:-.04em;margin:25px 0;}.success p{font-size:15px;line-height:1.8;color:var(--v-muted);}.success button{margin-top:30px;}
+@media(max-width:800px){.contact{gap:6%;padding-top:65px;}.row{grid-template-columns:1fr;gap:25px;}.intro h1{font-size:40px;}}
+@media(max-width:600px){.contact{grid-template-columns:1fr;gap:40px;padding-top:55px;padding-bottom:65px;}.intro h1{font-size:40px;}.intro>p{font-size:14px;}.note{margin-top:32px;}.form input,.form textarea,.form select{font-size:16px;}.success{padding:25px;}}

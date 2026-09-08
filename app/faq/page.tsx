@@ -1,3 +1,4 @@
+import { faqs as questions } from "../../lib/content/v2";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Accordion } from "../accordion";
@@ -11,28 +12,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/faq",
 });
 
-const questions = [
-  {
-    question: "When will MARDE be flying?",
-    answer:
-      "MARDE Air is in development and no deployment or flight timeline has been announced. Any future experimental development and operation will depend on design progress, safety work, testing, and the applicable aviation approvals.",
-  },
-  {
-    question: "How are donations used?",
-    answer:
-      "Early support helps advance research and development, including components, testing preparation, and regulatory-readiness work. MARDE does not publish a specific funding target on this website.",
-  },
-  {
-    question: "Is MARDE hiring or looking for volunteers?",
-    answer:
-      "MARDE does not list formal job or volunteer openings on this website. If you would like to introduce yourself or ask about ways to help, please contact the team through the Support page.",
-  },
-  {
-    question: "What stage is MARDE at?",
-    answer:
-      "MARDE is pre-seed, pre-prototype, and pre-revenue. Air, Ground, Nexus, and intervention modules are early-stage concepts under development, not finished or deployed products.",
-  },
-] as const;
+
 
 export default function FaqPage() {
   return (
@@ -57,3 +37,4 @@ export default function FaqPage() {
     </div>
   );
 }
+
