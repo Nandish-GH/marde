@@ -1,6 +1,10 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Nandish Panchal
 N:Panchal;Nandish;;;
+FN:Nandish Panchal
 ORG:MARDE\, Inc.
+TITLE:Founder & CEO
+TEL;TYPE=CELL:+18482399831
+EMAIL;TYPE=INTERNET:marde.nandish@gmail.com
+URL:https://mardeinc.com/nandish
 END:VCARD

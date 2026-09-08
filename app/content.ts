@@ -1,8 +1,18 @@
+import { nandishProfile } from "../lib/nandish-profile";
+
 export { nav, site } from "../lib/site-config";
 
-export const team = [
+type TeamMember = {
+  initials: string; name: string; title: string;
+  portrait?: string; portraitAlt?: string; contactPageUrl?: string;
+};
+
+export const team: readonly TeamMember[] = [
   {
     initials: "NP",
+    portrait: nandishProfile.portrait,
+    portraitAlt: nandishProfile.portraitAlt,
+    contactPageUrl: "/nandish",
     name: "Nandish Panchal",
     title: "President & Chief Executive Officer",
   },

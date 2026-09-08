@@ -1,3 +1,4 @@
+import { SiteShell } from "./site-shell";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${newsreader.variable} ${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}>
       <body>
+        <SiteShell chrome={<>
         <noscript><style>{".loading-overlay{display:none!important}"}</style></noscript>
         <LoadingOverlay />
         <a className="skip-link" href="#main-content">Skip to main content</a>
@@ -58,6 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         {googleAnalyticsId ? <GoogleAnalytics gaId={googleAnalyticsId} /> : null}
+        </>}>{children}</SiteShell>
       </body>
     </html>
   );

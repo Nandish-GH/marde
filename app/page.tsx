@@ -219,7 +219,7 @@ export default function Home() {
         <div className="initials">
           {team.slice(0, 5).map((member) => (
             <article className="team-profile" key={member.name} tabIndex={0}>
-              <b aria-hidden="true">{member.initials}</b>
+              <b aria-hidden={member.portrait ? undefined : true}>{member.portrait ? <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${member.portrait}`} alt={member.portraitAlt || member.name} width={190} height={190} unoptimized className="team-member-photo" /> : member.initials}</b>
               <span>
                 {member.name}
                 <small>{member.title}</small>
