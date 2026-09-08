@@ -12,11 +12,7 @@ export const nandishProfile = {
   vcardUrl: "/contacts/nandish.vcf",
   linkedin: "https://www.linkedin.com/in/nandish-panchal-4aab2b340/",
   schedule: "https://calendly.com/nandishmarde/30",
-  instagram: "https://www.instagram.com/marde.inc",
-  tiktok: "https://www.tiktok.com/@marde.inc",
   github: "https://github.com/Nandish-GH/",
-  supportMarde: "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
-  pitchDeck: "https://canva.link/bk6ie0o3romp57w",
   shareTitle: "Nandish Panchal — MARDE",
   shareText: "Nandish Panchal, Founder & CEO of MARDE",
 } as const;

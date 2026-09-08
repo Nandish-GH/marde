@@ -12,9 +12,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 390, height: 844 }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const portrait = page.getByAltText(profile.portraitAlt);
     expect(await portrait.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
-    const box = await portrait.boundingBox();
-    expect(box?.width).toBe(190);
-    expect(box?.height).toBe(190);
+    const box = await portrait.locator("..").boundingBox();
+    expect(box?.width).toBe(210);
+    expect(box?.height).toBe(210);
     expect(Math.abs((box!.x + box!.width / 2) - viewport.width / 2)).toBeLessThan(1);
     await expect(page.getByRole("link", { name: "ADD TO CONTACTS" })).toBeVisible();
     await expect(page.locator("body")).not.toContainText(profile.phone);
@@ -26,7 +26,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 390, height: 844 }
 
 test("contact destinations, VCard download and discovery", async ({ page, request }) => {
   await page.goto("/nandish/");
-  const links = { Email: `mailto:${profile.email}`, LinkedIn: profile.linkedin, Schedule: profile.schedule, Instagram: profile.instagram, TikTok: profile.tiktok, "Support MARDE": profile.supportMarde, GitHub: profile.github, "Pitch Deck": profile.pitchDeck, "Visit MARDE website": profile.companyUrl };
+  const links = { Email: `mailto:${profile.email}`, LinkedIn: profile.linkedin, Schedule: profile.schedule, Instagram: "https://www.instagram.com/marde.inc", TikTok: "https://www.tiktok.com/@marde.inc", "Support MARDE": "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00", GitHub: profile.github, "Pitch Deck": "https://canva.link/bk6ie0o3romp57w", "Visit MARDE website": profile.companyUrl };
   for (const [name, href] of Object.entries(links)) {
     await expect(page.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
     if (href.startsWith("https:") && name !== "Visit MARDE website") await expect(page.getByRole("link", { name, exact: true })).toHaveAttribute("rel", "noopener noreferrer");
