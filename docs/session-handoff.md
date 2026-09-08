@@ -4,7 +4,7 @@ SESSION: 1 — archive, design foundation, homepage; Contact added so the new na
 
 CURRENT BRANCH: `codex/marde-v2-production`
 
-CURRENT COMMIT: See `git log -1`; implementation checkpoint `ac0e2d2` followed by the Session 1 verification commit.
+CURRENT COMMIT: Deployed implementation `e311494314b48992863cf3fbe34725cc7d6413a2` (following checkpoint `ac0e2d2`). A later documentation-only commit on this branch records the deployment; use `git log -1` for its hash.
 
 COMPLETED:
 - Archived V1 commit `f953fbbb0f33118b1b2e07c165ac54a61bd40ba6` locally and on GitHub as branch `archive/marde-v1-pre-rebuild-2026-09-08` and annotated tag `marde-v1-pre-rebuild-2026-09-08`.
@@ -42,6 +42,8 @@ NEXT SESSION: 2 — complete public site and NFC experience. User starts the nex
 
 IMPORTANT CONTEXT: The V2 prompt in Downloads governs. The user explicitly authorized GitHub deployment after initially requesting no deployment; that latest authorization supersedes older document restrictions. Preserve GitHub Pages + Cloudflare DNS architecture. Do not change DNS. Reserve credits are authorized for safe completion/checkpointing, not unrelated work. No new features near quota limits.
 
-DEPLOYMENT: Verification complete; see deployment record below for final live status. Do not infer deployment merely from a local commit.
+DEPLOYMENT: Live and verified at https://mardeinc.com/. Commit `e311494314b48992863cf3fbe34725cc7d6413a2` was pushed to `main` and deployed successfully by the existing GitHub Pages workflow: https://github.com/Nandish-GH/marde/actions/runs/34291937037. Chrome confirmed the public V2 homepage, including the new Contact navigation, four-part architecture, corrected CARES figures, response sequence and Nexus concepts. Direct HTTPS requests to the homepage, Contact and Technology returned 200; www redirected to the apex domain. Cloudflare DNS was unchanged. This final handoff update is pushed to `codex/marde-v2-production` only, avoiding an unnecessary second deployment.
+
+USAGE HANDOFF: At final deployment verification, the five-hour allowance was 99% used and the weekly allowance 58% used (42% remaining). Reported reserve balance was 437.713712 credits, down from 474.543512 at session start; reserve use was limited to completing verification, deployment and checkpointing. Stop here and let the user start Session 2 after capacity is available.
 
 ROLLBACK: Preserve history. On a clean `main` matching the deployment, create a new rollback commit restoring the V1 tree: `git restore --source=marde-v1-pre-rebuild-2026-09-08 --staged --worktree -- .`, then `git commit -m "Restore MARDE V1"` and `git push origin main`. This triggers the existing Pages workflow. Review the restored tree before pushing; never force-push. The archive branch/tag remains available independently.
