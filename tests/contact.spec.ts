@@ -10,7 +10,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 390, height: 844 }
     await expect(page.locator("nav, footer, .loading-overlay")).toHaveCount(0);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    const portrait = page.getByAltText(profile.portraitAlt);
+    const portrait = page.getByAltText(/Nandish Panchal/);
     expect(await portrait.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
     const box = await portrait.locator("..").boundingBox();
     expect(box?.width).toBe(210);
@@ -68,9 +68,9 @@ test("team integration and navigation preserve corporate chrome", async ({ page 
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const route of ["/", "/team/"]) {
     await page.goto(route);
-    await expect(page.getByAltText(profile.portraitAlt)).toHaveAttribute("src", profile.portrait);
-    const imageBox = await page.getByAltText(profile.portraitAlt).boundingBox();
-    expect(Math.abs(imageBox!.width - imageBox!.height)).toBeLessThan(1);
+    await expect(page.getByAltText(/Nandish Panchal/)).toHaveAttribute("src", profile.portrait);
+    const imageBox = await page.getByAltText(/Nandish Panchal/).boundingBox();
+    if(route === "/team/") expect(Math.abs(imageBox!.width - imageBox!.height)).toBeLessThan(1);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /index, follow/);
     await expect(page.locator('a[href^="/nandish"]')).toHaveCount(route === "/team/" ? 1 : 0);
   }

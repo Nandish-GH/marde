@@ -260,4 +260,3 @@ export const teamPage = {
     body: "MARDE is being shaped by people working across strategy, medical guidance, engineering, and community.",
   },
 };
-

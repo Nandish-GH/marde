@@ -8,7 +8,7 @@
 .light{background:var(--v-paper);color:var(--v-ink);}
 .light:hover{background:#fff;}
 .kicker{display:flex;align-items:center;gap:12px;font:500 11px/1.6 var(--v-mono);letter-spacing:.13em;text-transform:uppercase;margin:0 0 28px;}
-.kicker span{opacity:.6;font-size:11px;}
+.kicker span{opacity:.8;font-size:11px;}
 .kicker i{width:6px;height:6px;display:block;background:var(--v-blue-light);}
 @media(max-width:600px){.action{gap:20px;min-height:50px;}.kicker{font-size:10px;letter-spacing:.1em;margin-bottom:22px;}}
 @media(prefers-reduced-motion:reduce){.action,.action svg{transition:none;}}

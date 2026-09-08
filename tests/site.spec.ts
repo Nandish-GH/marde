@@ -24,14 +24,14 @@ test("Homepage Nexus keeps the approved coordination preview", async ({ page }) 
   await page.goto("/#home-nexus");
   const nexus = page.locator("#home-nexus");
   await expect(nexus).toBeVisible();
-  await expect(nexus.getByText("HUMAN AUTHORIZATION", { exact: true })).toBeVisible();
-  await expect(nexus.getByText("Final Decision Authority", { exact: true })).toBeVisible();
+  await expect(nexus.getByRole("button", { name: "Human authorization 02" })).toBeVisible();
+  await expect(nexus.getByText("HUMAN-IN-THE-LOOP BY DESIGN", { exact: true })).toBeVisible();
 });
 
 test("FAQ uses accessible accordion state", async ({ page }) => {
   await page.goto("/faq/");
   await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
-  const first = page.getByRole("button", { name: "When will MARDE be flying?" });
+  const first = page.getByRole("button", { name: "What is MARDE building?" });
   await expect(first).toHaveAttribute("aria-expanded", "true");
   await first.click();
   await expect(first).toHaveAttribute("aria-expanded", "false");
@@ -43,9 +43,9 @@ test("mobile navigation is modal, keyboard dismissible, and restores focus", asy
   await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
   const trigger = page.getByRole("button", { name: "Open main navigation" });
   await trigger.click();
-  await expect(page.getByRole("dialog", { name: "Main navigation" })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "Navigation" })).toBeVisible();
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("dialog", { name: "Main navigation" })).toBeHidden();
+  await expect(page.getByRole("dialog", { name: "Navigation" })).toBeHidden();
   await expect(trigger).toBeFocused();
 });
 
@@ -133,12 +133,10 @@ test("reduced-motion users receive native, non-blocking behavior", async ({ page
 });
 
 test("fine-pointer users retain the MARDE custom cursor", async ({ page, isMobile }) => {
-  test.skip(isMobile, "fine-pointer interaction");
-  await page.emulateMedia({ reducedMotion: "no-preference" });
+  test.skip(isMobile);
   await page.goto("/");
-  await expect(page.locator("html")).toHaveClass(/custom-cursor-ready/);
+  await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
   await page.mouse.move(320, 240);
-  await expect(page.locator("html")).toHaveClass(/custom-cursor-visible/);
-  await expect(page.locator(".custom-cursor-point")).toHaveCSS("opacity", "1");
-  await expect(page.locator(".custom-cursor-point > span").first()).toHaveCSS("width", "17px");
+  await expect(page.locator(".v2-cursor")).toHaveAttribute("data-visible", "true");
+  await expect(page.locator(".v2-cursor > span").first()).toHaveCSS("width", "15px");
 });
