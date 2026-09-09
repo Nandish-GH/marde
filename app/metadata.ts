@@ -3,9 +3,9 @@ import { site } from "./content";
 
 export const canonicalSiteUrl = `${site.siteUrl.replace(/\/+$/, "")}/`;
 export const socialImage = {
-  url: new URL("og.png", canonicalSiteUrl).toString(),
-  width: 1536,
-  height: 1024,
+  url: new URL("og-v2.png", canonicalSiteUrl).toString(),
+  width: 1200,
+  height: 630,
   alt: `MARDE — ${site.tagline}`,
 };
 

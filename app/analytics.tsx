@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
 const attributionStorageKey = "marde_utm_attribution";
@@ -32,6 +33,7 @@ export function trackAnalyticsEvent(eventName: AnalyticsEventName, parameters: A
 }
 
 export function AnalyticsFoundation() {
+  const pathname = usePathname();
   useEffect(() => {
     const url = new URL(window.location.href);
     const attribution = Object.fromEntries(
@@ -41,7 +43,12 @@ export function AnalyticsFoundation() {
       }),
     );
     if (Object.keys(attribution).length) {
-      window.sessionStorage.setItem(attributionStorageKey, JSON.stringify(attribution));
+      // Storage can be disabled independently of JavaScript or analytics.
+      try {
+        window.sessionStorage.setItem(attributionStorageKey, JSON.stringify(attribution));
+      } catch {
+        // Attribution is optional; navigation and event listeners still work.
+      }
     }
 
     function handleDocumentClick(event: MouseEvent) {
@@ -55,7 +62,7 @@ export function AnalyticsFoundation() {
       }
     }
 
-    const nexus = document.getElementById("nexus");
+    const nexus = document.getElementById("nexus") || document.getElementById("home-nexus");
     const observer = nexus && "IntersectionObserver" in window
       ? new IntersectionObserver((entries) => {
           if (!entries.some((entry) => entry.isIntersecting)) return;
@@ -70,7 +77,7 @@ export function AnalyticsFoundation() {
       observer?.disconnect();
       document.removeEventListener("click", handleDocumentClick);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

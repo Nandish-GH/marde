@@ -1,0 +1,36 @@
+{
+  "samples": [
+    {
+      "y": 411,
+      "animations": 15,
+      "classes": "space_grotesk_78609157-module__11J4Jq__variable inter_1ec0685a-module__ODW2ua__variable ibm_plex_mono_7a40aa89-module__YQYF1q__variable marde-intro-complete v2-cursor-ready lenis lenis-scrolling lenis-smooth"
+    },
+    {
+      "y": 1072,
+      "animations": 20,
+      "classes": "space_grotesk_78609157-module__11J4Jq__variable inter_1ec0685a-module__ODW2ua__variable ibm_plex_mono_7a40aa89-module__YQYF1q__variable marde-intro-complete v2-cursor-ready lenis lenis-scrolling lenis-smooth"
+    },
+    {
+      "y": 1199,
+      "animations": 11,
+      "classes": "space_grotesk_78609157-module__11J4Jq__variable inter_1ec0685a-module__ODW2ua__variable ibm_plex_mono_7a40aa89-module__YQYF1q__variable marde-intro-complete v2-cursor-ready lenis lenis-scrolling lenis-smooth"
+    },
+    {
+      "y": 1200,
+      "animations": 6,
+      "classes": "space_grotesk_78609157-module__11J4Jq__variable inter_1ec0685a-module__ODW2ua__variable ibm_plex_mono_7a40aa89-module__YQYF1q__variable marde-intro-complete v2-cursor-ready lenis"
+    }
+  ],
+  "idleCallbacks": 0,
+  "keyboardY": 1991,
+  "reduced": {
+    "smooth": false,
+    "cursor": "none",
+    "values": [
+      "6.4",
+      "7.6",
+      "50.2"
+    ]
+  },
+  "errors": []
+}

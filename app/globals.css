@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight.css";
 :root{
   --v-paper:#f4f3ee;--v-ink:#15191f;--v-muted:#59616b;--v-charcoal:#111418;
   --v-blue:#2b61ca;--v-blue-light:#8fbaff;--v-dark-muted:#afbbc9;--v-rule:#cbd0d0;

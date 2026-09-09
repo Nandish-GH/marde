@@ -19,6 +19,6 @@
 @keyframes nodeIn{from{opacity:.45;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:1100px){.glyph{width:80px;}.air .glyph{width:110px;}.ground .glyph{width:90px;}.caption strong{font-size:16px;}.node{gap:7px;}.caption span{font-size:9px;}.modules{left:59%;}.modules .glyph{width:54px;}}
 @media(max-width:600px){.scene{aspect-ratio:1.25;margin:24px -5px 0;}.sceneLabel{font-size:8px;gap:8px;}.air{left:3%;top:16%;}.ground{left:46%;top:36%;}.nexus{left:12%;top:65%;}.modules{left:63%;top:72%;}.air .glyph{width:90px;}.ground .glyph{width:75px;}.nexus .glyph{width:58px;}.modules .glyph{width:44px;}.caption strong,.modules .caption strong{font-size:14px;}.caption span{font-size:8px;letter-spacing:0;}.note{font-size:8px;bottom:-18px;}.terrain{width:120%;left:-10%;}}
-@media(max-width:600px){.scene .note{font-size:9px;bottom:-12px;}}
+@media(max-width:600px){.scene .note{font-size:10px;bottom:-12px;}}
 @media(max-width:360px){.node{gap:3px;}.air .glyph{width:76px;}.ground .glyph{width:60px;}.nexus .glyph{width:48px;}.modules .glyph{width:36px;}.caption strong,.modules .caption strong{font-size:12px;}}
 @media(prefers-reduced-motion:reduce){.route,.node{animation:none;}}

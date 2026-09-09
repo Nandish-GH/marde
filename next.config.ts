@@ -5,6 +5,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const nextConfig: NextConfig = {
   output: "export",
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react", "radix-ui", "animejs"],
+  },
   ...(basePath
     ? {
         basePath,

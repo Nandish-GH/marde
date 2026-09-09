@@ -80,7 +80,9 @@ test("SEO metadata and public integration surfaces remain intact", async ({ page
     await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /\S/);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical);
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", "https://mardeinc.com/og.png");
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", "https://mardeinc.com/og-v2.png");
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1200");
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", "630");
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
   }
 
