@@ -54,3 +54,5 @@ Rollback through a new commit on clean main: `git restore --source=<checkpoint> 
 Usage last checked: five-hour 82% used; weekly 87% used (13% left); credits 326.215966 unchanged. Stop new features and checkpoint.
 
 Afternoon deployment verification follows in `docs/session-handoff.md` after the workflow completes.
+
+DEPLOYMENT VERIFIED: Afternoon pass commit e8d3e3605107a7725d9015d5381af95c595e75a8 deployed successfully through GitHub Pages run https://github.com/Nandish-GH/marde/actions/runs/34405269216 . Build and deploy jobs succeeded. Live checks returned HTTP 200 for Home, Technology, Mission, Team, Support, FAQ, Privacy, Contact, all five profiles and og-v2.png. Homepage metadata points to the new OG image. Cloudflare configuration unchanged. This verification note is committed to the V2 branch only to avoid an unnecessary deployment. Final follow-up remains scheduled for 9:30 PM Eastern on September 9; finish the acceptance review/report then or save remaining work for next week.
