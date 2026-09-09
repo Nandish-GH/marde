@@ -1,57 +1,10 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ContactForm, EmailSignup, Eyebrow, SocialLinks } from "../components";
 import { pageMetadata } from "../metadata";
-import { site, support } from "../content";
-import { StripeBuyButton } from "../stripe-buy-button";
-import { PageHero } from "../page-hero";
-import { Button } from "../../components/ui/button";
-
-export const metadata: Metadata = pageMetadata({
-  title: "Support MARDE | Donations, Contact & Project Updates",
-  description: "Support MARDE's early-stage research and development, contact the team, or follow updates on its emergency-response robotics work.",
-  path: "/support",
-});
-
-export default function SupportPage() {
-  const { hero, donate, contact, follow, newsletter } = support;
-
-  return (
-    <div className="support-page">
-      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} compact className="support-hero">
-        <Button asChild variant="quiet"><Link href="#contribute">Explore Support Options</Link></Button>
-      </PageHero>
-
-      <section className="support-grid">
-        <article id="contribute">
-          <Eyebrow>{donate.eyebrow}</Eyebrow>
-          <h2>{donate.title}</h2>
-          <p>{donate.body}</p>
-          <StripeBuyButton />
-        </article>
-        <article>
-          <Eyebrow>{contact.eyebrow}</Eyebrow>
-          <h2>{contact.title}</h2>
-          <p>{contact.body}</p>
-          <ContactForm />
-          <a className="text-link contact-email" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-        </article>
-        <article>
-          <Eyebrow>{follow.eyebrow}</Eyebrow>
-          <h2>{follow.title}</h2>
-          <p>{follow.body}</p>
-          <SocialLinks className="support-socials" />
-        </article>
-      </section>
-
-      <section className="newsletter">
-        <Eyebrow>{newsletter.eyebrow}</Eyebrow>
-        <h2>{newsletter.title}</h2>
-        <p>{newsletter.body}</p>
-        <EmailSignup />
-      </section>
-    </div>
-  );
-}
+import { site } from "../../lib/site-config";
+import { Editorial, PageIntro, Closing } from "../../components/v2/editorial";
+import { Kicker, Action, Arrow } from "../../components/v2/primitives";
+import s from "../../components/v2/editorial.module.css";
+export const metadata=pageMetadata({title:"Support MARDE | Help Build V1",description:"Support early MARDE research and development: Air V1, Ground V1 and Nexus V1, working toward an integrated human-in-the-loop demonstration.",path:"/support"});
+export default function SupportPage(){return <Editorial><PageIntro eyebrow="SUPPORT MARDE R&D" title={<>Help build<br/><span>what comes next.</span></>} text="MARDE is pre-seed, pre-prototype and pre-revenue. Early support helps turn a defined system concept into hardware, software and measured evidence."/>
+<section className={`${s.section} ${s.split}`}><div className={s.copy}><Kicker number="01">THE NEXT MILESTONE</Kicker><h2>Air V1.<br/>Ground V1.<br/>Nexus V1.</h2><p className={s.lead}>One integrated, human-in-the-loop demonstration.</p><p>That means engineering the parts, bringing them together and testing the complete operator-directed workflow. This is the development work your support helps move forward.</p></div><aside className={s.supportPanel}><Kicker>MAKE THE NEXT STEP POSSIBLE</Kicker><h2>Support the work.</h2><p>Contribute to MARDE’s early research and development through Stripe’s hosted payment page.</p><a className={s.textLink} href={site.donateUrl} target="_blank" rel="noopener noreferrer">Support MARDE R&D<Arrow diagonal/></a><small>Support is not an equity investment or a tax-deductible charitable donation. Stripe processes payment details on its own service.</small></aside></section>
+<section className={`${s.section} ${s.blueprint}`}><Kicker number="02">WHAT SUPPORT HELPS FUND</Kicker><div className={s.wideHeading}><h2>Make. Connect.<br/>Measure.</h2><p>High-level development priorities, grounded in the current stage of the company.</p></div><ol className={s.progression}>{[["01 / COMPONENTS","Build the first systems","Hardware components, early fabrication and software development for the V1 platform."],["02 / INTEGRATION","Connect the workflow","Air–Ground–Nexus coordination and operator-interface development."],["03 / VALIDATION","Prepare to test","Controlled test preparation, measured engineering evaluation and regulatory readiness work."]].map(([label,title,text])=><li key={label}><span>{label}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
+<section className={`${s.section} ${s.split}`}><div className={s.copy}><Kicker number="03">MORE WAYS TO CONTRIBUTE</Kicker><h2>Experience matters, too.</h2></div><div><p className={s.lead}>Technical feedback. Operational insight. A useful introduction.</p><p>Investment, advising, EMS and research conversations begin with our team. Tell us where your experience connects with the platform.</p><Action href="/contact/">Start a conversation</Action></div></section><Closing title="Stay close to the development." text="Follow our work on Instagram and TikTok, or contact the team to learn more about MARDE’s current direction."/></Editorial>;}

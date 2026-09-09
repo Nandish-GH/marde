@@ -1,66 +1,11 @@
-import type { Metadata } from "next";
-import { DonateButton, Eyebrow, SplitTitle } from "../components";
+import Image from "next/image";
 import { pageMetadata } from "../metadata";
-import { mission } from "../content";
-import { Section } from "../../components/layout";
-import { PageHero } from "../page-hero";
-
-export const metadata: Metadata = pageMetadata({
-  title: "MARDE Mission | Building Faster Robotic Emergency Response",
-  description: "Learn why MARDE is developing robotic emergency-response systems intended to reduce the gap between emergency dispatch and useful action at the scene.",
-  path: "/mission",
-});
-
-export default function MissionPage() {
-  const { hero, story, statement, funding, regulatory } = mission;
-
-  return (
-    <div className="mission-page">
-      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} className="mission-hero" />
-
-      <section className="story">
-        <div>
-          <Eyebrow>{story.eyebrow}</Eyebrow>
-          <h2>
-            <SplitTitle lines={story.title} italicIndex={1} />
-          </h2>
-        </div>
-        <div>
-          {story.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="mission-statement">
-        <Eyebrow>{statement.eyebrow}</Eyebrow>
-        <h2>{statement.body}</h2>
-      </section>
-
-      <Section className="funding">
-        <div>
-          <Eyebrow>{funding.eyebrow}</Eyebrow>
-          <h2>
-            <SplitTitle lines={funding.title} italicIndex={1} />
-          </h2>
-        </div>
-        <div className="fund-list">
-          {funding.items.map(([label, text]) => (
-            <p key={label}>
-              <b>{label}</b> {text}
-            </p>
-          ))}
-          <DonateButton />
-        </div>
-      </Section>
-
-      <section className="regulatory small">
-        <Eyebrow>{regulatory.eyebrow}</Eyebrow>
-        <h2>
-          <SplitTitle lines={regulatory.title} italicIndex={1} />
-        </h2>
-        <p>{regulatory.body}</p>
-      </section>
-    </div>
-  );
-}
+import { Editorial, PageIntro, Closing } from "../../components/v2/editorial";
+import { Kicker, Action } from "../../components/v2/primitives";
+import s from "../../components/v2/editorial.module.css";
+export const metadata=pageMetadata({title:"MARDE Mission | The Minutes Before Arrival",description:"Why MARDE is developing coordinated robotics to extend useful response capability before EMS arrives, with human oversight and evidence-led development.",path:"/mission"});
+export default function MissionPage(){return <Editorial><PageIntro eyebrow="WHY MARDE EXISTS" title={<>What happens before<br/><span>help arrives matters.</span></>} text="Our mission is to test whether coordinated robotics can extend useful emergency-response capability toward a patient during the gap between dispatch and professional responder arrival."/>
+<section className={`${s.section} ${s.split}`}><div className={s.portrait}><Image unoptimized src="/team/nandish-panchal.webp" alt="Nandish Panchal, MARDE founder" width={600} height={750}/><span>NANDISH PANCHAL / FOUNDER & CEO</span></div><div className={s.copy}><Kicker number="01">THE FOUNDER’S STARTING POINT</Kicker><h2>A question at the intersection of care and engineering.</h2><p>Nandish Panchal began programming at eight. His interest in software and engineering developed alongside BLS training, hospital volunteering, cardiology shadowing and allied-health studies.</p><p>Those experiences focused his attention on the minutes before professional help arrives: how could useful response capability move toward a patient during that interval?</p><p>MARDE is the system he and the team are developing to explore that question—through coordinated Air, Ground, Nexus and Modules, with human oversight from the start.</p></div></section>
+<section className={s.statement}><Kicker number="02">THE QUESTION THAT DRIVES US</Kicker><h2>Dispatch sets a response in motion.<br/>What can we make possible<br/>before arrival?</h2></section>
+<section className={`${s.section} ${s.dark} ${s.split}`}><div className={s.copy}><Kicker number="03">A COMPLEMENT TO EMS</Kicker><h2>Built around the patient.<br/>Alongside the responder.</h2></div><div><p className={s.lead}>The goal is to extend the reach of emergency response while preserving the judgment of the people responsible for it.</p><p>Distance is one challenge. Final access, equipment availability, operator context and handoff each matter. We’re designing MARDE as an integrated platform because those challenges are connected.</p><Action href="/technology/" light>Explore the Technology</Action></div></section>
+<section className={s.section}><Kicker number="04">HOW WE BUILD</Kicker><div className={s.wideHeading}><h2>Principles that<br/>shape the system.</h2><p>We are early in development. These principles guide what we build, how we test it and what we say about it.</p></div><ol className={s.principles}>{[["Human oversight","Keep consequential decisions with trained people. Design the system so responsibility stays clear."],["Evidence before claims","Measure what works. Distinguish design intent from demonstrated capability."],["Integration with public safety","Learn from EMS, fire and medical leaders. Develop around real response workflows."],["Progress in stages","Build, integrate, validate and then evaluate with partners. Expand autonomy only as evidence supports it."]].map(([title,text],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section><Closing title="A better response begins with the work before it." text="We’re building with a long view and an immediate task: demonstrate an integrated, operator-directed V1 workflow."/></Editorial>;}

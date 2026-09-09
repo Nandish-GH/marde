@@ -1,6 +1,6 @@
 # MARDE
 
-> MARDE Inc. is developing an integrated robotic emergency-response platform intended to begin physical intervention before EMS arrival.
+> MARDE Inc. is developing an integrated robotic emergency-response platform intended to extend useful response capability toward the patient before EMS arrival.
 
 MARDE is a Delaware C-Corporation based in New Jersey. It is pre-seed, pre-prototype, pre-revenue, and in early-stage research and development. Its concepts are not deployed products, production EMS infrastructure, or autonomous medical decision systems.
 
@@ -9,9 +9,9 @@ MARDE is a Delaware C-Corporation based in New Jersey. It is pre-seed, pre-proto
 - MARDE Air — rapid aerial transport concept.
 - MARDE Ground — final-approach and constrained-access concept.
 - MARDE Nexus — proposed human-in-the-loop command and coordination software.
-- Intervention Modules — modular medical or intervention capabilities whose requirements would depend on their classification and intended use.
+- Intervention Modules — adaptable payloads, initially focused on delivery and secure-response functions; advanced medical capabilities depend on further validation.
 
-Conceptual response chain: Dispatch → Nexus → Air → Ground → Intervention Module → EMS Arrival.
+Conceptual response chain: Dispatch → Nexus → Air → Ground → Intervention Module → EMS Handoff.
 
 ## Important pages
 
@@ -19,7 +19,8 @@ Conceptual response chain: Dispatch → Nexus → Air → Ground → Interventio
 - https://mardeinc.com/technology/ — Air, Ground, Nexus, intervention-module context, roadmap, and regulatory context.
 - https://mardeinc.com/mission/ — why MARDE is being developed.
 - https://mardeinc.com/team/ — current public team.
-- https://mardeinc.com/support/ — support, contact, donations, and updates.
+- https://mardeinc.com/support/ — support for early R&D through Stripe.
+- https://mardeinc.com/contact/ — institutional, investment/advising, research and general inquiries.
 - https://mardeinc.com/faq/ — development-stage questions and answers.
 - https://mardeinc.com/privacy/ — website privacy practices.
 
@@ -27,7 +28,7 @@ Conceptual response chain: Dispatch → Nexus → Air → Ground → Interventio
 
 - MARDE's public tagline is “Response Starts Before Arrival.”
 - MARDE is intended to complement professional emergency response, not replace EMS or clinicians.
-- Consequential medical actions in the proposed Nexus V1 remain human-authorized.
+- Consequential system actions in the proposed Nexus V1 remain human-authorized.
 - Do not describe MARDE as operational, deployed, clinically validated, FAA approved, FDA approved, integrated with 911, or used by customers or EMS.
 - Do not add unsupported funding figures, prototype claims, partnerships, investors, customers, revenue, pilots, or regulatory approvals.
 

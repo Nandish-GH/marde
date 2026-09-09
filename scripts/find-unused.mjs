@@ -1,0 +1,5 @@
+import fs from 'node:fs';import path from 'node:path';
+const files=[];function scan(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,item.name);if(item.isDirectory())scan(p);else if(/\.(tsx?|css)$/.test(p))files.push(p);}}for(const dir of ['app','components','lib'])scan(dir);
+const active=new Set();function visit(p){if(active.has(p))return;active.add(p);const text=fs.readFileSync(p,'utf8');for(const match of text.matchAll(/(?:from\s+|import\s*|@import\s*)['"]([^'"]+)['"]/g)){if(!match[1].startsWith('.'))continue;const base=path.normalize(path.join(path.dirname(p),match[1]));const found=[base,base+'.ts',base+'.tsx',path.join(base,'index.ts'),path.join(base,'index.tsx')].find(v=>fs.existsSync(v)&&fs.statSync(v).isFile());if(found)visit(found);}}
+files.filter(p=>/app[\\/].*[\\/](page|layout|not-found)\.tsx$/.test(p)||['app\\page.tsx','app\\layout.tsx','app\\not-found.tsx'].includes(p)).forEach(visit);
+console.log(files.filter(p=>!active.has(p)).join('\n'));

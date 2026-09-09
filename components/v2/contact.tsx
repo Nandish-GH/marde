@@ -1,5 +1,6 @@
 "use client";
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { site } from "../../lib/site-config";
 import { Kicker, Arrow } from "./primitives";
 import s from "./contact.module.css";
@@ -21,7 +22,7 @@ export function Contact(){
         <label>What would you like to discuss?<textarea name="message" rows={5} required maxLength={5000}/></label>
         <input type="text" name="_gotcha" className={s.honeypot} tabIndex={-1} aria-hidden="true" autoComplete="off"/>
         <input type="hidden" name="_subject" value="MARDE website inquiry"/>
-        <p className={s.privacy}>Your message is processed through Formspree. <a href="/privacy/">Privacy policy</a></p>
+        <p className={s.privacy}>Your message is processed through Formspree. <Link href="/privacy/">Privacy policy</Link></p>
         <button type="submit" disabled={status==="sending"}>{status==="sending"?"Sending…":"Send message"}<Arrow /></button>
         <p className={status==="error"?s.error:"sr-only"} role={status==="error"?"alert":"status"}>{status==="error"?"Your message could not be sent. Your entries are still here. Please try again, or email team@mardeinc.com.":status==="sending"?"Sending your message.":""}</p>
       </form>}

@@ -33,6 +33,9 @@ export const faqs = [
   { question: "What are Intervention Modules?", answer: "Modules are the platform’s adaptable response payloads. Near-term work focuses on delivery and secure-response capabilities. Advanced medical capabilities would require further engineering, clinical, operational, and regulatory validation." },
   { question: "Does MARDE replace EMS?", answer: "No. MARDE is intended to extend useful response capability into the minutes before professional responders arrive and support a clear handoff to EMS." },
   { question: "How can I support development?", answer: "The Support page provides a Stripe link to support MARDE R&D. Support is not an equity investment or a tax-deductible charitable donation. Investment and advising inquiries should go through Contact MARDE." },
+  { question: "How do Air, Ground, Nexus and Modules work together?", answer: "In the intended workflow, professional dispatch initiates the response, Nexus coordinates operator review, Air transports the integrated system, Ground continues the final approach, and a response payload extends useful capability before the handoff to EMS." },
+  { question: "What is current capability, and what comes later?", answer: "The system is in development. The immediate goal is an integrated, operator-directed V1 demonstration. Terrain access, reliability and performance still need validation. Assisted operation, higher autonomy and advanced medical modules are later directions, subject to evidence and appropriate requirements." },
+  { question: "Who is MARDE being designed for?", answer: "MARDE is focused on institutional emergency response: EMS agencies, fire departments, municipalities and public-safety organizations, initially in New Jersey and the Northeast U.S. It is not a consumer product." },
 ] as const;
 
 export const people = [

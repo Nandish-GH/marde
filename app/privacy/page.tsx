@@ -1,85 +1,13 @@
-import type { Metadata } from "next";
 import { pageMetadata } from "../metadata";
-import { site } from "../content";
-import { Section } from "../../components/layout";
-import { PageHero } from "../page-hero";
-
-export const metadata: Metadata = pageMetadata({
-  title: "Privacy Policy | MARDE",
-  description: "How MARDE handles information submitted through this website and its third-party services.",
-  path: "/privacy",
-});
-
-export default function PrivacyPage() {
-  return (
-    <>
-      <PageHero
-        eyebrow="Privacy"
-        title={["Privacy Policy"]}
-        body="How information is handled when you visit or contact MARDE through this website."
-        compact
-        className="privacy-hero"
-      />
-
-      <Section className="readable-section">
-        <div className="policy-copy readable-content">
-          <p className="policy-updated">Last updated: August 25, 2026</p>
-
-          <h2>Information you choose to provide</h2>
-          <p>
-          MARDE may receive your name, email address, and message when you use the contact form. MARDE may also
-          receive the email address you submit through the newsletter signup. These forms are processed by Formspree.
-          </p>
-
-        <h2>Donations and payments</h2>
-        <p>
-          Donation links take you to Stripe, which processes the transaction on its own service. MARDE&apos;s website
-          does not directly collect or store your payment-card details. Stripe handles information according to its
-          own privacy policy and terms.
-        </p>
-
-        <h2>Analytics and similar technologies</h2>
-        <p>
-          When a Google Analytics 4 measurement ID is configured, this website uses Google Analytics to understand
-          aggregate site usage and selected interactions such as support, contact, signup, and Technology-page
-          engagement. Google Analytics may use cookies or similar technologies under Google&apos;s policies. When no
-          measurement ID is configured, the analytics script is not loaded.
-        </p>
-        <p>
-          Campaign parameters in a URL may be stored in your browser&apos;s session storage for the current session and
-          included with analytics events when analytics is configured. The site does not add those parameters to
-          internal links.
-        </p>
-
-        <h2>Other third-party services</h2>
-        <p>
-          The site is hosted on GitHub Pages and serves optimized font files with the website. Visiting linked services such as
-          Instagram, Stripe, or Formspree may allow those providers to receive technical information such as your IP
-          address and browser details under their own policies.
-        </p>
-
-        <h2>How information is used</h2>
-        <p>
-          MARDE uses voluntarily submitted information to respond to messages, provide requested updates, maintain
-          the website, and manage communications you request. MARDE does not use this website to collect medical
-          information.
-        </p>
-
-        <h2>Retention and your choices</h2>
-        <p>
-          Submitted information is kept only as long as reasonably needed for the purpose for which it was provided,
-          operational records, and applicable legal obligations. You may ask about, correct, or request deletion of
-          information you submitted by emailing <a href={`mailto:${site.email}`}>{site.email}</a>. Some records may
-          need to be retained where required by law or for legitimate recordkeeping.
-        </p>
-
-        <h2>Policy updates</h2>
-        <p>
-          This policy may be updated as the website or the services it uses change. The latest version will be posted
-          on this page with a revised date.
-        </p>
-        </div>
-      </Section>
-    </>
-  );
-}
+import { Editorial, PageIntro } from "../../components/v2/editorial";
+import s from "../../components/v2/editorial.module.css";
+export const metadata=pageMetadata({title:"Privacy Policy | MARDE",description:"How information is handled by the MARDE website, contact form, payments, scheduling and digital contact cards.",path:"/privacy"});
+export default function PrivacyPage(){return <Editorial><PageIntro eyebrow="PRIVACY" title={<>Your information.<br/><span>A clear explanation.</span></>} text="What this website collects, the services it connects to and how to reach us about your information."/><article className={s.policy}><p className={s.updated}>LAST UPDATED / SEPTEMBER 9, 2026</p>
+<h2>Information you choose to provide</h2><p>The Contact form sends your name, organization, email address, inquiry category and message to MARDE through Formspree. We use that information to respond and manage the conversation you requested. Please do not submit patient records, medical details or other sensitive personal information.</p>
+<h2>Payments through Stripe</h2><p>Support links open Stripe’s hosted payment page. Stripe processes your payment information; this website does not collect or store card details. Stripe’s own privacy policy and terms apply to its service.</p>
+<h2>Scheduling a conversation</h2><p>On Nandish’s digital contact card, opening Schedule loads a Calendly page inside a dialog. Calendly may receive technical information such as your IP address and browser details when it loads, and any booking details you choose to submit. It may use cookies under its own policies. The scheduler is not loaded before you open it. You can also open the scheduling page directly.</p>
+<h2>Digital contact cards and sharing</h2><p>Public contact cards display approved professional information. Add to Contacts downloads a vCard to your device; your contacts are not read or uploaded. Share uses your device’s sharing feature when available, or copies the profile URL to your clipboard. You choose whether and where to share it.</p>
+<h2>Analytics and browser storage</h2><p>When a Google Analytics measurement ID is configured, the main website loads Google Analytics to understand aggregate usage and selected interactions. Google may use cookies or similar technologies under its policies. Without a configured ID, that analytics script is not loaded. The standalone contact cards do not load the main site’s analytics integration.</p><p>Campaign parameters in a URL may be stored in session storage for the current browser session and included in analytics events when analytics is configured. We do not add these parameters to internal links. Contact-form text is not included in our analytics events.</p>
+<h2>Hosting and external services</h2><p>The website is hosted on GitHub Pages, with Cloudflare-managed domain services. Hosting and network providers may process technical request information to deliver and protect the site. Fonts and website images are served with the site. Visiting external links, including social networks and the Canva pitch deck, connects you to services governed by their own policies.</p>
+<h2>Retention and your choices</h2><p>Submitted information is kept as reasonably needed for the conversation, operational records and applicable obligations. You may ask about, correct or request deletion of information you submitted by emailing <a href="mailto:team@mardeinc.com">team@mardeinc.com</a>. Some records may need to be retained for legal or legitimate recordkeeping purposes.</p>
+<h2>Changes to this page</h2><p>We update this explanation when the website or the services it uses change. The latest version appears here with its revision date.</p></article></Editorial>;}

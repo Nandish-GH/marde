@@ -1,176 +1,19 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Eyebrow, SplitTitle } from "../components";
 import { pageMetadata } from "../metadata";
-import { technology } from "../content";
-import { NexusArchitecture } from "../nexus-architecture";
-import { Section } from "../../components/layout";
-import { PageHero } from "../page-hero";
-import { SystemStatus } from "../system-status";
-
-export const metadata: Metadata = pageMetadata({
-  title: "MARDE Technology | Air, Ground & Nexus Emergency Robotics",
-  description: "Explore MARDE Air, Ground, Nexus, and intervention modules—an integrated emergency-response robotics system designed to begin useful action before EMS arrives.",
-  path: "/technology",
-});
-
-export default function TechnologyPage() {
-  const { hero, air, ground, nexus, phases, roadmap, regulatory } = technology;
-
-  return (
-    <div className="technology-page">
-      <PageHero eyebrow={hero.eyebrow} title={hero.title} body={hero.body} italicIndex={1} className="technology-hero">
-        <Link className="text-link page-inline-link" href="/mission/">Why we&apos;re building this</Link>
-      </PageHero>
-
-      <section className="tech-block air-block" id="air">
-        <div className="tech-visual tech-air-visual">
-          <span>01</span>
-          <div className="tech-illustration air-poster">
-            <Image
-              src="/illustrations/marde-air-concept.svg"
-              alt="MARDE Air aerial system design concept"
-              width="800"
-              height="520"
-              loading="eager"
-            />
-            <span className="poster-registration" aria-hidden="true" />
-          </div>
-          <p>
-            MARDE AIR
-            <br />
-            CONCEPTUAL SYSTEM
-          </p>
-        </div>
-        <div className="tech-copy">
-          <Eyebrow>
-            <span className="system-name-inline">
-              <strong>MARDE</strong> <em>Air</em>
-            </span>
-          </Eyebrow>
-          <h2>{air.title}</h2>
-          <p>{air.body}</p>
-          <SystemStatus value={air.status} />
-          <p className="detail">{air.regulatory}</p>
-        </div>
-      </section>
-
-      <section className="tech-block ground-block" id="ground">
-        <div className="tech-copy">
-          <Eyebrow>
-            <span className="system-name-inline">
-              <strong>MARDE</strong> <em>Ground</em>
-            </span>
-          </Eyebrow>
-          <h2>
-            <SplitTitle lines={ground.title} italicIndex={1} />
-          </h2>
-          <p>{ground.body}</p>
-          <SystemStatus value={ground.status} />
-          <p className="detail" id="intervention-modules">{ground.detail}</p>
-        </div>
-        <div className="tech-visual ground-visual">
-          <span>02</span>
-          <div className="tech-illustration ground-poster">
-            <Image
-              src="/illustrations/marde-ground-concept.svg"
-              alt="MARDE Ground robotic ground system design concept"
-              width="800"
-              height="520"
-            />
-            <span className="poster-registration" aria-hidden="true" />
-          </div>
-          <p>
-            MARDE GROUND
-            <br />
-            MODULAR CONCEPT
-          </p>
-        </div>
-      </section>
-
-      <section className="tech-block nexus-tech-block" id="nexus" aria-labelledby="nexus-title">
-        <div className="nexus-tech-intro tech-copy">
-          <Eyebrow>
-            <span className="system-name-inline">
-              <strong>MARDE</strong> <em>Nexus</em>
-            </span>
-          </Eyebrow>
-          <h2 id="nexus-title">
-            <SplitTitle lines={nexus.title} italicIndex={1} />
-          </h2>
-          <p>{nexus.intro}</p>
-          <p>{nexus.workflow}</p>
-          <p className="nexus-authority-copy">{nexus.authority}</p>
-        </div>
-
-        <div className="tech-visual nexus-tech-visual">
-          <span>03</span>
-          <NexusArchitecture />
-          <p>
-            MARDE NEXUS
-            <br />
-            COORDINATION CONCEPT
-          </p>
-        </div>
-
-        <div className="nexus-capabilities" aria-label="Proposed MARDE Nexus capabilities">
-          <div className="nexus-capabilities-heading">
-            <p className="eyebrow"><span />Proposed workflow</p>
-            <h3>Information moves faster.<br /><em>People retain authority.</em></h3>
-          </div>
-          <ol>
-            {nexus.capabilities.map(([code, label, body]) => (
-              <li key={code}>
-                <span>{code}</span>
-                <div>
-                  <h4>{label}</h4>
-                  <p>{body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <Section className="roadmap" id="modules">
-        <div><Eyebrow>04 / INTERVENTION MODULES</Eyebrow><h2>Extend useful capability.</h2><p>MARDE’s adaptable payload architecture begins with delivery and secure-response functions. Advanced medical modules would follow engineering, clinical, operational, and regulatory validation.</p></div>
-      </Section>
-      <Section className="roadmap">
-        <div>
-          <Eyebrow>{roadmap.eyebrow}</Eyebrow>
-          <h2>
-            <SplitTitle lines={roadmap.title} italicIndex={1} />
-          </h2>
-          <p>{roadmap.body}</p>
-        </div>
-        <div className="phase-list">
-          {phases.map(([code, title, text]) => (
-            <article key={code} tabIndex={0}>
-              <b>{code}</b>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <section className="regulatory">
-        <Eyebrow>{regulatory.eyebrow}</Eyebrow>
-        <h2>
-          <SplitTitle lines={regulatory.title} italicIndex={1} />
-        </h2>
-        <div>
-          <p>
-            <b>FAA</b> {regulatory.faa}
-          </p>
-          <p>
-            <b>FDA</b> {regulatory.fda}
-          </p>
-        </div>
-      </section>
-    </div>
-  );
-}
+import { Editorial, PageIntro, Closing } from "../../components/v2/editorial";
+import { Kicker } from "../../components/v2/primitives";
+import { ProductGraphic } from "../../components/v2/product-graphic";
+import { SystemArt } from "../../components/v2/system-art";
+import { NexusConcept, ResponseSequence } from "../../components/v2/interactions";
+import s from "../../components/v2/editorial.module.css";
+export const metadata = pageMetadata({title:"MARDE Technology | Air, Ground, Nexus & Modules",description:"Explore MARDE’s integrated emergency-response concept: aerial transport, teleoperated ground access, human coordination and adaptable payloads.",path:"/technology"});
+export default function TechnologyPage(){return <Editorial>
+<PageIntro eyebrow="THE MARDE PLATFORM" title={<>Distance. Access.<br/><span>One coordinated system.</span></>} text="Air, Ground, Nexus and Modules are being developed together to extend useful response capability toward the patient before EMS arrives."/>
+<div className={s.jump} aria-label="Technology sections">{["Air","Ground","Nexus","Modules"].map((name,i)=><a href={`#${name.toLowerCase()}`} key={name}><span>0{i+1}</span>{name} ↓</a>)}</div>
+<section className={`${s.section} ${s.dark} ${s.split}`}><div className={s.copy}><Kicker number="01">INTEGRATED BY DESIGN</Kicker><h2>Arrival is a start.<br/>Access is the next step.</h2><p>Emergency drones demonstrate the value of rapid aerial response. MARDE is exploring what happens after that arrival: a coordinated ground approach, directed by a human operator, carrying the response payload closer.</p><p>Each part has a distinct job. Nexus connects them into a workflow designed to complement professional responders.</p></div><SystemArt/></section>
+<section id="air" className={`${s.section} ${s.split}`}><div className={s.copy}><Kicker number="02">MARDE AIR / DISTANCE</Kicker><h2>Move the response<br/>toward the scene.</h2><p className={s.lead}>Aerial transport for the integrated Ground and payload system.</p><p>Air V1 is in engineering development. Its role is to carry the response system toward the emergency, with operator authorization built into the intended workflow.</p><ul><li>Transport within a coordinated mission</li><li>Planned Air–Ground handoff</li><li>Geometry and performance to be validated</li></ul></div><ProductGraphic type="air"/></section>
+<section id="ground" className={`${s.section} ${s.blueprint} ${s.split} ${s.reverse}`}><div className={s.copy}><Kicker number="03">MARDE GROUND / ACCESS</Kicker><h2>Continue beyond<br/>aerial arrival.</h2><p className={s.lead}>The final approach is a ground problem.</p><p>Ground V1 is intended to move toward the patient where the aircraft cannot directly reach. A trained operator directs that approach. Terrain, stairs and constrained spaces are design considerations to investigate through engineering and testing.</p><ul><li>Teleoperated first</li><li>Integrated response payload</li><li>Final-access capability remains a design objective</li></ul></div><ProductGraphic type="ground"/></section>
+<section id="nexus" className={`${s.section} ${s.dark}`}><Kicker number="04">MARDE NEXUS / COORDINATION</Kicker><div className={s.wideHeading}><h2>Human control.<br/>A shared view.</h2><p>Nexus is the planned command layer for mission context, system readiness, operator authorization and the handoff between Air, Ground and EMS.</p></div><NexusConcept/><div className={s.wideHeading}><h3>Authorization is part of the architecture.</h3><p>The underlying software is still in development. Nexus V1 is not an autonomous medical decision system. Consequential actions remain with trained operators.</p></div></section>
+<section id="modules" className={`${s.section} ${s.split}`}><div className={s.copy}><Kicker number="05">INTERVENTION MODULES / CAPABILITY</Kicker><h2>A platform built<br/>to carry more purpose.</h2><p className={s.lead}>Adaptable payloads, coordinated with the response.</p><p>Near-term development focuses on delivery, secure-response functions and payload integration. The modular concept leaves room for future capabilities as evidence and requirements develop.</p><p>Advanced medical modules would require further engineering, clinical, operational and regulatory validation. They are not current MARDE treatment capabilities.</p></div><ProductGraphic type="modules"/></section>
+<section className={`${s.section} ${s.dark}`}><Kicker number="06">THE INTENDED V1 WORKFLOW</Kicker><div className={s.wideHeading}><h2>From dispatch<br/>to professional care.</h2><p>One conceptual sequence. Clear responsibility at every transition.</p></div><ResponseSequence dark/></section>
+<section className={s.section}><Kicker number="07">EVIDENCE BEFORE EXPANSION</Kicker><div className={s.wideHeading}><h2>Build. Integrate.<br/>Then prove the workflow.</h2><p>Our next milestone is an integrated human-in-the-loop demonstration of Air V1, Ground V1 and Nexus V1. We are pre-prototype, with no validated full-system performance or commercial pilots.</p></div><ol className={s.progression}><li><span>V1 / DEVELOPMENT FOCUS</span><h3>Human-directed</h3><p>Operator review, teleoperation and controlled system integration.</p></li><li><span>FOLLOWING VALIDATION</span><h3>Assisted operation</h3><p>Explore assistance that can be evaluated against measured reliability and operator needs.</p></li><li><span>LONGER-TERM DIRECTION</span><h3>Progressive autonomy</h3><p>Expand only as engineering evidence, operational evaluation and applicable approvals support it.</p></li></ol></section><Closing/>
+</Editorial>;}

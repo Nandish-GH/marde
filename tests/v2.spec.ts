@@ -7,7 +7,7 @@ test('V2 homepage fits all target widths with stable stats and equal system link
     await expect(page.getByRole('heading',{level:1})).toHaveText('Response startsbefore arrival.');
     for(const el of await page.locator('[data-count]').all()){
       await el.scrollIntoViewIfNeeded();await expect(el).toHaveText(await el.getAttribute('data-count')||'');
-      const box=await el.boundingBox();const label=await el.locator('xpath=../..').getByRole('heading').boundingBox();
+      const {box,label}=await el.evaluate(node=>{const box=node.getBoundingClientRect();const label=node.parentElement?.parentElement?.querySelector('h3')?.getBoundingClientRect();return {box:{x:box.x,y:box.y,width:box.width,height:box.height},label:label?{x:label.x,y:label.y,width:label.width,height:label.height}:null};});
       expect(box && label && (box.y+box.height<=label.y || box.x+box.width<=label.x)).toBeTruthy();
     }
     for(const id of ['air','ground','nexus','modules']){

@@ -15,9 +15,9 @@ test("Technology Nexus preserves its anchor, hierarchy, and Human Authorization 
   await page.goto("/technology/#nexus");
   await expect(page).toHaveURL(/\/technology\/#nexus$/);
   await expect(page.locator("#nexus")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "HUMAN AUTHORIZATION" })).toBeVisible();
-  await expect(page.getByText("FINAL DECISION AUTHORITY", { exact: true })).toBeVisible();
-  await expect(page.getByText("AWAITING AUTHORIZATION", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Human authorization 02" }).click();
+  await expect(page.getByRole("heading", { name: "Consequential actions stay human." })).toBeVisible();
+  await expect(page.getByText("Human authorization required")).toBeVisible();
 });
 
 test("Homepage Nexus keeps the approved coordination preview", async ({ page }) => {
@@ -32,9 +32,9 @@ test("FAQ uses accessible accordion state", async ({ page }) => {
   await page.goto("/faq/");
   await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
   const first = page.getByRole("button", { name: "What is MARDE building?" });
-  await expect(first).toHaveAttribute("aria-expanded", "true");
-  await first.click();
   await expect(first).toHaveAttribute("aria-expanded", "false");
+  await first.click();
+  await expect(first).toHaveAttribute("aria-expanded", "true");
 });
 
 test("mobile navigation is modal, keyboard dismissible, and restores focus", async ({ page, isMobile }) => {
@@ -66,10 +66,10 @@ test("representative pages have no serious automated accessibility violations", 
 test("SEO metadata and public integration surfaces remain intact", async ({ page }) => {
   const metadata = [
     ["/", "MARDE | Emergency Response Robotics Before EMS Arrival", "https://mardeinc.com/"],
-    ["/technology/", "MARDE Technology | Air, Ground & Nexus Emergency Robotics", "https://mardeinc.com/technology/"],
-    ["/team/", "MARDE Team | Emergency Robotics & Medical Technology", "https://mardeinc.com/team/"],
-    ["/mission/", "MARDE Mission | Building Faster Robotic Emergency Response", "https://mardeinc.com/mission/"],
-    ["/support/", "Support MARDE | Donations, Contact & Project Updates", "https://mardeinc.com/support/"],
+    ["/technology/", "MARDE Technology | Air, Ground, Nexus & Modules", "https://mardeinc.com/technology/"],
+    ["/team/", "MARDE Team | Engineering, Care & Coordination", "https://mardeinc.com/team/"],
+    ["/mission/", "MARDE Mission | The Minutes Before Arrival", "https://mardeinc.com/mission/"],
+    ["/support/", "Support MARDE | Help Build V1", "https://mardeinc.com/support/"],
     ["/faq/", "MARDE FAQ | Emergency Response Robotics", "https://mardeinc.com/faq/"],
     ["/privacy/", "Privacy Policy | MARDE", "https://mardeinc.com/privacy/"],
   ] as const;
@@ -93,7 +93,7 @@ test("SEO metadata and public integration surfaces remain intact", async ({ page
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);
 
   await page.goto("/support/");
-  await expect(page.locator("form")).toHaveCount(2);
+  await expect(page.getByRole("link", { name: "Support MARDE R&D", exact: true })).toHaveAttribute("href", /^https:\/\/donate\.stripe\.com\//);
   const ids = await page.locator("[id]").evaluateAll((elements) => elements.map((element) => element.id));
   expect(new Set(ids).size).toBe(ids.length);
 

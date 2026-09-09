@@ -10,7 +10,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "css:rebuild": "node scripts/rebuild-css.mjs",
     "qa:capture": "node scripts/capture-qa.mjs",
     "test:browser": "playwright test"
   },

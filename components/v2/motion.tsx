@@ -37,7 +37,7 @@ export function Motion() {
             animations.push(el.animate([{transform:`translateY(${kind==="system"?22:kind==="roadmap"?10:18}px)`,opacity:.55},{transform:"translateY(0)",opacity:1}],{duration:kind==="editorial"?750:600,easing:"cubic-bezier(.22,1,.36,1)"}));
           });
         },{threshold:.15,rootMargin:"0px 0px -25px 0px"});
-        document.querySelectorAll("[data-reveal]").forEach(el=>observer.observe(el));
+        document.querySelectorAll("[data-reveal], .v2-shell section > figure, .v2-shell article > div").forEach(el=>observer.observe(el));
         cleanups.push(()=>{observer.disconnect();animations.forEach(a=>a.cancel());finalCounts();});
         if(fine.matches){
           let frame=0;
