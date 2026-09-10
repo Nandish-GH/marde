@@ -21,7 +21,12 @@ export function Profile({person}:{person:TeamProfile}){
       {person.slug==="nandish"?<ul className={s.primary}><li><a href={`mailto:${nandish.email}`}><span><Envelope size={24} aria-hidden/></span>Email</a></li><li><a href={nandish.linkedin} target="_blank" rel="noopener noreferrer"><span><LinkedinLogo size={24} aria-hidden/></span>LinkedIn</a></li><li><Scheduler url={nandish.schedule}/></li><li><a href={nandish.github} target="_blank" rel="noopener noreferrer"><span><GithubLogo size={24} aria-hidden/></span>GitHub</a></li></ul>:<p className={s.contactTeam}><a href="mailto:team@mardeinc.com">Connect through MARDE <Envelope size={18} aria-hidden/></a></p>}
       <ActionRow actions={mardeActions} className={s.secondary}/>
       <div className={s.ctas}><a className={s.save} href={`/contacts/${person.slug}.vcf`} download={`${person.slug}.vcf`}><UserPlus size={21} aria-hidden/><span>ADD TO CONTACTS</span></a><ShareButton className={s.share} title={share.title} text={share.text} url={share.url}><ShareNetwork size={20} aria-hidden/><span>SHARE</span></ShareButton></div>
-      <div className={s.signature}><span aria-hidden="true">+</span><p>Response Starts Before Arrival.</p></div>
+      <section className={s.about} aria-labelledby="about-marde">
+        <h2 id="about-marde">About MARDE</h2>
+        <p>Integrated emergency-response robotics designed to extend response capability into the minutes before EMS arrives.</p>
+        <p><strong>Air for reach. Ground for access. Nexus for coordination.</strong></p>
+        <a className={s.explore} href="https://mardeinc.com">EXPLORE MARDE →</a>
+      </section>
     </div>
   </div>;
 }
