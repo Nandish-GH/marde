@@ -1,3 +1,18 @@
+# Latest user review priorities — September 14, after motion deployment
+
+Carry these forward into the scheduled 10:35 PM Eastern continuation. These supplement the governing brief and supersede older remaining-work lists where more specific:
+- Finish visual review across browsers, mobile sizes and intermediate animation states.
+- Complete graphics acceptance and reconcile remaining factual details with the current approved pitch deck.
+- Finish portrait, favicon/SEO and integration checks.
+- Verify applicable secondary-review findings against the current build; avoid treating historical observations as current defects.
+- Update/redo MARDE Air and Ground graphics. Use the user's actual Air model for inspiration: Air is almost complete. The user explicitly states no Ground model has been built; any Ground rendering must remain a clearly labeled concept, not a representation of an existing finalized model. A text question asking for the latest Air model/render local path or link is pending; incorporate the answer before model-dependent geometry work. Do not infer unseen model geometry from generic reference aircraft.
+- Add the approved horizontal MARDE logo (symbol plus wordmark) as the home button within the MOBILE navigation menu; preserve an accessible home link name and usable tap target.
+- Replace the footer MARDE text treatment with the approved logo, preserving accessible naming and contrast.
+- Update the handoff and produce the exact required 17-part readiness report.
+
+Commit and deploy validated site changes each session so the user can review the actual website on multiple devices. These items are saved instructions, not claims of implementation. Current live release remains 61a1cf28947aa9b0b3f22bd40a8fc8011653a280.
+
+---
 # Latest checkpoint — September 14, 2026, evening motion release
 
 This section supersedes the historical timing and remaining-work snapshots below. The user requested a quick validated release now, then continuation at **10:35 PM America/New_York September 14**. Existing heartbeat `start-marde-at-usage-reset` is ACTIVE with first start September 15 02:35 UTC and five-hour follow-ups. Do not duplicate it. User wants stable work committed and deployed each session so they can review the actual website across devices and give feedback.
