@@ -1,3 +1,5 @@
+LATEST SEPTEMBER 14: Start timing is now September 14 at 10:35 PM Eastern, with authorized five-hour follow-ups. Follow the newest section of docs/session-handoff.md; old dates below are historical. User requires stable changes committed and deployed each session for multi-device review. Incorporate their live feedback. The motion/CTA/Nexus-mark pass is implemented and validated; finish remaining graphics/deck/portrait/SEO/acceptance/report work without restarting the rebuild.
+
 # MARDE website — new-chat continuation prompt
 
 Prepared September 9, 2026, before the 9:30 PM session. That session must refresh the checkpoint and remaining-work section below before stopping. The user will review this prompt and schedule a new chat for September 16, 2026, or after the weekly usage reset. This document does not itself schedule or start work.

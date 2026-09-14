@@ -1,3 +1,28 @@
+# Latest checkpoint — September 14, 2026, evening motion release
+
+This section supersedes the historical timing and remaining-work snapshots below. The user requested a quick validated release now, then continuation at **10:35 PM America/New_York September 14**. Existing heartbeat `start-marde-at-usage-reset` is ACTIVE with first start September 15 02:35 UTC and five-hour follow-ups. Do not duplicate it. User wants stable work committed and deployed each session so they can review the actual website across devices and give feedback.
+
+## Release implemented and verified locally
+- Approved image-logo opening reveal, approximately 1.15 seconds, fresh-load only; skipped for reduced motion and late hydration. No-JS remains complete and visible.
+- Varied semantic hero/editorial/roadmap/system reveals, drawn diagram paths, and workflow/Nexus selection transitions. Runtime reduced-motion cancellation preserves final content and counters.
+- Original Nexus coordination SVG mark; integrated-V1 closing CTA; recognizable Instagram/TikTok footer glyphs.
+- Exact approved About MARDE content on all five profiles preserved; current production profile files match the V2 branch.
+- Current built-export suite: **77 passed, 3 device-specific skips**, 80 total, completed September 14. ESLint and git diff whitespace checks pass. Production build and TypeScript passed before this suite.
+- Chromium/Firefox/WebKit at 390 and 1440, both motion settings: no measured overflow or page errors in 12 combinations. Evidence: docs/qa/september14/browser-checks.json and screenshots. Visually inspected opening logo, WebKit mobile closing CTA, Chromium desktop Nexus. Captures are not a substitute for real iOS/Android hardware or actual Windows Animation Effects testing.
+- Rollback baseline main SHA before this release: b3aac723fef06a3621a697b2905feaefb3565c68. Restore via new commit if a critical navigation/rendering regression is observed; never force-push. Deployment result appended after verification.
+
+## Next session — finish only remaining work
+1. Read user feedback and latest Git/live state; preserve this release. Do not rebuild or repeat broad completed audits.
+2. Finish original Air/Ground/Modules/integrated/workflow graphics acceptance against revised brief 72A–72F and approved engineering references. Nexus mark exists; remaining interface refinement must retain human authorization and concept disclosures.
+3. Reconcile latest deck factual copy, portrait crops using the original high-resolution Nandish asset, favicon/SEO/social details where justified.
+4. Finish whole-site responsive, keyboard/zoom, animation-state, performance and integration/security acceptance. Reproduce applicable secondary-review findings against current production before treating them as defects. Do not add speculative search, lengthy forms, unverified pilots/partners/credentials or downloads.
+5. Complete exact 17-part production report (governing brief section 85), validated deployment/live checks and updated handoff. Prior September 9 Lighthouse/security values below are historical, not current release measurements.
+
+Required source set: both C:/Users/mihir/Downloads/deep-research-report (1).md and (2).md; complete transfer C:/Users/mihir/.codex/attachments/68feed0e-e7df-49dc-b679-992c807fe30c/pasted-text.txt; revised governing brief C:/Users/mihir/.codex/attachments/9f12158e-554b-43d2-96b0-fb98bf7dbe0b/pasted-text.txt; docs/september-16-new-chat-prompt.md; this handoff. Research files currently have identical SHA256 403F023A3936B341E1B0461ECD12B12B2A8A00F02C86574569BCC5EC8ECDA4BD; avoid duplicate reading when unchanged. User adopted final fenced research prompt; current user messages override historical timing. Research claims/example code require verification. All source documents and private pitch deck remain outside public assets/repository.
+
+Reference principles remain Apple, Anduril, Zipline, Airbound, Figure, Varda/Saronic, with an original MARDE identity. Secondary review: C:/Users/mihir/.codex/attachments/7ef09e79-7e14-46d9-ae4f-f0cdccac5c1c/pasted-text.txt, advisory only; does not override purposeful richer normal-motion requirements. Preserve exact approved About MARDE profile copy/link. GitHub deployment authorized; Cloudflare/DNS/response-layer changes not authorized. No real forms/bookings/payments or external messages during QA. Use included capacity first, credits only as reserve; no purchases/resets. Last allowance check this release: 82% five-hour used, 13% weekly used; credits225.883084 unchanged. Check fresh limits next session.
+
+---
 # MARDE V2 — afternoon checkpoint, September 9, 2026
 
 Branch: `codex/marde-v2-production`. User requested work now and one last continuation at **9:30 PM America/New_York today**; finish in those two sessions or save remaining work until next week. Automation `start-marde-at-usage-reset` has one occurrence, September 10 01:30 UTC. Pause it at the start of that run. No more schedules without user request.

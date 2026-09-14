@@ -1,0 +1,86 @@
+[
+  {
+    "browser": "chromium",
+    "width": 390,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "width": 390,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "width": 1440,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "mode": "no-preference",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "mode": "reduce",
+    "overflow": false,
+    "errors": []
+  }
+]

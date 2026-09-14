@@ -1,17 +1,38 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Accordion } from "radix-ui";
 import { workflow } from "../../lib/content/v2";
 import { Arrow } from "./primitives";
 import { SystemGlyph } from "./system-art";
+import { NexusMark } from "./nexus-mark";
 import s from "./interactions.module.css";
+
+function useSelectionMotion(selection: number) {
+  const ref = useRef<HTMLDivElement>(null);
+  const previous = useRef(selection);
+  useEffect(() => {
+    const changed = previous.current !== selection;
+    previous.current = selection;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    if (!changed || reduce.matches || !ref.current) return;
+    const animations = [...ref.current.querySelectorAll("h3,p,li,[data-state-graphic]")].map((el, i) => el.animate([
+      { opacity: .5, transform: "translateY(6px)" }, { opacity: 1, transform: "none" },
+    ], { duration: 320, delay: Math.min(i * 35, 140), easing: "cubic-bezier(.22,1,.36,1)" }));
+    const cancel = () => animations.forEach(animation => animation.cancel());
+    const preferenceChanged = () => { if (reduce.matches) cancel(); };
+    reduce.addEventListener("change", preferenceChanged);
+    return () => { cancel(); reduce.removeEventListener("change", preferenceChanged); };
+  }, [selection]);
+  return ref;
+}
 
 export function ResponseSequence({dark=false}:{dark?:boolean}) {
   const [active, setActive] = useState(0);
+  const selection = useSelectionMotion(active);
   return <div className={`${s.sequence} ${dark?s.darkSequence:""}`}>
     <div className={s.flowGraphic} aria-hidden="true">{["dispatch","nexus","air","ground","modules","handoff"].map((type,i)=><div key={type} data-current={active===i} data-complete={active>i}><div>{type==="dispatch"?<span>911</span>:type==="handoff"?<span>EMS</span>:<SystemGlyph type={type}/>}</div><span>{["Dispatch","Coordinate","Reach","Access","Extend","Handoff"][i]}</span></div>)}</div>
     <ol className={s.sequenceSteps} aria-label="Conceptual response sequence">{workflow.map((step,i)=><li key={step.name} data-active={active===i}><button type="button" onClick={()=>setActive(i)} aria-pressed={active===i} aria-controls="response-detail"><span className={s.stepIndex}>0{i+1}</span><span className={s.stepName}>{step.name}</span><span className={s.stepAction}>{step.action}</span></button></li>)}</ol>
-    <div id="response-detail" className={s.sequenceDetail} aria-live="polite" aria-atomic="true"><span className={s.detailNumber}>0{active+1}</span><div><span className={s.conceptLabel}>CONCEPTUAL WORKFLOW / {workflow[active].action.toUpperCase()}</span><h3>{workflow[active].name}</h3><p>{workflow[active].text}</p></div><button onClick={()=>setActive((active+1)%workflow.length)} type="button" className={s.next} aria-label="Next response step"><Arrow /></button></div>
+    <div id="response-detail" ref={selection} className={s.sequenceDetail} aria-live="polite" aria-atomic="true"><span className={s.detailNumber}>0{active+1}</span><div><span className={s.conceptLabel}>CONCEPTUAL WORKFLOW / {workflow[active].action.toUpperCase()}</span><h3>{workflow[active].name}</h3><p>{workflow[active].text}</p></div><button onClick={()=>setActive((active+1)%workflow.length)} type="button" className={s.next} aria-label="Next response step"><Arrow /></button></div>
     <p className={s.sequenceNote}>Select a step to explore. This is the intended V1 workflow, not a live mission.</p>
   </div>;
 }
@@ -24,8 +45,9 @@ const views = [
 
 export function NexusConcept() {
   const [active,setActive]=useState(0);
-  return <div className={s.nexusPanel}>
-    <div className={s.nexusBar}><strong><i aria-hidden="true">+</i> NEXUS</strong><span>V1 CONCEPT INTERFACE</span><span className={s.notLive}>NOT LIVE</span></div>
+  const selection = useSelectionMotion(active);
+  return <div className={s.nexusPanel} ref={selection} data-reveal="graphic">
+    <div className={s.nexusBar}><strong><NexusMark /> NEXUS</strong><span>V1 CONCEPT INTERFACE</span><span className={s.notLive}>NOT LIVE</span></div>
     <div className={s.nexusModes} role="group" aria-label="Explore Nexus concepts">{views.map((view,i)=><button key={view.label} type="button" aria-pressed={active===i} onClick={()=>setActive(i)}>{view.label}<span>0{i+1}</span></button>)}</div>
     <div className={s.nexusBody}>
       <div className={s.map} aria-label="Illustrative route connecting Air staging, Ground access, and the EMS handoff"><span className={s.mapLabel}>ILLUSTRATIVE SITE CONTEXT</span><svg viewBox="0 0 620 330" aria-hidden="true"><defs><pattern id="nexus-grid-v2" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0v36" fill="none" stroke="#8197ad" strokeOpacity=".12" /></pattern></defs><rect width="620" height="330" fill="url(#nexus-grid-v2)" /><g fill="#243346" stroke="#3a4a5c" strokeWidth="1"><path d="M50 60h100v54H50zM185 20h75v110h-75zM360 30h75v73h-75zM475 38h112v76H475zM45 224h90v68H45zM176 237h115v65H176zM343 228h67v65h-67zM470 218h105v87H470z" /></g><path d="M0 177H620M314 0v330" stroke="#34445a" strokeWidth="26" /><path d="M83 166H313Q326 166 326 151V139q0-14 18-14h159" fill="none" stroke="#78afff" strokeWidth="2.5" strokeDasharray={active===0?"6 5":undefined} /><path d="M503 125v53h-93" fill="none" stroke="#c4d5e8" strokeWidth="2" strokeDasharray="3 4" /><circle cx="83" cy="166" r="7" fill="#78afff" /><circle cx="503" cy="125" r="7" fill="#78afff" /><circle cx="410" cy="178" r="7" fill="#e0e9f5" /><circle cx={active===2?410:active===1?503:83} cy={active===2?178:active===1?125:166} r="20" fill="none" stroke="#9bbfff" strokeOpacity=".5" /></svg><div className={s.mapLegend}><span><i />Air staging</span><span><i />Ground access</span><span><i />EMS handoff</span></div></div>

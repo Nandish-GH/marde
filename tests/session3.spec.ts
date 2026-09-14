@@ -25,7 +25,7 @@ test("static navigation has no failed framework requests", async ({ page }) => {
     if (response.status() >= 400 && new URL(response.url()).origin === new URL(page.url()).origin) failures.push(response.url());
   });
   await page.goto("/");
-  await page.getByRole("link", { name: "Explore the Technology", exact: true }).click();
+  await page.getByRole("link", { name: "Explore the Technology", exact: true }).first().click();
   await expect(page.locator("h1")).toBeVisible();
   await page.getByRole("link", { name: "Contact", exact: true }).last().click();
   await expect(page.getByLabel("Name", { exact: true })).toBeVisible();
