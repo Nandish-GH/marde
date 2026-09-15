@@ -76,7 +76,7 @@ New raster studies have descriptive alt text and visible concept captions. Decor
 
 Local compressed static-export Lighthouse mobile simulation: 94/100/100/100, LCP 3.2 s. Prior September 9 lab result was 92/100/100/100 with LCP 3.4 s; this is contextual, not a controlled field improvement claim. Evidence: `docs/qa/september15/lighthouse-home.json`. No new heavy client boundary, WebGL, perpetual animation loop or eager scheduler load was added. Responsive images avoid sending the largest product/portrait source to every device.
 
-The production-build console still reports one unused-preload warning for Contact-page CSS fetched ahead of navigation. The identified chunk contains Contact styles; navigation and assets work. It is documented as a nonblocking prefetch observation, not concealed or “fixed” by removing valid framework behavior. Live Lighthouse evidence is added after deployment when available.
+The production-build console still reports one unused-preload warning for Contact-page CSS fetched ahead of navigation. The identified chunk contains Contact styles; navigation and assets work. It is documented as a nonblocking prefetch observation, not concealed or “fixed” by removing valid framework behavior. Live Lighthouse reached 97/100/100/100 with LCP 2.5 seconds; see section 16 for conditions and evidence.
 
 ## 11. SEO / Social
 
@@ -133,7 +133,13 @@ The `tmp` runners are retained in this local workspace; the motion runner is the
 
 ## 16. Deployment Status
 
-Release is locally validated. Exact release SHA, GitHub Actions run, public route/asset checks and live performance are appended here after publishing. Rollback checkpoint: `61a1cf28947aa9b0b3f22bd40a8fc8011653a280`.
+**DEPLOYED AND VERIFIED.** Implementation/V2 release and production main SHA: `4311ae186e68643af36f20be33062f01ac317fa9`. GitHub Pages build and deployment succeeded: https://github.com/Nandish-GH/marde/actions/runs/34922977978 . Subsequent documentation-only commits record final evidence on V2 without triggering a redundant deployment.
+
+Public verification completed 27 checks with no reported issues: all eight corporate routes, thank-you and all five profiles return 200; approved About MARDE tagline remains exact on all five profiles; mobile-menu home logo navigates and closes correctly; footer logo exists; Air/Ground/Modules assets, favicon/PNG/Apple icons, OG image, robots and sitemap return 200. HTTP apex and HTTPS www both resolve to `https://mardeinc.com/` through existing configuration. Evidence: `docs/qa/september15/live-verification.json`.
+
+Live mobile Lighthouse on `https://mardeinc.com/`: **97 performance / 100 accessibility / 100 best practices / 100 SEO**, LCP **2.5 seconds**. This is one simulated laboratory run from this Windows environment after deployment, not a field metric or guarantee. Evidence: `docs/qa/september15/lighthouse-live.json`.
+
+Rollback checkpoint remains `61a1cf28947aa9b0b3f22bd40a8fc8011653a280`; use a new reviewed revert/restore commit and normal push if a critical regression is found. No rollback was needed. Implementation scope and final report are complete; scheduled implementation runs are being stopped pending concrete user feedback. Search Console and physical-device review remain owner follow-ups, not hidden implementation tasks.
 
 ## 17. Production Cutover Steps
 

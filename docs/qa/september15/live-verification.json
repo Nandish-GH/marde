@@ -1,0 +1,157 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "title": "MARDE | Emergency Response Robotics Before EMS Arrival",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/technology/",
+    "status": 200,
+    "title": "MARDE Technology | Air, Ground, Nexus & Modules",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/mission/",
+    "status": 200,
+    "title": "MARDE Mission | The Minutes Before Arrival",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/team/",
+    "status": 200,
+    "title": "MARDE Team | Engineering, Care & Coordination",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/support/",
+    "status": 200,
+    "title": "Support MARDE | Help Build V1",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/faq/",
+    "status": 200,
+    "title": "MARDE FAQ | Emergency Response Robotics",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/privacy/",
+    "status": 200,
+    "title": "Privacy Policy | MARDE",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/contact/",
+    "status": 200,
+    "title": "Contact MARDE | EMS, Research & Partnerships",
+    "robots": "index, follow",
+    "overflow": false
+  },
+  {
+    "route": "/thank-you/",
+    "status": 200,
+    "title": "Thank You | MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false
+  },
+  {
+    "route": "/nandish/",
+    "status": 200,
+    "title": "Nandish Panchal — MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false,
+    "approvedProfile": true
+  },
+  {
+    "route": "/snehi/",
+    "status": 200,
+    "title": "Snehi Patel — MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false,
+    "approvedProfile": true
+  },
+  {
+    "route": "/aanya/",
+    "status": 200,
+    "title": "Aanya Shah — MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false,
+    "approvedProfile": true
+  },
+  {
+    "route": "/arjun/",
+    "status": 200,
+    "title": "Arjun Muthuchetty — MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false,
+    "approvedProfile": true
+  },
+  {
+    "route": "/saathvika/",
+    "status": 200,
+    "title": "Saathvika Beerelli — MARDE",
+    "robots": "noindex, nofollow",
+    "overflow": false,
+    "approvedProfile": true
+  },
+  {
+    "menuHomeLogo": true
+  },
+  {
+    "footerLogo": true
+  },
+  {
+    "asset": "/graphics/air-study-640.webp",
+    "status": 200
+  },
+  {
+    "asset": "/graphics/ground-study-640.webp",
+    "status": 200
+  },
+  {
+    "asset": "/graphics/modules-study-640.webp",
+    "status": 200
+  },
+  {
+    "asset": "/favicon.ico",
+    "status": 200
+  },
+  {
+    "asset": "/icon.png",
+    "status": 200
+  },
+  {
+    "asset": "/apple-icon.png",
+    "status": 200
+  },
+  {
+    "asset": "/og-v2.png",
+    "status": 200
+  },
+  {
+    "asset": "/robots.txt",
+    "status": 200
+  },
+  {
+    "asset": "/sitemap.xml",
+    "status": 200
+  },
+  {
+    "requested": "http://mardeinc.com",
+    "final": "https://mardeinc.com/",
+    "status": 200
+  },
+  {
+    "requested": "https://www.mardeinc.com",
+    "final": "https://mardeinc.com/",
+    "status": 200
+  }
+]
