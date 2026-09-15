@@ -68,7 +68,7 @@ test("team integration and navigation preserve corporate chrome", async ({ page 
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const route of ["/", "/team/"]) {
     await page.goto(route);
-    await expect(page.getByAltText(/Nandish Panchal/)).toHaveAttribute("src", profile.portrait);
+    await expect(page.getByAltText(/Nandish Panchal/)).toHaveAttribute("src", route === "/team/" ? "/team/nandish-team.webp" : "/team/nandish-editorial-800.webp");
     const imageBox = await page.getByAltText(/Nandish Panchal/).boundingBox();
     if(route === "/team/") expect(Math.abs(imageBox!.width - imageBox!.height)).toBeLessThan(1);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /index, follow/);

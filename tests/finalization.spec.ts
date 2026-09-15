@@ -1,5 +1,28 @@
 import { test, expect } from "@playwright/test";
 
+test("mobile menu logo returns home and closes the modal", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Mobile navigation only");
+  await page.goto("/technology/");
+  await page.getByRole("button", { name: "Open main navigation" }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("link", { name: "MARDE home", exact: true }).locator("img")).toBeVisible();
+  await dialog.getByRole("link", { name: "MARDE home", exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(dialog).toBeHidden();
+  await expect(page.locator("footer").getByRole("link", { name: "MARDE Inc. home" }).locator("img")).toBeAttached();
+  await expect(page.locator("h1")).toBeVisible();
+});
+
+test("current product studies load with honest concept descriptions", async ({ page }) => {
+  await page.goto("/technology/");
+  for (const type of ["air", "ground", "modules"]) {
+    const img = page.locator(`#${type} picture img`);
+    await img.scrollIntoViewIfNeeded();
+    await expect(img).toHaveAttribute("alt", /concept/i);
+    await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+  }
+});
+
 test("logo opening completes and does not replay on client navigation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/", { waitUntil: "commit" });

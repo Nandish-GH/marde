@@ -1,3 +1,12 @@
+# September 14, 10:35 PM continuation — finalization release
+
+All requested implementation items have now been addressed: model-derived Air graphic; newly matched Ground/Modules concept studies; updated integrated Air glyph; mobile menu home logo; footer logo; optimized original portrait crops; simplified favicon family; refreshed OG; utility metadata fixes; fact reconciliation; browser/accessibility/motion/integration/security acceptance; exact 17-part report. See docs/MARDE-V2-Production-Readiness-Report.md for evidence and limits. Product maturity remains explicitly conceptual; approved five About MARDE profile blocks unchanged.
+
+Final local build/TypeScript/lint passed. Browser suite: 80 passed, 4 device-specific skips. Additional browser/route/layout checks: 137, no reported issues. Local compressed mobile Lighthouse 94/100/100/100, LCP3.2s. npm audit zero reported vulnerabilities. Native OS animation-toggle/physical mobile testing unavailable; user real-device review remains valuable. One nonblocking Contact CSS prefetch warning documented. No private assets published, no real external submissions, no Cloudflare changes, source Blender file not saved.
+
+Rollback baseline: 61a1cf28947aa9b0b3f22bd40a8fc8011653a280. Deployment verification will follow below and in report section16. After successful deployment/live verification, pause routine implementation automation because requested scope is complete; continue only concrete user feedback. Preserve all completed work and do not restart old remaining-work lists below. Current instruction requires stable changes committed/deployed every session for user review.
+
+---
 # Latest user review priorities — September 14, after motion deployment
 
 Carry these forward into the scheduled 10:35 PM Eastern continuation. These supplement the governing brief and supersede older remaining-work lists where more specific:

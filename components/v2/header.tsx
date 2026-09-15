@@ -19,7 +19,7 @@ export function Header() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger className={s.menu} aria-label="Open main navigation"><span /><span /></Dialog.Trigger>
       <Dialog.Portal><Dialog.Overlay className={s.overlay} /><Dialog.Content className={s.dialog} data-lenis-prevent>
-        <div className={s.menuTop}><Dialog.Title>Navigation</Dialog.Title><Dialog.Close className={s.close} aria-label="Close main navigation">×</Dialog.Close></div>
+        <div className={s.menuTop}><Dialog.Title className="sr-only">Navigation</Dialog.Title><Link href="/" className={s.logo} aria-label="MARDE home" onClick={() => setOpen(false)}><Image src="/brand/marde-logo-horizontal-light.png" width={150} height={40} alt="MARDE" unoptimized /></Link><Dialog.Close className={s.close} aria-label="Close main navigation">×</Dialog.Close></div>
         <Dialog.Description className="sr-only">Explore MARDE’s technology, mission, team, and ways to connect.</Dialog.Description>
         <nav aria-label="Mobile navigation">{links.map(([label, href], i) => <Link key={href} href={href} onClick={() => setOpen(false)}><span>0{i + 1}</span>{label}<Arrow diagonal /></Link>)}<Link href="/support/" onClick={() => setOpen(false)}><span>05</span>Support MARDE<Arrow diagonal /></Link></nav>
         <p>Response starts before arrival.</p><a className={s.email} href="mailto:team@mardeinc.com">team@mardeinc.com</a>

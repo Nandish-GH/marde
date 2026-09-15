@@ -1,3 +1,5 @@
+LATEST FINALIZATION: September 14 10:35 PM session completed the requested implementation and acceptance pass. Read docs/MARDE-V2-Production-Readiness-Report.md and the newest handoff before doing work. Old remaining-work lists below are historical. After deployment is verified, stop routine rebuilding/polishing and respond to concrete user device feedback. Preserve current graphics and exact profile copy; commit/deploy validated feedback changes.
+
 LATEST SEPTEMBER 14: Start timing is now September 14 at 10:35 PM Eastern, with authorized five-hour follow-ups. Follow the newest section of docs/session-handoff.md; old dates below are historical. User requires stable changes committed and deployed each session for multi-device review. Incorporate their live feedback. The motion/CTA/Nexus-mark pass is implemented and validated; finish remaining graphics/deck/portrait/SEO/acceptance/report work without restarting the rebuild.
 
 # MARDE website — new-chat continuation prompt
