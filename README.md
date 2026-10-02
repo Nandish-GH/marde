@@ -83,6 +83,8 @@ The analytics foundation recognizes `utm_source`, `utm_medium`, `utm_campaign`, 
 
 ## Search and discovery
 
+Agent-ready Markdown, expanded research/platform pages, trust/schema improvements and deployment verification are documented in [Agent readiness deployment](docs/agent-readiness-deployment.md). Owner-operated profile preparation, unsent editorial pitches and the 90-day measurement protocol are in [Visibility outreach kit](docs/visibility-outreach-kit.md). Use Node 22.13 or later for the expanded build and Worker tooling.
+
 The site provides canonical URLs, route-specific metadata, Open Graph and Twitter card metadata, an Organization and WebSite JSON-LD graph, `robots.txt`, and a sitemap at [mardeinc.com/sitemap.xml](https://mardeinc.com/sitemap.xml).
 
 `llms.txt` summarizes the current public platform and stage. No `llms-full.txt` is maintained because the public site is concise and a second AI-facing copy would duplicate content without adding a distinct source of truth.

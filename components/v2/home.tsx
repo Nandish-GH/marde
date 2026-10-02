@@ -13,7 +13,7 @@ export function Home() {
       <div className={s.heroGrid}><div className={s.heroCopy} data-reveal="hero">
         <h1 id="hero-heading">Response starts<br /><span>before</span> arrival.</h1>
         <p>Air. Ground. Human control.<br />One coordinated response.</p>
-        <p className={s.heroDescription}>We’re developing an integrated robotics platform to extend emergency-response capability into the minutes before EMS arrives.</p>
+        <p className={s.heroDescription}>MARDE is developing emergency-response robotics: aerial transport, teleoperated ground access and human-in-the-loop command software for the minutes before EMS arrives.</p>
         <div className={s.actions}><Action href="/technology/">Explore the Technology</Action><Link className={s.quietLink} href="/contact/">Contact MARDE<Arrow diagonal /></Link></div>
       </div><SystemArt /></div>
       <div className={s.heroBottom}><span>BUILT AROUND THE PATIENT.<br />DESIGNED TO WORK WITH EMS.</span><a href="#response-gap">Discover the system <span>↓</span></a><span>NEW JERSEY, USA<br />PRE-PROTOTYPE / V1</span></div>

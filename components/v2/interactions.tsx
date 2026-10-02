@@ -34,6 +34,7 @@ export function ResponseSequence({dark=false}:{dark?:boolean}) {
     <ol className={s.sequenceSteps} aria-label="Conceptual response sequence">{workflow.map((step,i)=><li key={step.name} data-active={active===i}><button type="button" onClick={()=>setActive(i)} aria-pressed={active===i} aria-controls="response-detail"><span className={s.stepIndex}>0{i+1}</span><span className={s.stepName}>{step.name}</span><span className={s.stepAction}>{step.action}</span></button></li>)}</ol>
     <div id="response-detail" ref={selection} className={s.sequenceDetail} aria-live="polite" aria-atomic="true"><span className={s.detailNumber}>0{active+1}</span><div><span className={s.conceptLabel}>CONCEPTUAL WORKFLOW / {workflow[active].action.toUpperCase()}</span><h3>{workflow[active].name}</h3><p>{workflow[active].text}</p></div><button onClick={()=>setActive((active+1)%workflow.length)} type="button" className={s.next} aria-label="Next response step"><Arrow /></button></div>
     <p className={s.sequenceNote}>Select a step to explore. This is the intended V1 workflow, not a live mission.</p>
+    <div className="sr-only" data-markdown-content>{workflow.map(step=><p key={step.name}>{step.name}: {step.text}</p>)}</div>
   </div>;
 }
 
@@ -57,5 +58,5 @@ export function NexusConcept() {
 }
 
 export function Questions({items}:{items:readonly {question:string;answer:string}[]}) {
-  return <Accordion.Root className={s.questions} type="single" collapsible>{items.map((item,i)=><Accordion.Item className={s.question} key={item.question} value={String(i)}><Accordion.Header><Accordion.Trigger><span>{item.question}</span><i aria-hidden="true">+</i></Accordion.Trigger></Accordion.Header><Accordion.Content className={s.answer}><div>{item.answer}</div></Accordion.Content></Accordion.Item>)}</Accordion.Root>;
+  return <Accordion.Root className={s.questions} type="single" collapsible>{items.map((item,i)=><Accordion.Item className={s.question} key={item.question} value={String(i)}><Accordion.Header><Accordion.Trigger><span>{item.question}</span><i aria-hidden="true">+</i></Accordion.Trigger></Accordion.Header><Accordion.Content forceMount className={s.answer}><div>{item.answer}</div></Accordion.Content></Accordion.Item>)}</Accordion.Root>;
 }

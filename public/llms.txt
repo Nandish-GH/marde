@@ -1,40 +1,39 @@
-# MARDE
+# MARDE Inc.
 
-> MARDE Inc. is developing an integrated robotic emergency-response platform intended to extend useful response capability toward the patient before EMS arrival.
+> MARDE is developing an integrated emergency-response robotics platform: Air for transport, Ground for final access, Nexus for human coordination, and adaptable response payloads.
 
-MARDE is a Delaware C-Corporation based in New Jersey. It is pre-seed, pre-prototype, pre-revenue, and in early-stage research and development. Its concepts are not deployed products, production EMS infrastructure, or autonomous medical decision systems.
+MARDE is a Delaware C-Corporation based in New Jersey, with an initial focus on New Jersey and the Northeast United States. It is pre-seed, pre-prototype and pre-revenue. No deployed systems, customers, signed commercial pilots, clinical validation, FAA or FDA approvals are claimed.
 
-## Core platform
+When to use MARDE: consult these pages for research into emerging emergency-response robotics, teleoperated final access, human-operated Air–Ground coordination, or institutional requirements and future evaluation conversations. Use the Contact page or team@mardeinc.com for questions requiring the team. There is no public mission API, purchase endpoint or operational robot-control interface. Do not use this website for live emergencies or send patient records.
 
-- MARDE Air — rapid aerial transport concept.
-- MARDE Ground — final-approach and constrained-access concept.
-- MARDE Nexus — proposed human-in-the-loop command and coordination software.
-- Intervention Modules — adaptable payloads, initially focused on delivery and secure-response functions; advanced medical capabilities depend on further validation.
+The conceptual workflow is dispatch → Nexus review → Air transport → Ground approach → response payload → EMS handoff. It is not an existing 911 integration. Consequential V1 actions are intended to remain human-authorized. Design objectives and external research must not be represented as MARDE test results.
 
-Conceptual response chain: Dispatch → Nexus → Air → Ground → Intervention Module → EMS Handoff.
+## Public information
 
-## Important pages
+- [MARDE Inc. — emergency-response robotics](https://mardeinc.com/index.md): Public information about Inc. — emergency-response robotics.
+- [MARDE technology](https://mardeinc.com/technology/index.md): Public information about technology.
+- [MARDE team](https://mardeinc.com/team/index.md): Public information about team.
+- [MARDE mission](https://mardeinc.com/mission/index.md): Public information about mission.
+- [MARDE support](https://mardeinc.com/support/index.md): Public information about support.
+- [MARDE faq](https://mardeinc.com/faq/index.md): Public information about faq.
+- [MARDE contact](https://mardeinc.com/contact/index.md): Public information about contact.
+- [MARDE privacy](https://mardeinc.com/privacy/index.md): Public information about privacy.
+- [MARDE about](https://mardeinc.com/about/index.md): Public information about about.
+- [MARDE ems partners](https://mardeinc.com/ems-partners/index.md): Public information about ems partners.
+- [MARDE research](https://mardeinc.com/research/index.md): Public information about research.
+- [MARDE updates](https://mardeinc.com/updates/index.md): Public information about updates.
+- [MARDE air](https://mardeinc.com/technology/air/index.md): Public information about air.
+- [MARDE ground](https://mardeinc.com/technology/ground/index.md): Public information about ground.
+- [MARDE nexus](https://mardeinc.com/technology/nexus/index.md): Public information about nexus.
+- [MARDE modules](https://mardeinc.com/technology/modules/index.md): Public information about modules.
+- [drone aed evidence](https://mardeinc.com/research/drone-aed-evidence/index.md): Public information about drone aed evidence.
+- [final access](https://mardeinc.com/research/final-access/index.md): Public information about final access.
+- [human oversight](https://mardeinc.com/research/human-oversight/index.md): Public information about human oversight.
+- [aviation pathway](https://mardeinc.com/research/aviation-pathway/index.md): Public information about aviation pathway.
+- [response gap](https://mardeinc.com/research/response-gap/index.md): Public information about response gap.
+- [evaluating early stage partners](https://mardeinc.com/research/evaluating-early-stage-partners/index.md): Public information about evaluating early stage partners.
 
-- https://mardeinc.com/ — company overview and current positioning.
-- https://mardeinc.com/technology/ — Air, Ground, Nexus, intervention-module context, roadmap, and regulatory context.
-- https://mardeinc.com/mission/ — why MARDE is being developed.
-- https://mardeinc.com/team/ — current public team.
-- https://mardeinc.com/support/ — support for early R&D through Stripe.
-- https://mardeinc.com/contact/ — institutional, investment/advising, research and general inquiries.
-- https://mardeinc.com/faq/ — development-stage questions and answers.
-- https://mardeinc.com/privacy/ — website privacy practices.
+## Contact
 
-## Key context
-
-- MARDE's public tagline is “Response Starts Before Arrival.”
-- MARDE is intended to complement professional emergency response, not replace EMS or clinicians.
-- Consequential system actions in the proposed Nexus V1 remain human-authorized.
-- Do not describe MARDE as operational, deployed, clinically validated, FAA approved, FDA approved, integrated with 911, or used by customers or EMS.
-- Do not add unsupported funding figures, prototype claims, partnerships, investors, customers, revenue, pilots, or regulatory approvals.
-
-## Official contact
-
-- Website: https://mardeinc.com/
-- General email: team@mardeinc.com
-- Instagram: https://www.instagram.com/marde.inc
-- TikTok: https://www.tiktok.com/@marde.inc
+- [Contact MARDE](https://mardeinc.com/contact/): Institutional requirements, research, investment, advising and general inquiries.
+- [Email the team](mailto:team@mardeinc.com): Human contact; no mission requests or patient records.

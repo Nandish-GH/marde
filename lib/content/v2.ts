@@ -25,18 +25,7 @@ export const workflow = [
   { name: "EMS handoff", action: "Continue care", text: "Professional responders take over. MARDE is being designed to complement their work." },
 ] as const;
 
-export const faqs = [
-  { question: "What is MARDE building?", answer: "MARDE is developing an integrated emergency-response robotics platform. Air handles distance, Ground addresses final access, Nexus coordinates human operators and systems, and Intervention Modules extend response capability." },
-  { question: "Is MARDE autonomous?", answer: "V1 is human-in-the-loop and teleoperated first. Trained operators authorize consequential actions. Higher autonomy is a future goal that depends on engineering, operational, clinical, and regulatory validation." },
-  { question: "Is the system deployed today?", answer: "No. MARDE is pre-seed, pre-prototype, and pre-revenue. Air V1, Ground V1, and Nexus V1 are in development. The next milestone is an integrated human-in-the-loop demonstration, followed by measured testing." },
-  { question: "How can EMS and public-safety teams get involved?", answer: "We are speaking with EMS agencies, fire departments, medical directors, and public-safety leaders to understand real workflows and requirements. Contact MARDE to discuss discovery, technical feedback, or future evaluation opportunities." },
-  { question: "What are Intervention Modules?", answer: "Modules are the platform’s adaptable response payloads. Near-term work focuses on delivery and secure-response capabilities. Advanced medical capabilities would require further engineering, clinical, operational, and regulatory validation." },
-  { question: "Does MARDE replace EMS?", answer: "No. MARDE is intended to extend useful response capability into the minutes before professional responders arrive and support a clear handoff to EMS." },
-  { question: "How can I support development?", answer: "The Support page provides a Stripe link to support MARDE R&D. Support is not an equity investment or a tax-deductible charitable donation. Investment and advising inquiries should go through Contact MARDE." },
-  { question: "How do Air, Ground, Nexus and Modules work together?", answer: "In the intended workflow, professional dispatch initiates the response, Nexus coordinates operator review, Air transports the integrated system, Ground continues the final approach, and a response payload extends useful capability before the handoff to EMS." },
-  { question: "What is current capability, and what comes later?", answer: "The system is in development. The immediate goal is an integrated, operator-directed V1 demonstration. Terrain access, reliability and performance still need validation. Assisted operation, higher autonomy and advanced medical modules are later directions, subject to evidence and appropriate requirements." },
-  { question: "Who is MARDE being designed for?", answer: "MARDE is focused on institutional emergency response: EMS agencies, fire departments, municipalities and public-safety organizations, initially in New Jersey and the Northeast U.S. It is not a consumer product." },
-] as const;
+export { agentFaqs as faqs } from "./agent-faqs";
 
 export const people = [
   { name: "Nandish Panchal", initials: "NP", role: "Founder & CEO", contribution: "Product direction, software architecture, and system integration.", credential: "AHA BLS certified · Hospital volunteer", portrait: "/team/nandish-panchal.webp" },

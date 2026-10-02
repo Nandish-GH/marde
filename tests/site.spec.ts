@@ -28,8 +28,8 @@ test("Homepage Nexus keeps the approved coordination preview", async ({ page }) 
   await expect(nexus.getByText("HUMAN-IN-THE-LOOP BY DESIGN", { exact: true })).toBeVisible();
 });
 
-test("FAQ uses accessible accordion state", async ({ page }) => {
-  await page.goto("/faq/");
+test("Homepage FAQ preserves accessible accordion state", async ({ page }) => {
+  await page.goto("/");
   await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
   const first = page.getByRole("button", { name: "What is MARDE building?" });
   await expect(first).toHaveAttribute("aria-expanded", "false");

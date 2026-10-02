@@ -50,7 +50,7 @@
 .question button[data-state="open"] i{transform:rotate(45deg);}
 .answer{overflow:hidden;font:14px/1.8 var(--v-body);color:var(--v-muted);}
 .answer>div{padding:0 40px 25px 0;max-width:650px;}
-.answer[data-state="open"]{animation:expand .3s var(--v-ease);}.answer[data-state="closed"]{animation:collapse .25s var(--v-ease);}
+.answer[data-state="open"]{animation:expand .3s var(--v-ease);}.answer[data-state="closed"]{display:none;}
 @keyframes expand{from{height:0;}to{height:var(--radix-accordion-content-height);}}
 @keyframes collapse{from{height:var(--radix-accordion-content-height);}to{height:0;}}
 @media(max-width:900px){.stepName{font-size:13px;}.stepAction{font-size:9px;}.nexusBody{grid-template-columns:1.1fr 1fr;}.nexusModes button{padding:16px;font-size:11px;}.operator{padding:25px 20px;}.operator h3{font-size:25px;}.map{padding:25px 18px;}.map svg{min-height:220px;}.mapLegend{gap:12px;font-size:9px;}.nexusFoot{font-size:11px;}}

@@ -8,5 +8,7 @@ tmp/
 *.tsbuildinfo
 test-results/
 playwright-report/
+worker/generated/
+.wrangler/
 AGENTS.md
 CLAUDE.md

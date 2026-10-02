@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mardeinc.com/</loc></url>
-  <url><loc>https://mardeinc.com/technology/</loc></url>
-  <url><loc>https://mardeinc.com/team/</loc></url>
-  <url><loc>https://mardeinc.com/mission/</loc></url>
-  <url><loc>https://mardeinc.com/support/</loc></url>
-  <url><loc>https://mardeinc.com/privacy/</loc></url>
-  <url><loc>https://mardeinc.com/faq/</loc></url>
-  <url><loc>https://mardeinc.com/contact/</loc></url>
+  <url><loc>https://mardeinc.com/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/technology/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/team/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://mardeinc.com/mission/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://mardeinc.com/support/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://mardeinc.com/faq/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/contact/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/privacy/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>https://mardeinc.com/about/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/ems-partners/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/updates/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/technology/air/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/technology/ground/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/technology/nexus/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/technology/modules/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/drone-aed-evidence/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/final-access/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/human-oversight/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/aviation-pathway/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/response-gap/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://mardeinc.com/research/evaluating-early-stage-partners/</loc><lastmod>2026-10-01</lastmod></url>
 </urlset>
