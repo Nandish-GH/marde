@@ -39,6 +39,7 @@ for (const route of publicRoutes) {
     assert.equal(website.url, 'https://mardeinc.com/'); assert.equal(org.url, website.url);
     assert.equal(website.publisher['@id'], org['@id']);
     assert.equal(org.contactPoint.email, 'team@mardeinc.com'); assert.equal(org.address.addressRegion, 'NJ');
+    assert.ok($('footer').text().includes(org.name)); assert.ok($('footer').text().includes(org.contactPoint.email));
     assert.deepEqual(graph.map(item => item['@type']), ['Organization', 'WebSite', 'FAQPage']);
     const homeFaq = graph.find(item => item['@type'] === 'FAQPage');
     assert.equal(homeFaq.mainEntity.length, 4);
