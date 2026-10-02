@@ -45,7 +45,7 @@ test("scheduler loads on request, traps focus and returns it on close",async({pa
 
 test("scheduler has a direct no-JavaScript link",async({browser})=>{
   const context=await browser.newContext({javaScriptEnabled:false});const page=await context.newPage();
-  await page.goto(`${process.env.QA_BASE_URL||"http://localhost:3000"}/nandish/`);
+  await page.goto(`${process.env.QA_BASE_URL||(process.env.QA_EXPORT ? "http://127.0.0.1:3001" : "http://localhost:3000")}/nandish/`);
   await expect(page.getByRole("link",{name:"Schedule",exact:true})).toHaveAttribute("href","https://calendly.com/nandishmarde/30");await expect(page.locator("iframe")).toHaveCount(0);await context.close();
 });
 

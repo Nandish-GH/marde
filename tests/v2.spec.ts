@@ -46,7 +46,7 @@ test('homepage and Contact have no serious accessibility violations',async({page
 });
 
 test('V2 no-JavaScript fallback has content, navigation and visible final values',async({browser})=>{
-  const context=await browser.newContext({javaScriptEnabled:false,baseURL:process.env.QA_BASE_URL||'http://localhost:3000',viewport:{width:390,height:844}});const page=await context.newPage();await page.goto('/');
+  const context=await browser.newContext({javaScriptEnabled:false,baseURL:process.env.QA_BASE_URL||(process.env.QA_EXPORT ? 'http://127.0.0.1:3001' : 'http://localhost:3000'),viewport:{width:390,height:844}});const page=await context.newPage();await page.goto('/');
   await expect(page.getByRole('heading',{level:1})).toBeVisible();await expect(page.locator('.v2-opening')).toBeHidden();await expect(page.locator('[data-count="7.6"]')).toHaveText('7.6');await expect(page.locator('footer').getByRole('link',{name:'Contact',exact:true})).toHaveAttribute('href','/contact/');await context.close();
 });
 
