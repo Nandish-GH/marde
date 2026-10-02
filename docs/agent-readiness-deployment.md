@@ -28,7 +28,7 @@ For end-to-end header/body checks, start `node scripts/serve-export.mjs` and `no
 ## Owner setup and activation
 
 1. Keep GitHub Pages configured for mardeinc.com. In the existing Cloudflare zone, verify both apex and www DNS records reach that origin, are proxied, and have working HTTPS. Record current DNS and routing settings before changing them.
-2. Create a Cloudflare API token restricted to the appropriate account and zone, with Workers Scripts edit and Workers Routes edit permissions plus the zone/account read permissions needed by Wrangler.
+2. Create a Cloudflare API token restricted to the appropriate account and zone, with Workers Scripts edit, Workers Routes edit and Zone read. Worker script editing is account-scoped; route editing and zone lookup must be restricted to mardeinc.com. These are the permissions verified during the first deployment.
 3. Add GitHub Actions secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. Never commit their values. Add repository variable `CLOUDFLARE_AGENT_ENABLED=true` only when the domain setup is ready.
 4. Run the existing deployment workflow. It builds/tests once, deploys GitHub Pages, downloads the matching Worker artifact, waits for the origin's content-derived release ID, and then activates apex and www Worker routes. A failed or mismatched origin deployment prevents activation.
 5. The final workflow step checks every public route in HTML and Markdown, explicit Markdown files, machine-readable files and a nonexistent path. Inspect failures before considering the release complete.
