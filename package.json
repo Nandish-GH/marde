@@ -14,7 +14,7 @@
     "test:browser": "playwright test",
     "test:agent": "node --test tests/agent/*.test.mjs",
     "verify:export": "node scripts/verify-agent-export.mjs",
-    "verify:public": "node scripts/verify-public.mjs",
+    "verify:public": "node scripts/verify-public.mjs && node scripts/verify-brand.mjs",
     "worker:check": "wrangler deploy --dry-run"
   },
   "dependencies": {

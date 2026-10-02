@@ -1,5 +1,6 @@
 export const site = {
   name: "MARDE",
+  legalName: "MARDE Inc.",
   tagline: "Response Starts Before Arrival",
   email: "team@mardeinc.com",
   instagram: "https://www.instagram.com/marde.inc",

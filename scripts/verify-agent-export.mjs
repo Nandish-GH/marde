@@ -33,6 +33,11 @@ for (const route of publicRoutes) {
   if (route.path === '/') {
     const graph = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text()));
     const org = graph.find(item => item['@type'] === 'Organization');
+    const website = graph.find(item => item['@type'] === 'WebSite');
+    assert.equal(org.name, 'MARDE Inc.'); assert.equal(org.legalName, 'MARDE Inc.'); assert.equal(org.alternateName, 'MARDE');
+    assert.equal(website.name, 'MARDE'); assert.equal(website.alternateName, org.name);
+    assert.equal(website.url, 'https://mardeinc.com/'); assert.equal(org.url, website.url);
+    assert.equal(website.publisher['@id'], org['@id']);
     assert.equal(org.contactPoint.email, 'team@mardeinc.com'); assert.equal(org.address.addressRegion, 'NJ');
     assert.deepEqual(graph.map(item => item['@type']), ['Organization', 'WebSite', 'FAQPage']);
     const homeFaq = graph.find(item => item['@type'] === 'FAQPage');

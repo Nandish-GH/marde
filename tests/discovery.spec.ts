@@ -9,6 +9,15 @@ test("homepage exposes research links and scanner-readable FAQ schema", async ({
   }
   const entities = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(text => JSON.parse(text));
   expect(entities.map(item => item["@type"])).toEqual(["Organization", "WebSite", "FAQPage"]);
+  const org = entities.find(item => item["@type"] === "Organization");
+  const website = entities.find(item => item["@type"] === "WebSite");
+  expect(org.name).toBe("MARDE Inc.");
+  expect(org.legalName).toBe(org.name);
+  expect(org.alternateName).toBe(website.name);
+  expect(website.alternateName).toBe(org.name);
+  expect(website.url).toBe("https://mardeinc.com/");
+  expect(org.url).toBe(website.url);
+  expect(website.publisher["@id"]).toBe(org["@id"]);
   const faq = entities.find(item => item["@type"] === "FAQPage");
   expect(faq.mainEntity).toHaveLength(4);
   for (const item of faq.mainEntity) {
