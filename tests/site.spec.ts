@@ -87,9 +87,9 @@ test("SEO metadata and public integration surfaces remain intact", async ({ page
   }
 
   await page.goto("/");
-  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
-  const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
-  expect(structuredData["@graph"].map((item: { "@type": string }) => item["@type"])).toEqual(["Organization", "WebSite"]);
+  await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(3);
+  const structuredData = await page.locator('script[type="application/ld+json"]').allTextContents();
+  expect(structuredData.map(item => JSON.parse(item)["@type"])).toEqual(["Organization", "WebSite", "FAQPage"]);
 
   await page.goto("/technology/");
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(0);

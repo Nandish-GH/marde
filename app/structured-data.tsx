@@ -1,5 +1,6 @@
 import { site } from "./content";
 import { canonicalSiteUrl } from "./metadata";
+import { faqs } from "../lib/content/v2";
 
 export function JsonLd({ data }: { data: unknown }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
@@ -39,10 +40,9 @@ export function StructuredData() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
-  );
+  return <>
+    {data["@graph"].map(entity => <JsonLd key={entity["@id"]} data={{ "@context": data["@context"], ...entity }} />)}
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", "@id": new URL("#faq", canonicalSiteUrl).href,
+      mainEntity: faqs.slice(0, 4).map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
+  </>;
 }

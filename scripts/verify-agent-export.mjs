@@ -31,9 +31,14 @@ for (const route of publicRoutes) {
     for (const item of schema.mainEntity) { assert.ok($('main').text().includes(item.acceptedAnswer.text)); const words = item.acceptedAnswer.text.split(/\s+/).length; assert.ok(words >= 50 && words <= 90, `${item.name}: ${words} words`); }
   }
   if (route.path === '/') {
-    const graph = JSON.parse($('script[type="application/ld+json"]').first().text())['@graph'];
+    const graph = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text()));
     const org = graph.find(item => item['@type'] === 'Organization');
     assert.equal(org.contactPoint.email, 'team@mardeinc.com'); assert.equal(org.address.addressRegion, 'NJ');
+    assert.deepEqual(graph.map(item => item['@type']), ['Organization', 'WebSite', 'FAQPage']);
+    const homeFaq = graph.find(item => item['@type'] === 'FAQPage');
+    assert.equal(homeFaq.mainEntity.length, 4);
+    for (const item of homeFaq.mainEntity) { assert.ok($('main').text().includes(item.name)); assert.ok($('main').text().includes(item.acceptedAnswer.text)); }
+    for (const path of ['/research/', '/ems-partners/', '/updates/']) assert.ok($(`main a[href="${path}"]`).length);
     for (const phrase of ['Professional responders take over.', 'Is the system deployed today?']) assert.ok(pages['/'].body.includes(phrase));
   }
   if (route.index === false) assert.match($('meta[name="robots"]').attr('content'), /noindex/);

@@ -1,6 +1,22 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+test("homepage exposes research links and scanner-readable FAQ schema", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Research informs the next test." })).toBeVisible();
+  for (const [name, href] of [["Read the research", "/research/"], ["EMS requirements", "/ems-partners/"], ["Development status", "/updates/"]]) {
+    await expect(page.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
+  }
+  const entities = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(text => JSON.parse(text));
+  expect(entities.map(item => item["@type"])).toEqual(["Organization", "WebSite", "FAQPage"]);
+  const faq = entities.find(item => item["@type"] === "FAQPage");
+  expect(faq.mainEntity).toHaveLength(4);
+  for (const item of faq.mainEntity) {
+    await expect(page.getByRole("button", { name: item.name })).toBeVisible();
+    expect(await page.locator("main").textContent()).toContain(item.acceptedAnswer.text);
+  }
+});
+
 test("discovery pages render on desktop and mobile without horizontal overflow", async ({ page }) => {
   for (const route of ["about", "ems-partners", "research", "updates", "technology/air", "technology/ground", "technology/nexus", "technology/modules", "research/drone-aed-evidence", "research/final-access", "research/human-oversight", "research/aviation-pathway", "research/response-gap", "research/evaluating-early-stage-partners"]) {
     await page.goto(`/${route}/`);
