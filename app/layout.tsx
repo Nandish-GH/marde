@@ -1,15 +1,16 @@
 import { SiteShell, PageSurface } from "./site-shell";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Footer } from "../components/v2/footer";
 import { site } from "./content";
+import { ScrollTop } from "../components/v2/scroll-top";
 import { Header } from "../components/v2/header";
 import { Motion, OpeningReveal } from "../components/v2/motion";
 import { canonicalSiteUrl, socialImage } from "./metadata";
-import { AnalyticsFoundation } from "./analytics";
+import { AnalyticsConsent } from "./analytics-consent";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-space-grotesk", display: "swap" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
@@ -53,11 +54,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <OpeningReveal />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <Header />
-        <AnalyticsFoundation />
+
         <Motion />
         <main id="main-content" tabIndex={-1}><PageSurface>{children}</PageSurface></main>
         <Footer />
-        {googleAnalyticsId ? <GoogleAnalytics gaId={googleAnalyticsId} /> : null}
+        <ScrollTop />
+        {googleAnalyticsId ? <AnalyticsConsent gaId={googleAnalyticsId} /> : null}
         </>}>{children}</SiteShell>
       </body>
     </html>
