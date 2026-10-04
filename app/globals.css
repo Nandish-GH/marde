@@ -35,3 +35,6 @@ button:disabled{cursor:not-allowed;opacity:.55;}
 @media(max-width:600px){:root{--v-gutter:22px;}html{scroll-padding-top:86px;}}
 @media(max-width:360px){:root{--v-gutter:18px;}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;}.v2-opening,.v2-cursor{display:none!important;}*,*::before,*::after{scroll-behavior:auto!important;}}
+
+@media(prefers-reduced-motion:no-preference){html:not(.lenis){scroll-behavior:smooth;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}

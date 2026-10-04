@@ -62,12 +62,8 @@ export function Motion() {
         document.querySelectorAll("[data-reveal]").forEach(el=>observer.observe(el));
         cleanups.push(()=>{observer.disconnect();animations.forEach(a=>a.cancel());finalCounts();});
         if(fine.matches){
-          let frame=0;
-          const lenis=new Lenis({autoRaf:false,lerp:.14,smoothWheel:true,syncTouch:false,anchors:{offset:-95},prevent:node=>Boolean(node.closest('[role="dialog"], [data-lenis-prevent]')),virtualScroll:()=>!document.body.hasAttribute("data-scroll-locked")});
-          const tick=(time:number)=>{lenis.raf(time);frame=lenis.isScrolling==="smooth"?requestAnimationFrame(tick):0;};
-          const wake=()=>{if(!frame)frame=requestAnimationFrame(tick);};
-          window.addEventListener("wheel",wake,{passive:true});document.addEventListener("click",wake);
-          cleanups.push(()=>{window.removeEventListener("wheel",wake);document.removeEventListener("click",wake);cancelAnimationFrame(frame);lenis.destroy();});
+          const lenis=new Lenis({autoRaf:true,lerp:.1,smoothWheel:true,syncTouch:false,anchors:{offset:-95},prevent:node=>Boolean(node.closest('[role="dialog"], [data-lenis-prevent]')),virtualScroll:()=>!document.body.hasAttribute("data-scroll-locked")});
+          cleanups.push(()=>lenis.destroy());
           const pointerMove=(event:PointerEvent)=>{
             const el=cursor.current;if(!el||event.pointerType==="touch")return;
             const target=event.target as HTMLElement;

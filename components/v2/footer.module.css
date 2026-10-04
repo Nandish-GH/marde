@@ -17,3 +17,16 @@
 @media(max-width:900px){.middle{grid-template-columns:1.4fr 1fr;gap:40px;}.social{grid-column:1/-1;display:flex;gap:30px;align-items:center;}.social .label{margin:0;}.social a{margin:0;gap:10px;}}
 @media(max-width:600px){.footer{padding-top:48px;}.top{align-items:flex-start;flex-direction:column;gap:26px;padding-bottom:32px;}.top p{font-size:22px;}.brand{width:240px;}.middle{grid-template-columns:1fr;padding:32px 0;gap:32px;}.middle nav{gap:20px;}.social{display:block;}.social .label{margin-bottom:15px;}.social a{display:inline-flex;margin-right:30px;}.bottom{flex-direction:column;align-items:flex-start;gap:12px;}}
 .social a{min-height:44px;}.social a>svg:first-child{width:21px;height:21px;flex:none;}.social a:hover>svg:first-child,.social a:focus-visible>svg:first-child{color:#c7adf3;}.social a:last-child:hover>svg:first-child,.social a:last-child:focus-visible>svg:first-child{color:#8cdbde;}
+
+.social a{position:relative;isolation:isolate;padding:10px 14px;border:1px solid #ffffff24;gap:18px;overflow:hidden;transition:border-color .3s,box-shadow .3s,color .3s;}
+.social a::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:linear-gradient(115deg,#f9ce341f,#ee2a7b40,#6228d750);transition:opacity .35s var(--v-ease);}
+.social a:last-child::before{background:linear-gradient(115deg,#25f4ee35,#111418 50%,#fe2c5535);}
+.social a:hover,.social a:focus-visible{text-decoration:none;color:#fff;border-color:#ee74b1;box-shadow:0 4px 24px #ee2a7b25;}
+.social a:last-child:hover,.social a:last-child:focus-visible{border-color:#62dedb;box-shadow:0 4px 24px #25f4ee20;}
+.social a:hover::before,.social a:focus-visible::before{opacity:1;}
+.social a>svg:first-child{transition:color .3s,filter .3s,transform .3s var(--v-ease);}
+.social a:hover>svg:first-child,.social a:focus-visible>svg:first-child{color:#ffa2d2;filter:drop-shadow(0 0 6px #ee2a7b80);transform:rotate(-7deg) scale(1.08);}
+.social a:last-child:hover>svg:first-child,.social a:last-child:focus-visible>svg:first-child{color:#8afff6;filter:drop-shadow(2px 1px 0 #fe2c55);}
+.social a>svg:last-child{transition:transform .3s var(--v-ease);}.social a:hover>svg:last-child,.social a:focus-visible>svg:last-child{transform:translate(2px,-2px);}
+@media(max-width:600px){.social a{margin-right:12px;margin-bottom:12px;}}
+@media(prefers-reduced-motion:reduce){.social a,.social a::before,.social a svg{transition:none;}.social a:hover>svg:first-child,.social a:focus-visible>svg:first-child{transform:none;}}

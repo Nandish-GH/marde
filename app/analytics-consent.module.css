@@ -1,0 +1,5 @@
+.banner{position:fixed;bottom:20px;left:var(--v-gutter);right:var(--v-gutter);z-index:80;display:flex;align-items:center;gap:32px;justify-content:space-between;background:var(--v-paper);color:var(--v-ink);border:1px solid var(--v-rule);box-shadow:0 12px 48px #0003;padding:24px;max-width:1080px;margin:auto;}
+.banner strong{font:500 20px var(--v-heading);letter-spacing:-.03em;}.banner p{font-size:13px;line-height:1.7;margin:8px 0 0;max-width:580px;color:var(--v-muted);}.banner a{text-underline-offset:3px;}
+.actions{display:flex;gap:10px;flex:none;}.actions button{min-height:44px;padding:12px 16px;border:1px solid var(--v-rule);background:transparent;color:var(--v-ink);font-size:13px;}.actions button:last-child{background:var(--v-blue);border-color:var(--v-blue);color:#fff;}.actions button:hover{box-shadow:inset 0 0 0 1px currentColor;}
+.preferences{position:fixed;bottom:12px;left:12px;z-index:60;background:var(--v-paper);color:var(--v-ink);border:1px solid var(--v-rule);min-height:44px;padding:10px 14px;font-size:11px;}
+@media(max-width:700px){.banner{bottom:12px;left:12px;right:12px;display:block;padding:20px;}.actions{margin-top:16px;}.actions button{flex:1;}}
