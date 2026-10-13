@@ -1,5 +1,7 @@
 # MARDE brand discoverability
 
+Release status: the October 13 changes have been deployed and verified. See [release and Search Console record](release-2026-10-13.md) for the accepted sitemap submission and seven indexing requests. Earlier references below to pending deployment are historical; bare-brand ranking remains unproven.
+
 ## October 13, 2026 follow-up
 
 The supplied AI Search Helpers report records **23/100 visibility** and **100/100 Is Agentic readiness**. These are different measurements; this change does not claim an increased score or resolved ranking.

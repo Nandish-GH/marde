@@ -2,6 +2,8 @@
 
 October 13, 2026, America/New_York. Supplied baseline: **23/100 AI search visibility** and **100/100 agent readiness**. These measure different things. No replacement visibility score or assistant recommendation count has been generated.
 
+Deployment follow-up: these changes are now live. The verified release and seven accepted Search Console indexing requests are recorded in [October 13 release](release-2026-10-13.md). References below to local changes awaiting deployment describe the earlier preparation stage.
+
 ## Implemented changes
 
 The homepage opening paragraph, description metadata, social descriptions and Organization description now share a factual company summary: New Jersey emergency-response robotics, aerial transport, teleoperated ground access, human-in-the-loop command software, pre-prototype stage and no deployed systems. The layout, headings, visual treatment and interactions remain intact. This gives the scanner's business profiler a clearer category and development stage before it chooses buying queries.
