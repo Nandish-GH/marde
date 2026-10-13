@@ -78,6 +78,14 @@ export function createHandler(pages, originFetch = fetch) {
   return async function handle(request) {
     const response = await handleRepresentation(request);
     const headers = new Headers(response.headers);
+    // Cloudflare otherwise rewrites public mailto links into a crawlable 404 URL.
+    // no-transform keeps the exported HTML intact without changing cache isolation.
+    if (headers.get('Content-Type')?.toLowerCase().startsWith('text/html')) {
+      const cache = headers.get('Cache-Control') || '';
+      if (!/(?:^|,)\s*no-transform\s*(?:,|$)/i.test(cache)) {
+        headers.set('Cache-Control', [cache, 'no-transform'].filter(Boolean).join(', '));
+      }
+    }
     headers.set('X-Content-Type-Options', 'nosniff');
     headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
     return new Response(response.body, { status: response.status, statusText: response.statusText, headers });

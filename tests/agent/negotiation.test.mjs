@@ -55,7 +55,7 @@ test('HEAD matches GET headers and does not return a body', async () => {
   }
 });
 test('variants cannot contaminate cache or conditional responses', async () => {
-  for (const accept of ['text/html', 'text/markdown']) assert.equal((await handle(request('/', accept))).headers.get('cache-control'), 'no-store');
+  for (const accept of ['text/html', 'text/markdown']) assert.match((await handle(request('/', accept))).headers.get('cache-control'), /^no-store(?:, no-transform)?$/);
   assert.equal((await handle(request('/', 'text/markdown', { headers: { 'If-None-Match': 'W/"md-test"' } }))).status, 304);
   assert.equal((await handle(request('/', 'text/markdown', { headers: { 'If-None-Match': '"html-test"' } }))).status, 200);
   let conditional;
@@ -96,4 +96,16 @@ test('security headers cover negotiated content, assets, redirects and errors', 
     assert.equal(response.headers.get('referrer-policy'), 'strict-origin-when-cross-origin');
     if (req.method === 'HEAD' || response.status === 304) assert.equal(await response.text(), '');
   }
+});
+
+test('HTML opts out of CDN email rewriting while retaining cache and variant directives', async () => {
+  for (const req of [request('/', 'text/html'), request('/missing', 'text/html'), request('/thank-you/'), request('/', 'text/html', { method: 'HEAD' })]) {
+    const response = await handle(req);
+    assert.match(response.headers.get('cache-control'), /(?:^|, )no-transform(?:,|$)/);
+  }
+  assert.equal((await handle(request('/'))).headers.get('cache-control'), 'no-store');
+  const original = createHandler(pages, async () => new Response('<a href="mailto:team@mardeinc.com">Email</a>', { headers: { 'Content-Type': 'text/html', 'Cache-Control': 'public, max-age=600, no-transform' } }));
+  const response = await original(request('/thank-you/'));
+  assert.equal(response.headers.get('cache-control'), 'public, max-age=600, no-transform');
+  assert.match(await response.text(), /href="mailto:team@mardeinc.com"/);
 });

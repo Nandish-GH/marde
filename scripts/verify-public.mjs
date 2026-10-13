@@ -6,7 +6,12 @@ for (const route of publicRoutes) for (const accept of ['text/html', 'text/markd
   try {
     const response = await fetch(`${base}${route.path}`, { headers: { Accept: accept }, signal: AbortSignal.timeout(15000) });
     assert.equal(response.status, 200); assert.ok(response.headers.get('content-type')?.startsWith(accept));
-    assert.match(response.headers.get('vary') || '', /\bAccept\b/i); assert.ok((await response.text()).length > 20);
+    assert.match(response.headers.get('vary') || '', /\bAccept\b/i);
+    const body = await response.text(); assert.ok(body.length > 20);
+    if (accept === 'text/html') {
+      assert.match(response.headers.get('cache-control') || '', /\bno-transform\b/);
+      assert.ok(!body.includes('/cdn-cgi/l/email-protection'), `${route.path}: CDN introduced broken email links`);
+    }
     console.log(`PASS ${accept} ${route.path}`);
   } catch (error) { failures++; console.error(`FAIL ${accept} ${route.path}: ${error.message}`); }
 }
