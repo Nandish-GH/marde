@@ -17,12 +17,38 @@ test("homepage exposes research links and scanner-readable FAQ schema", async ({
   expect(website.alternateName).toBe(org.name);
   expect(website.url).toBe("https://mardeinc.com/");
   expect(org.url).toBe(website.url);
+  expect(org.description).toContain("New Jersey");
+  expect(org.description).toContain("Pre-prototype; no deployed systems.");
+  for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+    await expect(page.locator(selector)).toHaveAttribute("content", org.description);
+  }
+  await expect(page.locator('[aria-labelledby="hero-heading"]')).toContainText(org.description);
+  expect(org.sameAs).toEqual([
+    "https://www.instagram.com/marde.inc",
+    "https://www.tiktok.com/@marde.inc",
+    "https://www.crunchbase.com/organization/marde",
+  ]);
   expect(website.publisher["@id"]).toBe(org["@id"]);
   const faq = entities.find(item => item["@type"] === "FAQPage");
   expect(faq.mainEntity).toHaveLength(4);
   for (const item of faq.mainEntity) {
     await expect(page.getByRole("button", { name: item.name })).toBeVisible();
     expect(await page.locator("main").textContent()).toContain(item.acceptedAnswer.text);
+  }
+});
+
+test("research schema identifies the canonical article and its visible primary sources", async ({ page }) => {
+  for (const slug of ["drone-aed-evidence", "final-access", "human-oversight", "aviation-pathway", "response-gap", "evaluating-early-stage-partners"]) {
+    await page.goto(`/research/${slug}/`);
+    const article = JSON.parse((await page.locator('script[type="application/ld+json"]').first().textContent())!);
+    expect(article["@type"]).toBe("Article");
+    expect(article.mainEntityOfPage["@id"]).toBe(await page.locator('link[rel="canonical"]').getAttribute("href"));
+    expect(article.author.url).toBe("https://mardeinc.com/research/");
+    await expect(page.locator("time")).toHaveAttribute("datetime", article.datePublished);
+    expect(article.citation.length).toBeGreaterThan(0);
+    for (const source of article.citation) {
+      await expect(page.getByRole("link", { name: source.name, exact: true })).toHaveAttribute("href", source.url);
+    }
   }
 });
 

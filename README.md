@@ -73,7 +73,7 @@ Copy `.env.example` to `.env.local` for local overrides. None of the committed v
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional GA4 ID; no analytics script is rendered when blank |
 | `GOOGLE_SITE_VERIFICATION` | Optional Search Console metadata token; owner-supplied only |
 
-Forms retain the existing public Formspree identifier as a source-code fallback so existing deployments continue to work when the environment variable is absent. Successful submissions navigate client-side to `/thank-you/`. Do not test the production endpoint unless a test submission is explicitly authorized.
+Forms retain the existing public Formspree identifier as a source-code fallback so existing deployments continue to work when the environment variable is absent. The contact form displays an inline success message. Failed or timed-out submissions retain entered text and allow retry. Do not test the production endpoint unless a test submission is explicitly authorized.
 
 ## Analytics and attribution
 
@@ -90,6 +90,8 @@ The site provides canonical URLs, route-specific metadata, Open Graph and Twitte
 `llms.txt` summarizes the current public platform and stage. No `llms-full.txt` is maintained because the public site is concise and a second AI-facing copy would duplicate content without adding a distinct source of truth.
 
 ## Deployment
+
+Architecture constraints, security review findings, and the role of optional AI coding tools are recorded in [Engineering context](docs/engineering-context.md). Read that document and the installed Next.js guides before changing platform behavior.
 
 Pushes to `main` run `.github/workflows/deploy-pages.yml`, which installs with Node.js 22, builds the static export, uploads `out/`, and deploys it to GitHub Pages at [mardeinc.com](https://mardeinc.com).
 

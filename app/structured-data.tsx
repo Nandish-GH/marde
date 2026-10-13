@@ -9,8 +9,7 @@ export function JsonLd({ data }: { data: unknown }) {
 export function StructuredData() {
   const organizationId = new URL("#organization", canonicalSiteUrl).toString();
   const websiteId = new URL("#website", canonicalSiteUrl).toString();
-  const description =
-    "MARDE is developing an integrated emergency-response robotics platform combining aerial transport, ground access, command software, and modular intervention capabilities.";
+  const description = site.description;
   const data = {
     "@context": "https://schema.org",
     "@graph": [
@@ -27,7 +26,7 @@ export function StructuredData() {
         email: site.email,
         contactPoint: { "@type": "ContactPoint", email: site.email, contactType: "general inquiries", url: new URL("contact/", canonicalSiteUrl).href },
         address: { "@type": "PostalAddress", addressRegion: "NJ", addressCountry: "US" },
-        sameAs: [site.instagram, site.tiktok],
+        sameAs: [site.instagram, site.tiktok, site.crunchbase],
       },
       {
         "@type": "WebSite",

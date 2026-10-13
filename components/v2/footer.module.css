@@ -30,3 +30,4 @@
 .social a>svg:last-child{transition:transform .3s var(--v-ease);}.social a:hover>svg:last-child,.social a:focus-visible>svg:last-child{transform:translate(2px,-2px);}
 @media(max-width:600px){.social a{margin-right:12px;margin-bottom:12px;}}
 @media(prefers-reduced-motion:reduce){.social a,.social a::before,.social a svg{transition:none;}.social a:hover>svg:first-child,.social a:focus-visible>svg:first-child{transform:none;}}
+@media(max-width:600px){.middle nav{row-gap:0;}.middle nav a{display:flex;align-items:center;min-height:44px;}}

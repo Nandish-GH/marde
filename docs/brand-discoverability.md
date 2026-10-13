@@ -1,5 +1,21 @@
 # MARDE brand discoverability
 
+## October 13, 2026 follow-up
+
+The supplied AI Search Helpers report records **23/100 visibility** and **100/100 Is Agentic readiness**. These are different measurements; this change does not claim an increased score or resolved ranking.
+
+A fresh unqualified `MARDE` query still did not return the official domain in the supplied search sample. A separate exact legal-name/domain query surfaced the [MARDE Crunchbase profile](https://www.crunchbase.com/organization/marde). The public profile identifies MARDE Inc., links to https://mardeinc.com/, names Nandish Panchal and other team members, and gives team@mardeinc.com. This establishes that the profile describes the same organization; it does not establish owner account control or press endorsement.
+
+The homepage Organization `sameAs` now includes that verified profile alongside the existing Instagram and TikTok URLs. The existing WebSite preferred name, Organization legal name, canonical IDs, contact details, interface and product behavior are preserved. Browser and export tests assert the exact identity links. This uses Google's Organization `sameAs` guidance rather than inventing a discovery protocol or publishing unverified addresses, telephone numbers or listings.
+
+Live baseline verification passed for all 27 registered routes in HTML and Markdown, all 27 explicit Markdown aliases, robots.txt, sitemap.xml, llms.txt, both 404 representations, and the three HTTP/www canonical redirects. Each canonical redirect reaches HTTPS apex in one hop. The new schema link remains local until deployment; existing public endpoint checks do not demonstrate that this local update is live.
+
+The report's proposed dedicated platform pages and six full research articles already exist in this checkout and passed live endpoint checks. The scanner's model-backed buying queries focus on available suppliers and rentals; MARDE is pre-prototype, so the site must not claim that it sells deployed systems, offers robot rentals, or provides operational EMS services to improve recommendations. The [scan implementation](https://github.com/kjagsadvisors/aisearchhelpers/blob/main/src/lib/scan.ts) uses model-backed answers and separately retrieves agent-readiness evidence. No authenticated re-scan was performed and no new numeric score was generated.
+
+Remaining actions: review and claim the existing Crunchbase profile with owner credentials rather than creating a duplicate; locate and verify LinkedIn Company, Wellfound and F6S listings; keep the legal name, domain, approved location and team email consistent. Confirm Search Console canonical selection and branded impressions after deployment and recrawl. Send the existing outreach drafts only with explicit owner authorization. The bare-brand failure stays open until a new measured result demonstrates that the official domain is discoverable.
+
+The October 1 findings below are historical; their statement that only two social identity links were verified is superseded by this follow-up.
+
 Checked October 1, 2026 (America/New_York). This records a brand-discoverability follow-up, not a new Is Agentic score or a guaranteed ranking.
 
 ## Findings and changes

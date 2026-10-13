@@ -25,13 +25,12 @@ export const metadata: Metadata = {
     default: "MARDE | Emergency Response Robotics Before EMS Arrival",
     template: "%s | MARDE",
   },
-  description:
-    "MARDE is developing an integrated emergency-response robotics platform combining aerial transport, ground access, command software, and modular intervention capabilities.",
+  description: site.description,
   applicationName: site.name,
   verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   openGraph: {
     title: "MARDE | Emergency Response Robotics Before EMS Arrival",
-    description: "MARDE is developing an integrated emergency-response robotics platform combining aerial transport, ground access, command software, and modular intervention capabilities.",
+    description: site.description,
     url: canonicalSiteUrl,
     type: "website",
     siteName: site.name,
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MARDE | Emergency Response Robotics Before EMS Arrival",
-    description: "MARDE is developing an integrated emergency-response robotics platform combining aerial transport, ground access, command software, and modular intervention capabilities.",
+    description: site.description,
     images: [{ url: socialImage.url, alt: socialImage.alt }],
   },
 };

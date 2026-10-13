@@ -11,7 +11,9 @@ export function DiscoveryPage({ page }: { page: Content }) {
   return <Editorial>
     <JsonLd data={{ "@context": "https://schema.org", "@type": type, "@id": `${url}#content`, url, name: page.title, headline: page.title, description: page.description,
       publisher: { "@id": new URL("#organization", canonicalSiteUrl).href },
-      ...(page.published ? { datePublished: page.published, author: { "@type": "Organization", name: page.author, parentOrganization: { "@id": new URL("#organization", canonicalSiteUrl).href } } } : {}),
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      ...(page.sources ? { citation: page.sources.map(source => ({ "@type": "CreativeWork", name: source.title, url: source.url })) } : {}),
+      ...(page.published ? { datePublished: page.published, author: { "@type": "Organization", name: page.author, url: new URL("research/", canonicalSiteUrl).href, parentOrganization: { "@id": new URL("#organization", canonicalSiteUrl).href } } } : {}),
     }} />
     <PageIntro eyebrow={page.kind === "research" ? "RESEARCH / MARDE PERSPECTIVE" : "MARDE / IN DEVELOPMENT"} title={page.title} text={page.description} />
     <article className={s.policy}>

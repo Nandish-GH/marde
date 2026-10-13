@@ -39,7 +39,7 @@ export function createHandler(pages, originFetch = fetch) {
     if (validators.includes(page.etag) || validators.includes('*')) return new Response(null, { status: 304, headers });
     return new Response(request.method === 'HEAD' ? null : page.body, { headers });
   }
-  return async function handle(request) {
+  async function handleRepresentation(request) {
     if (!['GET', 'HEAD'].includes(request.method)) return originFetch(request);
     const canonical = new URL(request.url);
     if (['mardeinc.com', 'www.mardeinc.com'].includes(canonical.hostname) && (canonical.hostname === 'www.mardeinc.com' || canonical.protocol === 'http:')) {
@@ -74,5 +74,12 @@ export function createHandler(pages, originFetch = fetch) {
       return new Response(request.method === 'HEAD' ? null : upstream.body, { status: upstream.status, statusText: upstream.statusText, headers: responseHeaders });
     }
     return markdownResponse(request, path);
+  }
+  return async function handle(request) {
+    const response = await handleRepresentation(request);
+    const headers = new Headers(response.headers);
+    headers.set('X-Content-Type-Options', 'nosniff');
+    headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   };
 }

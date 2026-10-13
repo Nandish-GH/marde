@@ -1,12 +1,15 @@
 export const site = {
   name: "MARDE",
   legalName: "MARDE Inc.",
+  description: "MARDE Inc. is developing emergency-response robotics in New Jersey: aerial transport, teleoperated ground access and human-in-the-loop command software. Pre-prototype; no deployed systems.",
   tagline: "Response Starts Before Arrival",
   email: "team@mardeinc.com",
   instagram: "https://www.instagram.com/marde.inc",
   instagramHandle: "@marde.inc",
   tiktok: "https://www.tiktok.com/@marde.inc",
   tiktokHandle: "@marde.inc",
+  // Public profile verified against the canonical domain, legal name and team email.
+  crunchbase: "https://www.crunchbase.com/organization/marde",
   donateUrl:
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",

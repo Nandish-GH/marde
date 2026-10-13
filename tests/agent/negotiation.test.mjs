@@ -87,3 +87,13 @@ test('explicit Markdown aliases work without an Accept header and expose guidanc
 test('Vary deduplicates Accept and respects wildcard', () => {
   for (const value of ['accept, Accept-Encoding', '*']) { const headers = new Headers({ Vary: value }); varyAccept(headers); assert.equal(headers.get('vary'), value); }
 });
+
+test('security headers cover negotiated content, assets, redirects and errors', async () => {
+  const cases = [request('/'), request('/', 'text/html'), request('/robots.txt'), request('/missing'), request('/', 'application/json'), request('/technology/air'), request('/', 'text/markdown', { method: 'HEAD' }), request('/', 'text/markdown', { headers: { 'If-None-Match': '"md-test"' } })];
+  for (const req of cases) {
+    const response = await handle(req);
+    assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
+    assert.equal(response.headers.get('referrer-policy'), 'strict-origin-when-cross-origin');
+    if (req.method === 'HEAD' || response.status === 304) assert.equal(await response.text(), '');
+  }
+});
