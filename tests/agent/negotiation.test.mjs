@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createHandler, negotiate, varyAccept } from '../../worker/negotiation.mjs';
+import { createHandler, createOriginFetch, negotiate, varyAccept } from '../../worker/negotiation.mjs';
 
 for (const [accept, expected] of [
   [undefined, 'html'], ['', 'html'], ['*/*', 'html'], ['text/*', 'html'],
@@ -108,4 +108,19 @@ test('HTML opts out of CDN email rewriting while retaining cache and variant dir
   const response = await original(request('/thank-you/'));
   assert.equal(response.headers.get('cache-control'), 'public, max-age=600, no-transform');
   assert.match(await response.text(), /href="mailto:team@mardeinc.com"/);
+});
+
+test('origin subrequests prevent email rewriting and retain asset bypass behavior', async () => {
+  const calls = [];
+  const upstream = createOriginFetch(async (req, options) => { calls.push({ req, options }); return origin(req); });
+  const edge = createHandler(pages, upstream);
+  await edge(request('/', 'text/html'));
+  assert.deepEqual(calls.at(-1).options.cf, { scrapeShield: false, cacheTtl: 0, cacheEverything: false });
+  await edge(request('/thank-you/', 'text/html'));
+  assert.deepEqual(calls.at(-1).options.cf, { scrapeShield: false });
+  await edge(request('/image.webp'));
+  assert.equal(calls.at(-1).options, undefined);
+  const count = calls.length;
+  await edge(request('/', 'text/markdown'));
+  assert.equal(calls.length, count);
 });
