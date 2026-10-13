@@ -13,6 +13,36 @@ test("scroll to top appears after scrolling, restores focus, and respects reduce
   await expect(top).toBeHidden();
 });
 
+test("top control fades both ways and cannot receive focus while hidden", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/contact/");
+  const top = page.locator('a[aria-label="Scroll to top"]');
+  await expect(top).toHaveAttribute("tabindex", "-1");
+  await expect(top).toHaveCSS("visibility", "hidden");
+  await page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }));
+  await expect(top).toHaveAttribute("data-visible", "true");
+  const fadeIn = await top.evaluate(async el => {
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return Number(getComputedStyle(el).opacity);
+  });
+  expect(fadeIn).toBeGreaterThan(0);
+  expect(fadeIn).toBeLessThan(1);
+  await expect(top).toHaveCSS("opacity", "1");
+  await expect(top).toHaveCSS("background-color", "rgb(17, 20, 24)");
+  await expect(top).toHaveAttribute("tabindex", "0");
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect(top).toHaveAttribute("data-visible", "false");
+  const fadeOut = await top.evaluate(async el => {
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return Number(getComputedStyle(el).opacity);
+  });
+  expect(fadeOut).toBeGreaterThan(0);
+  expect(fadeOut).toBeLessThan(1);
+  await expect(top).toHaveAttribute("aria-hidden", "true");
+  await expect(top).toHaveAttribute("tabindex", "-1");
+  await expect(top).toHaveCSS("visibility", "hidden");
+});
+
 test("Stripe loads only on request and keeps a working fallback when blocked", async ({ page }) => {
   let stripeRequests = 0;
   await page.route("https://js.stripe.com/**", async route => { stripeRequests++; await route.abort(); });
