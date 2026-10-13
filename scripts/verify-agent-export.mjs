@@ -9,7 +9,10 @@ assert.equal(entries.length, publicRoutes.filter(route => route.index !== false)
 assert.ok(!entries.some(url => /thank-you|contacts|nandish/.test(url)));
 const registry = new Set(publicRoutes.map(route => route.path));
 for (const route of publicRoutes) {
-  const $ = load(await readFile(`out${route.path}index.html`, 'utf8'));
+  const html = await readFile(`out${route.path}index.html`, 'utf8');
+  assert.match(html, /<body\b[^>]*><!--email_off-->/i, `${route.path}: missing CDN email exclusion`);
+  assert.match(html, /<!--\/email_off--><\/body>/i, `${route.path}: unclosed CDN email exclusion`);
+  const $ = load(html);
   assert.equal($('h1').length, 1, route.path);
   assert.equal($('link[rel=canonical]').attr('href'), `https://mardeinc.com${route.path}`, route.path);
   assert.ok(pages[route.path]?.body.length > 100);

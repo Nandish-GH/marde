@@ -27,16 +27,6 @@ export function varyAccept(headers) {
   headers.set('Vary', values.join(', '));
 }
 
-export function createOriginFetch(fetchImpl = fetch) {
-  return request => {
-    const skip = bypass(request);
-    const htmlPage = !skip || new URL(request.url).pathname === '/thank-you/';
-    if (!htmlPage) return fetchImpl(request);
-    // Scrape Shield operates on the origin subrequest before our response wrapper.
-    return fetchImpl(request, { cf: { scrapeShield: false, ...(!skip ? { cacheTtl: 0, cacheEverything: false } : {}) } });
-  };
-}
-
 export function createHandler(pages, originFetch = fetch) {
   function markdownResponse(request, path) {
     const page = pages[path];
