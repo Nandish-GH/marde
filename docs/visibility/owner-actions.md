@@ -10,6 +10,8 @@ Supplied company URLs: LinkedIn `https://linkedin.com/company/marde.inc`, Instag
 
 The person responsible for listings and approval to send any outreach remain unconfirmed. Supplying profile URLs does not authorize sending messages or changing those accounts.
 
+Correction received: the working company URL is `https://www.linkedin.com/company/mardeinc/`. Browser review confirmed MARDE, Inc., New Jersey, the canonical mardeinc.com domain and the pre-prototype/no-deployments description. The signed-in page exposes a View as admin link, but no LinkedIn account edits or outreach were performed. The corrected URL is included in the website's Organization sameAs references. The earlier unavailable `marde.inc` slug is retained above only as historical context.
+
 ## Please supply
 
 1. Existing LinkedIn company, Wellfound and F6S public URLs, if any. Confirm who controls Crunchbase and the company social accounts. Do not send passwords, tokens or recovery codes.

@@ -67,7 +67,7 @@ for (const route of publicRoutes) {
     assert.equal($('meta[name="description"]').attr('content'), org.description);
     assert.ok($('[aria-labelledby="hero-heading"]').text().includes(org.description));
     assert.match(org.description, /New Jersey/); assert.match(org.description, /Pre-prototype; no deployed systems/);
-    assert.deepEqual(org.sameAs, ['https://www.instagram.com/marde.inc', 'https://www.tiktok.com/@marde.inc', 'https://www.crunchbase.com/organization/marde']);
+    assert.deepEqual(org.sameAs, ['https://www.instagram.com/marde.inc', 'https://www.tiktok.com/@marde.inc', 'https://www.crunchbase.com/organization/marde', 'https://www.linkedin.com/company/mardeinc/']);
     assert.ok($('footer').text().includes(org.name)); assert.ok($('footer').text().includes(org.contactPoint.email));
     assert.deepEqual(graph.map(item => item['@type']), ['Organization', 'WebSite', 'FAQPage']);
     const homeFaq = graph.find(item => item['@type'] === 'FAQPage');

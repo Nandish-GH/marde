@@ -28,6 +28,7 @@ assert.equal(website.name, 'MARDE'); assert.equal(website.alternateName, org.nam
 assert.equal(website.url, canonical); assert.equal(website.publisher['@id'], org['@id']);
 assert.equal(org.contactPoint.email, 'team@mardeinc.com');
 assert.equal(org.address.addressRegion, 'NJ'); assert.equal(org.address.addressCountry, 'US');
+assert.ok(org.sameAs.includes('https://www.linkedin.com/company/mardeinc/'));
 assert.ok($('footer').text().includes(org.name));
 // Cloudflare may mask email text in raw HTML; exact visible contact parity is
 // checked in the export before CDN email protection transforms the response.

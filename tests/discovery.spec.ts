@@ -27,6 +27,7 @@ test("homepage exposes research links and scanner-readable FAQ schema", async ({
     "https://www.instagram.com/marde.inc",
     "https://www.tiktok.com/@marde.inc",
     "https://www.crunchbase.com/organization/marde",
+    "https://www.linkedin.com/company/mardeinc/",
   ]);
   expect(website.publisher["@id"]).toBe(org["@id"]);
   const faq = entities.find(item => item["@type"] === "FAQPage");

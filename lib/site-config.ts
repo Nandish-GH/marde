@@ -10,6 +10,7 @@ export const site = {
   tiktokHandle: "@marde.inc",
   // Public profile verified against the canonical domain, legal name and team email.
   crunchbase: "https://www.crunchbase.com/organization/marde",
+  linkedin: "https://www.linkedin.com/company/mardeinc/",
   donateUrl:
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",
