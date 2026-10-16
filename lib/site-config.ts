@@ -1,7 +1,7 @@
 export const site = {
   name: "MARDE",
   legalName: "MARDE Inc.",
-  description: "MARDE Inc. is developing emergency-response robotics in New Jersey: aerial transport, teleoperated ground access and human-in-the-loop command software. Pre-prototype; no deployed systems.",
+  description: "MARDE Inc. is developing emergency-response robotics in New Jersey for outdoor AED and tourniquet delivery, scene information and human-supervised communication. Pre-prototype; no deployed systems.",
   tagline: "Response Starts Before Arrival",
   email: "team@mardeinc.com",
   instagram: "https://www.instagram.com/marde.inc",

@@ -13,6 +13,28 @@ for (const route of publicRoutes) {
   assert.match(html, /<body\b[^>]*><!--email_off-->/i, `${route.path}: missing CDN email exclusion`);
   assert.match(html, /<!--\/email_off--><\/body>/i, `${route.path}: unclosed CDN email exclusion`);
   const $ = load(html);
+  const mainText = $('main').text();
+  if (route.path === '/') {
+    assert.match(mainText, /outdoor AED and tourniquet delivery/);
+    assert.match(mainText, /training equipment/);
+  }
+  if (route.path === '/technology/') {
+    assert.match(mainText, /lower it from hover/);
+    assert.match(mainText, /indoor access and stair climbing are deferred/);
+    assert.match(mainText, /No robotic application of AED electrodes, tourniquets or CPR is included in V1/);
+    assert.match(mainText, /EARLIER CONCEPT \/ UNDER REVIEW/);
+    assert.ok(!mainText.includes('secure-response functions'));
+  }
+  if (route.path === '/updates/') {
+    assert.match(mainText, /15 October 2026: a narrower first demonstration/);
+    assert.match(mainText, /No named EMS agency or hospital is announced as a formal partner/);
+  }
+  if (route.path === '/technology/ground/') {
+    assert.match(mainText, /Indoor access, stair climbing and direct patient contact are deferred/);
+    assert.match(mainText, /training equipment and simulated incidents/);
+  }
+  if (route.path === '/technology/air/') assert.match(mainText, /land at an open rendezvous for pickup/);
+  if (route.path === '/technology/modules/') assert.match(mainText, /outside V1/);
   assert.equal($('h1').length, 1, route.path);
   assert.equal($('link[rel=canonical]').attr('href'), `https://mardeinc.com${route.path}`, route.path);
   assert.ok(pages[route.path]?.body.length > 100);
@@ -52,7 +74,7 @@ for (const route of publicRoutes) {
     assert.equal(homeFaq.mainEntity.length, 4);
     for (const item of homeFaq.mainEntity) { assert.ok($('main').text().includes(item.name)); assert.ok($('main').text().includes(item.acceptedAnswer.text)); }
     for (const path of ['/research/', '/ems-partners/', '/updates/']) assert.ok($(`main a[href="${path}"]`).length);
-    for (const phrase of ['Professional responders take over.', 'Is the system deployed today?']) assert.ok(pages['/'].body.includes(phrase));
+    for (const phrase of ['simulated EMS handoff', 'Is the system deployed today?']) assert.ok(pages['/'].body.includes(phrase));
   }
   if (route.index === false) assert.match($('meta[name="robots"]').attr('content'), /noindex/);
   if (route.index === false) {

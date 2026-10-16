@@ -5,7 +5,7 @@ import s from "./product-graphic.module.css";
 export function ProductGraphic({ type, compact = false }: { type: "air" | "ground" | "modules"; compact?: boolean }) {
   const names = { air: "Air / aerial transport", ground: "Ground / final access", modules: "Modules / adaptable payload" };
   const descriptions = {
-    air: "MARDE Air current engineering concept, derived from the supplied Blender model: winged airframe, four lift rotors and an underslung payload interface. Not finalized hardware.",
+    air: "Earlier MARDE Air concept study: winged airframe, four lift rotors and an underslung payload interface. Aircraft configuration is being reassessed for hover lowering; not finalized hardware.",
     ground: "MARDE Ground provisional mobility concept: a compact wheeled base with a payload interface. Design intent only; no finished Ground model or demonstrated terrain capability.",
     modules: "Modules / adaptable payload. Provisional system concept showing a removable payload above its interface; not finalized hardware.",
   };
@@ -21,6 +21,6 @@ export function ProductGraphic({ type, compact = false }: { type: "air" | "groun
         <Image src={`/graphics/${type}-study-1440.webp`} width={1440} height={1000} alt={descriptions[type]} unoptimized />
       </picture>
     </div>
-    <figcaption><span>{type === "air" ? "CURRENT ENGINEERING CONCEPT" : "CONCEPT / IN DEVELOPMENT"}</span><span>{type === "air" ? "From the MARDE Air model" : type === "ground" ? "Mobility design intent" : "Payload interface study"}</span></figcaption>
+    <figcaption><span>{type === "air" ? "EARLIER CONCEPT / UNDER REVIEW" : "CONCEPT / IN DEVELOPMENT"}</span><span>{type === "air" ? "Aircraft configuration not final" : type === "ground" ? "Mobility design intent" : "Payload interface study"}</span></figcaption>
   </figure>;
 }

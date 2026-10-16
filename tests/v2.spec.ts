@@ -19,7 +19,7 @@ test('V2 homepage fits all target widths with stable stats and equal system link
 
 test('workflow and Nexus controls explain each stage without live mission claims',async({page})=>{
   await page.goto('/');
-  for(const name of ['MARDE Nexus','MARDE Air','MARDE Ground','Intervention module','EMS handoff']){
+  for(const name of ['MARDE Nexus','MARDE Air','MARDE Ground','Response supplies','Handoff and recovery']){
     await page.getByRole('button',{name:new RegExp(name)}).click();await expect(page.locator('#response-detail h3')).toHaveText(name);
   }
   await page.getByRole('button',{name:'Human authorization 02'}).click();await expect(page.getByRole('heading',{name:'Consequential actions stay human.'})).toBeVisible();

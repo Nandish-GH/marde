@@ -10,19 +10,19 @@ export const responseStats = [
 ] as const;
 
 export const systems = [
-  { id: "air", number: "01", name: "Air", verb: "Close the distance.", label: "Aerial transport", text: "An aerial platform designed to carry Ground and its payload toward the scene. Current geometry is in engineering development." },
-  { id: "ground", number: "02", name: "Ground", verb: "Reach the final meters.", label: "Final access", text: "A teleoperated ground platform intended to continue the approach where the aircraft cannot directly reach." },
-  { id: "nexus", number: "03", name: "Nexus", verb: "Coordinate the response.", label: "Human control", text: "The command layer connecting operators, aircraft, ground systems, and response workflows under human oversight." },
-  { id: "modules", number: "04", name: "Modules", verb: "Extend capability.", label: "Intervention modules", text: "An adaptable payload architecture, starting with delivery and secure-response capabilities. Advanced medical modules come later, after validation." },
+  { id: "air", number: "01", name: "Air", verb: "Close the distance.", label: "Aerial transport", text: "A proposed aircraft to carry Ground, lower it from hover and provide aerial scene views. Aircraft configuration remains under evaluation." },
+  { id: "ground", number: "02", name: "Ground", verb: "Reach the final meters.", label: "Outdoor access", text: "An outdoor teleoperated platform for AED and tourniquet delivery, ground-level video and two-way communication. Initial tests will use training equipment." },
+  { id: "nexus", number: "03", name: "Nexus", verb: "Coordinate the response.", label: "Human control", text: "The proposed command layer for aerial and ground feeds, supply status, communication and human authorization of deployment, dispensing and retreat." },
+  { id: "modules", number: "04", name: "Modules", verb: "Extend capability.", label: "Response supplies", text: "V1 planning centers on a dedicated AED bay and a reloadable tourniquet dispenser. Direct robotic treatment remains future research." },
 ] as const;
 
 export const workflow = [
-  { name: "911 / EMS dispatch", action: "Initiate", text: "An emergency response begins within the professional dispatch workflow." },
+  { name: "Simulated dispatch", action: "Initiate", text: "An authorized operator starts a controlled demonstration. No live 911 integration is claimed." },
   { name: "MARDE Nexus", action: "Coordinate", text: "A trained operator reviews the mission and authorizes system actions." },
-  { name: "MARDE Air", action: "Reach", text: "Air is designed to transport Ground and its payload toward the scene." },
-  { name: "MARDE Ground", action: "Access", text: "An operator directs the final approach beyond the aircraft’s reach." },
-  { name: "Intervention module", action: "Extend capability", text: "The payload supports the response. V1 focuses on delivery and secure-response functions." },
-  { name: "EMS handoff", action: "Continue care", text: "Professional responders take over. MARDE is being designed to complement their work." },
+  { name: "MARDE Air", action: "Reach", text: "The proposed aircraft transports Ground and lowers it from hover into a cleared outdoor area." },
+  { name: "MARDE Ground", action: "Access", text: "An operator directs outdoor movement, scene video and two-way communication." },
+  { name: "Response supplies", action: "Deliver", text: "Human-authorized dispensing places training AED and tourniquet equipment beside Ground during initial tests." },
+  { name: "Handoff and recovery", action: "Return", text: "After a simulated EMS handoff and authorized retreat, Air would land at an open rendezvous for Ground pickup." },
 ] as const;
 
 export { agentFaqs as faqs } from "./agent-faqs";
