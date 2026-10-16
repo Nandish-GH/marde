@@ -29,3 +29,11 @@ Internal budgets, provisional fundraising targets, named interview contacts and 
 Export validation adds assertions for V1 scope, deferred capabilities, training equipment, the dated update and the non-final aircraft caption. Standard agent, schema, link, sitemap, TypeScript and lint checks remain required. Production deployment must pass the existing GitHub Actions build/browser/export checks and public HTML/Markdown verification.
 
 If published representations disagree, links fail, or the new copy implies deployed or clinically validated capability, restore the prior release and investigate. The previous production code release is `c655da1a1308c85a854ac27cefcb870289d97b30`.
+
+## Verified release
+
+Release `ebf82970f73aa5c25813b6be54f12a847a60405c` is live. [GitHub Actions run 38841062685](https://github.com/Nandish-GH/marde/actions/runs/38841062685) completed successfully for build, Pages deploy and agent Worker, including the full browser suite and production endpoint verification. Additional direct checks confirmed revised public content at the homepage, updates, Air, Ground and llms.txt.
+
+Local checks passed: TypeScript, targeted lint, 27 agent tests, export/schema/link/FAQ validation for 27 routes and desktop/mobile regression tests (23 passed, one desktop-only cursor test skipped on mobile). The local Turbopack build hit a font resolver error; the supported webpack production build passed. CI's normal Turbopack build also passed, so no build configuration was changed for that local error.
+
+Search Console was left on Overview. No exclusion policies, validations or account settings were changed, and no new assistant visibility score is claimed.
