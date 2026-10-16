@@ -2,6 +2,14 @@
 
 Prepared October 15, 2026. Website technical work and the updated V1 description are already deployed. These tasks remain because the necessary evidence or account authority is not in the repository.
 
+## Owner clarification received
+
+The owner confirmed MARDE remains at concept stage, with no progress, bench tests, hardware purchases or demos reported. Keep proposed capabilities labeled as design direction; do not publish a build-result update.
+
+Supplied company URLs: LinkedIn `https://linkedin.com/company/marde.inc`, Instagram `https://www.instagram.com/marde.inc`, TikTok `https://www.tiktok.com/@marde.inc`. Instagram and TikTok are already in the website identity links. The supplied LinkedIn URL was checked in the browser and redirected to `https://www.linkedin.com/company/unavailable/`, displaying “This LinkedIn Page isn't available” and “The page you're searching for no longer exists.” Its public identity cannot yet be verified, so it has not been added to the website or schema. Ask the owner for the working public company URL rather than guessing another slug or creating a duplicate.
+
+The person responsible for listings and approval to send any outreach remain unconfirmed. Supplying profile URLs does not authorize sending messages or changing those accounts.
+
 ## Please supply
 
 1. Existing LinkedIn company, Wellfound and F6S public URLs, if any. Confirm who controls Crunchbase and the company social accounts. Do not send passwords, tokens or recovery codes.
