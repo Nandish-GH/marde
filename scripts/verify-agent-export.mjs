@@ -92,6 +92,13 @@ for (const route of publicRoutes) {
     const count = article.text().split(/\s+/).length;
     assert.ok(count >= 1200 && count <= 2000, `${route.path}: ${count} words`);
     assert.ok(article.find('time[datetime="2026-10-01"]').length);
+    assert.ok(article.find('time[datetime="2026-10-15"]').length);
+    assert.equal(article.find('h2').first().text(), 'Key answer');
+    assert.match(article.text(), /editorial synthesis/);
+    assert.equal(article.find('nav[aria-label="Related research and platform pages"] a').length, 2);
+    const articleSchema = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text())).find(item => item['@type'] === 'Article');
+    assert.equal(articleSchema.datePublished, '2026-10-01');
+    assert.equal(articleSchema.dateModified, '2026-10-15');
     assert.ok(article.find('a[href^="https://"]').length);
   }
 }

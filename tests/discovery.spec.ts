@@ -45,7 +45,13 @@ test("research schema identifies the canonical article and its visible primary s
     expect(article["@type"]).toBe("Article");
     expect(article.mainEntityOfPage["@id"]).toBe(await page.locator('link[rel="canonical"]').getAttribute("href"));
     expect(article.author.url).toBe("https://mardeinc.com/research/");
-    await expect(page.locator("time")).toHaveAttribute("datetime", article.datePublished);
+    await expect(page.locator('time[datetime="2026-10-01"]')).toHaveText(article.datePublished);
+    expect(article.dateModified).toBe("2026-10-15");
+    await expect(page.locator('time[datetime="2026-10-15"]')).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Key answer", exact: true })).toBeVisible();
+    await expect(page.getByText(/Prepared by MARDE Inc. as an editorial synthesis/)).toBeVisible();
+    const related = page.getByRole("navigation", { name: "Related research and platform pages", exact: true });
+    await expect(related.getByRole("link")).toHaveCount(2);
     expect(article.citation.length).toBeGreaterThan(0);
     for (const source of article.citation) {
       await expect(page.getByRole("link", { name: source.name, exact: true })).toHaveAttribute("href", source.url);

@@ -1,7 +1,35 @@
 import { sources, type DiscoveryPage } from "./discovery";
 import { researchExercises } from "./research-exercises";
 
-const boundary = "This article is MARDE's research perspective on evaluation questions, not a report of MARDE test results. MARDE is pre-prototype and has no deployed emergency-response system. External evidence concerns the systems and settings studied by its authors. The proposed MARDE architecture still needs engineering, integrated testing and applicable approvals.";
+const boundary = "MARDE remains at concept/pre-prototype stage. Its proposed outdoor supply-delivery and scene-communication system has not been built or validated; the exercises here are proposals, not completed tests.";
+
+
+const researchGuides: Record<string, { answer: string; related: { title: string; href: string }[] }> = {
+  "research/drone-aed-evidence": {
+    answer: "Drone-AED evidence should distinguish delivery, retrieval, equipment use and patient outcomes. Earlier arrival alone does not establish clinical benefit or validate another system. This article shows how to map each claim to the event and study that actually support it.",
+    related: [{ title: "Outdoor supply delivery: MARDE Ground", href: "/technology/ground/" }, { title: "The final-access problem", href: "/research/final-access/" }],
+  },
+  "research/final-access": {
+    answer: "Final access is the movement from an aerial delivery point to an agreed receiving location. A useful test specifies the route, payload, operator view, communication limits and recovery plan. MARDE’s current V1 scope is outdoor teleoperation; indoor entry and stair climbing are deferred.",
+    related: [{ title: "MARDE Ground: outdoor V1 scope", href: "/technology/ground/" }, { title: "Human authorization and handoffs", href: "/research/human-oversight/" }],
+  },
+  "research/human-oversight": {
+    answer: "Human oversight needs named responsibilities and explicit decisions: who authorizes deployment, movement, dispensing and retreat; what information they need; and how they stop or recover the mission. A human-in-the-loop label or interface mockup does not demonstrate those controls work.",
+    related: [{ title: "MARDE Nexus: proposed operator coordination", href: "/technology/nexus/" }, { title: "Evaluating an early-stage robotics partner", href: "/research/evaluating-early-stage-partners/" }],
+  },
+  "research/aviation-pathway": {
+    answer: "An emergency-response concept needs separate decisions about aircraft engineering, the permitted operation and agency readiness. A public-safety purpose does not itself authorize flight. MARDE has no operational flight approval; its proposed aircraft and hover-lowering workflow still need design, review and staged testing.",
+    related: [{ title: "MARDE Air: proposed deployment and recovery", href: "/technology/air/" }, { title: "Evaluating early-stage partners", href: "/research/evaluating-early-stage-partners/" }],
+  },
+  "research/response-gap": {
+    answer: "CARES response intervals describe the registry’s population and timestamp definitions. They are not MARDE performance measurements. Subtracting a projected drone flight time from an EMS median cannot establish time saved or patient benefit; a comparison needs equivalent events, explicit assumptions and measured evidence.",
+    related: [{ title: "What drone-AED evidence establishes", href: "/research/drone-aed-evidence/" }, { title: "Current development status", href: "/updates/" }],
+  },
+  "research/evaluating-early-stage-partners": {
+    answer: "Start with the agency’s problem, then ask what exists, what has been tested and which claims remain objectives. Agree on a bounded exercise, roles and success criteria before testing. MARDE currently invites requirements feedback as a concept-stage developer, not procurement of a deployed product.",
+    related: [{ title: "EMS requirements conversations", href: "/ems-partners/" }, { title: "October V1 design revision", href: "/updates/" }],
+  },
+};
 
 export const researchPages: DiscoveryPage[] = [
   {
@@ -18,7 +46,7 @@ export const researchPages: DiscoveryPage[] = [
   {
     slug: "research/final-access", title: "The final-access problem after aerial arrival", description: "Why arrival at coordinates and useful access to a scene are different robotics requirements.", sources: [sources.nist, sources.radio],
     sections: [
-      { title: "Coordinates are not an access plan", paragraphs: ["A vehicle can arrive at the right location while its payload remains inaccessible. A fence, threshold, stair, closed door or uncertain receiving point can separate geographic arrival from useful delivery. The final-access problem is the set of tasks required to move from that arrival point to a place where an authorized person can receive or use the payload.", "For MARDE, Ground is the proposed component for investigating that continuation. It is intended to be teleoperated first, with a human directing the approach. This is an architectural objective, not a claim that MARDE already traverses stairs or enters buildings. The first useful step is to break broad access language into testable tasks."] },
+      { title: "Coordinates are not an access plan", paragraphs: ["A vehicle can arrive at the right location while its payload remains inaccessible. A fence, threshold, stair, closed door or uncertain receiving point can separate geographic arrival from useful delivery. The final-access problem is the set of tasks required to move from that arrival point to a place where an authorized person can receive or use the payload.", "For MARDE, Ground is the proposed component for investigating that continuation. It is intended to be teleoperated first, with a human directing the approach. The October 2026 V1 scope is outdoor teleoperation and supply delivery; indoor entry and stair climbing are deferred. The first useful step is to break broad access language into testable tasks."] },
       { title: "Describe the obstacle precisely", paragraphs: ["A requirement such as handles stairs is incomplete. An evaluation needs dimensions, surface conditions, landing space, payload configuration and operator visibility. A robot that moves successfully on one arrangement may fail on a different height, edge shape or surface. Similar care applies to doorways and narrow passages: clearance alone does not establish that the operator can navigate safely.", "Agencies can help by describing recurring barriers in de-identified operational scenarios. The purpose is not to collect patient locations or sensitive building plans. It is to identify representative tasks, exclusion conditions and receiving arrangements. A scenario should state where the aircraft could stop and which additional movement would be necessary."] },
       { title: "Observe the operator as well as the machine", paragraphs: ["Teleoperation makes operator information part of the capability. Cameras may have blind spots, lighting may change and a payload may obscure a view. Testing should record what the operator could see, how commands were issued and when uncertainty required a stop. Otherwise a mechanical demonstration can conceal an unrealistic level of support from nearby observers.", "An independent observer may help record events during a controlled exercise, but their assistance must be documented. If someone physically repositions the robot, supplies directions or removes an obstacle, that intervention changes the meaning of the result. Operator proficiency and practice time should also be recorded before comparing configurations."] },
       { title: "Treat communications as an environmental constraint", paragraphs: ["Ground movement can change the communication path after an aerial handoff. A mission that begins with a clear connection may enter a more difficult radio environment. NIST has published a test method addressing response-robot performance under attenuated radio conditions. That is a useful reference for making communication limitations part of a test rather than treating them as an unexpected exception.", "For the proposed MARDE workflow, questions include how the operator recognizes stale information, how movement stops and what recovery process is available. This article does not define a validated failsafe design. Those behaviors need engineering decisions and repeatable tests appropriate to the eventual hardware and control system."] },
@@ -70,4 +98,9 @@ export const researchPages: DiscoveryPage[] = [
       { title: "Look for honest reporting and a useful next step", paragraphs: ["A credible early-stage partner reports what it could not demonstrate and changes its claims when evidence changes. Ask how revisions are dated, how unsuccessful attempts are described and how agency feedback changes requirements. Progress is more informative when the company identifies the next unresolved question rather than repeating a fixed launch promise.", "For MARDE, the appropriate starting point is a requirements discussion through the Contact page. Share the institutional role and the access or coordination problem you want to explore. Any later evaluation would need a separately agreed scope. This page does not list existing partners, endorsements or availability for live emergency response.", boundary] },
     ],
   },
-].map(page => ({ ...page, sections: [...page.sections.slice(0, -1), ...researchExercises[page.slug], ...page.sections.slice(-1)], kind: "research", published: "2026-10-01", author: "MARDE Inc." }));
+].map(page => ({ ...page,
+  sections: [{ title: "Key answer", paragraphs: [researchGuides[page.slug].answer] }, ...page.sections.slice(0, -1), ...researchExercises[page.slug], ...page.sections.slice(-1)],
+  kind: "research", published: "2026-10-01", modified: "2026-10-15", author: "MARDE Inc.",
+  contribution: "Prepared by MARDE Inc. as an editorial synthesis of the linked primary sources and a proposed evaluation framework. MARDE’s contribution is the claim-to-evidence questions and hypothetical exercises, not original experimental or clinical findings.",
+  related: researchGuides[page.slug].related,
+}));

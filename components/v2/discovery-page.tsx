@@ -14,12 +14,16 @@ export function DiscoveryPage({ page }: { page: Content }) {
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       ...(page.sources ? { citation: page.sources.map(source => ({ "@type": "CreativeWork", name: source.title, url: source.url })) } : {}),
       ...(page.published ? { datePublished: page.published, author: { "@type": "Organization", name: page.author, url: new URL("research/", canonicalSiteUrl).href, parentOrganization: { "@id": new URL("#organization", canonicalSiteUrl).href } } } : {}),
+      ...(page.modified ? { dateModified: page.modified } : {}),
     }} />
     <PageIntro eyebrow={page.kind === "research" ? "RESEARCH / MARDE PERSPECTIVE" : "MARDE / IN DEVELOPMENT"} title={page.title} text={page.description} />
     <article className={s.policy}>
       {page.published ? <p className={s.updated}>By {page.author} · Published <time dateTime={page.published}>{page.published}</time></p> : null}
+      {page.modified ? <p className={s.updated}>Updated <time dateTime={page.modified}>{page.modified}</time></p> : null}
+      {page.contribution ? <p>{page.contribution}</p> : null}
       {page.sections.map(section => <section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(text => <p key={text}>{text}</p>)}</section>)}
       {page.sources ? <section><h2>Primary sources</h2><ul>{page.sources.map(source => <li key={source.url}><a href={source.url}>{source.title}</a></li>)}</ul></section> : null}
+      {page.related ? <nav aria-label="Related research and platform pages"><ul>{page.related.map(link => <li key={link.href}><Link href={link.href}>{link.title}</Link></li>)}</ul></nav> : null}
       <nav aria-label="Related reading"><Link href="/technology/">Platform overview</Link> · <Link href="/ems-partners/">EMS conversations</Link> · <Link href="/research/">Research library</Link> · <Link href="/faq/">FAQ</Link></nav>
     </article><Closing />
   </Editorial>;

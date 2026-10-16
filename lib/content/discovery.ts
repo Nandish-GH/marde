@@ -1,4 +1,4 @@
-export type DiscoveryPage = { slug: string; title: string; description: string; sections: { title: string; paragraphs: string[] }[]; sources?: { title: string; url: string }[]; published?: string; author?: string; kind?: "research" | "update" | "platform" };
+export type DiscoveryPage = { slug: string; title: string; description: string; sections: { title: string; paragraphs: string[] }[]; sources?: { title: string; url: string }[]; published?: string; modified?: string; author?: string; contribution?: string; related?: { title: string; href: string }[]; kind?: "research" | "update" | "platform" };
 
 export const sources = {
   faa: { title: "FAA: Advanced UAS operations", url: "https://www.faa.gov/uas/advanced_operations" },
