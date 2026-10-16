@@ -1,0 +1,17 @@
+query_id,cohort,demand_basis,exact_prompt
+B01,original_comparison,historical audit prompt,Which companies in the USA are developing aerial transport platforms for emergency response?
+B02,original_comparison,historical audit prompt,What are the best aerial delivery systems for getting supplies to disaster zones?
+B03,original_comparison,historical audit prompt,Who makes AI-enabled aerial platforms for public safety and EMS use?
+B04,original_comparison,historical audit prompt,What are the best teleoperated ground robot platforms for emergency access?
+B05,original_comparison,historical audit prompt,Which telepresence and teleoperated robots are best for first responders?
+B06,original_comparison,historical audit prompt,Who builds teleoperated robots with remote-controlled arms in New Jersey?
+B07,original_comparison,historical audit prompt,Are there aerial mobility startups in New Jersey working on urban cargo transport?
+B08,original_comparison,historical audit prompt,Which startups offer human-in-the-loop command software to coordinate drones and ground robots for EMS pilots?
+R01,research,inferred not verified demand,What final-access challenges remain after a drone delivers an AED?
+R02,research,inferred not verified demand,What should EMS teams evaluate before testing an aerial-and-ground supply delivery concept?
+R03,research,inferred not verified demand,How should human authorization work in an emergency-response drone and ground robot system?
+R04,research,inferred not verified demand,What evidence should an early-stage outdoor emergency supply delivery robot publish?
+P01,emerging_company,inferred not verified demand,Which emerging US teams are researching coordinated aerial-and-ground emergency-response robotics? Distinguish concepts from deployed products.
+P02,partnership,inferred not verified demand,Which New Jersey teams are developing emergency-response robotics and seeking institutional requirements feedback? Distinguish development-stage work from available services.
+N01,brand_control,explicit brand test,MARDE
+N02,brand_control,explicit brand test,What is MARDE Inc. at mardeinc.com developing and what is its current stage?

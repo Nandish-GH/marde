@@ -1,6 +1,6 @@
 # MARDE visibility kit
 
-Prepared October 1, 2026. These are unsent drafts. They do not claim new profiles, partnerships, press coverage or endorsements.
+Updated October 15, 2026 for the deployed EMS-informed V1 scope. These are unsent drafts. They do not claim new profiles, partnerships, press coverage or endorsements. External submission instructions linked below were not reverified in this offline preparation; check them before sending.
 
 ## Consistent public company brief
 
@@ -14,9 +14,15 @@ Prepared October 1, 2026. These are unsent drafts. They do not claim new profile
 
 **Legal/development status:** Delaware C-Corporation; pre-seed, pre-prototype, pre-revenue.
 
-**Short description:** MARDE is developing an integrated emergency-response robotics concept combining aerial transport, teleoperated final access, human-in-the-loop coordination and adaptable response payloads.
+**Short description:** MARDE is developing an aerial-and-ground emergency-response platform for outdoor AED and tourniquet delivery, scene information and human-supervised communication before EMS arrives. Pre-prototype; no deployed systems.
 
-**Long description:** MARDE Inc. is investigating how coordinated robotics could extend useful capability toward a scene before EMS arrives. The proposed architecture combines Air for transport, Ground for final access, Nexus for human coordination and Intervention Modules for adaptable payloads. V1 is intended to remain operator-directed. The next milestone is an integrated human-in-the-loop demonstration. MARDE does not claim deployed systems, commercial pilots, clinical validation, FAA/FDA approvals or production 911 integration. Institutional conversations focus on requirements, research and future evaluation rather than procurement of an available emergency-response service.
+**Long description:** MARDE Inc. is a New Jersey-based Delaware C-Corporation developing an integrated aerial-and-ground emergency-response concept. The October 2026 V1 direction combines proposed Air transport and controlled hover lowering, outdoor Ground mobility with an AED bay and tourniquet dispenser, and Nexus for scene feeds, supply status and human authorization. Initial demonstrations will use training equipment and simulated incidents. Indoor entry, stair climbing and direct robotic treatment are deferred. MARDE remains pre-prototype and pre-revenue, with no deployed systems, commercial pilots, validated performance, clinical validation or operational flight approvals claimed. The immediate work is supply sizing, a Ground mass budget and dispenser bench tests before staged system integration. Institutional conversations seek requirements and technical critique, not purchases of an available emergency service.
+
+**Suggested profile headline:** Emergency-response robotics in development | Outdoor supply delivery and scene communication
+
+**Suggested specialties:** Emergency-response robotics; teleoperated ground robotics; aerial-and-ground coordination; human-in-the-loop systems; scene communication; prototype research.
+
+Do not describe these specialties as validated capabilities or services currently available for purchase. Use New Jersey, USA until the owner confirms a more specific public location. Use the existing logo assets in `public/brand/` rather than inventing a new brand identity.
 
 Use the published Team page for individual roles. Do not add funding figures, investors, customer names or technical specifications without documented owner confirmation.
 
@@ -56,12 +62,12 @@ Draft: MARDE Inc. is investigating an integrated robotics workflow in which an a
 
 ## Publication and participation schedule
 
-- Days 0–14 after release: verify indexing through Search Console, submit the sitemap, claim verified company profiles, and establish the measurement baseline. Owners supply account access and an approved fuller address only if needed.
+- Days 0–14 after release: review the existing indexing queue, claim verified company profiles, and establish the measurement baseline. The sitemap was successfully submitted October 13 and indexing requests were already accepted; do not repeatedly submit them merely because indexing remains pending. Owners sign into their own listing accounts when needed.
 - Days 15–30: use the research library to inform requirements conversations. Publish an update only when meaningful documented progress exists. Seek relevant NJ ecosystem listings whose eligibility MARDE actually meets.
 - Days 31–60: send authorized editorial pitches and participate in relevant EMS/robotics discussions with affiliation disclosed. Answer the actual question; do not fabricate reviews, seed endorsements or post repetitive promotional links.
 - Days 61–90: review citation and indexing evidence, improve weak content based on observed questions, and report documented progress. Pursue independent mentions on their merits rather than treating a backlink count as guaranteed coverage.
 
-Research articles are published in this release; future updates should appear every two to three weeks only when evidence warrants publication. No recurring automation is created by this kit.
+Research articles and the October 15 design update are published. Future updates should follow documented progress; a publication cadence alone is not evidence. No recurring automation is created by this kit.
 
 ## Measurement protocol
 
@@ -69,7 +75,7 @@ At release and 30, 60 and 90 days later, record the date, engine/assistant, exac
 
 Track branded searches for MARDE and MARDE Inc., Search Console indexing/impressions, referring domains, verified company profiles and independent editorial mentions. Keep an owner-controlled CSV with columns: observed_at, channel, query, model, marde_mentioned, canonical_domain_cited, cited_urls, evidence_location, notes. Credentials and private analytics exports must stay outside Git.
 
-Baseline supplied by the user: AI visibility 18/100, agent readiness 75/100 and no MARDE mentions across the eight unique buying prompts. Several audit statements were superseded by existing multipage content and schema; preserve the original evidence rather than treating all diagnostics as current facts.
+Historical reports: an earlier supplied baseline was 18/100 visibility and 75/100 readiness; the later supplied baseline was 23/100 visibility and 100/100 readiness. These are separate observations, not a new measurement from this kit. Several audit statements were superseded by existing multipage content and schema. Preserve the original evidence rather than treating all diagnostics as current facts.
 
 Buying prompts:
 
@@ -81,3 +87,33 @@ Buying prompts:
 6. Who builds teleoperated robots with remote-controlled arms in New Jersey?
 7. Are there aerial mobility startups in New Jersey working on urban cargo transport?
 8. Which startups offer human-in-the-loop command software to coordinate drones and ground robots for EMS pilots?
+
+## Current execution files
+
+- `visibility/company-listings.csv`: existing verified identity references and owner-dependent listings; no ownership or new listing is claimed.
+- `visibility/frozen-queries.csv`: original comparison prompts plus separate research/partnership prompts and brand checks. Additional prompts are explicitly inferred, not verified search demand.
+- `visibility/observations.csv`: empty results ledger. Unrun tests have no invented outcomes.
+- `visibility/build-evidence-template.md`: repeatable documentation for actual future bench or Ground tests, including failures and publication review.
+- `visibility/owner-actions.md`: inputs, account actions and explicit approvals needed to finish external work.
+
+Freeze questions before running a measurement. Keep each answer independent, without the company name or website supplied for unbranded questions. Preserve the original answer before checking for MARDE. Count mentions, citations and actual recommendations separately; do not combine brand tests with unbranded discovery or turn unknown checks into zero scores.
+
+## EMS or engineering feedback invitation
+
+Unsent draft. Choose a real recipient and verify the contact route before seeking authorization to send.
+
+Subject: Request for critique: outdoor emergency-supply delivery concept
+
+Hello,
+
+I’m Nandish Panchal, founder of MARDE Inc., a New Jersey team developing an emergency-response robotics concept. Our revised V1 scope focuses on outdoor AED and tourniquet delivery, scene video and two-way communication under human supervision. The proposed aircraft would lower an outdoor Ground unit from hover and later land separately for recovery.
+
+We are pre-prototype. We have no deployed systems, announced commercial pilots or validated full-system results. Our immediate engineering questions concern training-equipment packaging, Ground mass, safe low-height dispensing and the information a responder would find useful. Indoor entry, stairs and direct robotic treatment are outside V1.
+
+Would you be open to reviewing a short concept brief or sharing general requirements feedback? We are seeking critique, not an endorsement or an operational deployment commitment. De-identified scenarios are sufficient; please do not send patient information.
+
+Background: https://mardeinc.com/updates/ and https://mardeinc.com/ems-partners/
+
+Thank you,
+Nandish Panchal
+MARDE Inc. | team@mardeinc.com
