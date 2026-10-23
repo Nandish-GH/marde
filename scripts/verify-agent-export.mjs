@@ -13,7 +13,23 @@ for (const route of publicRoutes) {
   assert.match(html, /<body\b[^>]*><!--email_off-->/i, `${route.path}: missing CDN email exclusion`);
   assert.match(html, /<!--\/email_off--><\/body>/i, `${route.path}: unclosed CDN email exclusion`);
   const $ = load(html);
+  for (const image of $('img').toArray()) {
+    assert.ok($(image).attr('alt') !== undefined, `${route.path}: image missing alt attribute`);
+  }
   const mainText = $('main').text();
+  if (['/drone-aed-delivery-new-jersey/', '/teleoperated-ground-robot-emergency-response/', '/aed-delivery-before-ems-arrival/', '/for-ems-agencies/'].includes(route.path)) {
+    const schemas = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text()));
+    assert.deepEqual(schemas.map(item => item['@type']), ['WebPage', 'BreadcrumbList']);
+    assert.equal(schemas[0].url, `https://mardeinc.com${route.path}`);
+    assert.equal(schemas[1].itemListElement.at(-1).item, schemas[0].url);
+    assert.ok($('meta[name="description"]').attr('content').length <= 155);
+    assert.ok($('title').text().length < 60);
+    assert.match($('article').text().slice(0, 1100), /New Jersey/);
+    assert.match($('article').text().slice(0, 1100), /pre-prototype/);
+    assert.ok(pages[route.path].body.includes('pre-prototype'));
+    const home = load(await readFile('out/index.html', 'utf8'));
+    assert.ok(home(`main a[href="${route.path}"]`).length, `Homepage must expose ${route.path}`);
+  }
   if (route.path === '/') {
     assert.match(mainText, /outdoor AED and tourniquet delivery/);
     assert.match(mainText, /training equipment/);
@@ -53,7 +69,7 @@ for (const route of publicRoutes) {
   if (route.path === '/faq/') {
     const schema = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text())).find(data => data['@type'] === 'FAQPage');
     assert.equal(schema.mainEntity.length, 20);
-    for (const item of schema.mainEntity) { assert.ok($('main').text().includes(item.acceptedAnswer.text)); const words = item.acceptedAnswer.text.split(/\s+/).length; assert.ok(words >= 50 && words <= 90, `${item.name}: ${words} words`); }
+    for (const item of schema.mainEntity) { assert.ok($('main').text().includes(item.acceptedAnswer.text)); const words = item.acceptedAnswer.text.split(/\s+/).length; assert.ok(words >= 40 && words <= 60, `${item.name}: ${words} words`); }
   }
   if (route.path === '/') {
     const graph = $('script[type="application/ld+json"]').toArray().map(el => JSON.parse($(el).text()));
@@ -65,16 +81,19 @@ for (const route of publicRoutes) {
     assert.equal(website.publisher['@id'], org['@id']);
     assert.equal(org.contactPoint.email, 'team@mardeinc.com'); assert.equal(org.address.addressRegion, 'NJ');
     assert.equal($('meta[name="description"]').attr('content'), org.description);
+    assert.ok(org.description.length <= 160, 'Homepage description exceeds snippet target');
+    assert.equal($('footer a[href="https://www.google.com/preferences/source?q=mardeinc.com"]').length, 1);
+    for (const slug of ['air', 'ground', 'nexus', 'modules']) assert.ok($(`main a[href="/technology/${slug}/"]`).length);
     assert.ok($('[aria-labelledby="hero-heading"]').text().includes(org.description));
     assert.match(org.description, /New Jersey/); assert.match(org.description, /Pre-prototype; no deployed systems/);
-    assert.deepEqual(org.sameAs, ['https://www.instagram.com/marde.inc', 'https://www.tiktok.com/@marde.inc', 'https://www.crunchbase.com/organization/marde', 'https://www.linkedin.com/company/mardeinc/']);
+    assert.deepEqual(org.sameAs, ['https://www.instagram.com/marde.inc', 'https://www.tiktok.com/@marde.inc', 'https://www.crunchbase.com/organization/marde', 'https://www.linkedin.com/company/mardeinc/', 'https://wellfound.com/company/marde']);
     assert.ok($('footer').text().includes(org.name)); assert.ok($('footer').text().includes(org.contactPoint.email));
     assert.deepEqual(graph.map(item => item['@type']), ['Organization', 'WebSite', 'FAQPage']);
     const homeFaq = graph.find(item => item['@type'] === 'FAQPage');
     assert.equal(homeFaq.mainEntity.length, 4);
     for (const item of homeFaq.mainEntity) { assert.ok($('main').text().includes(item.name)); assert.ok($('main').text().includes(item.acceptedAnswer.text)); }
     for (const path of ['/research/', '/ems-partners/', '/updates/']) assert.ok($(`main a[href="${path}"]`).length);
-    for (const phrase of ['simulated EMS handoff', 'Is the system deployed today?']) assert.ok(pages['/'].body.includes(phrase));
+    for (const phrase of ['simulated EMS handoff', 'Can an EMS agency buy or deploy a MARDE system today?']) assert.ok(pages['/'].body.includes(phrase));
   }
   if (route.index === false) assert.match($('meta[name="robots"]').attr('content'), /noindex/);
   if (route.index === false) {

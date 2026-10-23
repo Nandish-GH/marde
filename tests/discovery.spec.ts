@@ -3,7 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 
 test("homepage exposes research links and scanner-readable FAQ schema", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Research informs the next test." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Emergency robotics research. Evidence before claims." })).toBeVisible();
   for (const [name, href] of [["Read the research", "/research/"], ["EMS requirements", "/ems-partners/"], ["Development status", "/updates/"]]) {
     await expect(page.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
   }
@@ -23,11 +23,17 @@ test("homepage exposes research links and scanner-readable FAQ schema", async ({
     await expect(page.locator(selector)).toHaveAttribute("content", org.description);
   }
   await expect(page.locator('[aria-labelledby="hero-heading"]')).toContainText(org.description);
+  const preferred = page.getByRole("link", { name: "Add MARDE as a preferred source", exact: true });
+  await expect(preferred).toHaveAttribute("href", "https://www.google.com/preferences/source?q=mardeinc.com");
+  await expect(preferred).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(page.getByRole("heading", { name: "Teleoperated Ground. The final approach." })).toBeVisible();
+  await expect(page.getByRole("link", { name: "EMS evaluation guide", exact: true })).toHaveAttribute("href", "/for-ems-agencies/");
   expect(org.sameAs).toEqual([
     "https://www.instagram.com/marde.inc",
     "https://www.tiktok.com/@marde.inc",
     "https://www.crunchbase.com/organization/marde",
     "https://www.linkedin.com/company/mardeinc/",
+    "https://wellfound.com/company/marde",
   ]);
   expect(website.publisher["@id"]).toBe(org["@id"]);
   const faq = entities.find(item => item["@type"] === "FAQPage");
@@ -82,11 +88,11 @@ test("new editorial pages have no serious accessibility violations", async ({ pa
 });
 test("homepage accordion starts closed with answer text present in HTML", async ({ page, request }) => {
   const html = await (await request.get("/")).text();
-  expect(html).toContain("There are no deployed systems, commercial pilots");
+  expect(html).toContain("MARDE has no deployed systems, announced commercial pilots");
   await page.goto("/");
-  const trigger = page.getByRole("button", { name: "Is the system deployed today?", exact: true });
+  const trigger = page.getByRole("button", { name: "Can an EMS agency buy or deploy a MARDE system today?", exact: true });
   await expect(trigger).toHaveAttribute("aria-expanded", "false");
-  const answer = page.getByText(/No\. MARDE is pre-seed, pre-prototype and pre-revenue\./);
+  const answer = page.getByText(/No\. MARDE has no deployed systems, announced commercial pilots/);
   await expect(answer).toBeHidden();
   await trigger.click();
   await expect(answer).toBeVisible();

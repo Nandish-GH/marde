@@ -1,7 +1,7 @@
 platform,public_url,evidence_status,owner_control,next_action
-Crunchbase,https://www.crunchbase.com/organization/marde,previously verified identity,unconfirmed,Owner confirm control and align October V1 description
+Crunchbase,https://www.crunchbase.com/organization/marde,public identity and October V1 description reverified 2026-10-23,owner reports control as far as known,Confirm sign-in; current public description already aligned; avoid duplicate profile
 Instagram,https://www.instagram.com/marde.inc,existing public identity link,unconfirmed,Owner confirm current bio and canonical website
 TikTok,https://www.tiktok.com/@marde.inc,existing public identity link,unconfirmed,Owner confirm current bio and canonical website
-LinkedIn,https://www.linkedin.com/company/mardeinc/,browser verified brand New Jersey domain and concept-stage description,admin access visible; responsible person unconfirmed,Align profile copy with October V1 direction when owner authorizes account editing
-Wellfound,,not supplied,unknown,Owner confirm existing listing and eligibility before account work
+LinkedIn,https://www.linkedin.com/company/mardeinc/,public canonical URL and current stage description reverified 2026-10-23,owner reports control as far as known,Confirm admin access; current description already aligned
+Wellfound,https://wellfound.com/company/marde,company identity and saved V1 description browser verified 2026-10-23,owner created account and authorized assisted edits,Maintain accurate profile; no funding or job claims added
 F6S,,not supplied,unknown,Owner confirm existing listing and eligibility before account work

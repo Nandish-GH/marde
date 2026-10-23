@@ -1,7 +1,7 @@
 export const site = {
   name: "MARDE",
   legalName: "MARDE Inc.",
-  description: "MARDE Inc. is developing emergency-response robotics in New Jersey for outdoor AED and tourniquet delivery, scene information and human-supervised communication. Pre-prototype; no deployed systems.",
+  description: "MARDE develops emergency-response robotics in New Jersey for AED and tourniquet delivery before EMS arrival. Pre-prototype; no deployed systems.",
   tagline: "Response Starts Before Arrival",
   email: "team@mardeinc.com",
   instagram: "https://www.instagram.com/marde.inc",
@@ -11,6 +11,7 @@ export const site = {
   // Public profile verified against the canonical domain, legal name and team email.
   crunchbase: "https://www.crunchbase.com/organization/marde",
   linkedin: "https://www.linkedin.com/company/mardeinc/",
+  wellfound: "https://wellfound.com/company/marde",
   donateUrl:
     process.env.NEXT_PUBLIC_STRIPE_DONATION_URL ||
     "https://donate.stripe.com/8x214f7jVbKXdHWakm6kg00",

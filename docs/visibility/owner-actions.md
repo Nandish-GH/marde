@@ -1,3 +1,11 @@
+## 23 October: Wellfound follow-up completed
+
+The owner created the account and authorized assisted editing. The company profile at https://wellfound.com/company/marde was inspected, updated and saved with the pre-prototype headline, V1 description, existing LinkedIn URL, updates URL and Startup category. Saved fields and the rendered overview were verified in the browser. The owner completed signup; no credential or terms acceptance was performed by the assistant. Funding, jobs and recruiting upgrades remain untouched. The website identity schema now includes this verified company URL. Earlier account-setup blockers below are historical.
+
+## 23 October 2026 clarification (current)
+
+The owner reports control of Crunchbase and LinkedIn as far as known, no awareness of Wellfound and no Rutgers affiliation. The public Crunchbase and LinkedIn descriptions were rechecked and already match current V1 scope. No duplicate listings or account edits are needed merely to satisfy the scanner. Wellfound account creation requires the owner to authenticate and accept terms; no credentials were entered. Use [the current action pack](action-pack-2026-10-23.md) for profile copy and ecosystem/community drafts. No NJIT/NJII or NJEDA affiliation has been established. Earlier requests below are historical where superseded.
+
 # Owner inputs to finish visibility work
 
 Prepared October 15, 2026. Website technical work and the updated V1 description are already deployed. These tasks remain because the necessary evidence or account authority is not in the repository.

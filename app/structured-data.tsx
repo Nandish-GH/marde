@@ -26,7 +26,7 @@ export function StructuredData() {
         email: site.email,
         contactPoint: { "@type": "ContactPoint", email: site.email, contactType: "general inquiries", url: new URL("contact/", canonicalSiteUrl).href },
         address: { "@type": "PostalAddress", addressRegion: "NJ", addressCountry: "US" },
-        sameAs: [site.instagram, site.tiktok, site.crunchbase, site.linkedin],
+        sameAs: [site.instagram, site.tiktok, site.crunchbase, site.linkedin, site.wellfound],
       },
       {
         "@type": "WebSite",

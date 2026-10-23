@@ -11,7 +11,7 @@ test('V2 homepage fits all target widths with stable stats and equal system link
       expect(box && label && (box.y+box.height<=label.y || box.x+box.width<=label.x)).toBeTruthy();
     }
     for(const id of ['air','ground','nexus','modules']){
-      const link=page.locator(`#system a[href="/technology/#${id}"]`);await expect(link).toHaveCount(1);await expect(link.locator('a,button')).toHaveCount(0);
+      const link=page.locator(`#system a[href="/technology/${id}/"]`);await expect(link).toHaveCount(1);await expect(link.locator('a,button')).toHaveCount(0);
     }
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
@@ -32,7 +32,7 @@ test('V2 menus, keyboard focus, reduced-motion changes and contact failure recov
   const trigger=page.getByRole('button',{name:'Open main navigation'});await trigger.click();
   await expect(page.getByRole('dialog',{name:'Navigation'})).toBeVisible();await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
   await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).not.toHaveClass(/lenis/);await expect(page.locator('.v2-opening')).toBeHidden();
-  const question=page.getByRole('button',{name:'Is MARDE autonomous?',exact:true});await question.click();await expect(question).toHaveAttribute('aria-expanded','true');
+  const question=page.getByRole('button',{name:'Can an EMS agency buy or deploy a MARDE system today?',exact:true});await question.click();await expect(question).toHaveAttribute('aria-expanded','true');
   await page.goto('/contact/');await page.route('https://formspree.io/**',route=>route.fulfill({status:503,body:'unavailable'}));
   await page.getByLabel('Name',{exact:true}).fill('QA Test');await page.getByLabel('Email',{exact:true}).fill('qa@example.com');await page.getByLabel('What would you like to discuss?').fill('Test intercepted locally. Do not send.');
   await page.getByRole('button',{name:'Send message'}).click();await expect(page.locator('form').getByRole('alert')).toContainText('could not be sent');await expect(page.getByLabel('Name',{exact:true})).toHaveValue('QA Test');

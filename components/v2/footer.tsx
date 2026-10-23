@@ -11,6 +11,11 @@ export function Footer() {
     <div className={s.middle}><div><span className={s.label}>START A CONVERSATION</span><a className={s.mail} href={`mailto:${site.email}`}>{site.email}<Arrow diagonal /></a><p>New Jersey, USA<br />Developing the next layer of emergency response.</p></div>
       <nav aria-label="Footer navigation"><Link href="/technology/">Technology</Link><Link href="/mission/">Mission</Link><Link href="/team/">Team</Link><Link href="/contact/">Contact</Link><Link href="/support/">Support MARDE</Link><Link href="/faq/">FAQ</Link><Link href="/privacy/">Privacy</Link><Link href="/about/">About</Link><Link href="/ems-partners/">EMS conversations</Link><Link href="/research/">Research</Link><Link href="/updates/">Updates</Link></nav>
       <div className={s.social}><span className={s.label}>FOLLOW THE DEVELOPMENT</span><a href={site.instagram} target="_blank" rel="noreferrer"><InstagramLogo aria-hidden="true" />Instagram<Arrow diagonal /></a><a href={site.tiktok} target="_blank" rel="noreferrer"><TiktokLogo aria-hidden="true" />TikTok<Arrow diagonal /></a></div>
-    </div><div className={s.bottom}><span>© {new Date().getFullYear()} MARDE Inc. A Delaware C-Corporation.</span><span>Pre-seed. Pre-prototype. Building with purpose.</span><a href="#main-content">Back to top ↑</a></div>
+    </div>
+    <div className={s.preferred}>
+      <p>Follow MARDE’s research and development in Google Search.</p>
+      <a href="https://www.google.com/preferences/source?q=mardeinc.com" target="_blank" rel="noopener noreferrer">Add MARDE as a preferred source<Arrow diagonal /></a>
+    </div>
+    <div className={s.bottom}><span>© {new Date().getFullYear()} MARDE Inc. A Delaware C-Corporation.</span><span>Pre-seed. Pre-prototype. Building with purpose.</span><a href="#main-content">Back to top ↑</a></div>
   </footer>;
 }

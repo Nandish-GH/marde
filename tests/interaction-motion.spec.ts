@@ -27,8 +27,8 @@ test("flow marker travels between selected steps and follows responsive layout",
 test("FAQ answer expands over time instead of jumping to its full height", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
-  const trigger = page.getByRole("button", { name: "Is the system deployed today?", exact: true });
-  const content = page.getByText(/No\. MARDE is pre-seed, pre-prototype and pre-revenue\./).locator("..").locator("..");
+  const trigger = page.getByRole("button", { name: "Can an EMS agency buy or deploy a MARDE system today?", exact: true });
+  const content = page.getByText(/No\. MARDE has no deployed systems, announced commercial pilots/).locator("..").locator("..");
   await trigger.scrollIntoViewIfNeeded();
   await trigger.click();
   await page.waitForTimeout(80);

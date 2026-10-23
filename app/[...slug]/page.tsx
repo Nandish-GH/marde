@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import { discoveryPages } from "../../lib/content/discovery";
 import { researchPages } from "../../lib/content/research";
+import { responseGuides } from "../../lib/content/response-guides";
 import { DiscoveryPage } from "../../components/v2/discovery-page";
 import { pageMetadata } from "../metadata";
 
-const pages = [...discoveryPages, ...researchPages];
+const pages = [...discoveryPages, ...researchPages, ...responseGuides];
 export const dynamicParams = false;
 export function generateStaticParams() { return pages.map(page => ({ slug: page.slug.split("/") })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {

@@ -11,6 +11,10 @@ The proposed demonstration workflow is simulated dispatch → Nexus review → A
 ## Public information
 
 - [MARDE Inc. — emergency-response robotics](https://mardeinc.com/index.md): Public information about Inc. — emergency-response robotics.
+- [Drone AED delivery in New Jersey](https://mardeinc.com/drone-aed-delivery-new-jersey/index.md): Public information about Drone AED delivery in New Jersey.
+- [Teleoperated ground robots for EMS](https://mardeinc.com/teleoperated-ground-robot-emergency-response/index.md): Public information about Teleoperated ground robots for EMS.
+- [AED delivery before EMS arrival](https://mardeinc.com/aed-delivery-before-ems-arrival/index.md): Public information about AED delivery before EMS arrival.
+- [Drone AED evaluation guide for EMS agencies](https://mardeinc.com/for-ems-agencies/index.md): Public information about Drone AED evaluation guide for EMS agencies.
 - [MARDE technology](https://mardeinc.com/technology/index.md): Public information about technology.
 - [MARDE team](https://mardeinc.com/team/index.md): Public information about team.
 - [MARDE mission](https://mardeinc.com/mission/index.md): Public information about mission.

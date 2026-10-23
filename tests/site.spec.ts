@@ -31,7 +31,7 @@ test("Homepage Nexus keeps the approved coordination preview", async ({ page }) 
 test("Homepage FAQ preserves accessible accordion state", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveClass(/marde-intro-complete/);
-  const first = page.getByRole("button", { name: "What is MARDE building?" });
+  const first = page.getByRole("button", { name: "Which companies are developing AED delivery drones in New Jersey?" });
   await expect(first).toHaveAttribute("aria-expanded", "false");
   await first.click();
   await expect(first).toHaveAttribute("aria-expanded", "true");
