@@ -9,6 +9,7 @@ export default defineConfig({
   retries: 0,
   reporter: "list",
   use: {
+    ...(process.env.QA_BROWSER_CHANNEL ? { channel: process.env.QA_BROWSER_CHANNEL } : {}),
     baseURL: process.env.QA_BASE_URL || (process.env.QA_EXPORT ? "http://127.0.0.1:3001" : "http://localhost:3000"),
     trace: "retain-on-failure",
   },
